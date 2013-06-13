@@ -2,7 +2,7 @@
 #include <sstream>
 
 /**
- * Constructor por defecto. Inicializa los valores de ambas coordenadas a 0.
+ Default constructor. Coordinates are set to 0.
  */
 Vector2D::Vector2D()
 {
@@ -11,9 +11,9 @@ Vector2D::Vector2D()
 }
 
 /**
- * Constructor por parametros.
- * @param x     Coordenada en el eje x.
- * @param y     Coordenada en el eje y.
+ 
+ @param x     X coordinate.
+ @param y     Y coordinate.
  */
 Vector2D::Vector2D(float x, float y)
 : _x(x), _y(y)
@@ -22,8 +22,8 @@ Vector2D::Vector2D(float x, float y)
 }
 
 /**
- * Constructor copia.
- * @param orig  Vector a copiar.
+ Copy constructor.
+ @param orig  Vector to copy.
  */
 Vector2D::Vector2D(const Vector2D& orig)
 {
@@ -32,16 +32,16 @@ Vector2D::Vector2D(const Vector2D& orig)
 }
 
 /**
- * Destructor.
+ Destructor.
  */
 Vector2D::~Vector2D()
 {
 }
 
 /**
- * Operador de asignacion.
- * @param vector        Vector que asignar al actual.
- * @return              Referencia al vector ya asignado.
+ Assignment operator.
+ @param vector  Vector to copy values from.
+ @return        Final vector.
  */
 Vector2D& Vector2D::operator =(const Vector2D& vector)
 {
@@ -51,9 +51,9 @@ Vector2D& Vector2D::operator =(const Vector2D& vector)
 }
 
 /**
- * Operador de suma.
- * @param vector        Vector a sumar con el actual.
- * @return              Nuevo vector resultado de la suma de los dos.
+ Sum operator.
+ @param vector  Vector to sum with this one.
+ @return        Final vector.
  */
 Vector2D Vector2D::operator +(const Vector2D& vector)
 {
@@ -61,54 +61,71 @@ Vector2D Vector2D::operator +(const Vector2D& vector)
 }
 
 /**
- * Multiplicacion por un factor.
- * @param f     Factor de escala del vector.
- * @return      Vector resultado de la escala por el factor.
+ Resizes vector by a factor.
+ @param f   Resize factor.
+ @return    Vector resized.
  */
 Vector2D Vector2D::operator *(float f)
 {
     return Vector2D(_x * f,_y * f);
 }
 
+/**
+ Subtraction operator.
+ @param vector  Vector to subtrate from.
+ @return        Final vector.
+ */
 Vector2D Vector2D::operator -(const Vector2D& vector)
 {
     return Vector2D(_x - vector._x, _y - vector._y);
 }
 
+/**
+ Comparison operator.
+ @param vector  Vector to compare with.
+ @return        true if the vector aren't equal, false otherwise.
+ */
 bool Vector2D::operator !=(const Vector2D &vector)
 {
     return _x - vector._x != 0.0f || _y - vector._y != 0.0f;
 }
 
+/**
+ Comparison operator.
+ @param vector  Vector to compare with.
+ @return        true if they are equal, false otherwise.
+ */
 bool Vector2D::operator ==(const Vector2D &vector)
 {
     return _x - vector._x == 0.0f && _y - vector._y == 0.0f;
 }
 
 /**
- * Calcula la longitud cuadratica del vector.
- * @return      Longitud cuadratica (sin aplicar la raiz) del vector.
+ Length of the vector (without applying the square root to the result).
+ @return    Quadratic length.
  */
-float Vector2D::lengthSquared()
+float Vector2D::lengthQuadratic()
 {
     return (_x * _x + _y * _y);
 }
 
 /**
- * Calcula la longitud del vector.
- * @return      Longitud del vector.
+ Length fo the vector.
+ @return    Length.
  */
 
-float Vector2D::length() {
+float Vector2D::length()
+{
     return sqrt(_x * _x + _y * _y);
 }
 
 /**
- * Calcula la distancia cuadratica hasta otro vector.
- * @param vector        Vector respecto al cual calcular la distancia.
- * @return              Distancia cuadratica hasta el vector indicado.
+ Quadratic distance to other vector.
+ * @param vector    The other vector.
+ * @return          Quadratic distance.
  */
-float Vector2D::distanceSquared(const Vector2D& vector) {
+float Vector2D::distanceQuadratic(const Vector2D& vector)
+{
     float Ax,Ay;
     
     Ax = _x - vector._x;
@@ -118,11 +135,12 @@ float Vector2D::distanceSquared(const Vector2D& vector) {
 }
 
 /**
- * Calcula la distancia hasta otro vector.
- * @param vector        Vector respecto al cual calcular la distancia.
- * @return              Distancia hasta el vector indicado.
+ Distance to other vector.
+ @param vector      The other vector.
+ @return            Distante to the other vector.
  */
-float Vector2D::distance(const Vector2D& vector) {
+float Vector2D::distance(const Vector2D& vector)
+{
     float Ax,Ay;
     
     Ax = _x - vector._x;
@@ -132,13 +150,13 @@ float Vector2D::distance(const Vector2D& vector) {
 }
 
 /**
- * Normaliza el vector.
+ Normalizes the vector to values between 0 and 1.
  */
-Vector2D& Vector2D::normalize() {
+Vector2D& Vector2D::normalize()
+{
     float lengthsq = (_x * _x + _y * _y);
     
-    if( lengthsq == 0)
-    {
+    if( lengthsq == 0) {
         _x = 0.0f;
         _y = 0.0f;
         return *this;
@@ -163,11 +181,12 @@ std::string Vector2D::toString()
 
 //----------------------------------------------------------------------------//
 /**
- * Calcula de la raiz inversa.
- * @param number        Numero al que calcula la raiz inversa
- * @return 
+ Inverse Square root.
+ * @param number    Number to calculate the inverse square root.
+ * @return          Inverse square root of the number.
  */
-float Vector2D::invSqrt(float number) {
+float Vector2D::invSqrt(float number)
+{
     long i;
     float x2, y;
     const float threehalfs = 1.5F;
@@ -179,17 +198,16 @@ float Vector2D::invSqrt(float number) {
     y  = * ( float * ) &i;
     y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
     //  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
-    //Ladis, en serio, que cojones es esto???? xD
     return y;
 }
 
 /**
- * Implementacion propia del calculo de la raiz mediante el numero magico.
- * Se trata de una implementacion usada en videojuegos desde su aparicion en Quake 3
- * @param x     Numero al que calcular la raiz.
- * @return      Raiz aproximada del numero indicado.
+ Square root.
+ @param x   Number to calculate the square root.
+ @return    Square root of the number.
  */
-float Vector2D::sqrt(float x) {
+float Vector2D::sqrt(float x)
+{
     const float xhalf = 0.5f*x;
 
     union // get bits for floating value
