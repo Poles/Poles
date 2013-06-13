@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  Poles
-//
-//  Created by Jose Ladislao Lainez Ortega on 6/13/13.
-//  Copyright (c) 2013 None. All rights reserved.
-//
-
 #include <iostream>
 #include <SDL.h>
 
