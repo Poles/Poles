@@ -125,8 +125,8 @@ float Vector2D::length() {
 
 /**
  Quadratic distance to other vector.
- * @param vector    The other vector.
- * @return          Quadratic distance.
+ @param vector    The other vector.
+ @return          Quadratic distance.
  */
 float Vector2D::distanceQuadratic(const Vector2D& vector) {
     float Ax,Ay;

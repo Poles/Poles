@@ -42,6 +42,7 @@ private:
     
     /* TEST */
     Circle* circle;
+    Circle* evilCircle;
     Line* line;
     Line* normalLine;
 };

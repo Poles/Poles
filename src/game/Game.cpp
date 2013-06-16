@@ -14,6 +14,10 @@ Game::Game() {
     /* TEST */
     this->circle = new Circle(0,250, 10);
     this->circle->setColor(Color(255,0,255,255));
+    
+    this->evilCircle =new Circle(150,250,10);
+    this->circle->setColor(Color(0,255,0,255));
+    
     this->line = new Line(Vector2D(100,100), Vector2D(200,300));
     this->line->setColor(Color(0,255,0,255));
     
@@ -81,6 +85,8 @@ void Game::mainLoop() {
 void Game::update() {
     /* TESTING */
     this->circle->setPosition((int)(circle->position().x() + 1) % 300 , circle->position().y());
+    
+    this->circle->collides(* this->evilCircle);
 }
 
 void Game::render() {
@@ -90,6 +96,7 @@ void Game::render() {
     
     /* Rendering code here */
     this->circle->draw(this->rc);
+    this->evilCircle->draw(this->rc);
     this->line->draw(this->rc);
     this->normalLine->draw(this->rc);
 }

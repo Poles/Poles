@@ -47,11 +47,25 @@ Circle::~Circle() {
 
 /**
  
+ @param other
+ */
+bool Circle::collides(const Circle &other) {
+    int distance = this->pos.distanceQuadratic(other.pos) - (pow(this->radius,2) + pow(other.radius,2));
+    
+    if (distance <= 0) {
+        return true;
+    }
+    
+    return false;
+}
+
+/**
+ 
  @param rc
  @param pos
  */
 void Circle::draw(SDL_Renderer *rc) {    
-    // If it isn't created before creates the texture to render
+    // If it isn't created before creates now the texture to render
     if (this->texture == NULL) {
         // Create the texture with the proper format
         this->texture = SDL_CreateTexture(rc, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING,
