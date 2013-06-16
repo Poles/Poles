@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Poles' target in the 'Poles' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
