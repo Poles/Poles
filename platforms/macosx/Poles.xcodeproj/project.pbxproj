@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		22A7ACC7176DDBBE00C5B49F /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22A7ACC3176DDBBE00C5B49F /* Game.cpp */; };
 		22A7ACC8176DDBBE00C5B49F /* GameStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22A7ACC5176DDBBE00C5B49F /* GameStateManager.cpp */; };
-		22A7ACD0176DDBEF00C5B49F /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22A7ACC9176DDBEF00C5B49F /* Circle.cpp */; };
-		22A7ACD1176DDBEF00C5B49F /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22A7ACCB176DDBEF00C5B49F /* Color.cpp */; };
-		22A7ACD2176DDBEF00C5B49F /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22A7ACCE176DDBEF00C5B49F /* Line.cpp */; };
 		88C366BD176DD081009FE814 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C366BC176DD081009FE814 /* Cocoa.framework */; };
 		88C366C7176DD081009FE814 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88C366C5176DD081009FE814 /* InfoPlist.strings */; };
 		88C366DA176DD45A009FE814 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C366D9176DD45A009FE814 /* SDL2.framework */; };
-		88C366E0176DD84B009FE814 /* ResourcesManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366DC176DD84B009FE814 /* ResourcesManager.cpp */; };
-		88C366E1176DD84B009FE814 /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366DE176DD84B009FE814 /* Vector2D.cpp */; };
 		88C366E3176DD89A009FE814 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366E2176DD89A009FE814 /* main.cpp */; };
+		88C36701176DDE5A009FE814 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366F6176DDE5A009FE814 /* Circle.cpp */; };
+		88C36702176DDE5A009FE814 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366F8176DDE5A009FE814 /* Color.cpp */; };
+		88C36703176DDE5A009FE814 /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366FB176DDE5A009FE814 /* Line.cpp */; };
+		88C36704176DDE5A009FE814 /* ResourcesManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366FD176DDE5A009FE814 /* ResourcesManager.cpp */; };
+		88C36705176DDE5A009FE814 /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88C366FF176DDE5A009FE814 /* Vector2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +25,6 @@
 		22A7ACC4176DDBBE00C5B49F /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		22A7ACC5176DDBBE00C5B49F /* GameStateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStateManager.cpp; sourceTree = "<group>"; };
 		22A7ACC6176DDBBE00C5B49F /* GameStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateManager.h; sourceTree = "<group>"; };
-		22A7ACC9176DDBEF00C5B49F /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
-		22A7ACCA176DDBEF00C5B49F /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
-		22A7ACCB176DDBEF00C5B49F /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
-		22A7ACCC176DDBEF00C5B49F /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
-		22A7ACCD176DDBEF00C5B49F /* ExtraTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraTools.h; sourceTree = "<group>"; };
-		22A7ACCE176DDBEF00C5B49F /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
-		22A7ACCF176DDBEF00C5B49F /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		88C366B9176DD081009FE814 /* Poles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C366BC176DD081009FE814 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		88C366BF176DD081009FE814 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -41,11 +34,18 @@
 		88C366C6176DD081009FE814 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88C366CA176DD081009FE814 /* Poles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Poles-Prefix.pch"; sourceTree = "<group>"; };
 		88C366D9176DD45A009FE814 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = SDL/SDL2.framework; sourceTree = "<group>"; };
-		88C366DC176DD84B009FE814 /* ResourcesManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourcesManager.cpp; sourceTree = "<group>"; };
-		88C366DD176DD84B009FE814 /* ResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesManager.h; sourceTree = "<group>"; };
-		88C366DE176DD84B009FE814 /* Vector2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2D.cpp; sourceTree = "<group>"; };
-		88C366DF176DD84B009FE814 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 		88C366E2176DD89A009FE814 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../src/main.cpp; sourceTree = "<group>"; };
+		88C366F6176DDE5A009FE814 /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		88C366F7176DDE5A009FE814 /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		88C366F8176DDE5A009FE814 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
+		88C366F9176DDE5A009FE814 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		88C366FA176DDE5A009FE814 /* ExtraTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraTools.h; sourceTree = "<group>"; };
+		88C366FB176DDE5A009FE814 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
+		88C366FC176DDE5A009FE814 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		88C366FD176DDE5A009FE814 /* ResourcesManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourcesManager.cpp; sourceTree = "<group>"; };
+		88C366FE176DDE5A009FE814 /* ResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesManager.h; sourceTree = "<group>"; };
+		88C366FF176DDE5A009FE814 /* Vector2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2D.cpp; sourceTree = "<group>"; };
+		88C36700176DDE5A009FE814 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +76,8 @@
 		88C366B0176DD081009FE814 = {
 			isa = PBXGroup;
 			children = (
+				88C366F5176DDE5A009FE814 /* Core */,
 				22A7ACC2176DDBBE00C5B49F /* Game */,
-				88C366DB176DD84B009FE814 /* Core */,
 				88C366C2176DD081009FE814 /* Poles */,
 				88C366BB176DD081009FE814 /* Frameworks */,
 				88C366BA176DD081009FE814 /* Products */,
@@ -131,23 +131,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		88C366DB176DD84B009FE814 /* Core */ = {
+		88C366F5176DDE5A009FE814 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				22A7ACC9176DDBEF00C5B49F /* Circle.cpp */,
-				22A7ACCA176DDBEF00C5B49F /* Circle.h */,
-				22A7ACCB176DDBEF00C5B49F /* Color.cpp */,
-				22A7ACCC176DDBEF00C5B49F /* Color.h */,
-				22A7ACCD176DDBEF00C5B49F /* ExtraTools.h */,
-				22A7ACCE176DDBEF00C5B49F /* Line.cpp */,
-				22A7ACCF176DDBEF00C5B49F /* Line.h */,
-				88C366DC176DD84B009FE814 /* ResourcesManager.cpp */,
-				88C366DD176DD84B009FE814 /* ResourcesManager.h */,
-				88C366DE176DD84B009FE814 /* Vector2D.cpp */,
-				88C366DF176DD84B009FE814 /* Vector2D.h */,
+				88C366F6176DDE5A009FE814 /* Circle.cpp */,
+				88C366F7176DDE5A009FE814 /* Circle.h */,
+				88C366F8176DDE5A009FE814 /* Color.cpp */,
+				88C366F9176DDE5A009FE814 /* Color.h */,
+				88C366FA176DDE5A009FE814 /* ExtraTools.h */,
+				88C366FB176DDE5A009FE814 /* Line.cpp */,
+				88C366FC176DDE5A009FE814 /* Line.h */,
+				88C366FD176DDE5A009FE814 /* ResourcesManager.cpp */,
+				88C366FE176DDE5A009FE814 /* ResourcesManager.h */,
+				88C366FF176DDE5A009FE814 /* Vector2D.cpp */,
+				88C36700176DDE5A009FE814 /* Vector2D.h */,
 			);
 			name = Core;
-			path = ../../src/engine;
+			path = ../../src/core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,14 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88C366E0176DD84B009FE814 /* ResourcesManager.cpp in Sources */,
-				88C366E1176DD84B009FE814 /* Vector2D.cpp in Sources */,
 				88C366E3176DD89A009FE814 /* main.cpp in Sources */,
 				22A7ACC7176DDBBE00C5B49F /* Game.cpp in Sources */,
 				22A7ACC8176DDBBE00C5B49F /* GameStateManager.cpp in Sources */,
-				22A7ACD0176DDBEF00C5B49F /* Circle.cpp in Sources */,
-				22A7ACD1176DDBEF00C5B49F /* Color.cpp in Sources */,
-				22A7ACD2176DDBEF00C5B49F /* Line.cpp in Sources */,
+				88C36701176DDE5A009FE814 /* Circle.cpp in Sources */,
+				88C36702176DDE5A009FE814 /* Color.cpp in Sources */,
+				88C36703176DDE5A009FE814 /* Line.cpp in Sources */,
+				88C36704176DDE5A009FE814 /* ResourcesManager.cpp in Sources */,
+				88C36705176DDE5A009FE814 /* Vector2D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
