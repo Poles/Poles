@@ -14,8 +14,11 @@ Game::Game() {
     /* TEST */
     this->circle = new Circle(0,250, 10);
     this->circle->setColor(Color(255,0,255,255));
-    this->line = new Line(Vector2D(10,10), Vector2D(100,100));
+    this->line = new Line(Vector2D(100,100), Vector2D(200,300));
     this->line->setColor(Color(0,255,0,255));
+    
+    this->normalLine = new Line(this->line->middlePoint(), this->line->middlePoint() + (this->line->normal() * 100));
+    this->normalLine->setColor(Color(255,0,0,255));
 }
 
 Game::~Game() {
@@ -88,6 +91,7 @@ void Game::render() {
     /* Rendering code here */
     this->circle->draw(this->rc);
     this->line->draw(this->rc);
+    this->normalLine->draw(this->rc);
 }
 
 void Game::handleEvents() {

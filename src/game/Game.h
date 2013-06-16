@@ -43,6 +43,7 @@ private:
     /* TEST */
     Circle* circle;
     Line* line;
+    Line* normalLine;
 };
 
 #endif /* defined(__Poles__Game__) */

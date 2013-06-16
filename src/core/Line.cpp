@@ -24,6 +24,21 @@ Line::~Line() {
     
 }
 
+Vector2D Line::pointA() {
+    return this->pA;
+}
+
+Vector2D Line::pointB() {
+    return this->pB;
+}
+
+Vector2D Line::middlePoint() {
+    int x = this->pA.x() + this->pB.x();
+    int y = this->pA.y() + this->pB.y();
+    
+    return Vector2D(x / 2, y / 2);
+}
+
 /**
  
  @param pA
@@ -46,6 +61,22 @@ void Line::setPointB(const Vector2D pB) {
  */
 void Line::setColor(Color c) {
     this->lineColor = c;
+}
+
+void Line::rotate(float r) {
+    // TODO
+}
+
+/**
+ 
+ @return Normal vector from this line.
+ */
+Vector2D Line::normal() {    
+    Vector2D dir = this->pA - this->pB;
+    int x = dir.y();
+    int y = (-1) * dir.x();
+    
+    return Vector2D(x,y).normalize();
 }
 
 /**

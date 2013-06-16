@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Color.h"
 #include "Vector2D.h"
+#include "Line.h"
 
 class Circle{
 public:
@@ -16,6 +17,9 @@ public:
     void setPosition(float x, float y) { this->pos.setX(x); this->pos.setY(y); }
     
     inline Vector2D position() { return this->pos; }
+    
+    bool collides(const Circle& other);
+    bool collides(const Line& line);
     
     void draw(SDL_Renderer* rc);
     

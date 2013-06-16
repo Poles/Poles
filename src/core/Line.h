@@ -18,6 +18,10 @@ public:
     Color color();
     Vector2D pointA();
     Vector2D pointB();
+    Vector2D middlePoint();
+    
+    Vector2D normal();
+    void rotate(float r);
     
     void draw(SDL_Renderer* rc);
     
