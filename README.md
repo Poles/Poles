@@ -19,7 +19,7 @@ To build Poles, use the IDE projects we provide and follow the instructions in t
 2. Open platforms/macosx/Poles.xcodeproj
 
 ## Credits
-This project is developed by @L4D15 and @OmeGak when duties allow.
+This project is developed by [@L4D15](http://twitter.com/L4D15) and [@OmeGak](http://twitter.com/OmeGak) when duties allow.
 
 ## License
 Poles engine is released under GPL version 3 or later.
