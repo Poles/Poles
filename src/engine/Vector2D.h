@@ -10,18 +10,19 @@ public:
                                 Vector2D(const Vector2D& orig);
                                 ~Vector2D();
     
-	Vector2D&                   operator=(const Vector2D& vector);
-	Vector2D                    operator+(const Vector2D& vector);
-	Vector2D                    operator*(float f);
-	Vector2D                    operator-(const Vector2D& vector);
-	bool                        operator!=(const Vector2D& vector);
-	bool                        operator==(const Vector2D& vector);
+    Vector2D&                   operator=(const Vector2D& vector);
+    Vector2D                    operator+(const Vector2D& vector);
+    Vector2D                    operator*(float f);
+    Vector2D                    operator-(const Vector2D& vector);
+    bool                        operator!=(const Vector2D& vector);
+    bool                        operator==(const Vector2D& vector);
+    float                       dotProduct(const Vector2D& vector);
     
-	inline float                x() { return _x; }
-	inline float                y() { return _y; }
+    inline float                x() { return _x; }
+    inline float                y() { return _y; }
     
-	inline void                 setX(int x) { _x = x; }
-	inline void                 setY(int y) { _y = y; }
+    inline void                 setX(int x) { _x = x; }
+    inline void                 setY(int y) { _y = y; }
     
     float                       lengthQuadratic();
     float                       length();
@@ -31,10 +32,6 @@ public:
     Vector2D&                   normalize();
     
     std::string                 toString();
-    
-private:
-    float                       invSqrt(float number);
-    float                       sqrt(float number);
     
 private:
     float                       _x;
