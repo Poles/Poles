@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SDL.h>
 #include "Circle.h"
+#include "Line.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60
@@ -41,6 +42,7 @@ private:
     
     /* TEST */
     Circle* circle;
+    Line* line;
 };
 
 #endif /* defined(__Poles__Game__) */

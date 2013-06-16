@@ -14,6 +14,8 @@ Game::Game() {
     /* TEST */
     this->circle = new Circle(0,250, 10);
     this->circle->setColor(Color(255,0,255,255));
+    this->line = new Line(Vector2D(10,10), Vector2D(100,100));
+    this->line->setColor(Color(0,255,0,255));
 }
 
 Game::~Game() {
@@ -56,6 +58,7 @@ void Game::initialize() {
     rc = SDL_CreateRenderer(wnd, -1, 0);
     
     SDL_SetRenderDrawColor(rc, 60, 60, 60, 255); // Black color for background
+    SDL_SetRenderDrawBlendMode(this->rc, SDL_BLENDMODE_BLEND);
 }
 
 void Game::mainLoop() {
@@ -83,7 +86,8 @@ void Game::render() {
     
     
     /* Rendering code here */
-    this->circle->draw(this->rc);    
+    this->circle->draw(this->rc);
+    this->line->draw(this->rc);
 }
 
 void Game::handleEvents() {

@@ -19,6 +19,8 @@ public:
     Vector2D pointA();
     Vector2D pointB();
     
+    void draw(SDL_Renderer* rc);
+    
 private:
     Vector2D pA;
     Vector2D pB;

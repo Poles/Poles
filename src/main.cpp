@@ -8,5 +8,5 @@ int main(int argc, char** argv)
     
     delete game;
 	
-	return 0;
+    return 0;
 }
