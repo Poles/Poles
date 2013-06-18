@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <SDL.h>
-#include "Circle.h"
-#include "Line.h"
+#include "core/Circle.h"
+#include "core/Line.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60

@@ -28,7 +28,7 @@ float invSqrt(float number) {
  @param x   Number to calculate the square root.
  @return    Square root of the number.
  */
-float sqrt(float x) {
+float squareRoot(float x) {
     const float xhalf = 0.5f*x;
     
     union // get bits for floating value

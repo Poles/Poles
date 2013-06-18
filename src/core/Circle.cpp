@@ -87,31 +87,31 @@ void Circle::draw(SDL_Renderer *rc) {
         
         SDL_LockTexture(this->texture, NULL, &surface->pixels, &surface->pitch);
         
-        static const int BPP = 4;
-        
-        double r = (double)this->radius;
-        int cx = this->pos.x();
-        int cy = this->pos.y();
-        
-        for (double dy = 1; dy <= r; dy += 1.0)
-        {
-            double dx = floor(sqrt((2.0 * r * dy) - (dy * dy)));
-            int x = cx - dx;
-            
-            // Grab a pointer to the left-most pixel for each half of the circle
-            Uint8 *target_pixel_a = (Uint8 *)surface->pixels + ((int)(cy + r - dy)) * surface->pitch + x * BPP;
-            Uint8 *target_pixel_b = (Uint8 *)surface->pixels + ((int)(cy - r + dy)) * surface->pitch + x * BPP;
-            
-            Uint32 pixel = this->fillColor.toPixelValue(surface->format);
-            
-            for (; x <= cx + dx; x++)
-            {
-                *(Uint32 *)target_pixel_a = pixel;
-                *(Uint32 *)target_pixel_b = pixel;
-                target_pixel_a += BPP;
-                target_pixel_b += BPP;
-            }
-        }
+        //static const int BPP = 4;
+        //
+        //double r = (double)this->radius;
+        //int cx = this->pos.x();
+        //int cy = this->pos.y();
+        //
+        //for (double dy = 1; dy <= r; dy += 1.0)
+        //{
+        //    double dx = floor(sqrt((2.0 * r * dy) - (dy * dy)));
+        //    int x = cx - dx;
+        //    
+        //    // Grab a pointer to the left-most pixel for each half of the circle
+        //    Uint8 *target_pixel_a = (Uint8 *)surface->pixels + ((int)(cy + r - dy)) * surface->pitch + x * BPP;
+        //    Uint8 *target_pixel_b = (Uint8 *)surface->pixels + ((int)(cy - r + dy)) * surface->pitch + x * BPP;
+        //    
+        //    Uint32 pixel = this->fillColor.toPixelValue(surface->format);
+        //    
+        //    for (; x <= cx + dx; x++)
+        //    {
+        //        *(Uint32 *)target_pixel_a = pixel;
+        //        *(Uint32 *)target_pixel_b = pixel;
+        //        target_pixel_a += BPP;
+        //        target_pixel_b += BPP;
+        //    }
+        //}
         
         SDL_UnlockTexture(this->texture);        
     }
