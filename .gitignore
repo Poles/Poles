@@ -142,3 +142,4 @@ Podfile.lock
 # Visual Studio conflicts
 #
 *.opensdf
+/platforms/linux/Poles/dist/

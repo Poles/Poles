@@ -2,7 +2,7 @@
 #define __Poles__Color__
 
 #include <iostream>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 
 class Color{
@@ -25,6 +25,7 @@ public:
     
 private:
     SDL_Color color;
+    Uint8 _a;
 };
 
 #endif /* defined(__Poles__Color__) */

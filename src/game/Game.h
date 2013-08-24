@@ -2,9 +2,9 @@
 #define __Poles__Game__
 
 #include <iostream>
-#include <SDL.h>
-#include "core/Circle.h"
-#include "core/Line.h"
+#include <SDL2/SDL.h>
+#include "../core/Circle.h"
+#include "../core/Line.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60

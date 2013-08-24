@@ -2,6 +2,7 @@
 #define __Poles__Circle__
 
 #include <iostream>
+#include <SDL2/SDL.h>
 #include "Color.h"
 #include "Vector2D.h"
 #include "Line.h"
