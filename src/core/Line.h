@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Vector2D.h"
 #include "Color.h"
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 class Line {
 public:

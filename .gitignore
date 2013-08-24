@@ -142,4 +142,13 @@ Podfile.lock
 # Visual Studio conflicts
 #
 *.opensdf
+
+####
+# Linux NetBeans
+#
 /platforms/linux/Poles/dist/
+
+####
+# Windows NetBeans
+#
+/platforms/windows/Poles/dist/
