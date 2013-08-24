@@ -18,6 +18,11 @@ To build Poles, use the IDE projects we provide and follow the instructions in t
 1. Install XCode.
 2. Open platforms/macosx/Poles.xcodeproj
 
+### Linux
+1. Install NetBeans.
+2. Install development libraries for SDL2 from your package manager. You can find `.deb` packages for Debian distros in `platforms/linux/SDL2`.
+3. Open platforms/linux/Poles with NetBeans.
+
 ## Credits
 This project is developed by [@L4D15](http://twitter.com/L4D15) and [@OmeGak](http://twitter.com/OmeGak) when duties allow.
 
