@@ -25,6 +25,7 @@ public:
     
 private:
     SDL_Color color;
+    Uint8 _a;
 };
 
 #endif /* defined(__Poles__Color__) */

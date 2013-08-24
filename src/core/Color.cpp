@@ -4,14 +4,14 @@ Color::Color(){
     this->color.r = 0;
     this->color.g = 0;
     this->color.b = 0;
-    this->color.a = 255;
+    this->_a = 255;
 }
 
 Color::Color(const int r, const int g, const int b, const int a){
     this->color.r = r;
     this->color.g = g;
     this->color.b = b;
-    this->color.a = a;
+    this->_a = a;
 }
 
 void Color::setRed(int value){
@@ -59,7 +59,7 @@ void Color::setAlpha(int value){
         value = 0;
     }
     
-    this->color.a = value;
+    this->_a = value;
 }
 
 const Uint8 Color::red(){
@@ -75,7 +75,7 @@ const Uint8 Color::blue(){
 }
 
 const Uint8 Color::alpha(){
-    return this->color.a;
+    return this->_a;
 }
 
 SDL_Color Color::toSDLColor(){    
@@ -83,5 +83,5 @@ SDL_Color Color::toSDLColor(){
 }
 
 Uint32 Color::toPixelValue(SDL_PixelFormat* format) {
-    return SDL_MapRGBA(format, this->color.r, this->color.g, this->color.b, this->color.a);
+    return SDL_MapRGBA(format, this->color.r, this->color.g, this->color.b, this->_a);
 }
