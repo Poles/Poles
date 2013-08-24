@@ -16,7 +16,9 @@ To build Poles, use the IDE projects we provide and follow the instructions in t
 
 ### Windows
 1. Install NetBeans, MinGW and MSYS.
-2. Open `platforms/windows/Poles`.
+2. Copy `.lib` files in `platforms/windows/SDL2/lib` to your MinGW's `lib` folder.
+3. Copy `.lib` files in `platforms/windows/Artemis-Cpp/lib/` to your MinGW's `lib` folder.
+4. Open `platforms/windows/Poles`.
 
 Once you build the application you will need to copy `platforms/windows/SDL2/bin/SDL.dll` to the folder where the executable created is (commonly in `platforms/windows/Poles/dist/Debug/MinGW-Windows/`).
 

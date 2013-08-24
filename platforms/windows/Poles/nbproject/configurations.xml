@@ -44,6 +44,9 @@
       </toolsSet>
       <compileType>
         <ccTool>
+          <incDir>
+            <pElem>../Artemis-Cpp/include</pElem>
+          </incDir>
           <commandLine>-Dmain=SDL_main</commandLine>
         </ccTool>
         <linkerTool>
@@ -51,6 +54,7 @@
             <linkerLibLibItem>mingw32</linkerLibLibItem>
             <linkerLibLibItem>SDL2main</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
+            <linkerLibLibItem>artemis</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -112,6 +116,9 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../Artemis-Cpp/include</pElem>
+          </incDir>
           <commandLine>-Dmain=SDL_main</commandLine>
         </ccTool>
         <fortranCompilerTool>
@@ -125,6 +132,7 @@
             <linkerLibLibItem>mingw32</linkerLibLibItem>
             <linkerLibLibItem>SDL2main</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
+            <linkerLibLibItem>artemis</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

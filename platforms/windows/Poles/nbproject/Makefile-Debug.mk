@@ -59,7 +59,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2
+LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -72,42 +72,42 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles.exe: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/608447161/Circle.o: ../../../src/core/Circle.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
 
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
 
 ${OBJECTDIR}/_ext/608447161/Line.o: ../../../src/core/Line.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
 
 ${OBJECTDIR}/_ext/608447161/ResourcesManager.o: ../../../src/core/ResourcesManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourcesManager.o ../../../src/core/ResourcesManager.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourcesManager.o ../../../src/core/ResourcesManager.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
 
 ${OBJECTDIR}/_ext/608552716/GameStateManager.o: ../../../src/game/GameStateManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
 	${RM} $@.d
-	$(COMPILE.cc) -g -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
 
 # Subprojects
 .build-subprojects:
