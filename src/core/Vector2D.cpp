@@ -120,7 +120,7 @@ float Vector2D::lengthQuadratic() {
  */
 
 float Vector2D::length() {
-    return sqrt(_x * _x + _y * _y);
+    return squareRoot(_x * _x + _y * _y);
 }
 
 /**
@@ -148,7 +148,7 @@ float Vector2D::distance(const Vector2D& vector) {
     Ax = _x - vector._x;
     Ay = _y - vector._y;
     
-    return sqrt(Ax*Ax + Ay*Ay);
+    return squareRoot(Ax*Ax + Ay*Ay);
 }
 
 /**

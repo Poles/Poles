@@ -1,4 +1,6 @@
 #include "Game.h"
+#include <math.h>
+
 
 Game::Game() {
     this->run = false;

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="89">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1" displayName="Core" projectFiles="true" kind="ROOT">
+      <itemPath>../../../src/core/Circle.cpp</itemPath>
+      <itemPath>../../../src/core/Circle.h</itemPath>
+      <itemPath>../../../src/core/Color.cpp</itemPath>
+      <itemPath>../../../src/core/Color.h</itemPath>
+      <itemPath>../../../src/core/ExtraTools.h</itemPath>
+      <itemPath>../../../src/core/Line.cpp</itemPath>
+      <itemPath>../../../src/core/Line.h</itemPath>
+      <itemPath>../../../src/core/ResourcesManager.cpp</itemPath>
+      <itemPath>../../../src/core/ResourcesManager.h</itemPath>
+      <itemPath>../../../src/core/Vector2D.cpp</itemPath>
+      <itemPath>../../../src/core/Vector2D.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f2" displayName="Game" projectFiles="true" kind="ROOT">
+      <itemPath>../../../src/game/Game.cpp</itemPath>
+      <itemPath>../../../src/game/Game.h</itemPath>
+      <itemPath>../../../src/game/GameStateManager.cpp</itemPath>
+      <itemPath>../../../src/game/GameStateManager.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>../../../src/main.cpp</itemPath>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-Dmain=SDL_main</commandLine>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>mingw32</linkerLibLibItem>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/ExtraTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/ResourcesManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/ResourcesManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameStateManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/GameStateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-Dmain=SDL_main</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>mingw32</linkerLibLibItem>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/ExtraTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/ResourcesManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/ResourcesManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameStateManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/GameStateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

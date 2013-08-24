@@ -1,7 +1,7 @@
 #ifndef Poles_ExtraTools_h
 #define Poles_ExtraTools_h
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 /**
  Inverse Square root.
