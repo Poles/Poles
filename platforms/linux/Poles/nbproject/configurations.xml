@@ -5,8 +5,11 @@
       <logicalFolder name="f1" displayName="Components" projectFiles="true">
         <itemPath>../../../src/core/components/Components.h</itemPath>
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
+        <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
+        <itemPath>../../../src/core/systems/MovementSystem.cpp</itemPath>
+        <itemPath>../../../src/core/systems/MovementSystem.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/core/Circle.cpp</itemPath>
       <itemPath>../../../src/core/Circle.h</itemPath>
@@ -97,6 +100,21 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/VelocityComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
@@ -178,6 +196,21 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/VelocityComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.h"
             ex="false"
             tool="3"
             flavor2="0">

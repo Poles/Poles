@@ -56,6 +56,26 @@ void Line::setPointB(const Vector2D pB) {
 }
 
 /**
+ * 
+ * @param x
+ * @param y
+ */
+void Line::setPointA(float x, float y) {
+    this->pA.setX(x);
+    this->pA.setY(y);
+}
+
+/**
+ * 
+ * @param x
+ * @param y
+ */
+void Line::setPointB(float x, float y) {
+    this->pB.setX(x);
+    this->pB.setY(y);
+}
+
+/**
  
  @param c
  */

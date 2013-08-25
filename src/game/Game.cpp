@@ -13,18 +13,12 @@ Game::Game() {
     
     this->showFPS = false;
     
-    /* TEST */
-    this->circle = new Circle(0,250, 10);
-    this->circle->setColor(Color(255,0,255,255));
+    /* ARTEMIS */
+    this->systemManager = this->world.getSystemManager();
+    this->entityManager = this->world.getEntityManager();
+    this->movementSystem = (MovementSystem *)this->systemManager->setSystem(new MovementSystem());
     
-    this->evilCircle =new Circle(150,250,10);
-    this->circle->setColor(Color(0,255,0,255));
-    
-    this->line = new Line(Vector2D(100,100), Vector2D(200,300));
-    this->line->setColor(Color(0,255,0,255));
-    
-    this->normalLine = new Line(this->line->middlePoint(), this->line->middlePoint() + (this->line->normal() * 100));
-    this->normalLine->setColor(Color(255,0,0,255));
+    this->systemManager->initializeAll();
 }
 
 Game::~Game() {
@@ -71,7 +65,26 @@ void Game::initialize() {
 }
 
 void Game::mainLoop() {
+    /* ARTEMIS TEST*/
+    artemis::Entity & entity = this->entityManager->create();
+    entity.addComponent(new PositionComponent(10,10));
+    entity.addComponent(new VelocityComponent(1,1));
+    entity.refresh();
+    line = new Line();
+    line->setColor(Color(255,0,0,255));
+    line->setPointA(10,10);
+    line->setPointB(0,0);
+    
+    PositionComponent * component = (PositionComponent *)entity.getComponent<PositionComponent>();
+    /*-------------*/
     while (this->run) {
+        
+        /* TEST */
+        line->setPointA(component->positionVector());
+        /*------*/
+        this->world.loopStart();
+        this->world.setDelta(0.0016f);
+        this->movementSystem->process();
         
         this->handleEvents();
         this->update();
@@ -85,22 +98,14 @@ void Game::mainLoop() {
 }
 
 void Game::update() {
-    /* TESTING */
-    this->circle->setPosition((int)(circle->position().x() + 1) % 300 , circle->position().y());
-    
-    this->circle->collides(* this->evilCircle);
+
 }
 
 void Game::render() {
     SDL_RenderPresent(this->rc);
     SDL_RenderClear(this->rc);
     
-    
-    /* Rendering code here */
-    this->circle->draw(this->rc);
-    this->evilCircle->draw(this->rc);
-    this->line->draw(this->rc);
-    this->normalLine->draw(this->rc);
+    line->draw(this->rc);
 }
 
 void Game::handleEvents() {

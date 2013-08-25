@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <Artemis.h>
 #include "../core/Circle.h"
 #include "../core/Line.h"
+#include "../core/systems/MovementSystem.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60
@@ -30,6 +32,14 @@ private:
     SDL_Renderer* rc;
     bool run;
     
+    /* ARTEMIS */
+    artemis::World world;
+    artemis::SystemManager * systemManager;
+    artemis::EntityManager * entityManager;
+    
+    MovementSystem * movementSystem;
+    
+    /* FPS */
     Uint32 timeLastFrame;   // Time mark of the last frame (ms)
     Uint32 timePerFrame;    // Time interval for each frame (ms)
     Uint32 frameSkip;       // Number of frames to skip from rendering when the game runs slower than expected
@@ -41,10 +51,7 @@ private:
     bool showFPS;
     
     /* TEST */
-    Circle* circle;
-    Circle* evilCircle;
-    Line* line;
-    Line* normalLine;
+    Line * line;
 };
 
 #endif /* defined(__Poles__Game__) */

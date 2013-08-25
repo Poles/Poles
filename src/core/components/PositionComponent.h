@@ -6,21 +6,25 @@
 
 class PositionComponent : public artemis::Component {
 public:
-    PositionComponent()
-    {
+    PositionComponent() {
         
     }
     
-    PositionComponent(float x, float y)
-    {
-        position.setX(x);
-        position.setY(y);
+    PositionComponent(float x, float y) {
+        pos.setX(x);
+        pos.setY(y);
     }
     
-    virtual ~PositionComponent();
+    virtual ~PositionComponent() {
+        
+    }
+    
+    inline Vector2D & positionVector() { return pos; }
+    inline void move(Vector2D & velocity) { pos = pos + velocity; }
+    inline void setPosition(const Vector2D & newPosition) { pos = newPosition; }
     
 private:
-    Vector2D position;
+    Vector2D pos;
 };
 
 #endif	/* POSITIONCOMPONENT_H */

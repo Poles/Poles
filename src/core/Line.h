@@ -15,6 +15,8 @@ public:
     void setColor(Color c);
     void setPointA(const Vector2D pA);
     void setPointB(const Vector2D pB);
+    void setPointA(float x, float y);
+    void setPointB(float x, float y);
     
     Color color();
     Vector2D pointA();
