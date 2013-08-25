@@ -6,8 +6,17 @@
 
 class PositionComponent : public artemis::Component {
 public:
-    PositionComponent();
-    PositionComponent(float x, float y);
+    PositionComponent()
+    {
+        
+    }
+    
+    PositionComponent(float x, float y)
+    {
+        position.setX(x);
+        position.setY(y);
+    }
+    
     virtual ~PositionComponent();
     
 private:

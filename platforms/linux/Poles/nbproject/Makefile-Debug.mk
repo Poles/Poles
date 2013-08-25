@@ -40,7 +40,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/Line.o \
 	${OBJECTDIR}/_ext/608447161/ResourcesManager.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
-	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
@@ -94,11 +93,6 @@ ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
-
-${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/PositionComponent.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716

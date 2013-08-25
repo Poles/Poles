@@ -4,7 +4,6 @@
     <logicalFolder name="f1" displayName="Core" projectFiles="true">
       <logicalFolder name="f1" displayName="Components" projectFiles="true">
         <itemPath>../../../src/core/components/Components.h</itemPath>
-        <itemPath>../../../src/core/components/PositionComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
@@ -93,11 +92,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/PositionComponent.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="../../../src/core/components/PositionComponent.h"
             ex="false"
             tool="3"
@@ -181,11 +175,6 @@
       <item path="../../../src/core/components/Components.h"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../../src/core/components/PositionComponent.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="../../../src/core/components/PositionComponent.h"
