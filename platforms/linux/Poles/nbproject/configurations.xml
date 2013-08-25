@@ -2,6 +2,13 @@
 <configurationDescriptor version="89">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="f1" displayName="Core" projectFiles="true">
+      <logicalFolder name="f1" displayName="Components" projectFiles="true">
+        <itemPath>../../../src/core/components/Components.h</itemPath>
+        <itemPath>../../../src/core/components/PositionComponent.cpp</itemPath>
+        <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Systems" projectFiles="true">
+      </logicalFolder>
       <itemPath>../../../src/core/Circle.cpp</itemPath>
       <itemPath>../../../src/core/Circle.h</itemPath>
       <itemPath>../../../src/core/Color.cpp</itemPath>
@@ -49,6 +56,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerOptionItem>-lSDL2</linkerOptionItem>
+            <linkerLibLibItem>artemis</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -80,6 +88,21 @@
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../src/core/components/Components.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
@@ -110,6 +133,9 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../Artemis-Cpp/include</pElem>
+          </incDir>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -117,6 +143,12 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lSDL2</linkerOptionItem>
+            <linkerLibLibItem>artemis</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -145,6 +177,21 @@
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Components.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>

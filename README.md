@@ -20,7 +20,7 @@ To build Poles, use the IDE projects we provide and follow the instructions in t
 3. Copy `.lib` files in `platforms/windows/Artemis-Cpp/lib` to your MinGW's `lib` folder.
 4. Open `platforms/windows/Poles`.
 
-Once you build the application you will need to copy `platforms/windows/SDL2/bin/SDL.dll` to the folder where the executable created is (commonly in `platforms/windows/Poles/dist/Debug/MinGW-Windows/`).
+Once you build the application you will need to copy `platforms/windows/SDL2/bin/SDL.dll` to the folder where the executable is (commonly in `platforms/windows/Poles/dist/Debug/MinGW-Windows/`).
 
 ### Mac OS X
 1. Install XCode.
@@ -30,7 +30,8 @@ Once you build the application you will need to copy `platforms/windows/SDL2/bin
 ### Linux
 1. Install NetBeans.
 2. Install development libraries for SDL2 from your package manager. You can find `.deb` packages for Ubuntu in `platforms/linux/SDL2`.
-3. Open platforms/linux/Poles with NetBeans.
+3. Copy `platforms/linux/Artemis-Cpp/lib/libartemis.a` to your system's lib folder (commonly `/usr/lib`).
+4. Open platforms/linux/Poles with NetBeans.
 
 The SDL2 packages comes from Joseba Garcia Etxeberria's repository [here](https://launchpad.net/~josebagar/+archive/sdl2). Thanks man.
 
