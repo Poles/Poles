@@ -7,6 +7,7 @@
 #include "../core/Circle.h"
 #include "../core/Line.h"
 #include "../core/systems/MovementSystem.h"
+#include "../core/GameObject.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60
@@ -18,6 +19,9 @@ public:
     
     void start();
     
+    static GameObject * createGameObject();
+    static void destroyGameObject(GameObject * object);
+    
 private:
     void initialize();
     void mainLoop();
@@ -27,15 +31,17 @@ private:
     void manageFPS();
     void countFSP();
     
+    static SDL_Renderer * currentRenderer();
+    
 private:
     SDL_Window* wnd;
-    SDL_Renderer* rc;
+    static SDL_Renderer* rc;
     bool run;
     
     /* ARTEMIS */
-    artemis::World world;
-    artemis::SystemManager * systemManager;
-    artemis::EntityManager * entityManager;
+    static artemis::World world;
+    static artemis::SystemManager * systemManager;
+    static artemis::EntityManager * entityManager;
     
     MovementSystem * movementSystem;
     
@@ -49,9 +55,6 @@ private:
     
     /* FLAGS */
     bool showFPS;
-    
-    /* TEST */
-    Line * line;
 };
 
 #endif /* defined(__Poles__Game__) */

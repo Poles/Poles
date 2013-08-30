@@ -1,5 +1,15 @@
 #include "Game.h"
 #include <math.h>
+#include <Artemis/SystemManager.h>
+#include <Artemis/EntityManager.h>
+#include <Artemis/Entity.h>
+
+/* STATIC VARIABLES */
+artemis::World Game::world;
+artemis::SystemManager * Game::systemManager = world.getSystemManager();
+artemis::EntityManager * Game::entityManager = world.getEntityManager();
+SDL_Renderer * Game::rc = NULL;
+/*------------------*/
 
 
 Game::Game() {
@@ -14,11 +24,9 @@ Game::Game() {
     this->showFPS = false;
     
     /* ARTEMIS */
-    this->systemManager = this->world.getSystemManager();
-    this->entityManager = this->world.getEntityManager();
-    this->movementSystem = (MovementSystem *)this->systemManager->setSystem(new MovementSystem());
+    this->movementSystem = (MovementSystem *)systemManager->setSystem(new MovementSystem());
     
-    this->systemManager->initializeAll();
+    systemManager->initializeAll();
 }
 
 Game::~Game() {
@@ -65,26 +73,12 @@ void Game::initialize() {
 }
 
 void Game::mainLoop() {
-    /* ARTEMIS TEST*/
-    artemis::Entity & entity = this->entityManager->create();
-    entity.addComponent(new PositionComponent(10,10));
-    entity.addComponent(new VelocityComponent(1,1));
-    entity.refresh();
-    line = new Line();
-    line->setColor(Color(255,0,0,255));
-    line->setPointA(10,10);
-    line->setPointB(0,0);
-    
-    PositionComponent * component = (PositionComponent *)entity.getComponent<PositionComponent>();
-    /*-------------*/
     while (this->run) {
-        
-        /* TEST */
-        line->setPointA(component->positionVector());
-        /*------*/
-        this->world.loopStart();
-        this->world.setDelta(0.0016f);
+        /* ARTEMIS */
+        world.loopStart();
+        world.setDelta(0.0016f);
         this->movementSystem->process();
+        /*---------*/
         
         this->handleEvents();
         this->update();
@@ -92,20 +86,18 @@ void Game::mainLoop() {
         if (this->frameSkip == 0) {
             this->render();
             this->manageFPS();
-            this->countFSP();
         }
+        this->countFSP();
     }
 }
 
 void Game::update() {
-
+    // With the Artemis-Cpp systems this shouldn't be necessary
 }
 
 void Game::render() {
     SDL_RenderPresent(this->rc);
     SDL_RenderClear(this->rc);
-    
-    line->draw(this->rc);
 }
 
 void Game::handleEvents() {
@@ -176,4 +168,14 @@ void Game::countFSP() {
     } else {
         this->fps++;
     }
+}
+
+GameObject * Game::createGameObject() {
+    artemis::Entity & objectEntity = world.createEntity();
+    
+    GameObject * object = new GameObject(objectEntity);
+}
+
+SDL_Renderer * Game::currentRenderer() {
+    return rc;
 }
