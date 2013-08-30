@@ -37,8 +37,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/Circle.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
+	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/Line.o \
-	${OBJECTDIR}/_ext/608447161/ResourcesManager.o \
+	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
@@ -80,15 +81,20 @@ ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
 
+${OBJECTDIR}/_ext/608447161/GameObject.o: ../../../src/core/GameObject.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
+
 ${OBJECTDIR}/_ext/608447161/Line.o: ../../../src/core/Line.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
 
-${OBJECTDIR}/_ext/608447161/ResourcesManager.o: ../../../src/core/ResourcesManager.cpp 
+${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourcesManager.o ../../../src/core/ResourcesManager.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161

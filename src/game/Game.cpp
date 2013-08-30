@@ -68,7 +68,9 @@ void Game::initialize() {
                                  SDL_WINDOW_SHOWN);
     rc = SDL_CreateRenderer(wnd, -1, 0);
     
-    SDL_SetRenderDrawColor(rc, 60, 60, 60, 255); // Black color for background
+    Color bgColor("#7b68ee");
+    std::cout << bgColor.toString();
+    SDL_SetRenderDrawColor(rc, bgColor.red(), bgColor.green(), bgColor.blue(), bgColor.alpha()); // Black color for background
     SDL_SetRenderDrawBlendMode(this->rc, SDL_BLENDMODE_BLEND);
 }
 

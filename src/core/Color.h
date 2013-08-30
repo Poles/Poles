@@ -4,11 +4,11 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
-
 class Color{
 public:
     Color();
     Color(int r, int g, int b, int a);
+    Color(const char* hexString, const Uint8 alpha = 255);
     
     inline void setRed(int value);
     inline void setGreen(int value);
@@ -22,6 +22,8 @@ public:
     
     SDL_Color toSDLColor();
     Uint32 toPixelValue(SDL_PixelFormat* format);
+    
+    const std::string toString();
     
 private:
     SDL_Color color;

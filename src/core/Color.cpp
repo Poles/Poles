@@ -1,4 +1,5 @@
 #include "Color.h"
+#include <sstream>
 
 Color::Color(){
     this->color.r = 0;
@@ -12,6 +13,43 @@ Color::Color(const int r, const int g, const int b, const int a){
     this->color.g = g;
     this->color.b = b;
     this->_a = a;
+}
+
+Color::Color(const char* hexString, const Uint8 alpha) {
+    std::stringstream stream;
+    
+    stream << std::hex << hexString;
+    std::string colorString = stream.str();
+    
+    // We remove the # character if present
+    if (colorString[0] == '#') {
+        colorString.erase(0,1);
+    }
+    
+    // We check the size is correct
+    if (colorString.size() == 6) {
+        std::stringstream redString;
+        redString << std::hex << (colorString.substr(0,2));
+        
+        std::stringstream greenString;
+        greenString << std::hex << (colorString.substr(2,2));
+        
+        std::stringstream blueString;
+        blueString << std::hex << (colorString.substr(4,2)); 
+        
+        unsigned int red;
+        unsigned int green;
+        unsigned int blue;
+        
+        redString >> red;
+        blueString >> blue;
+        greenString >> green;
+        
+        this->color.r = red;
+        this->color.g = green;
+        this->color.b = blue;
+        this->_a = alpha;
+    }
 }
 
 void Color::setRed(int value){
@@ -85,3 +123,15 @@ SDL_Color Color::toSDLColor(){
 Uint32 Color::toPixelValue(SDL_PixelFormat* format) {
     return SDL_MapRGBA(format, this->color.r, this->color.g, this->color.b, this->_a);
 }
+
+const std::string Color::toString() {
+    std::stringstream stream;
+    
+    stream << "red: " << this->color.r
+            << " green: " << this->color.g
+            << " blue: " << this->color.b
+            << " alpha: " << this->_a;
+    
+    return stream.str();
+}
+

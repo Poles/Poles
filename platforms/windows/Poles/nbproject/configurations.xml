@@ -16,10 +16,12 @@
       <itemPath>../../../src/core/Color.cpp</itemPath>
       <itemPath>../../../src/core/Color.h</itemPath>
       <itemPath>../../../src/core/ExtraTools.h</itemPath>
+      <itemPath>../../../src/core/GameObject.cpp</itemPath>
+      <itemPath>../../../src/core/GameObject.h</itemPath>
       <itemPath>../../../src/core/Line.cpp</itemPath>
       <itemPath>../../../src/core/Line.h</itemPath>
-      <itemPath>../../../src/core/ResourcesManager.cpp</itemPath>
-      <itemPath>../../../src/core/ResourcesManager.h</itemPath>
+      <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
+      <itemPath>../../../src/core/ResourceManager.h</itemPath>
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
@@ -77,16 +79,20 @@
       </item>
       <item path="../../../src/core/ExtraTools.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../src/core/ResourcesManager.cpp"
+      <item path="../../../src/core/ResourceManager.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/ResourcesManager.h"
+      <item path="../../../src/core/ResourceManager.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -180,16 +186,20 @@
       </item>
       <item path="../../../src/core/ExtraTools.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../src/core/ResourcesManager.cpp"
+      <item path="../../../src/core/ResourceManager.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/ResourcesManager.h"
+      <item path="../../../src/core/ResourceManager.h"
             ex="false"
             tool="3"
             flavor2="0">
