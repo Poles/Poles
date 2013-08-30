@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="89">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="f1" displayName="Core" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1" displayName="Core" projectFiles="true">
+      <logicalFolder name="f1" displayName="Components" projectFiles="true">
+        <itemPath>../../../src/core/components/Components.h</itemPath>
+        <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
+        <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Systems" projectFiles="true">
+        <itemPath>../../../src/core/systems/MovementSystem.cpp</itemPath>
+        <itemPath>../../../src/core/systems/MovementSystem.h</itemPath>
+      </logicalFolder>
       <itemPath>../../../src/core/Circle.cpp</itemPath>
       <itemPath>../../../src/core/Circle.h</itemPath>
       <itemPath>../../../src/core/Color.cpp</itemPath>
@@ -14,7 +23,7 @@
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
-    <logicalFolder name="f2" displayName="Game" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f2" displayName="Game" projectFiles="true">
       <itemPath>../../../src/game/Game.cpp</itemPath>
       <itemPath>../../../src/game/Game.h</itemPath>
       <itemPath>../../../src/game/GameStateManager.cpp</itemPath>
@@ -85,6 +94,31 @@
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Components.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/VelocityComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -163,6 +197,31 @@
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Components.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/VelocityComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/MovementSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
