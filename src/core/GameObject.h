@@ -6,16 +6,18 @@
 class Game;
 
 class GameObject {
-    // Let the Game class access the private constructor. This way no one except Game can
-    // create GameObjects.
+    // Game have permission to create Game Objects
     friend class Game;
 public:
     
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
-    GameObject(artemis::Entity & entity);
+    GameObject(artemis::Entity & objectEntity);
     // Private constructor. User shouldn't be able to delete GameObjects without using Game::deleteGameObject()
     ~GameObject();
+    
+private:
+    artemis::Entity & entity;
 
 };
 

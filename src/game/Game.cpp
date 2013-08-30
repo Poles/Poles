@@ -8,7 +8,7 @@
 artemis::World Game::world;
 artemis::SystemManager * Game::systemManager = world.getSystemManager();
 artemis::EntityManager * Game::entityManager = world.getEntityManager();
-SDL_Renderer * Game::rc = NULL;
+SDL_Renderer * Game::renderer = NULL;
 /*------------------*/
 
 
@@ -31,7 +31,7 @@ Game::Game() {
 
 Game::~Game() {
     // Free any SDL resource used
-    SDL_DestroyRenderer(this->rc);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(this->wnd);
     SDL_Quit();
 }
@@ -66,12 +66,10 @@ void Game::initialize() {
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                  w,h,
                                  SDL_WINDOW_SHOWN);
-    rc = SDL_CreateRenderer(wnd, -1, 0);
-    
-    Color bgColor("#7b68ee");
-    std::cout << bgColor.toString();
-    SDL_SetRenderDrawColor(rc, bgColor.red(), bgColor.green(), bgColor.blue(), bgColor.alpha()); // Black color for background
-    SDL_SetRenderDrawBlendMode(this->rc, SDL_BLENDMODE_BLEND);
+    renderer = SDL_CreateRenderer(wnd, -1, 0);
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black color for background
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
 void Game::mainLoop() {
@@ -98,8 +96,8 @@ void Game::update() {
 }
 
 void Game::render() {
-    SDL_RenderPresent(this->rc);
-    SDL_RenderClear(this->rc);
+    SDL_RenderPresent(renderer);
+    SDL_RenderClear(renderer);
 }
 
 void Game::handleEvents() {
@@ -172,12 +170,26 @@ void Game::countFSP() {
     }
 }
 
+/**
+ * Creates a new Game Object to be used in the game.
+ * 
+ * It is initialized inside the Artemis-Cpp's entity systems and it is ready
+ * to attach components as needed. To destroy it use Game::destroyGameObject(GameObject * object).
+ * @return 
+ */
 GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
 }
 
+void Game::destroyGameObject(GameObject * object) {
+    world.deleteEntity(object->entity);
+    
+    delete object;
+    object = NULL;
+}
+
 SDL_Renderer * Game::currentRenderer() {
-    return rc;
+    return renderer;
 }
