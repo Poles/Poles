@@ -2,6 +2,7 @@
 #define	GAMEOBJECT_H
 
 #include <Artemis.h>
+#include "Vector2D.h"
 
 class Game;
 
@@ -10,6 +11,10 @@ class GameObject {
     friend class Game;
 public:
     
+    void                        addComponent(artemis::Component * component);
+    void                        removeComponent(artemis::Component * component);
+    Vector2D                    position();
+    
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
     GameObject(artemis::Entity & objectEntity);
@@ -17,7 +22,7 @@ private:
     ~GameObject();
     
 private:
-    artemis::Entity & entity;
+    artemis::Entity &           entity;
 
 };
 

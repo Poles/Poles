@@ -73,6 +73,11 @@ void Game::initialize() {
 }
 
 void Game::mainLoop() {
+    /* TEST */
+    this->object = Game::createGameObject();
+    this->object->addComponent(new VelocityComponent(1.0f, 2.0f));
+    /*------*/
+    
     while (this->run) {
         /* ARTEMIS */
         world.loopStart();
@@ -98,6 +103,10 @@ void Game::update() {
 void Game::render() {
     SDL_RenderPresent(renderer);
     SDL_RenderClear(renderer);
+    
+    /* TEST */
+    std::cout << object->position().toString() << std::endl;
+    /*------*/
 }
 
 void Game::handleEvents() {
@@ -181,6 +190,8 @@ GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
+    
+    return object;
 }
 
 void Game::destroyGameObject(GameObject * object) {

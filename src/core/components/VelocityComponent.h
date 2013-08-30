@@ -1,10 +1,3 @@
-/* 
- * File:   VelocityComponent.h
- * Author: ladis
- *
- * Created on August 25, 2013, 5:48 PM
- */
-
 #ifndef VELOCITYCOMPONENT_H
 #define	VELOCITYCOMPONENT_H
 

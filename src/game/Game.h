@@ -56,6 +56,10 @@ private:
     
     /* FLAGS */
     bool                                showFPS;
+    
+    /* TEST */
+    GameObject * object;
+    /*------*/
 };
 
 #endif /* defined(__Poles__Game__) */
