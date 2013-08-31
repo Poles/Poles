@@ -105,7 +105,7 @@ void Game::render() {
     SDL_RenderClear(renderer);
     
     /* TEST */
-    std::cout << object->position().toString() << std::endl;
+    //std::cout << object->position().toString() << std::endl;
     /*------*/
 }
 

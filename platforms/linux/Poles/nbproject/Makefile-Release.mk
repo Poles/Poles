@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/Line.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
+	${OBJECTDIR}/_ext/608447161/Sprite.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
@@ -95,6 +96,11 @@ ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
+
+${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161

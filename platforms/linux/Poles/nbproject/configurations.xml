@@ -22,6 +22,8 @@
       <itemPath>../../../src/core/Line.h</itemPath>
       <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
+      <itemPath>../../../src/core/Sprite.cpp</itemPath>
+      <itemPath>../../../src/core/Sprite.h</itemPath>
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
@@ -61,6 +63,8 @@
           <linkerLibItems>
             <linkerOptionItem>-lSDL2</linkerOptionItem>
             <linkerLibLibItem>artemis</linkerLibLibItem>
+            <linkerLibLibItem>SDL_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -91,6 +95,10 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -195,6 +203,10 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>

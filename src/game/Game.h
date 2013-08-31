@@ -22,6 +22,8 @@ public:
     static GameObject *                 createGameObject();
     static void                         destroyGameObject(GameObject * object);
     
+    static SDL_Renderer *               currentRenderer();
+    
 private:
     void                                initialize();
     void                                mainLoop();
@@ -30,9 +32,7 @@ private:
     void                                render();
     
     void                                manageFPS();
-    void                                countFSP();
-    
-    static SDL_Renderer *               currentRenderer();
+    void                                countFSP();    
     
 private:
     SDL_Window* wnd;

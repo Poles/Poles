@@ -32,6 +32,7 @@ private:
     Uint8                       _a;
 };
 
+static Color COLOR_KEY("#ff00ff");      // This is used for alpha channel in BMP load
 static Color COLOR_WHITE("#ffffff");
 static Color COLOR_BLACK("#000000");
 static Color COLOR_RED("#ff0000");
