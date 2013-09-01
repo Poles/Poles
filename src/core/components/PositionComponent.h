@@ -1,7 +1,7 @@
 #ifndef POSITIONCOMPONENT_H
 #define	POSITIONCOMPONENT_H
 
-#include <Artemis.h>
+#include <Artemis/Artemis.h>
 #include "../Vector2D.h"
 
 class PositionComponent : public artemis::Component {

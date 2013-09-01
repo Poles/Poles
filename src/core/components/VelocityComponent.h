@@ -1,7 +1,7 @@
 #ifndef VELOCITYCOMPONENT_H
 #define	VELOCITYCOMPONENT_H
 
-#include <Artemis.h>
+#include <Artemis/Artemis.h>
 #include "../Vector2D.h"
 
 class VelocityComponent : public artemis::Component {

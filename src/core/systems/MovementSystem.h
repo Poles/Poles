@@ -1,7 +1,7 @@
 #ifndef MOVEMENTSYSTEM_H
 #define	MOVEMENTSYSTEM_H
 
-#include <Artemis.h>
+#include <Artemis/Artemis.h>
 #include "../components/Components.h"
 
 class MovementSystem : public artemis::EntityProcessingSystem {

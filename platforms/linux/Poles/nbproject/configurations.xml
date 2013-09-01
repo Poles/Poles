@@ -60,11 +60,12 @@
       </toolsSet>
       <compileType>
         <linkerTool>
+          <linkerAddLib>
+            <pElem>/usr/local/lib</pElem>
+          </linkerAddLib>
           <linkerLibItems>
-            <linkerOptionItem>-lSDL2</linkerOptionItem>
             <linkerLibLibItem>artemis</linkerLibLibItem>
-            <linkerLibLibItem>SDL_image</linkerLibLibItem>
-            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

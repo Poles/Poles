@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lSDL2 -lartemis -lSDL_image -lSDL_ttf
+LDLIBSOPTIONS=-L/usr/local/lib -lartemis -lSDL2
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
