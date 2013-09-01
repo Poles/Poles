@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/local/lib -lartemis -lSDL2
+LDLIBSOPTIONS=-L/usr/local/lib -lartemis -lSDL2 -lSDL2_image
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -75,57 +75,57 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/608447161/Circle.o: ../../../src/core/Circle.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
 
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
 
 ${OBJECTDIR}/_ext/608447161/GameObject.o: ../../../src/core/GameObject.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
 
 ${OBJECTDIR}/_ext/608447161/Line.o: ../../../src/core/Line.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
 
 ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
 
 ${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
 
 ${OBJECTDIR}/_ext/608552716/GameStateManager.o: ../../../src/game/GameStateManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
 
 # Subprojects
 .build-subprojects:
