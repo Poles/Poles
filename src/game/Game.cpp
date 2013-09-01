@@ -3,6 +3,7 @@
 #include <Artemis/SystemManager.h>
 #include <Artemis/EntityManager.h>
 #include <Artemis/Entity.h>
+#include "../core/ResourceManager.h"
 
 /* STATIC VARIABLES */
 artemis::World Game::world;
@@ -68,7 +69,7 @@ void Game::initialize() {
                                  SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(wnd, -1, 0);
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black color for background
+    SDL_SetRenderDrawColor(renderer, 60, 60, 60, 255); // Black color for background
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
@@ -76,6 +77,7 @@ void Game::mainLoop() {
     /* TEST */
     this->object = Game::createGameObject();
     this->object->addComponent(new VelocityComponent(1.0f, 2.0f));
+    ResourceManager::loadImage("poles_dude", "/home/ladis/Pictures/poles_dude.png", 1, 2);
     /*------*/
     
     while (this->run) {
@@ -101,12 +103,22 @@ void Game::update() {
 }
 
 void Game::render() {
-    SDL_RenderPresent(renderer);
     SDL_RenderClear(renderer);
     
     /* TEST */
-    //std::cout << object->position().toString() << std::endl;
+    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    SDL_Rect pos;
+    pos.x = 100;
+    pos.y = 100;
+    pos.w = sprite->getWidth();
+    pos.h = sprite->getHeight();
+    SDL_RenderCopy(
+            renderer,
+            sprite->texture(),
+            NULL,
+            & pos);
     /*------*/
+    SDL_RenderPresent(renderer);
 }
 
 void Game::handleEvents() {

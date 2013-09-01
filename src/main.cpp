@@ -1,9 +1,9 @@
 #include <iostream>
 #include "game/Game.h"
 
-#include "core/Sprite.h"
+#include "core/ResourceManager.h"
 
-int main(int argc, char** argv) {    
+int main(int argc, char** argv) { 
     Game* game = new Game();
     game->start();
     

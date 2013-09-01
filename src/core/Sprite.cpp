@@ -1,15 +1,23 @@
 #include "Sprite.h"
 #include <iostream>
+#include "../game/Game.h"
 
 Sprite::Sprite(const char * imageFile, unsigned int rows, unsigned int columns) {
-    this->image = IMG_Load(imageFile);
+    this->currentAnimation = 0;
+    this->currentFrame = 0;
+    this->oscillate = false;
+    
+    this->image = IMG_LoadTexture(Game::currentRenderer(), imageFile);
     
     if (this->image != NULL) {
+        // Get image's width and height
+        SDL_QueryTexture(this->image, NULL, NULL, & this->width, & this->height);
+        
         unsigned int pixelsPerRow;
         unsigned int pixelsPerColumn;
         
-        pixelsPerRow = this->image->w / rows;
-        pixelsPerColumn = this->image->h / columns;
+        pixelsPerRow = this->width / rows;
+        pixelsPerColumn = this->height / columns;
         
         SDL_Rect * frame;
         for (int currentRow = 0; currentRow < rows; currentRow++) {
@@ -32,12 +40,48 @@ Sprite::Sprite(const char * imageFile, unsigned int rows, unsigned int columns) 
         
     } else {
         std::cout << "Error! - Image " << imageFile << " couldn't be loaded" << std::endl;
+        std::cout << IMG_GetError() << std::endl;
     }
 }
 
 Sprite::Sprite(const Sprite& orig) {
+    
 }
 
 Sprite::~Sprite() {
+    SDL_DestroyTexture(this->image);
 }
 
+/**
+ * Area of the sprite corresponding to the current frame of the animation.
+ * 
+ * Use this area to render only the right part of the Sprite.
+ * @return      Rectangle with the coordinates of the current frame to be displayed.
+ */
+SDL_Rect * Sprite::currentFrameBox() {
+    return & (this->frames[this->currentAnimation][this->currentFrame]);
+}
+
+/**
+ * 
+ * @return 
+ */
+SDL_Texture * Sprite::texture() {
+    return this->image;
+}
+
+/**
+ * 
+ * @return 
+ */
+int Sprite::getHeight() {
+    return this->height;
+}
+
+/**
+ * 
+ * @return 
+ */
+int Sprite::getWidth() {
+    return this->width;
+}
