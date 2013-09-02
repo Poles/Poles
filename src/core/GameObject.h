@@ -10,10 +10,14 @@ class GameObject {
     // Game have permission to create Game Objects
     friend class Game;
 public:
-    
+    void                        setParent(GameObject * parent);
+    void                        removeParent();
     void                        addComponent(artemis::Component * component);
     void                        removeComponent(artemis::Component * component);
-    Vector2D                    position();
+    Vector2D                    getPosition();
+    Vector2D                    getRealPosition();
+    
+    void                        setPosition(Vector2D & position);
     
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
@@ -22,6 +26,7 @@ private:
     ~GameObject();
     
 private:
+    GameObject *                parent;
     artemis::Entity &           entity;
 
 };
