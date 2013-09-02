@@ -8,7 +8,7 @@ class ResourceManager {
 public:
     ResourceManager *                           instance();
     
-    static void                                 loadImage(const char * name, const char * imagePath, unsigned int rows = 1, unsigned int columns = 1);
+    static void                                 loadImage(const char * name, const char * imagePath, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
     static void                                 deleteImage(const char * name);
     static Sprite *                             getSprite(const char * name);
 

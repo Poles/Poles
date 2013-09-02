@@ -29,9 +29,9 @@ ResourceManager * ResourceManager::instance() {
  * @param rows          Number of rows of the Sprite. If it is a single frame Sprite don't specify a value.
  * @param columns       Number of columns of the Sprite. If it is a single frame Sprite don't specify a value.
  */
-void ResourceManager::loadImage(const char* name, const char* imagePath, unsigned int rows, unsigned int columns) {
+void ResourceManager::loadImage(const char * name, const char * imagePath, unsigned int animations, unsigned int * framesPerAnimation) {
     if (images.count(name) == 0) {
-        Sprite * sprite = new Sprite(imagePath, rows, columns);
+        Sprite * sprite = new Sprite(imagePath, animations, framesPerAnimation);
 
         images.insert(std::pair<const char *, Sprite * >(name, sprite));
     } else {
