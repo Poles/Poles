@@ -7,6 +7,7 @@
 #include "../core/Circle.h"
 #include "../core/Line.h"
 #include "../core/systems/MovementSystem.h"
+#include "../core/systems/RenderingSystem.h"
 #include "../core/GameObject.h"
 
 #define GAME_NAME "Poles"
@@ -45,6 +46,7 @@ private:
     static artemis::EntityManager *     entityManager;
     
     MovementSystem *                    movementSystem;
+    RenderingSystem *                   renderingSystem;
     
     /* FPS */
     Uint32                              timeLastFrame;   // Time mark of the last frame (ms)
@@ -58,7 +60,8 @@ private:
     bool                                showFPS;
     
     /* TEST */
-    GameObject * object;
+    GameObject *                        object;
+    GameObject *                        childObject;
     /*------*/
 };
 

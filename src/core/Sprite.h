@@ -12,22 +12,22 @@ public:
     Sprite(const Sprite& orig);
     virtual ~Sprite();
     
-    SDL_Rect *                                  getCurrentFrameBox();
-    SDL_Texture *                               getTexture();
+    inline SDL_Texture *                        getTexture() { return this->image; }
     
-    int                                         getWidth();
-    int                                         getHeight();
+    inline int                                  getWidth() { return this->width; }
+    inline int                                  getHeight() { return this->height; }
+    
+    inline int                                  getFrameWidth() { return this->widthPerFrame; }
+    inline int                                  getFrameHeight() { return this->heightPerFrame; }
     
     bool                                        bindAnimation(const char * name, unsigned int animation);
     void                                        unbindAnimation(const char * name);
-    void                                        setAnimation(const char * name);
+    int                                         getAnimationIndex(const char * name);
+    const char *                                getAnimationName(const unsigned int animationIndex);
+    SDL_Rect *                                  getFrameBox(const char * animation, unsigned int frame);
+    int                                         getNumberOfFrames(const char * animation);
     
     void                                        showAnimationFramesInfo();
-    
-    void                                        render(Vector2D & position);
-    
-private:
-    void                                        updateAnimation();
     
 private:
     SDL_Texture *                               image;
@@ -38,15 +38,7 @@ private:
     unsigned int                                heightPerFrame;
     
     /* ANIMATION */
-    unsigned int                                currentAnimation;
-    unsigned int                                currentFrame;
     std::map<const char *, unsigned int>        animationsBindingMap;
-    int                                         frameRate;      // How many miliseconds do we need to change to the next frame
-    int                                         oldTime;
-    int                                         frameIncrement;
-    
-    /* FLAGS */
-    bool                                        oscillate;
 };
 
 #endif	/* SPRITE_H */

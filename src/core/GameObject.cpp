@@ -19,13 +19,16 @@ GameObject::~GameObject() {
  */
 void GameObject::setParent(GameObject * parent) {
     this->parent = parent;
-    
-    // Convert the actual position from global to relative, or the object will move from its actual position
-    Vector2D parentRealPosition = parent->getRealPosition();
-    Vector2D objectRealPosition = this->getPosition();
-    Vector2D objectRelativePosition = objectRealPosition - parentRealPosition;
 
-    this->setPosition(objectRelativePosition);
+    // Add the parent to the PositionComponent
+    PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+    PositionComponent * parentComponent = (PositionComponent *) parent->entity.getComponent<PositionComponent>();
+    
+    if (parentComponent != NULL) {
+        component->setParentPosition(parentComponent);
+    } else {
+        std::cout << "Error! - GameObject: Trying to add parent with no Position Component." << std::endl;
+    }   
 }
 
 /**
@@ -33,15 +36,12 @@ void GameObject::setParent(GameObject * parent) {
  */
 void GameObject::removeParent() {
     if (this->parent != NULL) {
-        // Convert from local to global coordinates
-        Vector2D parentRealPosition = parent->getRealPosition();
-        Vector2D objectRelativePosition = this->getPosition();
-        Vector2D objectRealPosition = objectRelativePosition + parentRealPosition;
-        
-        this->setPosition(objectRealPosition);
-        
         // Unset the parent
         this->parent = NULL;
+        
+        PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+        component->removeParentPosition();
+        
     } else {
         std::cout << "Error! - GameObject: Trying to remove parent from object with no parent." << std::endl;
     }
@@ -72,7 +72,7 @@ Vector2D GameObject::getPosition() {
     PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
     
     if (component != NULL) {
-        return component->positionVector();
+        return component->getLocalPosition();
     } else {
         // Something terrible happened!
         std::cout << "Error! - GameObject " << this->entity.getId() << " has no position component." << std::endl;
@@ -110,3 +110,14 @@ Vector2D GameObject::getRealPosition() {
     return realPosition;
 }
 
+/**
+ * 
+ * @return 
+ */
+bool GameObject::hasParent() {
+    if (this->parent != NULL) {
+        return true;
+    }
+    
+    return false;
+}

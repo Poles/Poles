@@ -42,7 +42,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
 	${OBJECTDIR}/_ext/608447161/Sprite.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
+	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
+	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
+	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
@@ -107,10 +110,25 @@ ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
+${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/PositionComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
+
+${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/components/SpriteRendererComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
+
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
+
+${OBJECTDIR}/_ext/1430818098/RenderingSystem.o: ../../../src/core/systems/RenderingSystem.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o ../../../src/core/systems/RenderingSystem.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716

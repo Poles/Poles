@@ -19,6 +19,8 @@ public:
     
     void                        setPosition(Vector2D & position);
     
+    bool                        hasParent();
+    
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
     GameObject(artemis::Entity & objectEntity);

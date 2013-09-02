@@ -8,14 +8,7 @@
  * @param animations
  * @param framesPerAnimation
  */
-Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * framesPerAnimation) {
-    this->currentAnimation = 0;
-    this->currentFrame = 0;
-    this->oscillate = false;
-    this->frameIncrement = 1;
-    this->frameRate = 1000;
-    this->oldTime = SDL_GetTicks();
-    
+Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * framesPerAnimation) {    
     this->image = IMG_LoadTexture(Game::currentRenderer(), imageFile);
     
     if (this->image != NULL) {
@@ -82,40 +75,6 @@ Sprite::~Sprite() {
 }
 
 /**
- * Area of the sprite corresponding to the current frame of the animation.
- * 
- * Use this area to render only the right part of the Sprite.
- * @return      Rectangle with the coordinates of the current frame to be displayed.
- */
-SDL_Rect * Sprite::getCurrentFrameBox() {
-    return & (this->frames[this->currentAnimation][this->currentFrame]);
-}
-
-/**
- * 
- * @return 
- */
-SDL_Texture * Sprite::getTexture() {
-    return this->image;
-}
-
-/**
- * 
- * @return 
- */
-int Sprite::getHeight() {
-    return this->height;
-}
-
-/**
- * 
- * @return 
- */
-int Sprite::getWidth() {
-    return this->width;
-}
-
-/**
  * Prints the values of the sprite frames.
  * 
  * This is used for debug operations.
@@ -130,27 +89,6 @@ void Sprite::showAnimationFramesInfo() {
         }
         std::cout << std::endl;
     }
-}
-
-/**
- * 
- * @param position
- */
-void Sprite::render(Vector2D& position) {
-    SDL_Rect * pos = new SDL_Rect;
-    
-    pos->x = position.x();
-    pos->y = position.y();
-    pos->w = this->widthPerFrame;
-    pos->h = this->heightPerFrame;
-    
-    SDL_RenderCopy(
-            Game::currentRenderer(),
-            this->image,
-            this->getCurrentFrameBox(),
-            pos);
-    
-    updateAnimation();
 }
 
 /**
@@ -192,46 +130,60 @@ void Sprite::unbindAnimation(const char* name) {
     }
 }
 
-/**
- * Changes the current displayed animation of the sprite.
- * @param name  Name of the binded animation to display.
- */
-void Sprite::setAnimation(const char* name) {
-    std::map<const char *, unsigned int>::iterator animation;
+int Sprite::getAnimationIndex(const char* name) {
+    std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(name);
     
-    animation = this->animationsBindingMap.find(name);
-    
-    if (animation != this->animationsBindingMap.end()) {
-        this->currentAnimation = animation->second;
+    if (animationBind != this->animationsBindingMap.end()) {
+        return animationBind->second;
     } else {
-        std::cout << "Error! - Sprite: Trying to change to animation " << name << " but it is not binded." << std::endl;
+        return -1;
     }
 }
 
-void Sprite::updateAnimation() {
-    if (this->oldTime + this->frameRate > SDL_GetTicks()) {
-        return; // ???
-    }
-    
-    this->oldTime = SDL_GetTicks();
-    
-    this->currentFrame += this->frameIncrement;
-    
-    if (this->oscillate) {
-        // If we are advancing in the animation
-        if (this->frameIncrement > 0) {
-            if (this->currentFrame >= this->frames[this->currentAnimation].size()) {
-                // We reverse the direction of the animation
-                this->frameIncrement = (-1) * this->frameIncrement;
-            }
-        }else {
-            if (currentFrame < 0) {
-                this->frameIncrement = (-1) * this->frameIncrement;
+/**
+ * 
+ * @param animation
+ * @param frame
+ * @return 
+ */
+SDL_Rect * Sprite::getFrameBox(const char * animation, unsigned int frame) {
+    if (animation != NULL) {
+        std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(animation);
+
+        unsigned int animationIndex = 0;
+        if (animationBind != this->animationsBindingMap.end()) {
+            animationIndex = animationBind->second;
+            if (frame < this->frames[animationIndex].size()) {
+                    return & (this->frames[animationIndex][frame]);
             }
         }
     } else {
-        if (this->currentFrame >= this->frames[this->currentAnimation].size()) {
-            this->currentFrame = 0;
+        std::cout << "Error! - Sprite: You have passed a NULL name as animation name." << std::endl;
+    }
+    
+    return NULL;
+}
+
+int Sprite::getNumberOfFrames(const char * animation) {
+    std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(animation);
+    
+    if (animationBind != this->animationsBindingMap.end()) {
+        unsigned int animationIndex = animationBind->second;
+        
+        return this->frames[animationIndex].size();
+    }
+    
+    return -1;
+}
+
+const char * Sprite::getAnimationName(const unsigned int animationIndex) {
+    std::map<const char *, unsigned int>::iterator animation;
+    
+    for (animation = this->animationsBindingMap.begin(); animation != this->animationsBindingMap.end(); animation++) {
+        if (animation->second == animationIndex) {
+            return animation->first;
         }
     }
+    
+    return NULL;
 }

@@ -26,6 +26,7 @@ Game::Game() {
     
     /* ARTEMIS */
     this->movementSystem = (MovementSystem *)systemManager->setSystem(new MovementSystem());
+    this->renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
     
     systemManager->initializeAll();
 }
@@ -75,10 +76,19 @@ void Game::initialize() {
 
 void Game::mainLoop() {
     /* TEST */
-    this->object = Game::createGameObject();
-    this->object->addComponent(new VelocityComponent(1.0f, 2.0f));
-    unsigned int animations[1]= {2};
+    Vector2D position(100,100);
+    object = Game::createGameObject();
+    object->setPosition(position);
+    
+    // Load the sprite
+    unsigned int animations[1] = {2}; // 1 row with 2 frames
     ResourceManager::loadImage("poles_dude", "/home/ladis/Pictures/poles_dude.png", 1, animations);
+    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    sprite->bindAnimation("Static", 0);
+    
+    // Add the sprite to the objects
+    object->addComponent(new SpriteRendererComponent(sprite));
+    object->addComponent(new VelocityComponent(0.5f, 0.5f));
     /*------*/
     
     while (this->run) {
@@ -107,16 +117,17 @@ void Game::render() {
     SDL_RenderClear(renderer);
     
     /* TEST */
-    Sprite * sprite = ResourceManager::getSprite("poles_dude");
-    Vector2D pos(100,200);
-    
-    sprite->render(pos);    
+    this->renderingSystem->process();
     /*------*/
     SDL_RenderPresent(renderer);
 }
 
 void Game::handleEvents() {
     SDL_Event event;
+    /* TEST */
+    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    Vector2D position(20, 20);
+    /*------*/
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_KEYDOWN:
@@ -133,6 +144,24 @@ void Game::handleEvents() {
                             this->showFPS = true;
                         }
                         break;
+                        /* TEST */
+                    case SDLK_1:
+                        childObject = Game::createGameObject();
+                        childObject->setPosition(position);
+                        childObject->setParent(object);
+                        childObject->addComponent(new SpriteRendererComponent(sprite));
+                        break;
+                        
+                        
+                    case SDLK_2:
+                        if (childObject->hasParent()) {
+                                childObject->removeParent();
+                        } else {
+                            childObject->setParent(object);
+                        }
+                        break;
+                        
+                        /*-----*/
                         
                     default:
                         break;
