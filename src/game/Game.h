@@ -4,8 +4,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <Artemis/Artemis.h>
-#include "../core/Circle.h"
-#include "../core/Line.h"
 #include "../core/systems/MovementSystem.h"
 #include "../core/systems/RenderingSystem.h"
 #include "../core/GameObject.h"

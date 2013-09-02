@@ -16,15 +16,11 @@
         <itemPath>../../../src/core/systems/RenderingSystem.cpp</itemPath>
         <itemPath>../../../src/core/systems/RenderingSystem.h</itemPath>
       </logicalFolder>
-      <itemPath>../../../src/core/Circle.cpp</itemPath>
-      <itemPath>../../../src/core/Circle.h</itemPath>
       <itemPath>../../../src/core/Color.cpp</itemPath>
       <itemPath>../../../src/core/Color.h</itemPath>
       <itemPath>../../../src/core/ExtraTools.h</itemPath>
       <itemPath>../../../src/core/GameObject.cpp</itemPath>
       <itemPath>../../../src/core/GameObject.h</itemPath>
-      <itemPath>../../../src/core/Line.cpp</itemPath>
-      <itemPath>../../../src/core/Line.h</itemPath>
       <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
       <itemPath>../../../src/core/Sprite.cpp</itemPath>
@@ -80,10 +76,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -93,10 +85,6 @@
       <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/ResourceManager.cpp"
             ex="false"
@@ -213,10 +201,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -226,10 +210,6 @@
       <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/ResourceManager.cpp"
             ex="false"

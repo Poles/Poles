@@ -35,10 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/608447161/Circle.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
-	${OBJECTDIR}/_ext/608447161/Line.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
 	${OBJECTDIR}/_ext/608447161/Sprite.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
@@ -75,11 +73,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/608447161/Circle.o: ../../../src/core/Circle.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
-	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
-
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
@@ -89,11 +82,6 @@ ${OBJECTDIR}/_ext/608447161/GameObject.o: ../../../src/core/GameObject.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
-
-${OBJECTDIR}/_ext/608447161/Line.o: ../../../src/core/Line.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
-	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
 
 ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
