@@ -5,10 +5,11 @@
 /* STATIC VARIABLES */
 ResourceManager * ResourceManager::classInstance = 0;
 std::map<const char *, Sprite * > ResourceManager::images;
-
+char ResourceManager::workingPath[FILENAME_MAX];
 /*------------------*/
 
 ResourceManager::ResourceManager() {
+    
 }
 
 ResourceManager::~ResourceManager() {
@@ -22,6 +23,11 @@ ResourceManager * ResourceManager::instance() {
     return classInstance;
 }
 
+void ResourceManager::initialize() {
+    // We load the current working path
+    WORKING_DIR(workingPath, sizeof(workingPath));
+}
+
 /**
  * Loads an image from a file and register it in the Resources System with the given name.
  * @param name          Name used to register the image in the system. You will use this name to refer this image in the future.
@@ -31,7 +37,12 @@ ResourceManager * ResourceManager::instance() {
  */
 void ResourceManager::loadImage(const char * name, const char * imagePath, unsigned int animations, unsigned int * framesPerAnimation) {
     if (images.count(name) == 0) {
-        Sprite * sprite = new Sprite(imagePath, animations, framesPerAnimation);
+        std::string imageAbsolutePath;
+        imageAbsolutePath.append(workingPath);
+        imageAbsolutePath.append("/assets/");
+        imageAbsolutePath.append(imagePath);
+        
+        Sprite * sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
 
         images.insert(std::pair<const char *, Sprite * >(name, sprite));
     } else {

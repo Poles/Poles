@@ -82,7 +82,7 @@ void Game::mainLoop() {
     
     // Load the sprite
     unsigned int animations[1] = {2}; // 1 row with 2 frames
-    ResourceManager::loadImage("poles_dude", "/home/ladis/Pictures/poles_dude.png", 1, animations);
+    ResourceManager::loadImage("poles_dude", "images/poles_dude.png", 1, animations);
     Sprite * sprite = ResourceManager::getSprite("poles_dude");
     sprite->bindAnimation("Static", 0);
     

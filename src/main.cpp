@@ -3,7 +3,9 @@
 
 #include "core/ResourceManager.h"
 
-int main(int argc, char** argv) { 
+int main(int argc, char** argv) {
+    ResourceManager::initialize();
+    
     Game* game = new Game();
     game->start();
     
