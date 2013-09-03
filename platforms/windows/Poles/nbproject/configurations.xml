@@ -4,24 +4,27 @@
     <logicalFolder name="f1" displayName="Core" projectFiles="true">
       <logicalFolder name="f1" displayName="Components" projectFiles="true">
         <itemPath>../../../src/core/components/Components.h</itemPath>
+        <itemPath>../../../src/core/components/PositionComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
+        <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
+        <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
         <itemPath>../../../src/core/systems/MovementSystem.cpp</itemPath>
         <itemPath>../../../src/core/systems/MovementSystem.h</itemPath>
+        <itemPath>../../../src/core/systems/RenderingSystem.cpp</itemPath>
+        <itemPath>../../../src/core/systems/RenderingSystem.h</itemPath>
       </logicalFolder>
-      <itemPath>../../../src/core/Circle.cpp</itemPath>
-      <itemPath>../../../src/core/Circle.h</itemPath>
       <itemPath>../../../src/core/Color.cpp</itemPath>
       <itemPath>../../../src/core/Color.h</itemPath>
       <itemPath>../../../src/core/ExtraTools.h</itemPath>
       <itemPath>../../../src/core/GameObject.cpp</itemPath>
       <itemPath>../../../src/core/GameObject.h</itemPath>
-      <itemPath>../../../src/core/Line.cpp</itemPath>
-      <itemPath>../../../src/core/Line.h</itemPath>
       <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
+      <itemPath>../../../src/core/Sprite.cpp</itemPath>
+      <itemPath>../../../src/core/Sprite.h</itemPath>
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
@@ -66,13 +69,10 @@
             <linkerLibLibItem>SDL2main</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>artemis</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_image</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -82,10 +82,6 @@
       <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/ResourceManager.cpp"
             ex="false"
@@ -97,6 +93,10 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
@@ -106,7 +106,22 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/PositionComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -122,6 +137,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/systems/MovementSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/RenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/RenderingSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -173,13 +198,10 @@
             <linkerLibLibItem>SDL2main</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>artemis</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_image</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/core/Circle.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Circle.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -189,10 +211,6 @@
       <item path="../../../src/core/GameObject.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/GameObject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Line.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/ResourceManager.cpp"
             ex="false"
@@ -204,6 +222,10 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
@@ -213,7 +235,22 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/PositionComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/PositionComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -229,6 +266,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/systems/MovementSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/RenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/RenderingSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
