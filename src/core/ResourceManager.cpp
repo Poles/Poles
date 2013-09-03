@@ -42,12 +42,34 @@ void ResourceManager::loadImage(const char * name, const char * imagePath, unsig
         imageAbsolutePath.append("/assets/");
         imageAbsolutePath.append(imagePath);
         
+#ifdef _WIN64
+      imageAbsolutePath = classInstance->fixWindowsPath(imageAbsolutePath);
+#elif _WIN32
+      imageAbsolutePath = classInstance->fixWindowsPath(imageAbsolutePath);
+      
+#elif __linux
+      // Linux don't need anything
+#elif __APPLE__
+      // Path to Contents/Resources inside the .app should be added
+#endif
+        
         Sprite * sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
 
         images.insert(std::pair<const char *, Sprite * >(name, sprite));
     } else {
         std::cout << "Error! - ResourceManager: Registering an image with an already used name (" << name << ")" << std::endl;
     }
+}
+
+std::string ResourceManager::fixWindowsPath(std::string & path) {
+    std::string windowsPath(path);
+    
+    for (int characterIndex = 0; characterIndex < path.length(); characterIndex++) {
+        if (windowsPath[characterIndex] == '/') {
+            windowsPath.replace(characterIndex, 1, "\\");
+        }
+    }
+    return windowsPath;
 }
 
 /**
