@@ -21,8 +21,8 @@ public:
     inline float                x() { return _x; }
     inline float                y() { return _y; }
     
-    inline void                 setX(int x) { _x = x; }
-    inline void                 setY(int y) { _y = y; }
+    inline void                 setX(float x) { _x = x; }
+    inline void                 setY(float y) { _y = y; }
     
     float                       lengthQuadratic();
     float                       length();

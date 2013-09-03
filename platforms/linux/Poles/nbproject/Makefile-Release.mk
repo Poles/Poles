@@ -35,13 +35,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/608447161/Circle.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
-	${OBJECTDIR}/_ext/608447161/Line.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
+	${OBJECTDIR}/_ext/608447161/Sprite.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
+	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
+	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
+	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
@@ -71,11 +73,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/608447161/Circle.o: ../../../src/core/Circle.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Circle.o ../../../src/core/Circle.cpp
-
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
@@ -86,25 +83,40 @@ ${OBJECTDIR}/_ext/608447161/GameObject.o: ../../../src/core/GameObject.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
 
-${OBJECTDIR}/_ext/608447161/Line.o: ../../../src/core/Line.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Line.o ../../../src/core/Line.cpp
-
 ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
+
+${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
+${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/PositionComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
+
+${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/components/SpriteRendererComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
+
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
+
+${OBJECTDIR}/_ext/1430818098/RenderingSystem.o: ../../../src/core/systems/RenderingSystem.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o ../../../src/core/systems/RenderingSystem.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716

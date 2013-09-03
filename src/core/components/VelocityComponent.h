@@ -1,14 +1,7 @@
-/* 
- * File:   VelocityComponent.h
- * Author: ladis
- *
- * Created on August 25, 2013, 5:48 PM
- */
-
 #ifndef VELOCITYCOMPONENT_H
 #define	VELOCITYCOMPONENT_H
 
-#include <Artemis.h>
+#include <Artemis/Artemis.h>
 #include "../Vector2D.h"
 
 class VelocityComponent : public artemis::Component {

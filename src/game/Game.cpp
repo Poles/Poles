@@ -3,12 +3,13 @@
 #include <Artemis/SystemManager.h>
 #include <Artemis/EntityManager.h>
 #include <Artemis/Entity.h>
+#include "../core/ResourceManager.h"
 
 /* STATIC VARIABLES */
 artemis::World Game::world;
 artemis::SystemManager * Game::systemManager = world.getSystemManager();
 artemis::EntityManager * Game::entityManager = world.getEntityManager();
-SDL_Renderer * Game::rc = NULL;
+SDL_Renderer * Game::renderer = NULL;
 /*------------------*/
 
 
@@ -25,13 +26,14 @@ Game::Game() {
     
     /* ARTEMIS */
     this->movementSystem = (MovementSystem *)systemManager->setSystem(new MovementSystem());
+    this->renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
     
     systemManager->initializeAll();
 }
 
 Game::~Game() {
     // Free any SDL resource used
-    SDL_DestroyRenderer(this->rc);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(this->wnd);
     SDL_Quit();
 }
@@ -66,15 +68,29 @@ void Game::initialize() {
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                  w,h,
                                  SDL_WINDOW_SHOWN);
-    rc = SDL_CreateRenderer(wnd, -1, 0);
-    
-    Color bgColor("#7b68ee");
-    std::cout << bgColor.toString();
-    SDL_SetRenderDrawColor(rc, bgColor.red(), bgColor.green(), bgColor.blue(), bgColor.alpha()); // Black color for background
-    SDL_SetRenderDrawBlendMode(this->rc, SDL_BLENDMODE_BLEND);
+    renderer = SDL_CreateRenderer(wnd, -1, 0);
+
+    SDL_SetRenderDrawColor(renderer, 25, 25, 25, 255); // Black color for background
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
 void Game::mainLoop() {
+    /* TEST */
+    Vector2D position(100,100);
+    object = Game::createGameObject();
+    object->setPosition(position);
+    
+    // Load the sprite
+    unsigned int animations[1] = {2}; // 1 row with 2 frames
+    ResourceManager::loadImage("poles_dude", "images/poles_dude.png", 1, animations);
+    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    sprite->bindAnimation("Static", 0);
+    
+    // Add the sprite to the objects
+    object->addComponent(new SpriteRendererComponent(sprite));
+    object->addComponent(new VelocityComponent(0.5f, 0.5f));
+    /*------*/
+    
     while (this->run) {
         /* ARTEMIS */
         world.loopStart();
@@ -98,12 +114,20 @@ void Game::update() {
 }
 
 void Game::render() {
-    SDL_RenderPresent(this->rc);
-    SDL_RenderClear(this->rc);
+    SDL_RenderClear(renderer);
+    
+    /* TEST */
+    this->renderingSystem->process();
+    /*------*/
+    SDL_RenderPresent(renderer);
 }
 
 void Game::handleEvents() {
     SDL_Event event;
+    /* TEST */
+    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    Vector2D position(20, 20);
+    /*------*/
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_KEYDOWN:
@@ -120,6 +144,24 @@ void Game::handleEvents() {
                             this->showFPS = true;
                         }
                         break;
+                        /* TEST */
+                    case SDLK_1:
+                        childObject = Game::createGameObject();
+                        childObject->setPosition(position);
+                        childObject->setParent(object);
+                        childObject->addComponent(new SpriteRendererComponent(sprite));
+                        break;
+                        
+                        
+                    case SDLK_2:
+                        if (childObject->hasParent()) {
+                                childObject->removeParent();
+                        } else {
+                            childObject->setParent(object);
+                        }
+                        break;
+                        
+                        /*-----*/
                         
                     default:
                         break;
@@ -172,12 +214,28 @@ void Game::countFSP() {
     }
 }
 
+/**
+ * Creates a new Game Object to be used in the game.
+ * 
+ * It is initialized inside the Artemis-Cpp's entity systems and it is ready
+ * to attach components as needed. To destroy it use Game::destroyGameObject(GameObject * object).
+ * @return 
+ */
 GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
+    
+    return object;
+}
+
+void Game::destroyGameObject(GameObject * object) {
+    world.deleteEntity(object->entity);
+    
+    delete object;
+    object = NULL;
 }
 
 SDL_Renderer * Game::currentRenderer() {
-    return rc;
+    return renderer;
 }

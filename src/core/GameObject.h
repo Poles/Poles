@@ -1,21 +1,35 @@
 #ifndef GAMEOBJECT_H
 #define	GAMEOBJECT_H
 
-#include <Artemis.h>
+#include <Artemis/Artemis.h>
+#include "Vector2D.h"
 
 class Game;
 
 class GameObject {
-    // Let the Game class access the private constructor. This way no one except Game can
-    // create GameObjects.
+    // Game have permission to create Game Objects
     friend class Game;
 public:
+    void                        setParent(GameObject * parent);
+    void                        removeParent();
+    void                        addComponent(artemis::Component * component);
+    void                        removeComponent(artemis::Component * component);
+    Vector2D                    getPosition();
+    Vector2D                    getRealPosition();
+    
+    void                        setPosition(Vector2D & position);
+    
+    bool                        hasParent();
     
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
-    GameObject(artemis::Entity & entity);
+    GameObject(artemis::Entity & objectEntity);
     // Private constructor. User shouldn't be able to delete GameObjects without using Game::deleteGameObject()
     ~GameObject();
+    
+private:
+    GameObject *                parent;
+    artemis::Entity &           entity;
 
 };
 
