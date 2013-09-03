@@ -152,3 +152,4 @@ Podfile.lock
 # Windows NetBeans
 #
 /platforms/windows/Poles/dist/
+/platforms/windows/Poles/dist/Debug/*
