@@ -29,8 +29,12 @@
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f2" displayName="Game" projectFiles="true">
+      <itemPath>../../../src/game/Event.cpp</itemPath>
+      <itemPath>../../../src/game/Event.h</itemPath>
       <itemPath>../../../src/game/Game.cpp</itemPath>
       <itemPath>../../../src/game/Game.h</itemPath>
+      <itemPath>../../../src/game/GameState.cpp</itemPath>
+      <itemPath>../../../src/game/GameState.h</itemPath>
       <itemPath>../../../src/game/GameStateManager.cpp</itemPath>
       <itemPath>../../../src/game/GameStateManager.h</itemPath>
     </logicalFolder>
@@ -73,6 +77,7 @@
             <linkerLibLibItem>artemis</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -154,9 +159,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.cpp"
             ex="false"
@@ -279,9 +292,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.cpp"
             ex="false"
