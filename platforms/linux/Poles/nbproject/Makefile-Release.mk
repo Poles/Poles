@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
 	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
 	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
+	${OBJECTDIR}/_ext/957312044/TextRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
 	${OBJECTDIR}/_ext/608552716/Event.o \
@@ -49,6 +50,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608552716/GameState.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
 	${OBJECTDIR}/_ext/576904603/DebugState.o \
+	${OBJECTDIR}/_ext/576904603/IntroState.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
 
 
@@ -111,6 +113,11 @@ ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/compone
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
 
+${OBJECTDIR}/_ext/957312044/TextRendererComponent.o: ../../../src/core/components/TextRendererComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o ../../../src/core/components/TextRendererComponent.cpp
+
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
@@ -145,6 +152,11 @@ ${OBJECTDIR}/_ext/576904603/DebugState.o: ../../../src/game/states/DebugState.cp
 	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/DebugState.o ../../../src/game/states/DebugState.cpp
+
+${OBJECTDIR}/_ext/576904603/IntroState.o: ../../../src/game/states/IntroState.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/IntroState.o ../../../src/game/states/IntroState.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437

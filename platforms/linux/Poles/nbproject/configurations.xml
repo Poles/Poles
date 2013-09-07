@@ -8,6 +8,8 @@
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
+        <itemPath>../../../src/core/components/TextRendererComponent.cpp</itemPath>
+        <itemPath>../../../src/core/components/TextRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
@@ -32,6 +34,8 @@
       <logicalFolder name="f3" displayName="States" projectFiles="true">
         <itemPath>../../../src/game/states/DebugState.cpp</itemPath>
         <itemPath>../../../src/game/states/DebugState.h</itemPath>
+        <itemPath>../../../src/game/states/IntroState.cpp</itemPath>
+        <itemPath>../../../src/game/states/IntroState.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/game/Event.cpp</itemPath>
       <itemPath>../../../src/game/Event.h</itemPath>
@@ -62,7 +66,6 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
@@ -138,6 +141,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/TextRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/TextRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/VelocityComponent.h"
             ex="false"
             tool="3"
@@ -195,12 +208,21 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/game/states/IntroState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
@@ -281,6 +303,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/TextRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/TextRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/VelocityComponent.h"
             ex="false"
             tool="3"
@@ -334,6 +366,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/game/states/DebugState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.h"
             ex="false"
             tool="3"
             flavor2="0">

@@ -3,32 +3,22 @@
 #include "../Game.h"
 #include "../../core/ResourceManager.h"
 
-DebugState DebugState::instance;
-
 DebugState::DebugState() {
+    this->polesDude = NULL;
 }
 
 DebugState::~DebugState() {
 }
 
-/**
- * 
- * @return 
- */
-DebugState * DebugState::getInstance() {
-    return & instance;
-}
-
 void DebugState::onActivate() {
     this->polesDude = Game::createGameObject();
-    this->polesDude->addComponent(new VelocityComponent());
-    Vector2D position(20,20);
-    this->polesDude->setPosition(position);
-    
-    unsigned int animations[1] = {2};
-
-    Sprite * sprite = ResourceManager::getSprite("poles_dude");
+    unsigned int animations[1] = {1};
+    Sprite * sprite = ResourceManager::loadImage("test_image", "images/test_image.png", 1, animations);
     this->polesDude->addComponent(new SpriteRendererComponent(sprite));
+    
+    Vector2D position(100, 100);
+    this->polesDude->setPosition(position);
+    this->polesDude->addComponent(new VelocityComponent(1.0f, 0.0f));
 }
 
 void DebugState::onDeactivate() {

@@ -1,5 +1,6 @@
 #include "GameStateManager.h"
 #include "states/DebugState.h"
+#include "states/IntroState.h"
 
 GameState * GameStateManager::currentState = NULL;
 
@@ -46,7 +47,7 @@ void GameStateManager::setGameState(int gameStateID) {
             break;
             
         case GAMESTATE_INTRO:
-            
+            currentState = IntroState::getInstance();
             break;
             
         case GAMESTATE_GAME:
@@ -58,11 +59,7 @@ void GameStateManager::setGameState(int gameStateID) {
             break;
             
         case GAMESTATE_DEBUG:
-            currentState = DebugState::getInstance();
-            break;
-            
-        default:
-            currentState = NULL;
+            currentState = new DebugState();
             break;
         }
     

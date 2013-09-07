@@ -4,9 +4,11 @@
 #include "../GameState.h"
 #include "../../core/GameObject.h"
 
-class DebugState : public GameState{
+class DebugState : public GameState {
 public:    
-    static DebugState * getInstance();
+    DebugState();
+    
+    ~DebugState();    
     
     void onActivate();
     
@@ -18,16 +20,9 @@ public:
     
     void onKeyDown(SDL_Keycode key, Uint16 mod);
     
-    void onKeyUp(SDL_Keycode key, Uint16 mod);
-    
-private:
-    DebugState();
-    
-    ~DebugState();
+    void onKeyUp(SDL_Keycode key, Uint16 mod); 
         
-private:
-    static DebugState instance;
-    
+private:    
     GameObject * polesDude;
 
 };

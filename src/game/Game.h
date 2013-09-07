@@ -25,6 +25,8 @@ public:
     
     static SDL_Renderer *               currentRenderer();
     
+    static RenderingSystem *            getRenderingSystem();
+    
 private:
     void                                initialize();
     void                                loadResources();
@@ -48,7 +50,7 @@ private:
     static artemis::EntityManager *     entityManager;
     
     MovementSystem *                    movementSystem;
-    RenderingSystem *                   renderingSystem;
+    static RenderingSystem *                   renderingSystem;
     
     /* FPS */
     Uint32                              timeLastFrame;   // Time mark of the last frame (ms)

@@ -1,11 +1,15 @@
 #include "GameObject.h"
 #include "components/Components.h"
+#include <Artemis/ImmutableBag.h>
+#include <sstream>
 
 GameObject::GameObject(artemis::Entity & objectEntity):
 entity(objectEntity){
     // Every object in the game will have at least a position
     this->entity.addComponent(new PositionComponent());
     this->entity.refresh();
+    
+    this->parent = NULL;
 }
 
 GameObject::~GameObject() {
@@ -122,6 +126,10 @@ bool GameObject::hasParent() {
     return false;
 }
 
+/**
+ * 
+ * @param force
+ */
 void GameObject::addForce(Vector2D & force) {
     VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
     
@@ -130,7 +138,29 @@ void GameObject::addForce(Vector2D & force) {
     } else {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
                 "Missing Component",
-                "Error! - GameObject: Trying to add force to an object with no Velocity Component",
+                "Error! - GameObject: Trying to add force to an object with no VelocityComponent",
                 NULL);
     }
+}
+
+/**
+ * 
+ */
+void GameObject::showInfo() {
+   std::stringstream str;
+   
+   int numberOfComponents = 0;
+   int id = 0;
+   
+   id = this->entity.getId();
+   artemis::ImmutableBag<artemis::Component * > & components = this->entity.getComponents();
+   numberOfComponents = components.getCount();
+   
+   str << "ID = " << id << std::endl;
+   str << "Number of Components = " << numberOfComponents << std::endl;
+   
+   SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+           "GameObject",
+           str.str().c_str(),
+           NULL);
 }

@@ -23,6 +23,8 @@ public:
     
     void                        addForce(Vector2D & force);
     
+    void                        showInfo();
+    
 private:
     // Private constructor to not let the user create GameObjects without using Game::CreateGameObject()
     GameObject(artemis::Entity & objectEntity);

@@ -1,5 +1,7 @@
 #include "RenderingSystem.h"
 
+#include <sstream>
+
 RenderingSystem::RenderingSystem() {
     
     addComponentType<PositionComponent>();
@@ -16,6 +18,6 @@ RenderingSystem::~RenderingSystem() {
 }
 
 void RenderingSystem::processEntity(artemis::Entity& e) {
-    Vector2D position = positionMapper.get(e)->getPosition();
+    Vector2D position = positionMapper.get(e)->getPosition();    
     spriteMapper.get(e)->render(position);
 }

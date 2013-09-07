@@ -10,6 +10,9 @@
 artemis::World Game::world;
 artemis::SystemManager * Game::systemManager = world.getSystemManager();
 artemis::EntityManager * Game::entityManager = world.getEntityManager();
+
+RenderingSystem * Game::renderingSystem = NULL;
+
 SDL_Renderer * Game::renderer = NULL;
 bool Game::run;
 /*------------------*/
@@ -28,7 +31,7 @@ Game::Game() {
     
     /* ARTEMIS */
     this->movementSystem = (MovementSystem *)systemManager->setSystem(new MovementSystem());
-    this->renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
+    renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
     
     systemManager->initializeAll();
 }
@@ -76,17 +79,17 @@ void Game::initialize() {
                                  SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(wnd, -1, 0);
 
-    SDL_SetRenderDrawColor(renderer, 25, 25, 25, 255); // Clear Color
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Clear Color
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
     loadResources();
 }
 
-void Game::mainLoop() {
-    world.loopStart();
-    world.setDelta(0.0016f);    // Why this value?
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+void Game::mainLoop() {    
+    GameStateManager::setGameState(GAMESTATE_INTRO);
     while (run) {
+        world.loopStart();
+        world.setDelta(0.0016f);    // Why this value?
         /* ARTEMIS */        
         this->movementSystem->process();
         /*---------*/
@@ -115,7 +118,7 @@ void Game::update() {
 void Game::render() {
     SDL_RenderClear(renderer);
 
-    this->renderingSystem->process();
+    renderingSystem->process();
     
     GameStateManager::onRender();
 
@@ -190,6 +193,10 @@ SDL_Renderer * Game::currentRenderer() {
     return renderer;
 }
 
+RenderingSystem * Game::getRenderingSystem() {
+    return renderingSystem;
+}
+
 /**
  * 
  */
@@ -197,5 +204,9 @@ void Game::loadResources() {
     Sprite * sprite;
     unsigned int polesAnim[1] = {2};
     sprite = ResourceManager::loadImage("poles_dude", "images/poles_dude.png", 1, polesAnim);
+    sprite->bindAnimation("NONE", 0);
+    
+    unsigned int testAnim[1] = {1};
+    sprite = ResourceManager::loadImage("test_image", "images/test_image.png", 1, testAnim);
     sprite->bindAnimation("NONE", 0);
 }

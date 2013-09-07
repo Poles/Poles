@@ -28,9 +28,11 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         
         // We search the longest animation which will determine the number of pixels per column
         unsigned int maxNumberOfFrames = 1;
-        for (int animation = 0; animation < animations; animation++) {
-            if (framesPerAnimation[animation] > maxNumberOfFrames) {
-                maxNumberOfFrames = framesPerAnimation[animation];
+        if (framesPerAnimation != NULL) {
+            for (int animation = 0; animation < animations; animation++) {
+                if (framesPerAnimation[animation] > maxNumberOfFrames) {
+                    maxNumberOfFrames = framesPerAnimation[animation];
+                }
             }
         }
         widthPerColumn = this->width / maxNumberOfFrames;
