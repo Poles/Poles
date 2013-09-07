@@ -33,6 +33,8 @@ private:
     ResourceManager();
     ~ResourceManager();
     
+    std::string                                 fixWindowsPath(std::string & path);
+    
 private:
     static ResourceManager *                    classInstance;
     static std::map<std::string, Sprite * >    images;

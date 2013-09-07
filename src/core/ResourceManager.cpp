@@ -43,8 +43,19 @@ Sprite * ResourceManager::loadImage(const char * name, const char * imagePath, u
         imageAbsolutePath.append(workingPath);
         imageAbsolutePath.append("/assets/");
         imageAbsolutePath.append(imagePath);
+
+#ifdef _WIN64
+      imageAbsolutePath = classInstance->fixWindowsPath(imageAbsolutePath);
+#elif _WIN32
+      imageAbsolutePath = classInstance->fixWindowsPath(imageAbsolutePath);
+      
+#elif __linux
+      // Linux don't need anything
+#elif __APPLE__
+      // Path to Contents/Resources inside the .app should be added
+#endif
         
-        sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
+        Sprite * sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
 
         images.insert(std::pair<std::string, Sprite * >(std::string(name), sprite));
     } else {
@@ -52,6 +63,17 @@ Sprite * ResourceManager::loadImage(const char * name, const char * imagePath, u
     }
     
     return sprite;
+}
+
+std::string ResourceManager::fixWindowsPath(std::string & path) {
+    std::string windowsPath(path);
+    
+    for (int characterIndex = 0; characterIndex < path.length(); characterIndex++) {
+        if (windowsPath[characterIndex] == '/') {
+            windowsPath.replace(characterIndex, 1, "\\");
+        }
+    }
+    return windowsPath;
 }
 
 /**
