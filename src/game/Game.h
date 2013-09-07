@@ -50,7 +50,7 @@ private:
     static artemis::EntityManager *     entityManager;
     
     MovementSystem *                    movementSystem;
-    static RenderingSystem *                   renderingSystem;
+    static RenderingSystem *            renderingSystem;
     
     /* FPS */
     Uint32                              timeLastFrame;   // Time mark of the last frame (ms)

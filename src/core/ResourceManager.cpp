@@ -55,7 +55,7 @@ Sprite * ResourceManager::loadImage(const char * name, const char * imagePath, u
       // Path to Contents/Resources inside the .app should be added
 #endif
         
-        Sprite * sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
+        sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
 
         images.insert(std::pair<std::string, Sprite * >(std::string(name), sprite));
     } else {
