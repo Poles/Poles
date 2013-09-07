@@ -6,6 +6,7 @@
 #include <Artemis/Artemis.h>
 #include "../core/systems/MovementSystem.h"
 #include "../core/systems/RenderingSystem.h"
+#include "../core/systems/TextRenderingSystem.h"
 #include "../core/GameObject.h"
 
 #define GAME_NAME "Poles"
@@ -24,8 +25,6 @@ public:
     static void                         destroyGameObject(GameObject * object);
     
     static SDL_Renderer *               currentRenderer();
-    
-    static RenderingSystem *            getRenderingSystem();
     
 private:
     void                                initialize();
@@ -50,7 +49,8 @@ private:
     static artemis::EntityManager *     entityManager;
     
     MovementSystem *                    movementSystem;
-    static RenderingSystem *            renderingSystem;
+    RenderingSystem *                   renderingSystem;
+    TextRenderingSystem *               textRenderingSystem;
     
     /* FPS */
     Uint32                              timeLastFrame;   // Time mark of the last frame (ms)

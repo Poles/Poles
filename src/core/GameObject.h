@@ -22,6 +22,7 @@ public:
     bool                        hasParent();
     
     void                        addForce(Vector2D & force);
+    void                        resetForce();
     
     void                        showInfo();
     

@@ -24,6 +24,8 @@ public:
         
 private:    
     GameObject * polesDude;
+    GameObject * text;
+    bool keyDown;
 
 };
 

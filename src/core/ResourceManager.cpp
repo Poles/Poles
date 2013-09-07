@@ -6,6 +6,7 @@
 /* STATIC VARIABLES */
 ResourceManager * ResourceManager::classInstance = 0;
 std::map<std::string, Sprite * > ResourceManager::images;
+std::map<std::string, TTF_Font * > ResourceManager::fonts;
 char ResourceManager::workingPath[FILENAME_MAX];
 /*------------------*/
 
@@ -131,4 +132,51 @@ void ResourceManager::showSpritesDataBase() {
             "Resource Manager",
             str.str().c_str(),
             NULL);
+}
+
+/**
+ * 
+ * @param fontName
+ * @return 
+ */
+TTF_Font * ResourceManager::getFont(const char * fontName) {
+    // Search for the font in the already loaded fonts
+    std::map<std::string, TTF_Font * >::iterator font;
+    
+    font = fonts.find(fontName);
+    
+    if (font != fonts.end()) {
+        return font->second;
+    } else {
+        // Load the font because it isn't present in the fonts data base
+        std::string fontPath;
+        
+        fontPath.append(workingPath);
+        fontPath.append("/assets/fonts/");
+        fontPath.append(fontName);
+        fontPath.append(".ttf");
+        
+#ifdef _WIN64
+        fontPath = classInstance->fixWindowsPath(fontPath);
+#elif _WIN32
+        fontPath = classInstance->fixWindowsPath(fontPath);
+#elif __linux
+      // Linux don't need anything
+#elif __APPLE__
+      // Path to Contents/Resources inside the .app should be added
+#endif
+        if (!TTF_WasInit()) {
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Font loading", "Error loading font. SDL_ttf is not initialized.", NULL);
+        }
+        TTF_Font * fontFile = TTF_OpenFont(fontPath.c_str(), TEXT_DEFAULT_POINTSIZE);
+        
+        if (fontFile == NULL) {
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Resource Manager", TTF_GetError(), NULL);
+            return NULL;
+        }
+
+        fonts.insert(std::pair<std::string, TTF_Font *>(std::string(fontName), fontFile));
+        
+        return fontFile;
+    }
 }

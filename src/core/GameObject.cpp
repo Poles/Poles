@@ -143,6 +143,19 @@ void GameObject::addForce(Vector2D & force) {
     }
 }
 
+void GameObject::resetForce() {
+    VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
+    
+    if (component != NULL) {
+        component->resetVelocity();
+    } else {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+                "Missing Component",
+                "Error! - GameObject: Trying to reset force to an object with no VelocityComponent",
+                NULL);
+    }
+}
+
 /**
  * 
  */

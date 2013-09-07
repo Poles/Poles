@@ -5,13 +5,12 @@
 #include <Artemis/Entity.h>
 #include "../core/ResourceManager.h"
 #include "GameStateManager.h"
+#include <SDL2/SDL_ttf.h>
 
 /* STATIC VARIABLES */
 artemis::World Game::world;
 artemis::SystemManager * Game::systemManager = world.getSystemManager();
 artemis::EntityManager * Game::entityManager = world.getEntityManager();
-
-RenderingSystem * Game::renderingSystem = NULL;
 
 SDL_Renderer * Game::renderer = NULL;
 bool Game::run;
@@ -31,7 +30,8 @@ Game::Game() {
     
     /* ARTEMIS */
     this->movementSystem = (MovementSystem *)systemManager->setSystem(new MovementSystem());
-    renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
+    this->renderingSystem = (RenderingSystem *)systemManager->setSystem(new RenderingSystem());
+    this->textRenderingSystem = (TextRenderingSystem *)systemManager->setSystem(new TextRenderingSystem());
     
     systemManager->initializeAll();
 }
@@ -40,6 +40,7 @@ Game::~Game() {
     // Free any SDL resource used
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(this->wnd);
+    TTF_Quit();
     SDL_Quit();
 }
 
@@ -69,6 +70,13 @@ void Game::initialize() {
         std::cout << SDL_GetError() << std::endl;
     }
     
+    /* TTF */
+    error = TTF_Init();
+    
+    if (error != 0) {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "SDL2_TTF Error!", TTF_GetError(), NULL);
+    }
+    
     /* Testing only */
     int w = mode.w / 2; // Remove / 2 for release
     int h = mode.h / 2;
@@ -86,7 +94,7 @@ void Game::initialize() {
 }
 
 void Game::mainLoop() {    
-    GameStateManager::setGameState(GAMESTATE_INTRO);
+    GameStateManager::setGameState(GAMESTATE_DEBUG);
     while (run) {
         world.loopStart();
         world.setDelta(0.0016f);    // Why this value?
@@ -118,7 +126,8 @@ void Game::update() {
 void Game::render() {
     SDL_RenderClear(renderer);
 
-    renderingSystem->process();
+    this->renderingSystem->process();
+    this->textRenderingSystem->process();
     
     GameStateManager::onRender();
 
@@ -191,10 +200,6 @@ void Game::destroyGameObject(GameObject * object) {
 
 SDL_Renderer * Game::currentRenderer() {
     return renderer;
-}
-
-RenderingSystem * Game::getRenderingSystem() {
-    return renderingSystem;
 }
 
 /**

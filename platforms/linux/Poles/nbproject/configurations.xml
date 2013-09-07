@@ -17,6 +17,8 @@
         <itemPath>../../../src/core/systems/MovementSystem.h</itemPath>
         <itemPath>../../../src/core/systems/RenderingSystem.cpp</itemPath>
         <itemPath>../../../src/core/systems/RenderingSystem.h</itemPath>
+        <itemPath>../../../src/core/systems/TextRenderingSystem.cpp</itemPath>
+        <itemPath>../../../src/core/systems/TextRenderingSystem.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/core/Color.cpp</itemPath>
       <itemPath>../../../src/core/Color.h</itemPath>
@@ -85,6 +87,7 @@
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
             <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
+            <linkerLibLibItem>freetype</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -172,6 +175,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/systems/RenderingSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -334,6 +347,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/systems/RenderingSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.h"
             ex="false"
             tool="3"
             flavor2="0">

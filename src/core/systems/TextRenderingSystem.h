@@ -1,13 +1,13 @@
-#ifndef RENDERINGSYSTEM_H
-#define	RENDERINGSYSTEM_H
+#ifndef TEXTRENDERINGSYSTEM_H
+#define	TEXTRENDERINGSYSTEM_H
 
 #include <Artemis/Artemis.h>
 #include "../components/Components.h"
 
-class RenderingSystem : public artemis::EntityProcessingSystem {
+class TextRenderingSystem : public artemis::EntityProcessingSystem{
 public:
-    RenderingSystem();
-    virtual ~RenderingSystem();
+    TextRenderingSystem();
+    virtual ~TextRenderingSystem();
     
     void                                                initialize();
     
@@ -15,8 +15,8 @@ public:
     
 private:
     artemis::ComponentMapper<PositionComponent>         positionMapper;
-    artemis::ComponentMapper<SpriteRendererComponent>   spriteMapper;
+    artemis::ComponentMapper<TextRendererComponent>     rendererMapper;
 };
 
-#endif	/* RENDERINGSYSTEM_H */
+#endif	/* TEXTRENDERINGSYSTEM_H */
 

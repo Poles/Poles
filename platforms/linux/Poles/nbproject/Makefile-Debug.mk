@@ -45,6 +45,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/957312044/TextRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
+	${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o \
 	${OBJECTDIR}/_ext/608552716/Event.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameState.o \
@@ -68,7 +69,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/local/lib -lartemis -lSDL2 -lSDL2_image -lSDL_ttf
+LDLIBSOPTIONS=-L/usr/local/lib -lartemis -lSDL2 -lSDL2_image -lSDL_ttf -lfreetype
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -127,6 +128,11 @@ ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o: ../../../src/core/systems/Render
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o ../../../src/core/systems/RenderingSystem.cpp
+
+${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o: ../../../src/core/systems/TextRenderingSystem.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o ../../../src/core/systems/TextRenderingSystem.cpp
 
 ${OBJECTDIR}/_ext/608552716/Event.o: ../../../src/game/Event.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
