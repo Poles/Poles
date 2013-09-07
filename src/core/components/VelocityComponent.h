@@ -19,6 +19,15 @@ public:
         
     }
     
+    void addVelocity(Vector2D & velocity) {
+        this->velocity = this->velocity + velocity;
+    }
+    
+    void resetVelocity() {
+        velocity.setX(0.0f);
+        velocity.setY(0.0f);
+    }
+    
     inline Vector2D velocityVector() { return velocity; }
         
 private:

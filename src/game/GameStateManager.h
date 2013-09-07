@@ -8,7 +8,8 @@ enum{
     GAMESTATE_NONE,
     GAMESTATE_INTRO,
     GAMESTATE_GAME,
-    GAMESTATE_CONSOLE
+    GAMESTATE_CONSOLE,
+    GAMESTATE_DEBUG
 };
 
 class GameStateManager {

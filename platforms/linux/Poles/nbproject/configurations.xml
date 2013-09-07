@@ -29,6 +29,10 @@
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f2" displayName="Game" projectFiles="true">
+      <logicalFolder name="f3" displayName="States" projectFiles="true">
+        <itemPath>../../../src/game/states/DebugState.cpp</itemPath>
+        <itemPath>../../../src/game/states/DebugState.h</itemPath>
+      </logicalFolder>
       <itemPath>../../../src/game/Event.cpp</itemPath>
       <itemPath>../../../src/game/Event.h</itemPath>
       <itemPath>../../../src/game/Game.cpp</itemPath>
@@ -181,6 +185,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/game/states/DebugState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -310,6 +324,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.h"
             ex="false"
             tool="3"
             flavor2="0">

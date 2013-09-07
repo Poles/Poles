@@ -23,9 +23,11 @@ public:
     
     static void                                 initialize();
     
-    static void                                 loadImage(const char * name, const char * imagePath, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
+    static Sprite *                             loadImage(const char * name, const char * imagePath, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
     static void                                 deleteImage(const char * name);
     static Sprite *                             getSprite(const char * name);
+    
+    static void                                 showSpritesDataBase();
 
 private:
     ResourceManager();
@@ -33,7 +35,7 @@ private:
     
 private:
     static ResourceManager *                    classInstance;
-    static std::map<const char *, Sprite * >    images;
+    static std::map<std::string, Sprite * >    images;
     
     static char                                 workingPath[FILENAME_MAX];
 };

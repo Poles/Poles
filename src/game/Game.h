@@ -18,6 +18,8 @@ public:
     
     void                                start();
     
+    static void                         exit();
+    
     static GameObject *                 createGameObject();
     static void                         destroyGameObject(GameObject * object);
     
@@ -25,6 +27,7 @@ public:
     
 private:
     void                                initialize();
+    void                                loadResources();
     void                                mainLoop();
     void                                update();
     void                                handleEvents();
@@ -36,7 +39,8 @@ private:
 private:
     SDL_Window* wnd;
     static SDL_Renderer *               renderer;
-    bool run;
+    
+    static bool                         run;
     
     /* ARTEMIS */
     static artemis::World               world;
@@ -56,11 +60,6 @@ private:
     
     /* FLAGS */
     bool                                showFPS;
-    
-    /* TEST */
-    GameObject *                        object;
-    GameObject *                        childObject;
-    /*------*/
 };
 
 #endif /* defined(__Poles__Game__) */

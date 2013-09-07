@@ -1,10 +1,11 @@
 #include "ResourceManager.h"
 
 #include <iostream>
+#include <sstream>
 
 /* STATIC VARIABLES */
 ResourceManager * ResourceManager::classInstance = 0;
-std::map<const char *, Sprite * > ResourceManager::images;
+std::map<std::string, Sprite * > ResourceManager::images;
 char ResourceManager::workingPath[FILENAME_MAX];
 /*------------------*/
 
@@ -35,19 +36,22 @@ void ResourceManager::initialize() {
  * @param rows          Number of rows of the Sprite. If it is a single frame Sprite don't specify a value.
  * @param columns       Number of columns of the Sprite. If it is a single frame Sprite don't specify a value.
  */
-void ResourceManager::loadImage(const char * name, const char * imagePath, unsigned int animations, unsigned int * framesPerAnimation) {
+Sprite * ResourceManager::loadImage(const char * name, const char * imagePath, unsigned int animations, unsigned int * framesPerAnimation) {
+    Sprite * sprite = NULL;
     if (images.count(name) == 0) {
         std::string imageAbsolutePath;
         imageAbsolutePath.append(workingPath);
         imageAbsolutePath.append("/assets/");
         imageAbsolutePath.append(imagePath);
         
-        Sprite * sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
+        sprite = new Sprite(imageAbsolutePath.c_str(), animations, framesPerAnimation);
 
-        images.insert(std::pair<const char *, Sprite * >(name, sprite));
+        images.insert(std::pair<std::string, Sprite * >(std::string(name), sprite));
     } else {
         std::cout << "Error! - ResourceManager: Registering an image with an already used name (" << name << ")" << std::endl;
     }
+    
+    return sprite;
 }
 
 /**
@@ -55,9 +59,9 @@ void ResourceManager::loadImage(const char * name, const char * imagePath, unsig
  * @param name  Name that identifies the image in the system.
  */
 void ResourceManager::deleteImage(const char * name) {
-    std::map<const char *, Sprite * >::iterator image;
+    std::map<std::string, Sprite * >::iterator image;
     
-    image = images.find(name);
+    image = images.find(std::string(name));
     
     if (image != images.end()) {
         Sprite * sprite = image->second;
@@ -75,14 +79,34 @@ void ResourceManager::deleteImage(const char * name) {
  * @param name  Name that identifies the image in the system.
  * @return      Pointer to the image or NULL if it is not present on the system.
  */
-Sprite * ResourceManager::getSprite(const char* name) {
-    std::map<const char *, Sprite * >::iterator sprite;
+Sprite * ResourceManager::getSprite(const char * name) {
+    std::map<std::string, Sprite * >::iterator sprite;
     
-    sprite = images.find(name);
+    sprite = images.find(std::string(name));
     
     if (sprite != images.end()) {
         return sprite->second;
     } else {
+        std::stringstream str;
+        
+        str << "Unable to find image " << name << " in the Sprites' data base.\n Have you loaded it before using?";
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+                "Resource Manager",
+                str.str().c_str(),
+                NULL);
         return NULL;
     }
+}
+
+void ResourceManager::showSpritesDataBase() {
+    std::stringstream str;
+    
+    for (std::map<std::string, Sprite * >::iterator sprite = images.begin(); sprite != images.end(); sprite++) {
+        str << "[" << sprite->first << "] = " << sprite->second << std::endl;
+    }
+    
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+            "Resource Manager",
+            str.str().c_str(),
+            NULL);
 }

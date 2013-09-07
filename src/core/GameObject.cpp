@@ -121,3 +121,16 @@ bool GameObject::hasParent() {
     
     return false;
 }
+
+void GameObject::addForce(Vector2D & force) {
+    VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
+    
+    if (component != NULL) {
+        component->addVelocity(force);
+    } else {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+                "Missing Component",
+                "Error! - GameObject: Trying to add force to an object with no Velocity Component",
+                NULL);
+    }
+}

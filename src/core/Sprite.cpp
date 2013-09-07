@@ -63,7 +63,6 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         std::cout << "Error! - Image " << imageFile << " couldn't be loaded" << std::endl;
         std::cout << IMG_GetError() << std::endl;
     }
-    std::cout << std::endl;
 }
 
 Sprite::Sprite(const Sprite& orig) {

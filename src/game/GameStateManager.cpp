@@ -1,4 +1,5 @@
 #include "GameStateManager.h"
+#include "states/DebugState.h"
 
 GameState * GameStateManager::currentState = NULL;
 
@@ -6,7 +7,7 @@ GameState * GameStateManager::currentState = NULL;
  * 
  * @param event
  */
-void GameStateManager::onEvent(SDL_Event* event) {
+void GameStateManager::onEvent(SDL_Event * event) {
     if (currentState != NULL) {
         currentState->onEvent(event);
     }
@@ -56,13 +57,17 @@ void GameStateManager::setGameState(int gameStateID) {
             
             break;
             
+        case GAMESTATE_DEBUG:
+            currentState = DebugState::getInstance();
+            break;
+            
         default:
             currentState = NULL;
             break;
-            
-        if (currentState != NULL) {
-            currentState->onActivate();
         }
+    
+    if (currentState != NULL) {
+            currentState->onActivate();
     }
 }
 

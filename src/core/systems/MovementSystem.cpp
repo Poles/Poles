@@ -1,4 +1,6 @@
 #include "MovementSystem.h"
+#include <SDL2/SDL.h>
+#include <sstream>
 
 MovementSystem::MovementSystem() {
     addComponentType<PositionComponent>();
@@ -13,7 +15,7 @@ void MovementSystem::initialize() {
 MovementSystem::~MovementSystem() {
 }
 
-void MovementSystem::processEntity(artemis::Entity& e) {
+void MovementSystem::processEntity(artemis::Entity & e) {
     Vector2D velocity = velocityMapper.get(e)->velocityVector();
     positionMapper.get(e)->move(velocity);
 }

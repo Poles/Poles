@@ -10,7 +10,7 @@ SpriteRendererComponent::SpriteRendererComponent(Sprite * sprite) {
     this->oldTime = SDL_GetTicks();
     this->oscillate = true;
     
-    this->currentAnimation = sprite->getAnimationName(0);       // As default, the frist animation
+    this->currentAnimation = sprite->getAnimationName(0);       // As default, the first animation
 }
 
 SpriteRendererComponent::~SpriteRendererComponent() {
@@ -24,8 +24,10 @@ void SpriteRendererComponent::setFrameRate(int frameRate) {
     this->frameRate = frameRate;
 }
 
-void SpriteRendererComponent::changeAnimation(const char* name) {
-    
+void SpriteRendererComponent::changeAnimation(const char * name) {
+    if (this->sprite->getAnimationIndex(name) != -1) {
+        this->currentAnimation = name;
+    }
 }
 
 void SpriteRendererComponent::updateAnimation() {

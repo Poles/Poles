@@ -48,6 +48,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameState.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
+	${OBJECTDIR}/_ext/576904603/DebugState.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
 
 
@@ -139,6 +140,11 @@ ${OBJECTDIR}/_ext/608552716/GameStateManager.o: ../../../src/game/GameStateManag
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
+
+${OBJECTDIR}/_ext/576904603/DebugState.o: ../../../src/game/states/DebugState.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/DebugState.o ../../../src/game/states/DebugState.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
