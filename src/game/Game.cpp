@@ -87,7 +87,7 @@ void Game::initialize() {
                                  SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(wnd, -1, 0);
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Clear Color
+    SDL_SetRenderDrawColor(renderer, 60, 60, 60, 255); // Clear Color
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
     loadResources();

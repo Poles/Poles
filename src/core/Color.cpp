@@ -52,6 +52,11 @@ Color::Color(const char* hexString, const Uint8 alpha) {
     }
 }
 
+Color::Color(const Color & other) {
+    this->color = other.color;
+    this->_a = other._a;
+}
+
 void Color::setRed(int value){
     if (value > 255){
         value = 255;
@@ -116,7 +121,8 @@ const Uint8 Color::alpha(){
     return this->_a;
 }
 
-SDL_Color Color::toSDLColor(){    
+SDL_Color Color::toSDLColor(){
+    this->color.a = this->_a;
     return this->color;
 }
 

@@ -12,7 +12,7 @@ class GameObject {
 public:
     void                        setParent(GameObject * parent);
     void                        removeParent();
-    void                        addComponent(artemis::Component * component);
+    artemis::Component *        addComponent(artemis::Component * component);
     void                        removeComponent(artemis::Component * component);
     Vector2D                    getPosition();
     Vector2D                    getRealPosition();

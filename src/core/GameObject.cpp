@@ -55,17 +55,18 @@ void GameObject::removeParent() {
  * Adds a component to the Game Object.
  * @param component     Component derived from artemis::Component.
  */
-void GameObject::addComponent(artemis::Component * component) {
+artemis::Component * GameObject::addComponent(artemis::Component * component) {
     if (component != NULL) {
         this->entity.addComponent(component);
         this->entity.refresh();
     } else {
         std::cout << "Error! - You tried to attach unnitialized component to GameObject " << this->entity.getId() << std::endl;
     }
+    return component;
 }
 
 void GameObject::removeComponent(artemis::Component* component) {
-    
+    // TODO
 }
 
 /**

@@ -18,6 +18,9 @@ public:
     void                                setBackgroundColor(Color & color);
     void                                setForegroundColor(Color & color);
     
+    inline Color &                      getBackgroundColor() { return this->backgroundColor; }
+    inline Color &                      getForgroundColor() { return this->foregroundColor; }
+    
     void                                setFont(const char * fontName);
     
     void                                setPointSize(int pointSize);

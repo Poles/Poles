@@ -11,6 +11,7 @@ public:
     Color();
     Color(int r, int g, int b, int a);
     Color(const char* hexString, const Uint8 alpha = 255);
+    Color(const Color & other);
     
     void                        setRed(int value);
     void                        setGreen(int value);
@@ -61,6 +62,7 @@ namespace presetColors {
     static Color COLOR_TAN("#d1b26f");
     static Color COLOR_CYAN("00ffff");
     static Color COLOR_AQUA("#13eac9");
+    static Color COLOR_TRANSPARENT(0,0,0,0);
 }
 
 #endif /* defined(__Poles__Color__) */

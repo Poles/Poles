@@ -2,6 +2,7 @@
 
 #include "../Game.h"
 #include "../../core/ResourceManager.h"
+#include "../../core/Color.h"
 
 DebugState::DebugState() {
     this->polesDude = NULL;
@@ -13,7 +14,6 @@ DebugState::~DebugState() {
 
 void DebugState::onActivate() {
     this->polesDude = Game::createGameObject();
-    unsigned int animations[1] = {2};
     Sprite * sprite = ResourceManager::getSprite("poles_dude");
     this->polesDude->addComponent(new SpriteRendererComponent(sprite));
     
@@ -23,9 +23,10 @@ void DebugState::onActivate() {
     
     /* TEXT */
     this->text = Game::createGameObject();
-    this->text->addComponent(new TextRendererComponent("Test text!", "FreeSans"));
+    TextRendererComponent * component = (TextRendererComponent *)this->text->addComponent(new TextRendererComponent("Test text!", "Mojang"));
+    component->setForegroundColor(presetColors::COLOR_WHITE);
     position.setX(200);
-    position.setY(10);
+    position.setY(20);
     this->text->setPosition(position);
 }
 

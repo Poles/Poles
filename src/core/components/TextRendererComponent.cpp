@@ -6,8 +6,7 @@ TextRendererComponent::TextRendererComponent() {
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->font = ResourceManager::getFont(TEXT_DEFAULT_FONT);
     this->foregroundColor = presetColors::COLOR_BLACK;
-    this->backgroundColor = presetColors::COLOR_WHITE;
-    this->backgroundColor.setAlpha(0);  // Transparent
+    this->backgroundColor = presetColors::COLOR_TRANSPARENT;
 }
 
 TextRendererComponent::TextRendererComponent(std::string text, const char * fontName) {
@@ -15,8 +14,7 @@ TextRendererComponent::TextRendererComponent(std::string text, const char * font
     this->text = text;
     this->font = ResourceManager::getFont(fontName);
     this->foregroundColor = presetColors::COLOR_BLACK;
-    this->backgroundColor = presetColors::COLOR_WHITE;
-    this->backgroundColor.setAlpha(0);  // Transparent
+    this->backgroundColor = presetColors::COLOR_TRANSPARENT;
 }
 
 TextRendererComponent::~TextRendererComponent() {
@@ -68,11 +66,19 @@ void TextRendererComponent::setPointSize(int pointSize) {
  * @param position
  */
 void TextRendererComponent::render(Vector2D & position) {
-    SDL_Surface * textSurface = TTF_RenderText(
+    SDL_Surface * textSurface;
+    if (this->backgroundColor.alpha() == 0) {
+        textSurface = TTF_RenderText_Blended(
+                this->font,
+                this->text.c_str(),
+                this->foregroundColor.toSDLColor());
+    } else {
+        textSurface = TTF_RenderText(
             this->font,
             this->text.c_str(),
             this->foregroundColor.toSDLColor(),
             this->backgroundColor.toSDLColor());
+    }
     
     SDL_Texture * textTexture = SDL_CreateTextureFromSurface(Game::currentRenderer(), textSurface);
     

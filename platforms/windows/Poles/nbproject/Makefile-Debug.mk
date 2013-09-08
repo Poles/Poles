@@ -69,7 +69,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf -lSDL2_ttf.dll
+LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -82,92 +82,92 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles.exe: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Color.o ../../../src/core/Color.cpp
 
 ${OBJECTDIR}/_ext/608447161/GameObject.o: ../../../src/core/GameObject.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/GameObject.o ../../../src/core/GameObject.cpp
 
 ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
 
 ${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
 ${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/PositionComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
 
 ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/components/SpriteRendererComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
 
 ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o: ../../../src/core/components/TextRendererComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o ../../../src/core/components/TextRendererComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o ../../../src/core/components/TextRendererComponent.cpp
 
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/MovementSystem.o ../../../src/core/systems/MovementSystem.cpp
 
 ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o: ../../../src/core/systems/RenderingSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o ../../../src/core/systems/RenderingSystem.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/RenderingSystem.o ../../../src/core/systems/RenderingSystem.cpp
 
 ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o: ../../../src/core/systems/TextRenderingSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o ../../../src/core/systems/TextRenderingSystem.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o ../../../src/core/systems/TextRenderingSystem.cpp
 
 ${OBJECTDIR}/_ext/608552716/Event.o: ../../../src/game/Event.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Event.o ../../../src/game/Event.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Event.o ../../../src/game/Event.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Game.o ../../../src/game/Game.cpp
 
 ${OBJECTDIR}/_ext/608552716/GameState.o: ../../../src/game/GameState.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameState.o ../../../src/game/GameState.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameState.o ../../../src/game/GameState.cpp
 
 ${OBJECTDIR}/_ext/608552716/GameStateManager.o: ../../../src/game/GameStateManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/GameStateManager.o ../../../src/game/GameStateManager.cpp
 
 ${OBJECTDIR}/_ext/576904603/DebugState.o: ../../../src/game/states/DebugState.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/DebugState.o ../../../src/game/states/DebugState.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/DebugState.o ../../../src/game/states/DebugState.cpp
 
 ${OBJECTDIR}/_ext/576904603/IntroState.o: ../../../src/game/states/IntroState.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/IntroState.o ../../../src/game/states/IntroState.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/IntroState.o ../../../src/game/states/IntroState.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -Dmain=SDL_main -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/main.o ../../../src/main.cpp
 
 # Subprojects
 .build-subprojects:
