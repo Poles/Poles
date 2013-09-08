@@ -159,3 +159,8 @@ Podfile.lock
 #
 
 *.psd
+
+####
+# Qt
+#
+build/

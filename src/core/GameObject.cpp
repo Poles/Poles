@@ -82,6 +82,7 @@ Vector2D GameObject::getPosition() {
         // Something terrible happened!
         std::cout << "Error! - GameObject " << this->entity.getId() << " has no position component." << std::endl;
     }
+    return Vector2D();
 }
 
 /**

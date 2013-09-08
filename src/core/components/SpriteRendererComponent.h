@@ -26,7 +26,7 @@ private:
     /* ANIMATION */
     const char *                        currentAnimation;
     int                                 currentAnimationFrame;
-    int                                 frameRate;
+    unsigned int                        frameRate;
     int                                 oldTime;
     int                                 frameIncrement;
     bool                                oscillate;

@@ -29,7 +29,7 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         // We search the longest animation which will determine the number of pixels per column
         unsigned int maxNumberOfFrames = 1;
         if (framesPerAnimation != NULL) {
-            for (int animation = 0; animation < animations; animation++) {
+            for (unsigned int animation = 0; animation < animations; animation++) {
                 if (framesPerAnimation[animation] > maxNumberOfFrames) {
                     maxNumberOfFrames = framesPerAnimation[animation];
                 }
@@ -41,13 +41,13 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         this->heightPerFrame = heightPerRow;
         
         SDL_Rect * frameBox = NULL;
-        for (int animation = 0; animation < animations; animation++) {
+        for (unsigned int animation = 0; animation < animations; animation++) {
             // Insert a new row of animations
             unsigned int numberOfFrames = framesPerAnimation[animation];
             std::vector<SDL_Rect> row(numberOfFrames);
             this->frames.push_back(row);
             
-            for (int frame = 0; frame < numberOfFrames; frame++) {
+            for (unsigned int frame = 0; frame < numberOfFrames; frame++) {
                 frameBox = new SDL_Rect;
                 
                 frameBox->x = frame * widthPerColumn;
@@ -67,10 +67,6 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
     }
 }
 
-Sprite::Sprite(const Sprite& orig) {
-    
-}
-
 Sprite::~Sprite() {
     SDL_DestroyTexture(this->image);
 }
@@ -82,9 +78,9 @@ Sprite::~Sprite() {
  */
 void Sprite::showAnimationFramesInfo() {
     std::cout << "Number of animations: " << this->frames.size() << std::endl;
-    for (int row = 0; row < this->frames.size(); row++) {
+    for (unsigned int row = 0; row < this->frames.size(); row++) {
         std::cout << "Animation " << row << " (" << this->frames[row].size() << ")    ";
-        for (int column = 0; column < this->frames[row].size(); column++) {
+        for (unsigned int column = 0; column < this->frames[row].size(); column++) {
             std::cout << "[" << this->frames[row][column].x << "," << this->frames[row][column].y
                     << " + " << this->frames[row][column].w << "," << this->frames[row][column].h << "] ";
         }

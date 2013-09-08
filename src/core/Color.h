@@ -18,10 +18,10 @@ public:
     void                        setBlue(int value);
     void                        setAlpha(int value);
     
-    const Uint8                 red();
-    const Uint8                 green();
-    const Uint8                 blue();
-    const Uint8                 alpha();
+    Uint8                       red();
+    Uint8                       green();
+    Uint8                       blue();
+    Uint8                       alpha();
     
     SDL_Color                   toSDLColor();
     Uint32                      toPixelValue(SDL_PixelFormat* format);

@@ -13,6 +13,7 @@ artemis::SystemManager * Game::systemManager = world.getSystemManager();
 artemis::EntityManager * Game::entityManager = world.getEntityManager();
 
 SDL_Renderer * Game::renderer = NULL;
+SDL_Window * Game::wnd = NULL;
 bool Game::run;
 
 int Game::renderingContextWidth = 0;
@@ -86,8 +87,8 @@ void Game::initialize() {
     
     renderingContextWidth = w;
     renderingContextHeight = h;
-    
-    this->wnd = SDL_CreateWindow(GAME_NAME,
+
+    wnd = SDL_CreateWindow(GAME_NAME,
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                  w,h,
                                  SDL_WINDOW_SHOWN);
@@ -97,25 +98,15 @@ void Game::initialize() {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
     loadResources();
+
+    GameStateManager::setGameState(GAMESTATE_INTRO);
 }
 
-void Game::mainLoop() {    
-    GameStateManager::setGameState(GAMESTATE_INTRO);
+void Game::mainLoop() {
     while (run) {
-        world.loopStart();
-        world.setDelta(0.0016f);    // Why this value?
-        /* ARTEMIS */        
-        this->movementSystem->process();
-        /*---------*/
-        
         this->handleEvents();
         this->update();
-        
-        if (this->frameSkip == 0) {
-            this->render();
-            this->manageFPS();
-        }
-        this->countFSP();
+        this->render();
     }
 }
 
@@ -123,6 +114,14 @@ void Game::mainLoop() {
  * 
  */
 void Game::update() {
+    world.loopStart();
+    world.setDelta(0.0016f);    // Why this value?
+
+    /* ARTEMIS */
+    this->movementSystem->process();
+    /*---------*/
+
+
     GameStateManager::onLoop();
 }
 
@@ -130,14 +129,19 @@ void Game::update() {
  * 
  */
 void Game::render() {
-    SDL_RenderClear(renderer);
+    if (this->frameSkip == 0) {
+        SDL_RenderClear(renderer);
 
-    this->renderingSystem->process();
-    this->textRenderingSystem->process();
-    
-    GameStateManager::onRender();
+        this->renderingSystem->process();
+        this->textRenderingSystem->process();
 
-    SDL_RenderPresent(renderer);
+        GameStateManager::onRender();
+
+        SDL_RenderPresent(renderer);
+
+        this->manageFPS();
+    }
+    this->countFSP();
 }
 
 /**

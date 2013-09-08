@@ -29,7 +29,6 @@ void IntroState::onActivate() {
     SpriteRendererComponent * component = (SpriteRendererComponent *)this->backgroundMountainAbove->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-above")));
     this->backgroundMountainAbove->addComponent(new VelocityComponent());
     unsigned int mountainHeight = component->getFrameHeight();
-    unsigned int mountainWidth = component->getFrameWidth();
     
     Vector2D aboveMountainPosition = mountainsInitPosition + Vector2D(0.0f, (mountainHeight / 2) + 150.0f);
     this->backgroundMountainAbove->setPosition(aboveMountainPosition);

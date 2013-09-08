@@ -9,7 +9,6 @@
 class Sprite {
 public:
     Sprite(const char * imageFile, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
-    Sprite(const Sprite& orig);
     virtual ~Sprite();
     
     inline SDL_Texture *                        getTexture() { return this->image; }

@@ -108,19 +108,19 @@ void Color::setAlpha(int value){
     this->_a = value;
 }
 
-const Uint8 Color::red(){
+Uint8 Color::red(){
     return this->color.r;
 }
 
-const Uint8 Color::green(){
+Uint8 Color::green(){
     return this->color.g;
 }
 
-const Uint8 Color::blue(){
+Uint8 Color::blue(){
     return this->color.b;
 }
 
-const Uint8 Color::alpha(){
+Uint8 Color::alpha(){
     return this->_a;
 }
 

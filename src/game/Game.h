@@ -25,11 +25,14 @@ public:
     static void                         destroyGameObject(GameObject * object);
     
     static SDL_Renderer *               currentRenderer();
-    
+
+    static inline artemis::World &      getWorld() { return world; }
+
+    static bool                         isRunning() { return run; }
+
     static inline int                   getRenderingContextWidth() { return renderingContextWidth; }
     static inline int                   getRenderingContextHeight() { return renderingContextHeight; }
-    
-private:
+
     void                                initialize();
     void                                loadResources();
     void                                mainLoop();
@@ -41,15 +44,16 @@ private:
     void                                countFSP();    
     
 private:
-    SDL_Window* wnd;
+    static SDL_Window* wnd;
     static SDL_Renderer *               renderer;
     
+    static bool                         run;
+
     static int                          renderingContextWidth;
     static int                          renderingContextHeight;
     
-    static bool                         run;
-    
     /* ARTEMIS */
+
     static artemis::World               world;
     static artemis::SystemManager *     systemManager;
     static artemis::EntityManager *     entityManager;

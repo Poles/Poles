@@ -35,7 +35,7 @@ private:
     
     Uint32 initTime;
     Uint32 showTitleKeyTime;
-    int durationTime;
+    Uint32 durationTime;
 
 };
 
