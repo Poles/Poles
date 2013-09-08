@@ -8,6 +8,8 @@
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
+        <itemPath>../../../src/core/components/TextRendererComponent.cpp</itemPath>
+        <itemPath>../../../src/core/components/TextRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
@@ -15,6 +17,8 @@
         <itemPath>../../../src/core/systems/MovementSystem.h</itemPath>
         <itemPath>../../../src/core/systems/RenderingSystem.cpp</itemPath>
         <itemPath>../../../src/core/systems/RenderingSystem.h</itemPath>
+        <itemPath>../../../src/core/systems/TextRenderingSystem.cpp</itemPath>
+        <itemPath>../../../src/core/systems/TextRenderingSystem.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/core/Color.cpp</itemPath>
       <itemPath>../../../src/core/Color.h</itemPath>
@@ -29,8 +33,18 @@
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f2" displayName="Game" projectFiles="true">
+      <logicalFolder name="f1" displayName="States" projectFiles="true">
+        <itemPath>../../../src/game/states/DebugState.cpp</itemPath>
+        <itemPath>../../../src/game/states/DebugState.h</itemPath>
+        <itemPath>../../../src/game/states/IntroState.cpp</itemPath>
+        <itemPath>../../../src/game/states/IntroState.h</itemPath>
+      </logicalFolder>
+      <itemPath>../../../src/game/Event.cpp</itemPath>
+      <itemPath>../../../src/game/Event.h</itemPath>
       <itemPath>../../../src/game/Game.cpp</itemPath>
       <itemPath>../../../src/game/Game.h</itemPath>
+      <itemPath>../../../src/game/GameState.cpp</itemPath>
+      <itemPath>../../../src/game/GameState.h</itemPath>
       <itemPath>../../../src/game/GameStateManager.cpp</itemPath>
       <itemPath>../../../src/game/GameStateManager.h</itemPath>
     </logicalFolder>
@@ -70,6 +84,8 @@
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>artemis</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_ttf</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_ttf.dll</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -126,6 +142,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/TextRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/TextRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/VelocityComponent.h"
             ex="false"
             tool="3"
@@ -151,9 +177,27 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.cpp"
             ex="false"
@@ -161,6 +205,26 @@
             flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -255,6 +319,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/components/TextRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/TextRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/core/components/VelocityComponent.h"
             ex="false"
             tool="3"
@@ -280,9 +354,27 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/systems/TextRenderingSystem.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/game/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/game/GameState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.cpp"
             ex="false"
@@ -290,6 +382,26 @@
             flavor2="0">
       </item>
       <item path="../../../src/game/GameStateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/DebugState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/IntroState.h"
             ex="false"
             tool="3"
             flavor2="0">
