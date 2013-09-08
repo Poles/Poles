@@ -5,6 +5,7 @@ Color::Color(){
     this->color.r = 0;
     this->color.g = 0;
     this->color.b = 0;
+    this->color.a = 255;
     this->_a = 255;
 }
 
@@ -12,6 +13,7 @@ Color::Color(const int r, const int g, const int b, const int a){
     this->color.r = r;
     this->color.g = g;
     this->color.b = b;
+    this->color.a = a;
     this->_a = a;
 }
 
@@ -48,6 +50,7 @@ Color::Color(const char* hexString, const Uint8 alpha) {
         this->color.r = red;
         this->color.g = green;
         this->color.b = blue;
+        this->color.a = alpha;
         this->_a = alpha;
     }
 }
@@ -101,7 +104,7 @@ void Color::setAlpha(int value){
     if (value < 0){
         value = 0;
     }
-    
+    this->color.a = value;
     this->_a = value;
 }
 

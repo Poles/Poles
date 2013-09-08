@@ -153,3 +153,9 @@ Podfile.lock
 #
 /platforms/windows/Poles/dist/
 /platforms/windows/Poles/dist/Debug/*
+
+####
+# Photoshop
+#
+
+*.psd

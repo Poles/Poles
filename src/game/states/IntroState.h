@@ -3,6 +3,7 @@
 
 #include "../GameState.h"
 #include "../../core/GameObject.h"
+#include "../../core/Color.h"
 
 class IntroState : public GameState{
 private:
@@ -21,9 +22,20 @@ public:
     
     static IntroState * getInstance();
     
-    GameObject * object;
-    
 private:
+    GameObject * backgroundMountainAbove;
+    GameObject * backgroundMountainBehind;
+    GameObject * backgroundMountainSky;
+    
+    GameObject * title;
+    
+    GameObject * polesDude;
+    
+    Color titleColor;
+    
+    Uint32 initTime;
+    Uint32 showTitleKeyTime;
+    int durationTime;
 
 };
 

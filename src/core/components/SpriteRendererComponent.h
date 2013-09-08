@@ -14,6 +14,9 @@ public:
     
     void                                render(Vector2D & position);
     
+    inline unsigned int                 getFrameWidth() { return sprite->getFrameWidth(); }
+    inline unsigned int                 getFrameHeight() { return sprite->getFrameHeight(); }
+    
 private:
     void                                updateAnimation();
     

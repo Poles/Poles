@@ -26,6 +26,9 @@ public:
     
     static SDL_Renderer *               currentRenderer();
     
+    static inline int                   getRenderingContextWidth() { return renderingContextWidth; }
+    static inline int                   getRenderingContextHeight() { return renderingContextHeight; }
+    
 private:
     void                                initialize();
     void                                loadResources();
@@ -40,6 +43,9 @@ private:
 private:
     SDL_Window* wnd;
     static SDL_Renderer *               renderer;
+    
+    static int                          renderingContextWidth;
+    static int                          renderingContextHeight;
     
     static bool                         run;
     

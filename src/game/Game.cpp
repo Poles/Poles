@@ -14,6 +14,9 @@ artemis::EntityManager * Game::entityManager = world.getEntityManager();
 
 SDL_Renderer * Game::renderer = NULL;
 bool Game::run;
+
+int Game::renderingContextWidth = 0;
+int Game::renderingContextHeight = 0;
 /*------------------*/
 
 
@@ -77,9 +80,12 @@ void Game::initialize() {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "SDL2_TTF Error!", TTF_GetError(), NULL);
     }
     
-    /* Testing only */
-    int w = mode.w / 2; // Remove / 2 for release
-    int h = mode.h / 2;
+    // Scalated resolution for testing propuses. Remove * 0.75 for release
+    int w = mode.w * 0.75;
+    int h = mode.h * 0.75;
+    
+    renderingContextWidth = w;
+    renderingContextHeight = h;
     
     this->wnd = SDL_CreateWindow(GAME_NAME,
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -94,7 +100,7 @@ void Game::initialize() {
 }
 
 void Game::mainLoop() {    
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+    GameStateManager::setGameState(GAMESTATE_INTRO);
     while (run) {
         world.loopStart();
         world.setDelta(0.0016f);    // Why this value?
@@ -141,6 +147,14 @@ void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         GameStateManager::onEvent(&event);
+        
+        if (event.type == SDLK_f) {
+            if (this->showFPS) {
+                this->showFPS = false;
+            } else {
+                this->showFPS = true;
+            }
+        }
     }
 }
 
@@ -213,5 +227,14 @@ void Game::loadResources() {
     
     unsigned int testAnim[1] = {1};
     sprite = ResourceManager::loadImage("test_image", "images/test_image.png", 1, testAnim);
+    sprite->bindAnimation("NONE", 0);
+    
+    sprite = ResourceManager::loadImage("background-mountain-above", "images/background-mountain-above.png", 1, testAnim);
+    sprite->bindAnimation("NONE", 0);
+    
+    sprite = ResourceManager::loadImage("background-mountain-behind", "images/background-mountain-behind.png", 1, testAnim);
+    sprite->bindAnimation("NONE", 0);
+    
+    sprite = ResourceManager::loadImage("background-mountain-sky", "images/background-mountain-sky.png", 1, testAnim);
     sprite->bindAnimation("NONE", 0);
 }
