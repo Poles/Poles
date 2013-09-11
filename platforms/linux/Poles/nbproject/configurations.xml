@@ -86,8 +86,8 @@
             <linkerLibLibItem>artemis</linkerLibLibItem>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
-            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
             <linkerLibLibItem>freetype</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

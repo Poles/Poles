@@ -81,7 +81,7 @@ void Game::initialize() {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "SDL2_TTF Error!", TTF_GetError(), NULL);
     }
     
-    // Scalated resolution for testing propuses. Remove * 0.75 for release
+    // Scalated resolution for testing porpuses. Remove * 0.75 for release
     int w = mode.w * 0.75;
     int h = mode.h * 0.75;
     

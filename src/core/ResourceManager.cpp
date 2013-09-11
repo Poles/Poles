@@ -69,7 +69,7 @@ Sprite * ResourceManager::loadImage(const char * name, const char * imagePath, u
 std::string ResourceManager::fixWindowsPath(std::string & path) {
     std::string windowsPath(path);
     
-    for (int characterIndex = 0; characterIndex < path.length(); characterIndex++) {
+    for (unsigned int characterIndex = 0; characterIndex < path.length(); characterIndex++) {
         if (windowsPath[characterIndex] == '/') {
             windowsPath.replace(characterIndex, 1, "\\");
         }

@@ -164,3 +164,4 @@ Podfile.lock
 # Qt
 #
 build/
+*.pro.user

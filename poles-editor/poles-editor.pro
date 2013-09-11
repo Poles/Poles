@@ -77,13 +77,17 @@ mac:        INCLUDEPATH += $$PWD/../platforms/macosx/Artemis-Cpp/include
 win32:      INCLUDEPATH += $$PWD/../platforms/windows/SDL2/include
 win32:      INCLUDEPATH += $$PWD/../platforms/windows/SDL2/include/SDL2 # Fixs wrong include in SDL2_image that searchs for SDL.h instead of SDL2/SDL.h
 win32:      LIBS += -L$$PWD/../platforms/windows/SDL2/lib -lSDL2
+unix:!macx: LIBS += -lSDL2  # It should be installed on the system
+
 
 # SDL2_image
 
 win32:      LIBS += -L$$PWD/../platforms/windows/SDL2_image-2.0.0/i686-w64-mingw32/lib -lSDL2_image
 win32:      INCLUDEPATH += $$PWD/../platforms/windows/SDL2_image-2.0.0/i686-w64-mingw32/include
+unix:!macx: LIBS += -lSDL2_image    # It should be installed on the system
 
 # SDL2_ttf
 
 win32:      LIBS += -L$$PWD/../platforms/windows/SDL2_ttf-2.0.12/i686-w64-mingw32/lib -lSDL2_ttf
 win32:      INCLUDEPATH += $$PWD/../platforms/windows/SDL2_ttf-2.0.12/i686-w64-mingw32/include
+unix:!macx: LIBS += -lSDL2_ttf  # It should be installed on the system
