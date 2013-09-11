@@ -22,12 +22,12 @@ void DebugState::onActivate() {
     this->polesDude->addComponent(new VelocityComponent(0.0f, 0.0f));
     
     /* TEXT */
-    this->text = Game::createGameObject();
-    TextRendererComponent * component = (TextRendererComponent *)this->text->addComponent(new TextRendererComponent("Test text!", "Mojang"));
-    component->setForegroundColor(presetColors::COLOR_WHITE);
-    position.setX(200);
-    position.setY(20);
-    this->text->setPosition(position);
+//    this->text = Game::createGameObject();
+//    TextRendererComponent * component = (TextRendererComponent *)this->text->addComponent(new TextRendererComponent("Test text!", "Mojang"));
+//    component->setForegroundColor(presetColors::COLOR_WHITE);
+//    position.setX(200);
+//    position.setY(20);
+//    this->text->setPosition(position);
 }
 
 void DebugState::onDeactivate() {

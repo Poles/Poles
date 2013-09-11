@@ -9,14 +9,15 @@ int main(int argc, char *argv[])
 {
     ResourceManager::initialize();
 
+    /*
     QApplication a(argc, argv);
     EditorWindow w;
     w.show();
 
     return a.exec();
+    */
+    Game * game = new Game();
+    game->start();
 
-//    Game * game = new Game();
-//    game->start();
-
-//    return 0;
+    return 0;
 }
