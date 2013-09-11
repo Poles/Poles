@@ -121,7 +121,6 @@ void Game::update() {
     this->movementSystem->process();
     /*---------*/
 
-
     GameStateManager::onLoop();
 }
 

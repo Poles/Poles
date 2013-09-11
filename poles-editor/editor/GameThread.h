@@ -13,9 +13,18 @@ public:
 
     void start();
 
+    void initialize();
+
     void run();
 
     void terminate();
+
+signals:
+    void frameReady(unsigned char * pixels, int width, int height);
+
+private:
+    bool running;
+    static SDL_Surface * rendererSurface;
 };
 
 #endif // GAMETHREAD_H
