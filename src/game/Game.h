@@ -43,8 +43,8 @@ public:
     void                                manageFPS();
     void                                countFSP();    
     
-private:
-    static SDL_Window* wnd;
+protected:
+    static SDL_Window *                 wnd;
     static SDL_Renderer *               renderer;
     
     static bool                         run;

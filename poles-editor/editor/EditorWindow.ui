@@ -16,7 +16,12 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QWidget" name="gameRendererWidget" native="true"/>
+     <widget class="QWidget" name="rendererWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QGridLayout" name="rendererLayout"/>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="startStopButton">
