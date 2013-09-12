@@ -10,11 +10,15 @@ IntroState::IntroState() {
 }
 
 void IntroState::onActivate() {
+    /* FLAGS */
+    buttonPressed = false;
+    /*-------*/
+    
     int width = Game::getRenderingContextWidth();
     int height = Game::getRenderingContextHeight();
     
     Vector2D centerPosition(width / 2, height / 2);
-    Vector2D mountainsInitPosition = centerPosition - Vector2D(0, height / 2);
+    Vector2D mountainsInitPosition = centerPosition - Vector2D(0, height / 2 - 500);
     
     this->backgroundMountainSky = Game::createGameObject();
     this->backgroundMountainSky->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-sky")));
@@ -34,17 +38,18 @@ void IntroState::onActivate() {
     this->backgroundMountainAbove->setPosition(aboveMountainPosition);
     
     this->polesDude = Game::createGameObject();
+    this->polesDude->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("poles_dude")));
     this->polesDude->setParent(this->backgroundMountainAbove);
+    this->polesDude->addComponent(new VelocityComponent(0.0f, 0.0f));
     Vector2D polesDudePosition(0.0f, (-1.0f) * ((float)mountainHeight / 2.0f) - 4.0f);
     this->polesDude->setPosition(polesDudePosition);
     
-    this->polesDude->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("poles_dude")));
     
     this->initTime = SDL_GetTicks();
     this->durationTime = 8000;
     
-    Vector2D fastMovement(0.0f, 0.35f);
-    Vector2D slowMovement(0.0f, 0.10f);
+    Vector2D fastMovement(0.0f, 0.30f);
+    Vector2D slowMovement(0.0f, 0.09f);
     this->backgroundMountainAbove->addForce(fastMovement);
     this->backgroundMountainBehind->addForce(slowMovement);
     
@@ -73,7 +78,7 @@ void IntroState::onLoop() {
         if (SDL_GetTicks() + this->initTime >= this->showTitleKeyTime) {
             this->titleColor.setAlpha( this->titleColor.alpha() + 1);
         }
-    }
+    }    
 }
 
 void IntroState::onRender() {
@@ -88,4 +93,22 @@ void IntroState::onKeyDown(SDL_Keycode key, Uint16 mod) {
     if (key == SDLK_ESCAPE) {
         Game::exit();
     }
+    
+    if (buttonPressed == false) {
+        switch (key) {
+            case SDLK_LEFT:
+                this->polesDude->addForce(-1.0f, 0.0f);
+                break;
+                
+            case SDLK_RIGHT:
+                this->polesDude->addForce(1.0f, 0.0f);
+                break;
+        }
+        buttonPressed = true;
+    }
+}
+
+void IntroState::onKeyUp(SDL_Keycode key, Uint16 mod) {
+    buttonPressed = false;
+    this->polesDude->resetForce();
 }

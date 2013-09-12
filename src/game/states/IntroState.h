@@ -19,6 +19,7 @@ public:
     void onRender();
     
     void onKeyDown(SDL_Keycode key, Uint16 mod);
+    void onKeyUp(SDL_Keycode key, Uint16 mod);
     
     static IntroState * getInstance();
     
@@ -36,6 +37,8 @@ private:
     Uint32 initTime;
     Uint32 showTitleKeyTime;
     Uint32 durationTime;
+    
+    bool buttonPressed;
 
 };
 

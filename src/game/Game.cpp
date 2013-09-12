@@ -81,9 +81,13 @@ void Game::initialize() {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "SDL2_TTF Error!", TTF_GetError(), NULL);
     }
     
-    // Scalated resolution for testing porpuses. Remove * 0.75 for release
-    int w = mode.w * 0.75;
-    int h = mode.h * 0.75;
+    // Scalated resolution for testing propuses. Remove * 0.75 for release
+//    int w = mode.w * 0.75;
+//    int h = mode.h * 0.75;
+//    int windowMode = SDL_WINDOW_SHOWN;
+    int w = mode.w;
+    int h = mode.h;
+    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
@@ -91,7 +95,7 @@ void Game::initialize() {
     wnd = SDL_CreateWindow(GAME_NAME,
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                  w,h,
-                                 SDL_WINDOW_SHOWN);
+                                 windowMode);
     renderer = SDL_CreateRenderer(wnd, -1, 0);
 
     SDL_SetRenderDrawColor(renderer, 60, 60, 60, 255); // Clear Color
