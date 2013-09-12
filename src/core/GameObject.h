@@ -13,7 +13,7 @@ public:
     void                        setParent(GameObject * parent);
     void                        removeParent();
     artemis::Component *        addComponent(artemis::Component * component);
-    void                        removeComponent(artemis::Component * component);
+    void                        removeComponent(artemis::Component * component);    
     Vector2D                    getPosition();
     Vector2D                    getRealPosition();
     
@@ -22,6 +22,7 @@ public:
     bool                        hasParent();
     
     void                        addForce(Vector2D & force);
+    void                        addForce(const float x, const float y);
     void                        resetForce();
     
     void                        showInfo();

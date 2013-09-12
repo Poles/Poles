@@ -145,6 +145,11 @@ void GameObject::addForce(Vector2D & force) {
     }
 }
 
+void GameObject::addForce(const float x, const float y) {
+    Vector2D force(x, y);
+    addForce(force);
+}
+
 void GameObject::resetForce() {
     VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
     
@@ -166,6 +171,13 @@ void GameObject::showInfo() {
    
    int numberOfComponents = 0;
    int id = 0;
+   float x = 0;
+   float y = 0;
+   
+   PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+   
+   x = component->getPosition().x();
+   y = component->getPosition().y();
    
    id = this->entity.getId();
    artemis::ImmutableBag<artemis::Component * > & components = this->entity.getComponents();
@@ -173,6 +185,7 @@ void GameObject::showInfo() {
    
    str << "ID = " << id << std::endl;
    str << "Number of Components = " << numberOfComponents << std::endl;
+   str << "X = " << x << " Y = " << y << std::endl;
    
    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
            "GameObject",
