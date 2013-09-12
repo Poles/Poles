@@ -18,7 +18,7 @@ void IntroState::onActivate() {
     int height = Game::getRenderingContextHeight();
     
     Vector2D centerPosition(width / 2, height / 2);
-    Vector2D mountainsInitPosition = centerPosition - Vector2D(0, height / 2);
+    Vector2D mountainsInitPosition = centerPosition - Vector2D(0, height / 2 - 500);
     
     this->backgroundMountainSky = Game::createGameObject();
     this->backgroundMountainSky->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-sky")));
@@ -48,8 +48,8 @@ void IntroState::onActivate() {
     this->initTime = SDL_GetTicks();
     this->durationTime = 8000;
     
-    Vector2D fastMovement(0.0f, 0.35f);
-    Vector2D slowMovement(0.0f, 0.10f);
+    Vector2D fastMovement(0.0f, 0.30f);
+    Vector2D slowMovement(0.0f, 0.09f);
     this->backgroundMountainAbove->addForce(fastMovement);
     this->backgroundMountainBehind->addForce(slowMovement);
     
