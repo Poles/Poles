@@ -27,6 +27,7 @@ void SpriteRendererComponent::setFrameRate(int frameRate) {
 void SpriteRendererComponent::changeAnimation(const char * name) {
     if (this->sprite->getAnimationIndex(name) != -1) {
         this->currentAnimation = name;
+        this->currentAnimationFrame = 0;
     }
 }
 

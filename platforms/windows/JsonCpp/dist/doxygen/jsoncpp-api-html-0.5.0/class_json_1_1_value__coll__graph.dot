@@ -1,0 +1,11 @@
+digraph "Json::Value"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Json::Value\n||+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\l+ Value()\land 59 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +null" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +maxUInt" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{static const UInt\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +maxInt\n+minInt" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{static const Int\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

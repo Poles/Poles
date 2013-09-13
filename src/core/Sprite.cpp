@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include <iostream>
+#include <sstream>
 #include "../game/Game.h"
 
 /**
@@ -8,7 +9,8 @@
  * @param animations
  * @param framesPerAnimation
  */
-Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * framesPerAnimation) {    
+Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * framesPerAnimation) {
+    this->image = NULL;
     this->image = IMG_LoadTexture(Game::currentRenderer(), imageFile);
     
     if (this->image != NULL) {
@@ -29,7 +31,7 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         // We search the longest animation which will determine the number of pixels per column
         unsigned int maxNumberOfFrames = 1;
         if (framesPerAnimation != NULL) {
-            for (unsigned int animation = 0; animation < animations; animation++) {
+            for (unsigned int animation = 0; animation < animations; ++animation) {
                 if (framesPerAnimation[animation] > maxNumberOfFrames) {
                     maxNumberOfFrames = framesPerAnimation[animation];
                 }
@@ -41,7 +43,7 @@ Sprite::Sprite(const char * imageFile, unsigned int animations, unsigned int * f
         this->heightPerFrame = heightPerRow;
         
         SDL_Rect * frameBox = NULL;
-        for (unsigned int animation = 0; animation < animations; animation++) {
+        for (unsigned int animation = 0; animation < animations; ++animation) {
             // Insert a new row of animations
             unsigned int numberOfFrames = framesPerAnimation[animation];
             std::vector<SDL_Rect> row(numberOfFrames);
@@ -77,15 +79,35 @@ Sprite::~Sprite() {
  * This is used for debug operations.
  */
 void Sprite::showAnimationFramesInfo() {
-    std::cout << "Number of animations: " << this->frames.size() << std::endl;
+    std::stringstream stream;
+    stream << "Number of animations: " << this->frames.size() << std::endl;
     for (unsigned int row = 0; row < this->frames.size(); row++) {
-        std::cout << "Animation " << row << " (" << this->frames[row].size() << ")    ";
+        stream << "Animation " << row << " (" << this->frames[row].size() << ")    ";
         for (unsigned int column = 0; column < this->frames[row].size(); column++) {
-            std::cout << "[" << this->frames[row][column].x << "," << this->frames[row][column].y
+            stream << "[" << this->frames[row][column].x << "," << this->frames[row][column].y
                     << " + " << this->frames[row][column].w << "," << this->frames[row][column].h << "] ";
         }
-        std::cout << std::endl;
+        stream << std::endl;
     }
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+            "Sprite",
+            stream.str().c_str(),
+            NULL);
+}
+
+void Sprite::showAnimationBindings() {
+    std::stringstream stream;
+    
+    for (std::map<std::string, unsigned int>::iterator binding = this->animationsBindingMap.begin();
+            binding != this->animationsBindingMap.end();
+            ++binding) {
+        stream << binding->first << ": " << binding->second << std::endl;
+    }
+    
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+            "Sprite",
+            stream.str().c_str(),
+            NULL);    
 }
 
 /**
@@ -97,7 +119,7 @@ void Sprite::showAnimationFramesInfo() {
  * @return              true if the binding was correct, false otherwise.
  */
 bool Sprite::bindAnimation(const char * name, unsigned int animation) {
-    if (animation > this->frames.size()) {
+    if (animation >= this->frames.size()) {
         std::cout << "Error! - Sprite: Binding animation with index out of range." << std::endl;
         return false;
     }
@@ -107,7 +129,7 @@ bool Sprite::bindAnimation(const char * name, unsigned int animation) {
         return false;
     }
     
-    std::pair<const char *, unsigned int> binding(name, animation);
+    std::pair<std::string, unsigned int> binding(std::string(name), animation);
     this->animationsBindingMap.insert(binding);
     
     return true;
@@ -117,8 +139,8 @@ bool Sprite::bindAnimation(const char * name, unsigned int animation) {
  * Unbind an animation so its index is no longer binded to the given name.
  * @param name  Name with which the animation is currently binded.
  */
-void Sprite::unbindAnimation(const char* name) {
-    std::map<const char *, unsigned int>::iterator animation;
+void Sprite::unbindAnimation(const char * name) {
+    std::map<std::string, unsigned int>::iterator animation;
     
     animation = this->animationsBindingMap.find(name);
     
@@ -127,8 +149,8 @@ void Sprite::unbindAnimation(const char* name) {
     }
 }
 
-int Sprite::getAnimationIndex(const char* name) {
-    std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(name);
+int Sprite::getAnimationIndex(const char * name) {
+    std::map<std::string, unsigned int>::iterator animationBind = this->animationsBindingMap.find(std::string(name));
     
     if (animationBind != this->animationsBindingMap.end()) {
         return animationBind->second;
@@ -145,7 +167,7 @@ int Sprite::getAnimationIndex(const char* name) {
  */
 SDL_Rect * Sprite::getFrameBox(const char * animation, unsigned int frame) {
     if (animation != NULL) {
-        std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(animation);
+        std::map<std::string, unsigned int>::iterator animationBind = this->animationsBindingMap.find(std::string(animation));
 
         unsigned int animationIndex = 0;
         if (animationBind != this->animationsBindingMap.end()) {
@@ -162,7 +184,7 @@ SDL_Rect * Sprite::getFrameBox(const char * animation, unsigned int frame) {
 }
 
 int Sprite::getNumberOfFrames(const char * animation) {
-    std::map<const char *, unsigned int>::iterator animationBind = this->animationsBindingMap.find(animation);
+    std::map<std::string, unsigned int>::iterator animationBind = this->animationsBindingMap.find(std::string(animation));
     
     if (animationBind != this->animationsBindingMap.end()) {
         unsigned int animationIndex = animationBind->second;
@@ -174,11 +196,11 @@ int Sprite::getNumberOfFrames(const char * animation) {
 }
 
 const char * Sprite::getAnimationName(const unsigned int animationIndex) {
-    std::map<const char *, unsigned int>::iterator animation;
+    std::map<std::string, unsigned int>::iterator animation;
     
     for (animation = this->animationsBindingMap.begin(); animation != this->animationsBindingMap.end(); animation++) {
         if (animation->second == animationIndex) {
-            return animation->first;
+            return animation->first.c_str();
         }
     }
     

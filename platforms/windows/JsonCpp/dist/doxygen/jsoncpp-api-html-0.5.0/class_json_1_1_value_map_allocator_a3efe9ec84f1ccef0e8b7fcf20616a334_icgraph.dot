@@ -1,0 +1,9 @@
+digraph "Json::ValueMapAllocator::releaseMapBuckets"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Json::ValueMapAllocator\l::releaseMapBuckets",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="Json::ValueInternalMap\l::~ValueInternalMap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_value_internal_map.html#a507129e4f6c0314aee988f89e133da78"];
+}

@@ -12,8 +12,13 @@ class GameObject {
 public:
     void                        setParent(GameObject * parent);
     void                        removeParent();
+    
     artemis::Component *        addComponent(artemis::Component * component);
-    void                        removeComponent(artemis::Component * component);    
+    void                        removeComponent(artemis::Component * component);  
+    
+    template<typename c>
+    inline artemis::Component *        getComponent() { return this->entity.getComponent<c>(); }
+    
     Vector2D                    getPosition();
     Vector2D                    getRealPosition();
     

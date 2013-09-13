@@ -59,7 +59,7 @@ void GameStateManager::setGameState(int gameStateID) {
             break;
             
         case GAMESTATE_DEBUG:
-            currentState = new DebugState();
+            currentState = DebugState::getInstance();
             break;
         }
     

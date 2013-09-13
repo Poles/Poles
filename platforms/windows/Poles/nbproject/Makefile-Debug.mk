@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1386528437/JsonFile.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
@@ -69,7 +70,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf
+LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf -ljson_mingw_libmt
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -78,6 +79,11 @@ LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/1386528437/JsonFile.o: ../../../src/JsonFile.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/JsonFile.o ../../../src/JsonFile.cpp
 
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161

@@ -10,6 +10,6 @@ int main(int argc, char** argv) {
     game->start();
     
     delete game;
-	
+    
     return 0;
 }

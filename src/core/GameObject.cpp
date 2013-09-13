@@ -2,6 +2,7 @@
 #include "components/Components.h"
 #include <Artemis/ImmutableBag.h>
 #include <sstream>
+#include <Artemis/Component.h>
 
 GameObject::GameObject(artemis::Entity & objectEntity):
 entity(objectEntity){

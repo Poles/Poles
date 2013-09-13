@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <json/json.h>
 
 /* STATIC VARIABLES */
 ResourceManager * ResourceManager::classInstance = 0;
@@ -28,6 +29,24 @@ ResourceManager * ResourceManager::instance() {
 void ResourceManager::initialize() {
     // We load the current working path
     WORKING_DIR(workingPath, sizeof(workingPath));
+}
+
+std::string ResourceManager::getAssetsFolderPath() {
+    std::string assetsPath;
+    
+    assetsPath.append(workingPath);
+    assetsPath.append("/assets/");
+
+#ifdef _WIN64
+    return classInstance->fixWindowsPath(assetsPath);
+#elif _WIN32
+    return classInstance->fixWindowsPath(assetsPath);
+#elif __linux
+    return assetsPath;
+#elif __APPLE__
+    // TODO
+    return assetsPath;
+#endif
 }
 
 /**
@@ -118,7 +137,7 @@ Sprite * ResourceManager::getSprite(const char * name) {
                 str.str().c_str(),
                 NULL);
         return NULL;
-    }
+    }    
 }
 
 void ResourceManager::showSpritesDataBase() {

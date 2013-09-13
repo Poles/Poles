@@ -1,18 +1,27 @@
 #ifndef RESOURCEMANAGER_H
 #define	RESOURCEMANAGER_H
 
-#ifdef WINDOWS
+#ifdef _WIN32
+
+#include <direct.h>
+#define WORKING_DIR _getcwd
+
+#elif _WIN64
 
 #include <direct.h>
 #define WORKING_DIR __getcwd
 
-#else
+#elif _linux
 
 #include <unistd.h>
 #define WORKING_DIR getcwd
-#define TEXT_DEFAULT_POINTSIZE 16
 
+
+#elif __APPLE__
+        // TODO
 #endif
+
+#define TEXT_DEFAULT_POINTSIZE 16
 
 #include <cstdio>       // Defines FILENAME_MAX
 #include "Sprite.h"
@@ -24,6 +33,8 @@ public:
     ResourceManager *                           instance();
     
     static void                                 initialize();
+    
+    static std::string                          getAssetsFolderPath();
     
     static Sprite *                             loadImage(const char * name, const char * imagePath, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
     static void                                 deleteImage(const char * name);

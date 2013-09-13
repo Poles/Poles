@@ -4,35 +4,43 @@
 #include "../../core/ResourceManager.h"
 #include "../../core/Color.h"
 
+/* STATIC VARIABLES */
+DebugState DebugState::instance;
+/*------------------*/
+
+
 DebugState::DebugState() {
-    this->polesDude = NULL;
-    this->keyDown = false;
+    
 }
 
-DebugState::~DebugState() {
+DebugState * DebugState::getInstance() {
+    return & instance;
 }
 
 void DebugState::onActivate() {
-    this->polesDude = Game::createGameObject();
-    Sprite * sprite = ResourceManager::getSprite("poles_dude");
-    this->polesDude->addComponent(new SpriteRendererComponent(sprite));
+    this->keyDown = false;
     
-    Vector2D position(100, 100);
-    this->polesDude->setPosition(position);
-    this->polesDude->addComponent(new VelocityComponent(0.0f, 0.0f));
+    this->background = Game::createGameObject();
+    Sprite * sprite = NULL;
+    sprite = ResourceManager::getSprite("Background");
     
-    /* TEXT */
-    this->text = Game::createGameObject();
-    TextRendererComponent * component = (TextRendererComponent *)this->text->addComponent(new TextRendererComponent("Test text!", "Mojang"));
-    component->setForegroundColor(presetColors::COLOR_WHITE);
-    position.setX(200);
-    position.setY(20);
-    this->text->setPosition(position);
+    this->background->addComponent(new SpriteRendererComponent(sprite));
+    Vector2D backgroundPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
+    this->background->setPosition(backgroundPosition);
+    
+    this->zero = Game::createGameObject();
+    this->zero->addComponent(new VelocityComponent());
+    SpriteRendererComponent * component = (SpriteRendererComponent *)this->zero->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("Zero")));
+    component->setFrameRate(150);
+    Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
+    this->zero->setPosition(zeroPosition);
+    
 }
 
 void DebugState::onDeactivate() {
-    Game::destroyGameObject(this->polesDude);
-    ResourceManager::deleteImage("poles_dude");
+    Game::destroyGameObject(this->background);
+    Game::destroyGameObject(this->zero);
+
 }
 
 void DebugState::onLoop() {
@@ -48,15 +56,19 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
     switch (key) {
         case SDLK_LEFT:
             if (!keyDown) {
-                force.setX(-1.0f);
-                this->polesDude->addForce(force);
+                force.setX(-2.0f);
+                this->zero->addForce(force);
+                SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
+                sprite->changeAnimation("Walk Left");
             }
             break;
             
         case SDLK_RIGHT:
             if (!keyDown) {
-                force.setX(1.0f);
-                this->polesDude->addForce(force);
+                force.setX(2.0f);
+                this->zero->addForce(force);
+                SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
+                sprite->changeAnimation("Walk Right");
             }
             break;
             
@@ -70,13 +82,15 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
 void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {
     switch (key) {
         case SDLK_LEFT:
-            this->polesDude->resetForce();
+            this->zero->resetForce();
             break;
             
         case SDLK_RIGHT:
-            this->polesDude->resetForce();
+            this->zero->resetForce();
             break;
     }
     this->keyDown = false;
+    SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
+    sprite->changeAnimation("Stand");
 }
 

@@ -1,0 +1,10 @@
+digraph "Json::ValueIteratorBase"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Json::ValueIteratorBase\n|+ array_\l+ map_\l|+ ValueIteratorBase()\l+ ValueIteratorBase()\l+ ValueIteratorBase()\l+ operator==()\l+ operator!=()\l+ operator-()\l+ key()\l+ index()\l+ memberName()\l# deref()\l# increment()\l# decrement()\l# computeDistance()\l# isEqual()\l# copy()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{Json::ValueConstIterator\n||+ ValueConstIterator()\l+ operator=()\l+ operator++()\l+ operator--()\l+ operator--()\l+ operator++()\l+ operator*()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_value_const_iterator.html",tooltip="const iterator for object and array value. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node3 [label="{Json::ValueIterator\n||+ ValueIterator()\l+ ValueIterator()\l+ ValueIterator()\l+ operator=()\l+ operator++()\l+ operator--()\l+ operator--()\l+ operator++()\l+ operator*()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_value_iterator.html",tooltip="Iterator for object and array value. "];
+}

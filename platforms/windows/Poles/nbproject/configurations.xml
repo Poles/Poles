@@ -59,6 +59,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../../../src/JsonFile.cpp</itemPath>
+    <itemPath>../../../src/JsonFile.h</itemPath>
     <itemPath>../../../src/main.cpp</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -84,9 +86,14 @@
             <linkerLibLibItem>artemis</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
             <linkerLibLibItem>SDL2_ttf</linkerLibLibItem>
+            <linkerLibLibItem>json_mingw_libmt</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -263,6 +270,10 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">

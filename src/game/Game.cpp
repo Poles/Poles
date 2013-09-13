@@ -82,12 +82,12 @@ void Game::initialize() {
     }
     
     // Scalated resolution for testing propuses. Remove * 0.75 for release
-//    int w = mode.w * 0.75;
-//    int h = mode.h * 0.75;
-//    int windowMode = SDL_WINDOW_SHOWN;
-    int w = mode.w;
-    int h = mode.h;
-    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+    int w = mode.w * 0.75;
+    int h = mode.h * 0.75;
+    int windowMode = SDL_WINDOW_SHOWN;
+//    int w = mode.w;
+//    int h = mode.h;
+//    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
@@ -102,8 +102,8 @@ void Game::initialize() {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
     loadResources();
-
-    GameStateManager::setGameState(GAMESTATE_INTRO);
+    
+    GameStateManager::setGameState(GAMESTATE_DEBUG);
 }
 
 void Game::mainLoop() {
@@ -227,21 +227,33 @@ SDL_Renderer * Game::currentRenderer() {
  * 
  */
 void Game::loadResources() {
-    Sprite * sprite;
-    unsigned int polesAnim[1] = {2};
-    sprite = ResourceManager::loadImage("poles_dude", "images/poles_dude.png", 1, polesAnim);
-    sprite->bindAnimation("NONE", 0);
+    Sprite * sprite = NULL;
+//    unsigned int polesAnim[1] = {2};
+//    sprite = ResourceManager::loadImage("poles_dude", "images/poles_dude.png", 1, polesAnim);
+//    sprite->bindAnimation("NONE", 0);
+//    
+//    unsigned int testAnim[1] = {1};
+//    sprite = ResourceManager::loadImage("test_image", "images/test_image.png", 1, testAnim);
+//    sprite->bindAnimation("NONE", 0);
+//    
+//    sprite = ResourceManager::loadImage("background-mountain-above", "images/background-mountain-above.png", 1, testAnim);
+//    sprite->bindAnimation("NONE", 0);
+//    
+//    sprite = ResourceManager::loadImage("background-mountain-behind", "images/background-mountain-behind.png", 1, testAnim);
+//    sprite->bindAnimation("NONE", 0);
+//    
+//    sprite = ResourceManager::loadImage("background-mountain-sky", "images/background-mountain-sky.png", 1, testAnim);
+//
+    unsigned int anim[3] = {4, 16, 16};
     
-    unsigned int testAnim[1] = {1};
-    sprite = ResourceManager::loadImage("test_image", "images/test_image.png", 1, testAnim);
-    sprite->bindAnimation("NONE", 0);
+    sprite = ResourceManager::loadImage("Zero", "images/test-animation.png", 3, anim);
+    sprite->bindAnimation("Stand", 0);
+    sprite->bindAnimation("Walk Right", 1);
+    sprite->bindAnimation("Walk Left", 2);
     
-    sprite = ResourceManager::loadImage("background-mountain-above", "images/background-mountain-above.png", 1, testAnim);
-    sprite->bindAnimation("NONE", 0);
+    unsigned int backgroundAnim[1] = {1};
     
-    sprite = ResourceManager::loadImage("background-mountain-behind", "images/background-mountain-behind.png", 1, testAnim);
-    sprite->bindAnimation("NONE", 0);
+    sprite = ResourceManager::loadImage("Background", "images/background-mountain-sky.png", 1, backgroundAnim);
+    sprite->bindAnimation("None", 0);
     
-    sprite = ResourceManager::loadImage("background-mountain-sky", "images/background-mountain-sky.png", 1, testAnim);
-    sprite->bindAnimation("NONE", 0);
 }

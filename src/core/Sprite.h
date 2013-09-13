@@ -27,6 +27,7 @@ public:
     int                                         getNumberOfFrames(const char * animation);
     
     void                                        showAnimationFramesInfo();
+    void                                        showAnimationBindings();
     
 private:
     SDL_Texture *                               image;
@@ -37,7 +38,7 @@ private:
     unsigned int                                heightPerFrame;
     
     /* ANIMATION */
-    std::map<const char *, unsigned int>        animationsBindingMap;
+    std::map<std::string, unsigned int>        animationsBindingMap;
 };
 
 #endif	/* SPRITE_H */
