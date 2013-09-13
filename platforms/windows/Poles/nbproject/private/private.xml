@@ -8,10 +8,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Ladis/Projects/Poles/src/main.cpp</file>
-            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/ResourceManager.h</file>
-            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/ResourceManager.cpp</file>
-            <file>file:/C:/Users/Ladis/Projects/Poles/src/JsonFile.cpp</file>
-            <file>file:/C:/Users/Ladis/Projects/Poles/src/JsonFile.h</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/components/SpriteRendererComponent.cpp</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/Sprite.cpp</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/game/states/DebugState.h</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/GameObject.cpp</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/game/Game.cpp</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/Sprite.h</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/core/GameObject.h</file>
+            <file>file:/C:/Users/Ladis/Projects/Poles/src/game/states/DebugState.cpp</file>
         </group>
     </open-files>
 </project-private>
