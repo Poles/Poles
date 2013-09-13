@@ -437,8 +437,8 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/ladis/Desktop/SDL2-2.0.0'
-srcdir='/home/ladis/Desktop/SDL2-2.0.0'
+ac_pwd='/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0'
+srcdir='/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0'
 INSTALL='/usr/bin/install -c'
 AWK='mawk'
 test -n "$AWK" || AWK=awk
@@ -598,7 +598,7 @@ old_postuninstall_cmds=''
 old_archive_cmds='$AR $AR_FLAGS $oldlib$oldobjs~$RANLIB $tool_oldlib'
 lock_old_archive_extraction='no'
 CC='gcc'
-CFLAGS='-g -O2 -Iinclude -I/home/ladis/Desktop/SDL2-2.0.0/include  '
+CFLAGS='-g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include  '
 compiler='g++'
 GCC='yes'
 lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p'\'' | sed '\''/ __gnu_lto/d'\'''
@@ -673,8 +673,8 @@ postuninstall_cmds=''
 finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
-sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/4.7 /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib '
-sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/local/lib /usr/lib/nvidia-settings-310 /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/nvidia-310 /usr/lib32/nvidia-310 '
+sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/4.6 /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib '
+sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/local/lib /usr/lib/nvidia-settings-304 /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/nvidia-319 /usr/lib32/nvidia-319 '
 hardcode_action='immediate'
 enable_dlopen='unknown'
 enable_dlopen_self='unknown'
@@ -729,12 +729,12 @@ prelink_cmds_CXX=''
 postlink_cmds_CXX=''
 file_list_spec_CXX=''
 hardcode_action_CXX='immediate'
-compiler_lib_search_dirs_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.7 /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /usr/lib/gcc/x86_64-linux-gnu/4.7/../../..'
-predep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o'
-postdep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o'
+compiler_lib_search_dirs_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6 /usr/lib/gcc/x86_64-linux-gnu/4.6/../../../x86_64-linux-gnu /usr/lib/gcc/x86_64-linux-gnu/4.6/../../../../lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /usr/lib/gcc/x86_64-linux-gnu/4.6/../../..'
+predep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.6/crtbeginS.o'
+postdep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/4.6/../../../x86_64-linux-gnu/crtn.o'
 predeps_CXX=''
 postdeps_CXX='-lstdc++ -lm -lgcc_s -lc -lgcc_s'
-compiler_lib_search_path_CXX='-L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../..'
+compiler_lib_search_path_CXX='-L/usr/lib/gcc/x86_64-linux-gnu/4.6 -L/usr/lib/gcc/x86_64-linux-gnu/4.6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.6/../../..'
 
 LTCC='gcc'
 LTCFLAGS='-g -O2'
@@ -873,7 +873,8 @@ cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
 S["LTLIBOBJS"]=""
 S["EXTRA_LDFLAGS"]=" -lm -ldl -lpthread -lrt"
 S["BUILD_LDFLAGS"]=""
-S["EXTRA_CFLAGS"]="-Iinclude -I/home/ladis/Desktop/SDL2-2.0.0/include  -mmmx -m3dnow -msse -msse2 -fvisibility=hidden  -D_REENTRANT -DHAVE_LINUX_VERSION_H -Wall"
+S["EXTRA_CFLAGS"]="-Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include  -mmmx -m3dnow -msse -msse2 -fvisibility=hidden  -D_REENTRANT    -I/usr/in"\
+"clude/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include   -D_REENTRANT -DHAVE_LINUX_VERSION_H -Wall"
 S["BUILD_CFLAGS"]="-g -O3 -DUSING_GENERATED_CONFIG_H"
 S["SDLTEST_OBJECTS"]="$(objects)/SDL_test_assert.o $(objects)/SDL_test_common.o $(objects)/SDL_test_compare.o $(objects)/SDL_test_crc32.o $(objects)/SDL_test_font.o $(obj"\
 "ects)/SDL_test_fuzzer.o $(objects)/SDL_test_harness.o $(objects)/SDL_test_imageBlit.o $(objects)/SDL_test_imageBlitBlend.o $(objects)/SDL_test_image"\
@@ -897,12 +898,13 @@ S["OBJECTS"]="$(objects)/SDL.lo $(objects)/SDL_assert.lo $(objects)/SDL_error.lo
 "copy.lo $(objects)/SDL_blit_slow.lo $(objects)/SDL_bmp.lo $(objects)/SDL_clipboard.lo $(objects)/SDL_fillrect.lo $(objects)/SDL_pixels.lo $(objects)"\
 "/SDL_rect.lo $(objects)/SDL_shape.lo $(objects)/SDL_stretch.lo $(objects)/SDL_surface.lo $(objects)/SDL_video.lo $(objects)/SDL_nullevents.lo $(obje"\
 "cts)/SDL_nullframebuffer.lo $(objects)/SDL_nullvideo.lo $(objects)/SDL_diskaudio.lo $(objects)/SDL_dummyaudio.lo $(objects)/SDL_sysloadso.lo $(objec"\
-"ts)/SDL_dspaudio.lo $(objects)/SDL_x11clipboard.lo $(objects)/SDL_x11dyn.lo $(objects)/SDL_x11events.lo $(objects)/SDL_x11framebuffer.lo $(objects)/"\
-"SDL_x11keyboard.lo $(objects)/SDL_x11messagebox.lo $(objects)/SDL_x11modes.lo $(objects)/SDL_x11mouse.lo $(objects)/SDL_x11opengl.lo $(objects)/SDL_"\
-"x11opengles.lo $(objects)/SDL_x11shape.lo $(objects)/SDL_x11touch.lo $(objects)/SDL_x11video.lo $(objects)/SDL_x11window.lo $(objects)/SDL_x11xinput"\
-"2.lo $(objects)/edid-parse.lo $(objects)/imKStoUCS.lo $(objects)/SDL_systhread.lo $(objects)/SDL_syssem.lo $(objects)/SDL_sysmutex.lo $(objects)/SDL"\
-"_syscond.lo $(objects)/SDL_systls.lo $(objects)/SDL_sysjoystick.lo $(objects)/SDL_syshaptic.lo $(objects)/SDL_syspower.lo $(objects)/SDL_systimer.lo"
-S["INCLUDE"]="-Iinclude -I/home/ladis/Desktop/SDL2-2.0.0/include"
+"ts)/SDL_dspaudio.lo $(objects)/SDL_alsa_audio.lo $(objects)/SDL_pulseaudio.lo $(objects)/SDL_x11clipboard.lo $(objects)/SDL_x11dyn.lo $(objects)/SDL"\
+"_x11events.lo $(objects)/SDL_x11framebuffer.lo $(objects)/SDL_x11keyboard.lo $(objects)/SDL_x11messagebox.lo $(objects)/SDL_x11modes.lo $(objects)/S"\
+"DL_x11mouse.lo $(objects)/SDL_x11opengl.lo $(objects)/SDL_x11opengles.lo $(objects)/SDL_x11shape.lo $(objects)/SDL_x11touch.lo $(objects)/SDL_x11vid"\
+"eo.lo $(objects)/SDL_x11window.lo $(objects)/SDL_x11xinput2.lo $(objects)/edid-parse.lo $(objects)/imKStoUCS.lo $(objects)/SDL_systhread.lo $(object"\
+"s)/SDL_syssem.lo $(objects)/SDL_sysmutex.lo $(objects)/SDL_syscond.lo $(objects)/SDL_systls.lo $(objects)/SDL_sysjoystick.lo $(objects)/SDL_syshapti"\
+"c.lo $(objects)/SDL_syspower.lo $(objects)/SDL_systimer.lo"
+S["INCLUDE"]="-Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include"
 S["ac_aux_dir"]="build-scripts"
 S["ENABLE_STATIC_FALSE"]="#"
 S["ENABLE_STATIC_TRUE"]=""
@@ -923,7 +925,7 @@ S["PKG_CONFIG"]="/usr/bin/pkg-config"
 S["ESD_LIBS"]=""
 S["ESD_CFLAGS"]=""
 S["ESD_CONFIG"]="no"
-S["ALSA_LIBS"]=""
+S["ALSA_LIBS"]=" -lasound -lm -ldl -lpthread"
 S["ALSA_CFLAGS"]=""
 S["POW_LIB"]=""
 S["LIBOBJS"]=""
@@ -965,9 +967,9 @@ S["SED"]="/bin/sed"
 S["OBJEXT"]="o"
 S["EXEEXT"]=""
 S["ac_ct_CC"]="gcc"
-S["CPPFLAGS"]=" -Iinclude -I/home/ladis/Desktop/SDL2-2.0.0/include "
+S["CPPFLAGS"]=" -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include "
 S["LDFLAGS"]="  "
-S["CFLAGS"]="-g -O2 -Iinclude -I/home/ladis/Desktop/SDL2-2.0.0/include  "
+S["CFLAGS"]="-g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include  "
 S["CC"]="gcc"
 S["host_os"]="linux-gnu"
 S["host_vendor"]="unknown"
@@ -1168,14 +1170,21 @@ D["SDL_AUDIO_DRIVER_DISK"]=" 1"
 D["SDL_AUDIO_DRIVER_DUMMY"]=" 1"
 D["SDL_LOADSO_DLOPEN"]=" 1"
 D["SDL_AUDIO_DRIVER_OSS"]=" 1"
+D["HAVE_LIBASOUND"]=" 1"
+D["SDL_AUDIO_DRIVER_ALSA"]=" 1"
+D["SDL_AUDIO_DRIVER_ALSA_DYNAMIC"]=" \"libasound.so.2\""
+D["SDL_AUDIO_DRIVER_PULSEAUDIO"]=" 1"
+D["SDL_AUDIO_DRIVER_PULSEAUDIO_DYNAMIC"]=" \"libpulse-simple.so.0\""
 D["SDL_VIDEO_DRIVER_X11"]=" 1"
 D["SDL_VIDEO_DRIVER_X11_DYNAMIC"]=" \"libX11.so.6\""
 D["SDL_VIDEO_DRIVER_X11_DYNAMIC_XEXT"]=" \"libXext.so.6\""
-D["SDL_VIDEO_DRIVER_X11_CONST_PARAM_XEXTADDDISPLAY"]=" 1"
 D["SDL_VIDEO_DRIVER_X11_SUPPORTS_GENERIC_EVENTS"]=" 1"
 D["SDL_VIDEO_DRIVER_X11_HAS_XKBKEYCODETOKEYSYM"]=" 1"
 D["SDL_VIDEO_DRIVER_X11_XSHAPE"]=" 1"
-D["HAVE_LIBUDEV_H"]=" 1"
+D["SDL_VIDEO_OPENGL"]=" 1"
+D["SDL_VIDEO_OPENGL_GLX"]=" 1"
+D["SDL_VIDEO_RENDER_OGL"]=" 1"
+D["HAVE_DBUS_DBUS_H"]=" 1"
 D["SDL_INPUT_LINUXEV"]=" 1"
 D["SDL_THREAD_PTHREAD"]=" 1"
 D["SDL_THREAD_PTHREAD_RECURSIVE_MUTEX"]=" 1"

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1386528437/JsonFile.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
@@ -78,6 +79,11 @@ LDLIBSOPTIONS=-lSDL2 -lartemis
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/1386528437/JsonFile.o: ../../../src/JsonFile.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/JsonFile.o ../../../src/JsonFile.cpp
 
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161

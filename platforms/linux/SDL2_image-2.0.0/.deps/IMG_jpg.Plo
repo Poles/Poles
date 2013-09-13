@@ -1,14 +1,14 @@
 IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
- /usr/include/stdc-predef.h /usr/include/x86_64-linux-gnu/bits/predefs.h \
+ /usr/include/x86_64-linux-gnu/bits/predefs.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
@@ -16,8 +16,7 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
  /usr/include/xlocale.h /usr/include/x86_64-linux-gnu/bits/string.h \
  /usr/include/x86_64-linux-gnu/bits/string2.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h /usr/include/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/sigset.h \
@@ -37,10 +36,9 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/strings.h \
  /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/ctype.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
@@ -57,10 +55,10 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
  /usr/local/include/SDL2/SDL_rwops.h \
  /usr/local/include/SDL2/SDL_clipboard.h \
  /usr/local/include/SDL2/SDL_cpuinfo.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/mmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/xmmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/mm_malloc.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.7/include/emmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/mm_malloc.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/emmintrin.h \
  /usr/local/include/SDL2/SDL_events.h /usr/local/include/SDL2/SDL_video.h \
  /usr/local/include/SDL2/SDL_pixels.h /usr/local/include/SDL2/SDL_rect.h \
  /usr/local/include/SDL2/SDL_surface.h \
@@ -81,13 +79,12 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/begin_code.h \
- /usr/local/include/SDL2/close_code.h
+ /usr/local/include/SDL2/close_code.h /usr/include/jpeglib.h \
+ /usr/include/x86_64-linux-gnu/jconfig.h /usr/include/jmorecfg.h
 
 /usr/include/stdio.h:
 
 /usr/include/features.h:
-
-/usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/bits/predefs.h:
 
@@ -99,7 +96,7 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -111,7 +108,7 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
 
 /usr/include/wchar.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
@@ -134,8 +131,6 @@ IMG_jpg.lo: IMG_jpg.c /usr/include/stdio.h /usr/include/features.h \
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
 
 /usr/include/stdlib.h:
 
@@ -187,15 +182,13 @@ SDL_image.h:
 
 /usr/include/alloca.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
 /usr/include/strings.h:
 
 /usr/include/inttypes.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/stdint.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -243,13 +236,13 @@ SDL_image.h:
 
 /usr/local/include/SDL2/SDL_cpuinfo.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/mmintrin.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/mmintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/xmmintrin.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/xmmintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/mm_malloc.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/mm_malloc.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.7/include/emmintrin.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/emmintrin.h:
 
 /usr/local/include/SDL2/SDL_events.h:
 
@@ -306,3 +299,9 @@ SDL_image.h:
 /usr/local/include/SDL2/begin_code.h:
 
 /usr/local/include/SDL2/close_code.h:
+
+/usr/include/jpeglib.h:
+
+/usr/include/x86_64-linux-gnu/jconfig.h:
+
+/usr/include/jmorecfg.h:

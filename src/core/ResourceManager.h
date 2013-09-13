@@ -11,7 +11,7 @@
 #include <direct.h>
 #define WORKING_DIR __getcwd
 
-#elif _linux
+#elif __linux
 
 #include <unistd.h>
 #define WORKING_DIR getcwd
