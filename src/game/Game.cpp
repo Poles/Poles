@@ -256,4 +256,6 @@ void Game::loadResources() {
     sprite = ResourceManager::loadImage("Background", "images/background-mountain-sky.png", 1, backgroundAnim);
     sprite->bindAnimation("None", 0);
     
+    ResourceManager::getSpriteSheet("spriteSheet_template");
+    
 }

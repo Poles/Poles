@@ -7,6 +7,7 @@
 /* STATIC VARIABLES */
 ResourceManager * ResourceManager::classInstance = 0;
 std::map<std::string, Sprite * > ResourceManager::images;
+std::map<std::string, SpriteSheet *> ResourceManager::spriteSheetMapper;
 std::map<std::string, TTF_Font * > ResourceManager::fonts;
 char ResourceManager::workingPath[FILENAME_MAX];
 /*------------------*/
@@ -198,4 +199,52 @@ TTF_Font * ResourceManager::getFont(const char * fontName) {
         
         return fontFile;
     }
+}
+
+/**
+ * 
+ * @param name
+ * @return 
+ */
+SpriteSheet * ResourceManager::getSpriteSheet(const char * name) {
+    // Check if the image is already loaded
+    std::map<std::string, SpriteSheet *>::iterator spriteFound;
+    
+    spriteFound = spriteSheetMapper.find(name);
+    
+    if (spriteFound != spriteSheetMapper.end()) {
+        return spriteFound->second;
+    }
+    
+    // Sprite sheet is not loaded, so we need to load it
+    std::string spriteFilePath;
+    
+    spriteFilePath.append(workingPath);
+    spriteFilePath.append("/assets/images/");
+    spriteFilePath.append(name);
+    
+    // Check if the format is specified. If not, use .png as default
+    if (spriteFilePath.find_last_of(".") == spriteFilePath.npos) {
+        spriteFilePath.append(".png");
+    }
+    
+#ifdef  _WIN64
+    spriteFilePath = classInstance->fixWindowsPath(spriteFilePath);
+#elif   _WIN32
+    spriteFilePath = classInstance->fixWindowsPath(spriteFilePath);
+#elif   __linux
+    // Nothing to do
+#elif   __APPLE__
+    // Append the "Contents/Resources" string
+#endif
+    
+    SpriteSheet * spriteSheet = new SpriteSheet(spriteFilePath.c_str());
+    
+    // Generate name for the SpriteSheet mapper
+    std::string spriteSheetName(name);
+    spriteSheetName = spriteSheetName.substr(0, spriteSheetName.find_last_of("."));
+    
+    spriteSheetMapper.insert(std::pair<std::string, SpriteSheet *>(spriteSheetName, spriteSheet));
+    
+    return spriteSheet;
 }

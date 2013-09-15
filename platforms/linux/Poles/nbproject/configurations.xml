@@ -8,6 +8,8 @@
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
+        <itemPath>../../../src/core/components/SpriteSheetRendererComponent.cpp</itemPath>
+        <itemPath>../../../src/core/components/SpriteSheetRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/TextRendererComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/TextRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
@@ -29,6 +31,10 @@
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
       <itemPath>../../../src/core/Sprite.cpp</itemPath>
       <itemPath>../../../src/core/Sprite.h</itemPath>
+      <itemPath>../../../src/core/SpriteAnimation.cpp</itemPath>
+      <itemPath>../../../src/core/SpriteAnimation.h</itemPath>
+      <itemPath>../../../src/core/SpriteSheet.cpp</itemPath>
+      <itemPath>../../../src/core/SpriteSheet.h</itemPath>
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
@@ -122,6 +128,20 @@
       </item>
       <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../src/core/SpriteAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
@@ -147,6 +167,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/components/SpriteRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteSheetRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteSheetRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -298,6 +328,20 @@
       </item>
       <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../src/core/SpriteAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
@@ -323,6 +367,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/components/SpriteRendererComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteSheetRendererComponent.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/SpriteSheetRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">

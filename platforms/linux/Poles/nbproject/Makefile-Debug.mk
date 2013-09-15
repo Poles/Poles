@@ -40,9 +40,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
 	${OBJECTDIR}/_ext/608447161/Sprite.o \
+	${OBJECTDIR}/_ext/608447161/SpriteAnimation.o \
+	${OBJECTDIR}/_ext/608447161/SpriteSheet.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
 	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
 	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
+	${OBJECTDIR}/_ext/957312044/SpriteSheetRendererComponent.o \
 	${OBJECTDIR}/_ext/957312044/TextRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
@@ -105,6 +108,16 @@ ${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
 
+${OBJECTDIR}/_ext/608447161/SpriteAnimation.o: ../../../src/core/SpriteAnimation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/SpriteAnimation.o ../../../src/core/SpriteAnimation.cpp
+
+${OBJECTDIR}/_ext/608447161/SpriteSheet.o: ../../../src/core/SpriteSheet.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/SpriteSheet.o ../../../src/core/SpriteSheet.cpp
+
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
@@ -119,6 +132,11 @@ ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/compone
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
+
+${OBJECTDIR}/_ext/957312044/SpriteSheetRendererComponent.o: ../../../src/core/components/SpriteSheetRendererComponent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteSheetRendererComponent.o ../../../src/core/components/SpriteSheetRendererComponent.cpp
 
 ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o: ../../../src/core/components/TextRendererComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044

@@ -25,6 +25,7 @@
 
 #include <cstdio>       // Defines FILENAME_MAX
 #include "Sprite.h"
+#include "SpriteSheet.h"
 #include <map>
 #include <SDL2/SDL_ttf.h>
 
@@ -40,6 +41,8 @@ public:
     static void                                 deleteImage(const char * name);
     static Sprite *                             getSprite(const char * name);
     
+    static SpriteSheet *                        getSpriteSheet(const char * name);
+    
     static TTF_Font *                           getFont(const char * fontName);
     
     static void                                 showSpritesDataBase();
@@ -53,6 +56,7 @@ private:
 private:
     static ResourceManager *                    classInstance;
     static std::map<std::string, Sprite * >     images;
+    static std::map<std::string, SpriteSheet *> spriteSheetMapper;
     static std::map<std::string, TTF_Font * >   fonts;
     
     static char                                 workingPath[FILENAME_MAX];

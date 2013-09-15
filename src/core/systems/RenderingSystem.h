@@ -15,7 +15,7 @@ public:
     
 private:
     artemis::ComponentMapper<PositionComponent>         positionMapper;
-    artemis::ComponentMapper<SpriteRendererComponent>   spriteMapper;
+    artemis::ComponentMapper<SpriteSheetRendererComponent>   spriteMapper;
 };
 
 #endif	/* RENDERINGSYSTEM_H */
