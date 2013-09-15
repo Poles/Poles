@@ -82,12 +82,12 @@ void Game::initialize() {
     }
     
     // Scalated resolution for testing porpuses. Remove * 0.75 for release
-//    int w = mode.w * 0.75;
-//    int h = mode.h * 0.75;
-//    int windowMode = SDL_WINDOW_SHOWN;
-    int w = mode.w;
-    int h = mode.h;
-    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+    int w = mode.w * 0.75;
+    int h = mode.h * 0.75;
+    int windowMode = SDL_WINDOW_SHOWN;
+//    int w = mode.w;
+//    int h = mode.h;
+//    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
