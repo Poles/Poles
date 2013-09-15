@@ -15,6 +15,9 @@ public:
     
     void                        updateAnimation();
     
+    inline int                  getFrameWidth() { currentAnimation.getWidth(); }
+    inline int                  getFrameHeight() { currentAnimation.getHeight(); }
+    
 private:
     SpriteSheet *               spriteSheet;
     

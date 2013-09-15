@@ -8,6 +8,7 @@ public:
     SpriteAnimation();
     SpriteAnimation(
             std::string name,
+            unsigned int animationIndex,
             unsigned int widthPerFrame,
             unsigned int heightPerFrame,
             unsigned int numberOfFrames,
@@ -15,9 +16,9 @@ public:
             bool oscillate = false);
     virtual ~SpriteAnimation();
     
-    SDL_Rect operator[](const unsigned int frameIndex);
+    SDL_Rect                    operator[](const unsigned int frameIndex);
     
-    std::string toString();
+    std::string                 toString();
     
     inline int                  getFrameRate() { return frameRate; }
     inline int                  isOscillating() { return oscillate; }

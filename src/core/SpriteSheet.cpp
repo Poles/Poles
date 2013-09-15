@@ -78,15 +78,21 @@ SpriteSheet::SpriteSheet(const char * filePath) {
     for (unsigned int currentAnimationIndex = 0; currentAnimationIndex < numberOfAnimations; ++currentAnimationIndex) {
         currentAnimation = animations[currentAnimationIndex];
         
+        std::string name = currentAnimation["name"].asString();
+        int frames = currentAnimation["frames"].asInt();
+        bool oscillate = currentAnimation["oscillate"].asBool();
+        int frameRate = currentAnimation["frame-rate"].asInt();
+        
         this->animations->at(currentAnimationIndex)
                 =
                 new SpriteAnimation(
-                currentAnimation["name"].asString(),
+                name,
+                currentAnimationIndex,
                 this->frameWidth,
                 this->frameHeight,
-                currentAnimation["frames"].asInt(),
-                currentAnimation["frame_rate"].asInt(),
-                currentAnimation["oscillate"].asBool());
+                frames,
+                frameRate,
+                oscillate);
         
         this->animationsMapper.insert(
                 std::pair<std::string, unsigned int>(
@@ -139,6 +145,17 @@ SpriteAnimation & SpriteSheet::getDefaultAnimation() {
  * @return              Reference to the animation.
  */
 SpriteAnimation & SpriteSheet::getAnimation(const char* animation) {
+   std::map<std::string, unsigned int>::iterator animationFound;
+   
+   animationFound = this->animationsMapper.find(animation);
+   
+   if (animationFound == this->animationsMapper.end()) {
+       std::stringstream stream;
+       
+       stream << "Animation " << animation << " name is not correct.";
+       SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "ERROR - SpriteSheet", stream.str().c_str(), NULL);
+   }
+   
    return * (this->animations->at(this->animationsMapper.find(animation)->second)); 
 }
 

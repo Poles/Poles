@@ -4,13 +4,13 @@
 			"name": "Animation 01",
 			"frames": 2,
 			"oscillate": false,
-			"frame_rate": 100
+			"frame-rate": 100
 		},
 		{
 			"name": "Animation 02",
 			"frames": 3,
 			"oscillate": true,
-			"frame_rate": 300
+			"frame-rate": 300
 		}
 	]
 }

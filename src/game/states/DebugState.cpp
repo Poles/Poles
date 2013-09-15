@@ -21,17 +21,16 @@ void DebugState::onActivate() {
     this->keyDown = false;
     
     this->background = Game::createGameObject();
-    Sprite * sprite = NULL;
-    sprite = ResourceManager::getSprite("Background");
+    SpriteSheet * sprite = NULL;
+    sprite = ResourceManager::getSpriteSheet("background-mountain-sky.png");
     
-    this->background->addComponent(new SpriteRendererComponent(sprite));
+    this->background->addComponent(new SpriteSheetRendererComponent(sprite));
     Vector2D backgroundPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     this->background->setPosition(backgroundPosition);
     
     this->zero = Game::createGameObject();
     this->zero->addComponent(new VelocityComponent());
-    SpriteRendererComponent * component = (SpriteRendererComponent *)this->zero->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("Zero")));
-    component->setFrameRate(150);
+    SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->zero->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("zero")));
     Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     this->zero->setPosition(zeroPosition);
     
@@ -58,7 +57,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             if (!keyDown) {
                 force.setX(-2.0f);
                 this->zero->addForce(force);
-                SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
+                SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Left");
             }
             break;
@@ -67,7 +66,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             if (!keyDown) {
                 force.setX(2.0f);
                 this->zero->addForce(force);
-                SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
+                SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Right");
             }
             break;
@@ -80,17 +79,21 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
 }
 
 void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {
+    SpriteSheetRendererComponent * sprite;
     switch (key) {
         case SDLK_LEFT:
             this->zero->resetForce();
+            sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+            sprite->changeAnimation("Stand");
             break;
             
         case SDLK_RIGHT:
             this->zero->resetForce();
+            sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+            sprite->changeAnimation("Stand");
             break;
     }
     this->keyDown = false;
-    SpriteRendererComponent * sprite = (SpriteRendererComponent *)this->zero->getComponent<SpriteRendererComponent>();
-    sprite->changeAnimation("Stand");
+    
 }
 

@@ -3,7 +3,6 @@
 
 #include "PositionComponent.h"
 #include "VelocityComponent.h"
-#include "SpriteRendererComponent.h"
 #include "SpriteSheetRendererComponent.h"
 #include "TextRendererComponent.h"
 

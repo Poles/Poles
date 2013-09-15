@@ -24,7 +24,6 @@
 #define TEXT_DEFAULT_POINTSIZE 16
 
 #include <cstdio>       // Defines FILENAME_MAX
-#include "Sprite.h"
 #include "SpriteSheet.h"
 #include <map>
 #include <SDL2/SDL_ttf.h>
@@ -36,10 +35,8 @@ public:
     static void                                 initialize();
     
     static std::string                          getAssetsFolderPath();
-    
-    static Sprite *                             loadImage(const char * name, const char * imagePath, unsigned int animations = 1, unsigned int * framesPerAnimation = NULL);
+   
     static void                                 deleteImage(const char * name);
-    static Sprite *                             getSprite(const char * name);
     
     static SpriteSheet *                        getSpriteSheet(const char * name);
     
@@ -55,7 +52,6 @@ private:
     
 private:
     static ResourceManager *                    classInstance;
-    static std::map<std::string, Sprite * >     images;
     static std::map<std::string, SpriteSheet *> spriteSheetMapper;
     static std::map<std::string, TTF_Font * >   fonts;
     

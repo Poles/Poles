@@ -21,16 +21,16 @@ void IntroState::onActivate() {
     Vector2D mountainsInitPosition = centerPosition - Vector2D(0, height / 2 - 500);
     
     this->backgroundMountainSky = Game::createGameObject();
-    this->backgroundMountainSky->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-sky")));
+    this->backgroundMountainSky->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("background-mountain-sky")));
     this->backgroundMountainSky->setPosition(centerPosition);
     
     this->backgroundMountainBehind = Game::createGameObject();
-    this->backgroundMountainBehind->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-behind")));
+    this->backgroundMountainBehind->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("background-mountain-behind")));
     this->backgroundMountainBehind->addComponent(new VelocityComponent());
     this->backgroundMountainBehind->setPosition(mountainsInitPosition);
     
     this->backgroundMountainAbove = Game::createGameObject();
-    SpriteRendererComponent * component = (SpriteRendererComponent *)this->backgroundMountainAbove->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("background-mountain-above")));
+    SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->backgroundMountainAbove->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("background-mountain-above")));
     this->backgroundMountainAbove->addComponent(new VelocityComponent());
     unsigned int mountainHeight = component->getFrameHeight();
     
@@ -38,7 +38,7 @@ void IntroState::onActivate() {
     this->backgroundMountainAbove->setPosition(aboveMountainPosition);
     
     this->polesDude = Game::createGameObject();
-    this->polesDude->addComponent(new SpriteRendererComponent(ResourceManager::getSprite("poles_dude")));
+    this->polesDude->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("poles_dude")));
     this->polesDude->setParent(this->backgroundMountainAbove);
     this->polesDude->addComponent(new VelocityComponent(0.0f, 0.0f));
     Vector2D polesDudePosition(0.0f, (-1.0f) * ((float)mountainHeight / 2.0f) - 4.0f);

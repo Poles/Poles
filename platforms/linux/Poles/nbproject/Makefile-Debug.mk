@@ -39,12 +39,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
-	${OBJECTDIR}/_ext/608447161/Sprite.o \
 	${OBJECTDIR}/_ext/608447161/SpriteAnimation.o \
 	${OBJECTDIR}/_ext/608447161/SpriteSheet.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
 	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
-	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
 	${OBJECTDIR}/_ext/957312044/SpriteSheetRendererComponent.o \
 	${OBJECTDIR}/_ext/957312044/TextRendererComponent.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
@@ -103,11 +101,6 @@ ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
 
-${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
-	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
-
 ${OBJECTDIR}/_ext/608447161/SpriteAnimation.o: ../../../src/core/SpriteAnimation.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
@@ -127,11 +120,6 @@ ${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/Po
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
-
-${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/components/SpriteRendererComponent.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
-	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
 
 ${OBJECTDIR}/_ext/957312044/SpriteSheetRendererComponent.o: ../../../src/core/components/SpriteSheetRendererComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044

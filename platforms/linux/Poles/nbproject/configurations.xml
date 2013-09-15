@@ -6,8 +6,6 @@
         <itemPath>../../../src/core/components/Components.h</itemPath>
         <itemPath>../../../src/core/components/PositionComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
-        <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
-        <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/SpriteSheetRendererComponent.cpp</itemPath>
         <itemPath>../../../src/core/components/SpriteSheetRendererComponent.h</itemPath>
         <itemPath>../../../src/core/components/TextRendererComponent.cpp</itemPath>
@@ -29,8 +27,6 @@
       <itemPath>../../../src/core/GameObject.h</itemPath>
       <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
-      <itemPath>../../../src/core/Sprite.cpp</itemPath>
-      <itemPath>../../../src/core/Sprite.h</itemPath>
       <itemPath>../../../src/core/SpriteAnimation.cpp</itemPath>
       <itemPath>../../../src/core/SpriteAnimation.h</itemPath>
       <itemPath>../../../src/core/SpriteSheet.cpp</itemPath>
@@ -124,10 +120,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/SpriteAnimation.cpp"
             ex="false"
             tool="1"
@@ -157,16 +149,6 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/components/PositionComponent.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -324,10 +306,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/SpriteAnimation.cpp"
             ex="false"
             tool="1"
@@ -357,16 +335,6 @@
             flavor2="0">
       </item>
       <item path="../../../src/core/components/PositionComponent.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.h"
             ex="false"
             tool="3"
             flavor2="0">

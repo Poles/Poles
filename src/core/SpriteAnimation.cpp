@@ -9,6 +9,7 @@ SpriteAnimation::SpriteAnimation() {
 
 SpriteAnimation::SpriteAnimation(
         std::string name,
+        unsigned int animationIndex,
         unsigned int widthPerFrame,
         unsigned int heightPerFrame,
         unsigned int numberOfFrames,
@@ -21,13 +22,14 @@ SpriteAnimation::SpriteAnimation(
     this->frames = new std::vector<Vector2D>(numberOfFrames);
     
     unsigned int x = 0;
-    unsigned int y = 0;
+    unsigned int y = animationIndex * heightPerFrame;
     for (unsigned int i = 0; i < numberOfFrames; ++i) {
         x = widthPerFrame * i;
         this->frames->at(i) = Vector2D(x,y);
     }
     
     this->oscillate = oscillate;
+    this->frameRate = frameRate;
 }
 
 SpriteAnimation::~SpriteAnimation() {
@@ -67,6 +69,7 @@ SDL_Rect SpriteAnimation::operator [](const unsigned int frameIndex) {
 std::string SpriteAnimation::toString() {
     std::stringstream stream;
     
+    stream << "/******************************/" << std::endl;
     stream << "Name: " << this->name << "       Frames: " << this->frames->size() << std::endl;
     stream << "Frame Rate: " << this->frameRate << "    Oscillate: " << this->oscillate << std::endl;
     

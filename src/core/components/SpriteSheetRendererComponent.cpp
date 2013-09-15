@@ -22,7 +22,7 @@ SpriteSheetRendererComponent::~SpriteSheetRendererComponent() {
  * 
  * @param animation
  */
-void SpriteSheetRendererComponent::changeAnimation(const char* animation) {
+void SpriteSheetRendererComponent::changeAnimation(const char * animation) {
     this->currentAnimation = this->spriteSheet->getAnimation(animation);
     this->currentAnimationFrame = 0;
     this->frameIncrement = 1;
@@ -37,12 +37,14 @@ void SpriteSheetRendererComponent::render(Vector2D& position) {
     SDL_Rect spriteFrame = this->currentAnimation[currentAnimationFrame];
     SDL_Rect renderFrame;
     
-    renderFrame.x = position.x();
-    renderFrame.y = position.y();
+    renderFrame.x = position.x() - (this->currentAnimation.getWidth() / 2);
+    renderFrame.y = position.y() - (this->currentAnimation.getHeight() / 2);
     renderFrame.w = this->currentAnimation.getWidth();
     renderFrame.h = this->currentAnimation.getHeight();
     
     SDL_RenderCopy(Game::currentRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
+    
+    updateAnimation();
 }
 
 /**
