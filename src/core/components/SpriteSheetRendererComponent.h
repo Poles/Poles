@@ -15,13 +15,13 @@ public:
     
     void                        updateAnimation();
     
-    inline int                  getFrameWidth() { currentAnimation.getWidth(); }
-    inline int                  getFrameHeight() { currentAnimation.getHeight(); }
+    inline int                  getFrameWidth() { currentAnimation->getWidth(); }
+    inline int                  getFrameHeight() { currentAnimation->getHeight(); }
     
 private:
     SpriteSheet *               spriteSheet;
     
-    SpriteAnimation &           currentAnimation;
+    SpriteAnimation *           currentAnimation;
     unsigned int                currentAnimationFrame;
     int                         timeLastUpdate;
     int                         frameIncrement;

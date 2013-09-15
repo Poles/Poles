@@ -13,9 +13,9 @@ public:
     SpriteSheet(const char * filePath);
     virtual ~SpriteSheet();
     
-    SpriteAnimation &                   operator[](const char * animation);
-    SpriteAnimation &                   getDefaultAnimation();
-    SpriteAnimation &                   getAnimation(const char * animation);
+    SpriteAnimation *                   operator[](const char * animation);
+    SpriteAnimation *                   getDefaultAnimation();
+    SpriteAnimation *                   getAnimation(const char * animation);
     
     inline int                          getWidth() { return totalWidth; }
     inline int                          getHeight() { return totalHeight; }
@@ -23,6 +23,8 @@ public:
     inline int                          getIndividualFrameHeight() { return frameHeight; }
     
     inline SDL_Texture *                getTexture() { return spriteSheet; }
+    
+    std::string                         toString();
 private:
     SDL_Texture *                       spriteSheet;
     

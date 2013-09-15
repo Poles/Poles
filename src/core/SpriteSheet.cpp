@@ -123,11 +123,11 @@ SpriteSheet::~SpriteSheet() {
  * @param animation     Name of the animation.
  * @return              Reference to the animation.
  */
-SpriteAnimation & SpriteSheet::operator [](const char * animation) {
+SpriteAnimation * SpriteSheet::operator [](const char * animation) {
     if (animation == NULL) {
-        return * (this->animations->at(0));
+        return (this->animations->at(0));
     } else {
-        return * (this->animations->at(this->animationsMapper.find(animation)->second));
+        return (this->animations->at(this->animationsMapper.find(animation)->second));
     }
 }
 
@@ -135,8 +135,8 @@ SpriteAnimation & SpriteSheet::operator [](const char * animation) {
  * 
  * @return 
  */
-SpriteAnimation & SpriteSheet::getDefaultAnimation() {
-    return * (this->animations->at(0));
+SpriteAnimation * SpriteSheet::getDefaultAnimation() {
+    return (this->animations->at(0));
 }
 
 /**
@@ -144,18 +144,51 @@ SpriteAnimation & SpriteSheet::getDefaultAnimation() {
  * @param animation     Name of the animation.
  * @return              Reference to the animation.
  */
-SpriteAnimation & SpriteSheet::getAnimation(const char* animation) {
+SpriteAnimation * SpriteSheet::getAnimation(const char * animation) {
    std::map<std::string, unsigned int>::iterator animationFound;
+   
+   if (this->animationsMapper.count(animation) == 0) {
+       std::stringstream stream;
+       
+       stream << "Animation " << animation << " name not found in animations mapper.";
+       SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "ERROR - SpriteSheet", stream.str().c_str(), NULL);
+   }
    
    animationFound = this->animationsMapper.find(animation);
    
    if (animationFound == this->animationsMapper.end()) {
-       std::stringstream stream;
-       
-       stream << "Animation " << animation << " name is not correct.";
-       SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "ERROR - SpriteSheet", stream.str().c_str(), NULL);
+    std::stringstream stream;
+
+    stream << "Animation " << animation << " name is not correct.";
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "ERROR - SpriteSheet", stream.str().c_str(), NULL);
    }
    
-   return * (this->animations->at(this->animationsMapper.find(animation)->second)); 
+   return (this->animations->at(animationFound->second)); 
+}
+
+
+/**
+ * 
+ * @return 
+ */
+std::string SpriteSheet::toString() {
+    std::stringstream stream;
+    
+    stream << "[========================]" << std::endl;
+    stream << "-->ANIMATIONS<---" << std::endl;
+    for (unsigned int i = 0; i < this->animations->size(); ++i) {
+        stream << "Animations[" << i << "] = " << this->animations->at(i)->getName() << std::endl;
+    }
+    
+    stream << std::endl;
+    
+    stream << "-->BINDINGS<--" << std::endl;
+    for (std::map<std::string, unsigned int>::iterator currentAnimation = this->animationsMapper.begin(); currentAnimation != this->animationsMapper.end(); ++currentAnimation) {
+        stream << "Animation: " << currentAnimation->first << "    Position: " << currentAnimation->second << std::endl;
+    }
+    
+    stream << "[========================]" << std::endl;
+    
+    return stream.str();
 }
 

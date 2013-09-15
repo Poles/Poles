@@ -33,7 +33,8 @@ void DebugState::onActivate() {
     SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->zero->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("zero")));
     Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     this->zero->setPosition(zeroPosition);
-    
+
+    sprite = ResourceManager::getSpriteSheet("zero");
 }
 
 void DebugState::onDeactivate() {
@@ -55,7 +56,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
     switch (key) {
         case SDLK_LEFT:
             if (!keyDown) {
-                force.setX(-2.0f);
+                force.setX(-3.0f);
                 this->zero->addForce(force);
                 SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Left");
@@ -64,7 +65,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             
         case SDLK_RIGHT:
             if (!keyDown) {
-                force.setX(2.0f);
+                force.setX(3.0f);
                 this->zero->addForce(force);
                 SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Right");
@@ -80,17 +81,18 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
 
 void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {
     SpriteSheetRendererComponent * sprite;
+    
     switch (key) {
         case SDLK_LEFT:
             this->zero->resetForce();
             sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
-            sprite->changeAnimation("Stand");
+            sprite->changeAnimation("Stand Left");
             break;
             
         case SDLK_RIGHT:
             this->zero->resetForce();
             sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
-            sprite->changeAnimation("Stand");
+            sprite->changeAnimation("Stand Right");
             break;
     }
     this->keyDown = false;

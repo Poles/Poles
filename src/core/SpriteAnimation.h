@@ -20,6 +20,7 @@ public:
     
     std::string                 toString();
     
+    inline std::string          getName() { return name; }
     inline int                  getFrameRate() { return frameRate; }
     inline int                  isOscillating() { return oscillate; }
     inline int                  getNumberOfFrames() { return frames->size(); }
