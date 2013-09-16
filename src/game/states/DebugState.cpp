@@ -60,6 +60,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
                 this->zero->addForce(force);
                 SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Left");
+                this->keyDown = true;
             }
             break;
             
@@ -69,6 +70,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
                 this->zero->addForce(force);
                 SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
                 sprite->changeAnimation("Walk Right");
+                this->keyDown = true;
             }
             break;
             
@@ -76,7 +78,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             Game::exit();
             break;
     }
-    this->keyDown = true;
+    
 }
 
 void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {

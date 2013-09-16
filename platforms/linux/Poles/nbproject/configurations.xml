@@ -61,8 +61,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../../../src/JsonFile.cpp</itemPath>
-    <itemPath>../../../src/JsonFile.h</itemPath>
     <itemPath>../../../src/main.cpp</itemPath>
   </logicalFolder>
   <sourceRootList>
@@ -96,10 +94,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -282,10 +276,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
