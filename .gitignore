@@ -167,3 +167,13 @@ Podfile.lock
 # Photoshop
 #
 *.psd
+
+####
+# CMake
+#
+bin/Poles*
+CMakeFiles/
+lib/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
