@@ -22,6 +22,15 @@
 *.lock
 profile
 
+####
+# CMake output
+
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
 
 ####
 # Xcode temporary files that should never be committed
@@ -157,5 +166,4 @@ Podfile.lock
 ####
 # Photoshop
 #
-
 *.psd
