@@ -87,5 +87,5 @@ target_link_libraries (Poles SDL2)
 target_link_libraries (Poles SDL2_image)
 target_link_libraries (Poles SDL2_ttf)
 target_link_libraries (Poles artemis)
-target_link_libraries (Poles json_linux-gcc-4.6_libmt)
+target_link_libraries (Poles json)
 

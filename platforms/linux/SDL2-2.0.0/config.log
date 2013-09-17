@@ -27,14 +27,12 @@ uname -v = #44~precise1-Ubuntu SMP Fri Aug 23 18:32:41 UTC 2013
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /usr/lib/lightdm/lightdm
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
 PATH: /usr/bin
 PATH: /sbin
 PATH: /bin
-PATH: /usr/games
 
 
 ## ----------- ##
@@ -784,7 +782,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for strlcpy
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccC11EX4.o: In function `main':
+/tmp/cctDWNLo.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:93: undefined reference to `strlcpy'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -888,7 +886,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for strlcat
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/cc3Bhmy6.o: In function `main':
+/tmp/ccss2t9u.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:93: undefined reference to `strlcat'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -997,7 +995,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for _strrev
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccSMx2ci.o: In function `main':
+/tmp/ccWYjG2C.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:94: undefined reference to `_strrev'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1102,7 +1100,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _strupr
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccGJTuzj.o: In function `main':
+/tmp/ccC9IXlH.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:94: undefined reference to `_strupr'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1207,7 +1205,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _strlwr
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccRkh3co.o: In function `main':
+/tmp/ccIv30WI.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:94: undefined reference to `_strlwr'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1327,7 +1325,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for itoa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/cc6IzOiE.o: In function `main':
+/tmp/ccSUT19Y.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:97: undefined reference to `itoa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1435,7 +1433,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _ltoa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/cc8S6jTI.o: In function `main':
+/tmp/ccQum4w4.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:97: undefined reference to `_ltoa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1543,7 +1541,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _uitoa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccg23xPP.o: In function `main':
+/tmp/cc6Fhvy6.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:97: undefined reference to `_uitoa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1651,7 +1649,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _ultoa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccJKgWlK.o: In function `main':
+/tmp/ccSX79Oc.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:97: undefined reference to `_ultoa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1767,7 +1765,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for _i64toa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccdFyfvT.o: In function `main':
+/tmp/ccsuGfsp.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:99: undefined reference to `_i64toa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -1877,7 +1875,7 @@ configure: failed program was:
 configure:16556: result: no
 configure:16556: checking for _ui64toa
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccurdbXZ.o: In function `main':
+/tmp/ccfLKrWj.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:99: undefined reference to `_ui64toa'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -2013,7 +2011,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for _stricmp
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccG71pJn.o: In function `main':
+/tmp/ccbAQ4dI.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:105: undefined reference to `_stricmp'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -2134,7 +2132,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for _strnicmp
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccbfbJrw.o: In function `main':
+/tmp/ccsrkRtQ.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:106: undefined reference to `_strnicmp'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -2295,7 +2293,7 @@ configure:16556: $? = 0
 configure:16556: result: yes
 configure:16556: checking for sysctlbyname
 configure:16556: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c  >&5
-/tmp/ccya2jo3.o: In function `main':
+/tmp/ccnjYTIz.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:116: undefined reference to `sysctlbyname'
 collect2: ld returned 1 exit status
 configure:16556: $? = 1
@@ -3124,7 +3122,7 @@ configure:21435: $? = 0
 configure:21441: result: yes
 configure:21445: checking for dlopen in -lc
 configure:21470: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include    conftest.c -lc   -lm >&5
-/tmp/ccJlgcCx.o: In function `main':
+/tmp/ccvSroDP.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:114: undefined reference to `dlopen'
 collect2: ld returned 1 exit status
 configure:21470: $? = 1
@@ -7031,7 +7029,7 @@ configure:21203: $? = 0
 configure:21217: result: yes
 configure:21220: checking for pthread_set_name_np
 configure:21240: gcc -o conftest -g -O2 -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include   -D_REENTRANT  -Iinclude -I/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/include     conftest.c  -lm -lpthread >&5
-/tmp/ccHWvmD7.o: In function `main':
+/tmp/cclQyyWi.o: In function `main':
 /home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/conftest.c:137: undefined reference to `pthread_set_name_np'
 collect2: ld returned 1 exit status
 configure:21240: $? = 1
@@ -7219,6 +7217,7 @@ config.status:1286: creating sdl2-config
 config.status:1286: creating SDL2.spec
 config.status:1286: creating sdl2.pc
 config.status:1286: creating include/SDL_config.h
+config.status:1446: include/SDL_config.h is unchanged
 config.status:1460: executing libtool commands
 
 ## ---------------- ##
