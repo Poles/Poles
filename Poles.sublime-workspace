@@ -1,0 +1,306 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"POLES_SOU",
+				"POLES_SOURCE_DIRECTORIES"
+			],
+			[
+				"include",
+				"include_directories"
+			],
+			[
+				"cpp",
+				"cpp"
+			],
+			[
+				"set",
+				"set"
+			],
+			[
+				"Operating",
+				"OperatingSystem"
+			],
+			[
+				"h",
+				"h"
+			],
+			[
+				"CMake",
+				"CMake_Sublime"
+			],
+			[
+				"backgr",
+				"backgroundTexture"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "platforms/linux/install_libraries.sh",
+			"settings":
+			{
+				"buffer_size": 2013,
+				"line_ending": "Unix",
+				"name": "#!/bin/bash"
+			}
+		},
+		{
+			"file": "platforms/linux/README.md",
+			"settings":
+			{
+				"buffer_size": 894,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ladis/Projects/Poles/CMakeLists.txt",
+		"/home/ladis/Projects/Poles/platforms/linux/JsonCpp/README.txt",
+		"/home/ladis/Projects/Poles/platforms/linux/SDL2/INSTALL.txt",
+		"/home/ladis/Projects/Poles/lib/README.md",
+		"/home/ladis/Projects/Poles/platforms/linux/compile_libraries.sh",
+		"/home/ladis/Projects/Poles/platforms/linux/SDL2-2.0.0/autogen.sh",
+		"/usr/share/applications/gimp.desktop",
+		"/usr/share/applications/sublime-text-2.desktop",
+		"/usr/share/applications/aseprite.desktop",
+		"/home/ladis/Desktop/Game Idea.txt",
+		"/home/ladis/Desktop/CMake_Sublime/src/components/CMakeLists.txt",
+		"/home/ladis/Desktop/CMake_Sublime/src/CMakeLists.txt",
+		"/home/ladis/Desktop/CMake_Sublime/CMakeLists.txt",
+		"/home/ladis/Projects/Poles/.gitignore",
+		"/home/ladis/Projects/Poles/.git/config",
+		"/home/ladis/Desktop/CMake_Sublime/res/SDL2_image/Makefile",
+		"/home/ladis/Desktop/CMake_Sublime/res/SDL2_image/README.txt",
+		"/home/ladis/Desktop/CMake_Sublime/res/SDL2/INSTALL.txt",
+		"/home/ladis/Desktop/CMake_Sublime/cmake_install.cmake",
+		"/usr/share/applications/defaults.list",
+		"/usr/share/applications/sublime-text.desktop",
+		"/usr/share/applications/sublime-text.desktopsudo",
+		"/home/ladis/rm",
+		"/home/ladis/Desktop/CMake_Sublime/src/components/Position.cpp",
+		"/home/ladis/Desktop/CMake_Sublime/src/components/Velocity.cpp",
+		"/home/ladis/Desktop/CMake_Sublime/src/components/Velocity.h",
+		"/home/ladis/Desktop/CMake_Sublime/src/components/Position.h",
+		"/home/ladis/Desktop/CMake_Sublime/src/main.cpp",
+		"/home/ladis/Projects/Poles/src/core/SpriteSheet.cpp",
+		"/home/ladis/Desktop/CMake_Sublime/src/Sprite.cpp",
+		"/home/ladis/Desktop/CMake_Sublime/src/Sprite.h",
+		"/home/ladis/Projects/Poles/src/core/components/TextRendererComponent.cpp",
+		"/home/ladis/Projects/Poles/src/core/components/TextRendererComponent.h",
+		"/home/ladis/Projects/Poles/src/core/components/VelocityComponent.h",
+		"/home/ladis/Projects/Poles/src/game/Game.cpp",
+		"/home/ladis/Desktop/TODO List.txt",
+		"/home/ladis/Projects/DotFiles/run.sh",
+		"/home/ladis/Projects/Poles/assets/images/zero.json",
+		"/home/ladis/Projects/Poles/assets/images/background-mountain-above.json",
+		"/home/ladis/Projects/Poles/assets/images/poles_dude.json",
+		"/home/ladis/Apps/aseprite.sh",
+		"/home/ladis/Apps/Aseprite.sh",
+		"/home/ladis/Projects/Poles/assets/images/background-mountain-sky.json",
+		"/home/ladis/Projects/Poles/assets/images/spriteSheet_template.json",
+		"/home/ladis/Projects/Poles/src/core/components/SpriteRendererComponent.cpp",
+		"/home/ladis/Projects/Poles/src/core/components/SpriteRendererComponent.h",
+		"/home/ladis/Projects/Poles/src/core/Sprite.h",
+		"/home/ladis/Projects/Poles/src/core/Sprite.cpp",
+		"/home/ladis/Projects/Poles/src/JsonFile.cpp"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"OperatingSystem",
+			"gedit"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"OPERATING_SYSTEM",
+			"sublime-text-2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "platforms/linux/install_libraries.sh",
+					"settings":
+					{
+						"buffer_size": 2013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#!/bin/bash",
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "platforms/linux/README.md",
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								492,
+								492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true
+}

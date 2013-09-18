@@ -1,24 +1,28 @@
-Linux
-=============
-The SDL2 packages for Ubuntu 12.04 are provided for convenience since only the old 1.2 version of the framework is available from the official repositories. Just install them throught your package manager as usual.
+Libraries
+===========
 
-You can compile SDL2 yourself running the following commands from a terminal in the `SDL2-2.0.0` folder:
+Here you can find the source code for the libraries used in Poles. This source code is used to compile and link the librarys toward the executable using CMake.
 
-1. `./configure`.
-2. `make`.
-3. `sudo make install`.
+You can compile them by yourself, but we recommend you to use the `install_libraries.sh` script that will do it automatically.
 
-For Artemis-Cpp we provide a compiled version (Ubuntu 12.04 again) of the framework linked to the NetBeans' project.
+## Artemis-Cpp
 
-You can compile and install Artemis-Cpp your self by running the following commands from a terminal in the `Artemis-Cpp` folder:
+Implements the Entity/Component system used throught Poles. It gives an incredible amount of freedom and abstraction for creating game objects.
 
-1. `make`.
-2. `sudo make install`.
+You can check out this awesome project [here](http://github.com/vinova/Artemis-Cpp).
 
-## Troubleshoot
-If you have problems running the app after compiling or trying to debug because of missing libraries you should add `/usr/local/lib` to your `LD_LIBRARY_PATH` system's variable or do the following (tested on Ubuntu):
+## JsonCpp
 
-1. Create a new file called `.conf` in `/etc/ld.so.conf.d/`.
-2. Edit the new file an add a new line with the following: `/usr/local/lib`.
-3. Run `sudo ldconfig`.
-4. Profit.
+JSON files parsing to store data. It is used, for example, for Sprites animation information.
+
+## SDL2
+
+Used for basic rendering, window creation and event handling.
+
+## SDL2_image
+
+Submodule of SDL2 that allowed us to load image files of a variety of formats (usually PNG).
+
+## SDL2_ttf
+
+Text rendering using custom fonts.
