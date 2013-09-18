@@ -172,3 +172,9 @@ Podfile.lock
 # Photoshop
 #
 *.psd
+
+####
+# CTags
+#
+.tags
+.tags_sorted_by_file
