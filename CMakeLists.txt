@@ -14,6 +14,10 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# Add executable
+set (POLES_MAIN "${SOURCE_DIR}/main.cpp")
+add_executable (Poles ${POLES_MAIN})
+
 #----------------------------------------------------------------#
 # Detect current Operating System
 #
@@ -29,36 +33,14 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	set (OPERATING_SYSTEM "Windows")
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
-message ("Compiling project for ${OPERATING_SYSTEM} system.")
+message ("Compiling ${PROJECT_NAME} for ${OPERATING_SYSTEM} system.")
 #
 #----------------------------------------------------------------#
 
-# Add executable
-add_executable(Poles "${PROJECT_SOURCE_DIR}/main.cpp")
-
 #----------------------------------------------------------------#
 # Source files to link against executable
-# Note: Add here any .cpp file created
-set (POLES_SOURCE_FILES
-	"${SOURCE_DIR}/core/Color.cpp"
-	"${SOURCE_DIR}/core/GameObject.cpp"
-	"${SOURCE_DIR}/core/ResourceManager.cpp"
-	"${SOURCE_DIR}/core/SpriteAnimation.cpp"
-	"${SOURCE_DIR}/core/SpriteSheet.cpp"
-	"${SOURCE_DIR}/core/Vector2D"
-	"${SOURCE_DIR}/core/components/PositionComponent.cpp"
-	"${SOURCE_DIR}/core/components/SpriteSheetRendererComponent.cpp"
-	"${SOURCE_DIR}/core/components/TextRendererComponent.cpp"
-	"${SOURCE_DIR}/core/systems/MovementSystem.cpp"
-	"${SOURCE_DIR}/core/systems/RenderingSystem.cpp"
-	"${SOURCE_DIR}/core/systems/TextRenderingSystem.cpp"
-	"${SOURCE_DIR}/game/Event.cpp"
-	"${SOURCE_DIR}/game/Game.cpp"
-	"${SOURCE_DIR}/game/GameState.cpp"
-	"${SOURCE_DIR}/game/GameStateManager.cpp"
-	"${SOURCE_DIR}/game/states/DebugState.cpp"
-	"${SOURCE_DIR}/game/states/IntroState.cpp"
-)
+file (GLOB_RECURSE POLES_SOURCE_FILES ${SOURCE_DIR}/*.cpp)
+list (REMOVE_ITEM POLES_SOURCE_FILES ${POLES_MAIN})
 add_library (PolesEngine ${POLES_SOURCE_FILES})
 target_link_libraries (Poles PolesEngine)
 #
