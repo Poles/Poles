@@ -20,9 +20,10 @@ public:
     inline artemis::Component *        getComponent() { return this->entity.getComponent<c>(); }
     
     Vector2D                    getPosition();
-    Vector2D                    getRealPosition();
+    Vector2D                    getRelativePosition();
     
     void                        setPosition(Vector2D & position);
+    void                        setPosition(const int x, const int y);
     
     bool                        hasParent();
     

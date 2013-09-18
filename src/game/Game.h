@@ -25,6 +25,7 @@ public:
     static void                         destroyGameObject(GameObject * object);
     
     static SDL_Renderer *               currentRenderer();
+    static SDL_Window*                  getCurrentWindow();
 
     static inline artemis::World &      getWorld() { return world; }
 
@@ -32,9 +33,9 @@ public:
 
     static inline int                   getRenderingContextWidth() { return renderingContextWidth; }
     static inline int                   getRenderingContextHeight() { return renderingContextHeight; }
-
+    static inline GameObject *          getMainCameraObject() { return mainCameraObject; }
+    static inline components::Camera *  getMainCamera() { return mainCamera; }
     void                                initialize();
-    void                                loadResources();
     void                                mainLoop();
     void                                update();
     void                                handleEvents();
@@ -46,6 +47,9 @@ public:
 protected:
     static SDL_Window *                 wnd;
     static SDL_Renderer *               renderer;
+
+    static GameObject *                 mainCameraObject;
+    static components::Camera *         mainCamera;
     
     static bool                         run;
 

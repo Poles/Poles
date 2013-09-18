@@ -1,4 +1,5 @@
 #include "TextRenderingSystem.h"
+#include "../../game/Game.h"
 
 TextRenderingSystem::TextRenderingSystem() {
     addComponentType<PositionComponent>();
@@ -15,6 +16,7 @@ TextRenderingSystem::~TextRenderingSystem() {
 }
 
 void TextRenderingSystem::processEntity(artemis::Entity& e) {
-    Vector2D position = positionMapper.get(e)->getPosition();    
+    Vector2D position = positionMapper.get(e)->getPosition(); 
+    position = position - (Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector());   
     rendererMapper.get(e)->render(position);
 }

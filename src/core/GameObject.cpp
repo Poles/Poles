@@ -74,7 +74,7 @@ void GameObject::removeComponent(artemis::Component* component) {
  * 
  * @return 
  */
-Vector2D GameObject::getPosition() {
+Vector2D GameObject::getRelativePosition() {
     PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
     
     if (component != NULL) {
@@ -101,18 +101,23 @@ void GameObject::setPosition(Vector2D& position) {
     }
 }
 
+void GameObject::setPosition(const int x, const int y) {
+    Vector2D pos(x,y);
+    setPosition(pos);
+}
+
 /**
  * Calculates the real position of the object, taking in account the parent's (if present) position.
  * @return      Real position in the global coordinates.
  */
-Vector2D GameObject::getRealPosition() {
+Vector2D GameObject::getPosition() {
     Vector2D realPosition;
     
     if (this->parent != NULL) {
-        realPosition = realPosition + this->parent->getRealPosition();
+        realPosition = realPosition + this->parent->getPosition();
     }
     
-    realPosition = realPosition + this->getPosition();
+    realPosition = realPosition + this->getRelativePosition();
     
     return realPosition;
 }

@@ -5,6 +5,7 @@
 #include "VelocityComponent.h"
 #include "SpriteSheetRendererComponent.h"
 #include "TextRendererComponent.h"
+#include "Camera.h"
 
 
 #endif	/* COMPONENTS_H */

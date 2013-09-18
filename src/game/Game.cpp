@@ -14,6 +14,8 @@ artemis::EntityManager * Game::entityManager = world.getEntityManager();
 
 SDL_Renderer * Game::renderer = NULL;
 SDL_Window * Game::wnd = NULL;
+GameObject * Game::mainCameraObject = NULL;
+components::Camera* Game::mainCamera = NULL;
 bool Game::run;
 
 int Game::renderingContextWidth = 0;
@@ -96,13 +98,10 @@ void Game::initialize() {
                                  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                  w,h,
                                  windowMode);
-    renderer = SDL_CreateRenderer(wnd, -1, 0);
+    
+    mainCameraObject = createGameObject();
+    mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    SDL_SetRenderDrawColor(renderer, 60, 60, 60, 255); // Clear Color
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    
-    loadResources();
-    
     GameStateManager::setGameState(GAMESTATE_DEBUG);
 }
 
@@ -140,7 +139,7 @@ void Game::render() {
 
         GameStateManager::onRender();
 
-        SDL_RenderPresent(renderer);
+        mainCamera->renderScene();
 
         this->manageFPS();
     }
@@ -220,12 +219,10 @@ void Game::destroyGameObject(GameObject * object) {
 }
 
 SDL_Renderer * Game::currentRenderer() {
-    return renderer;
+    //return renderer;
+    return mainCamera->getRenderer();
 }
 
-/**
- * 
- */
-void Game::loadResources() {
-    
+SDL_Window* Game::getCurrentWindow() {
+    return wnd;
 }
