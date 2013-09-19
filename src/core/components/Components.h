@@ -1,10 +1,10 @@
 #ifndef COMPONENTS_H
 #define	COMPONENTS_H
 
-#include "PositionComponent.h"
-#include "VelocityComponent.h"
-#include "SpriteSheetRendererComponent.h"
-#include "TextRendererComponent.h"
+#include "Position.h"
+#include "Velocity.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
 #include "Camera.h"
 
 

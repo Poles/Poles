@@ -4,6 +4,7 @@
 #include <Artemis/Artemis.h>
 #include "../components/Components.h"
 
+
 class MovementSystem : public artemis::EntityProcessingSystem {
 public:
     MovementSystem();
@@ -14,8 +15,8 @@ public:
     void processEntity(artemis::Entity & e);
     
 private:
-    artemis::ComponentMapper<PositionComponent> positionMapper;
-    artemis::ComponentMapper<VelocityComponent> velocityMapper;
+    artemis::ComponentMapper<components::Position> positionMapper;
+    artemis::ComponentMapper<components::Velocity> velocityMapper;
 
 };
 

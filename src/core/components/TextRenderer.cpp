@@ -1,15 +1,17 @@
-#include "TextRendererComponent.h"
+#include "TextRenderer.h"
 #include "../ResourceManager.h"
 #include "../../game/Game.h"
 
-TextRendererComponent::TextRendererComponent() {
+using namespace components;
+
+TextRenderer::TextRenderer() {
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->font = ResourceManager::getFont(TEXT_DEFAULT_FONT);
     this->foregroundColor = presetColors::COLOR_BLACK;
     this->backgroundColor = presetColors::COLOR_TRANSPARENT;
 }
 
-TextRendererComponent::TextRendererComponent(std::string text, const char * fontName) {
+TextRenderer::TextRenderer(std::string text, const char * fontName) {
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->text = text;
     this->font = ResourceManager::getFont(fontName);
@@ -17,7 +19,7 @@ TextRendererComponent::TextRendererComponent(std::string text, const char * font
     this->backgroundColor = presetColors::COLOR_TRANSPARENT;
 }
 
-TextRendererComponent::~TextRendererComponent() {
+TextRenderer::~TextRenderer() {
     
 }
 
@@ -25,7 +27,7 @@ TextRendererComponent::~TextRendererComponent() {
  * 
  * @param color
  */
-void TextRendererComponent::setBackgroundColor(Color& color) {
+void TextRenderer::setBackgroundColor(Color& color) {
     this->backgroundColor = color;
 }
 
@@ -33,7 +35,7 @@ void TextRendererComponent::setBackgroundColor(Color& color) {
  * 
  * @param color
  */
-void TextRendererComponent::setForegroundColor(Color& color) {
+void TextRenderer::setForegroundColor(Color& color) {
     this->foregroundColor = color;
 }
 
@@ -41,7 +43,7 @@ void TextRendererComponent::setForegroundColor(Color& color) {
  * 
  * @param fontName
  */
-void TextRendererComponent::setFont(const char* fontName) {
+void TextRenderer::setFont(const char* fontName) {
     TTF_Font * font = ResourceManager::getFont(fontName);
     
     if (font != NULL) {
@@ -53,7 +55,7 @@ void TextRendererComponent::setFont(const char* fontName) {
  * 
  * @param pointSize
  */
-void TextRendererComponent::setPointSize(int pointSize) {
+void TextRenderer::setPointSize(int pointSize) {
     if (pointSize < 0) {
         pointSize = 4;
     }
@@ -65,7 +67,7 @@ void TextRendererComponent::setPointSize(int pointSize) {
  * 
  * @param position
  */
-void TextRendererComponent::render(Vector2D & position) {
+void TextRenderer::render(Vector2D & position) {
     SDL_Surface * textSurface;
     if (this->backgroundColor.alpha() == 0) {
         textSurface = TTF_RenderText_Blended(

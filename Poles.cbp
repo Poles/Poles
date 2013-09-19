@@ -130,11 +130,13 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.cpp">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/PositionComponent.cpp">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteSheetRendererComponent.cpp">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.cpp">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRendererComponent.cpp">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRenderer.cpp">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Velocity.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/systems/MovementSystem.cpp">
       </Unit>
@@ -170,11 +172,13 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.h">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/PositionComponent.h">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteSheetRendererComponent.h">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.h">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRendererComponent.h">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRenderer.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Velocity.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/systems/MovementSystem.h">
       </Unit>

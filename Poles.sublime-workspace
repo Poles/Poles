@@ -51,7 +51,7 @@
 			"file": "src/game/Game.cpp",
 			"settings":
 			{
-				"buffer_size": 5740,
+				"buffer_size": 5791,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "src/core/systems/RenderingSystem.cpp",
 			"settings":
 			{
-				"buffer_size": 673,
+				"buffer_size": 664,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +91,7 @@
 			"file": "src/core/components/PositionComponent.h",
 			"settings":
 			{
-				"buffer_size": 884,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +99,7 @@
 			"file": "src/core/systems/TextRenderingSystem.cpp",
 			"settings":
 			{
-				"buffer_size": 673,
+				"buffer_size": 664,
 				"line_ending": "Unix"
 			}
 		},
@@ -131,7 +131,7 @@
 			"file": "src/core/GameObject.cpp",
 			"settings":
 			{
-				"buffer_size": 5725,
+				"buffer_size": 5783,
 				"line_ending": "Unix"
 			}
 		}
@@ -164,6 +164,7 @@
 	},
 	"file_history":
 	[
+		"/home/ladis/Projects/Poles/src/core/components/Components.h",
 		"/home/ladis/Projects/Poles/src/game/Game.h",
 		"/home/ladis/Projects/Poles/src/core/systems/RenderingSystem.cpp",
 		"/home/ladis/Projects/Poles/src/core/components/PositionComponent.h",
@@ -171,7 +172,6 @@
 		"/home/ladis/Projects/Poles/src/core/GameObject.cpp",
 		"/home/ladis/Projects/Poles/src/core/GameObject.h",
 		"/home/ladis/Desktop/Ofertas ASDL.txt",
-		"/home/ladis/Projects/Poles/src/core/components/Components.h",
 		"/home/ladis/Projects/Poles/src/main.cpp",
 		"/home/ladis/Projects/Poles/.gitignore",
 		"/home/ladis/Projects/Poles/src/core/components/Camera.h",
@@ -304,15 +304,15 @@
 					"file": "src/game/Game.cpp",
 					"settings":
 					{
-						"buffer_size": 5740,
+						"buffer_size": 5791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2882,
-								2882
+								0,
+								0
 							]
 						],
 						"settings":
@@ -416,15 +416,15 @@
 					"file": "src/core/systems/RenderingSystem.cpp",
 					"settings":
 					{
-						"buffer_size": 673,
+						"buffer_size": 664,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								623,
-								623
+								0,
+								0
 							]
 						],
 						"settings":
@@ -442,15 +442,15 @@
 					"file": "src/core/components/PositionComponent.h",
 					"settings":
 					{
-						"buffer_size": 884,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								294,
-								294
+								0,
+								0
 							]
 						],
 						"settings":
@@ -470,15 +470,15 @@
 					"file": "src/core/systems/TextRenderingSystem.cpp",
 					"settings":
 					{
-						"buffer_size": 673,
+						"buffer_size": 664,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								60,
-								60
+								0,
+								0
 							]
 						],
 						"settings":
@@ -585,15 +585,15 @@
 					"file": "src/core/GameObject.cpp",
 					"settings":
 					{
-						"buffer_size": 5725,
+						"buffer_size": 5783,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3286,
-								3286
+								0,
+								0
 							]
 						],
 						"settings":

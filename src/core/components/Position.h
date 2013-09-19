@@ -4,27 +4,30 @@
 #include <Artemis/Artemis.h>
 #include "../Vector2D.h"
 
-class PositionComponent : public artemis::Component {
+namespace components{
+
+class Position : public artemis::Component {
 public:
-    PositionComponent();
-    PositionComponent(float x, float y);
+    Position();
+    Position(float x, float y);
     
-    virtual ~PositionComponent() {
+    virtual ~Position() {
         
     }
     
     inline Vector2D             getLocalPosition() { return pos; }
     inline void                 move(Vector2D & velocity) { pos = getPosition() + velocity; }
     inline void                 setPosition(const Vector2D & newPosition) { pos = newPosition; }
-    void                        setParentPosition(PositionComponent * position);
+    void                        setParentPosition(Position * position);
     void                        removeParentPosition();
     
     Vector2D                    getPosition();
     
 private:
     Vector2D                    pos;
-    PositionComponent *         parentPosition;
+    Position *         parentPosition;
 };
+}
 
 #endif	/* POSITIONCOMPONENT_H */
 

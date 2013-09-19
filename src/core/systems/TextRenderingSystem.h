@@ -14,8 +14,8 @@ public:
     void                                                processEntity(artemis::Entity & e);
     
 private:
-    artemis::ComponentMapper<PositionComponent>         positionMapper;
-    artemis::ComponentMapper<TextRendererComponent>     rendererMapper;
+    artemis::ComponentMapper<components::Position>         positionMapper;
+    artemis::ComponentMapper<components::TextRenderer>     rendererMapper;
 };
 
 #endif	/* TEXTRENDERINGSYSTEM_H */

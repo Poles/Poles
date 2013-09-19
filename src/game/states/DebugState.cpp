@@ -24,14 +24,14 @@ void DebugState::onActivate() {
     SpriteSheet * sprite = NULL;
     sprite = ResourceManager::getSpriteSheet("background-mountain-sky.png");
     
-    this->background->addComponent(new SpriteSheetRendererComponent(sprite));
+    this->background->addComponent(new components::SpriteRenderer(sprite));
     Vector2D backgroundPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     //Vector2D backgroundPosition(0,0);
     this->background->setPosition(backgroundPosition);
     
     this->zero = Game::createGameObject();
-    this->zero->addComponent(new VelocityComponent());
-    SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->zero->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("zero")));
+    this->zero->addComponent(new components::Velocity());
+    components::SpriteRenderer * component = (components::SpriteRenderer *)this->zero->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("zero")));
     //Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     this->zero->setPosition(zeroPosition);
@@ -45,7 +45,7 @@ void DebugState::onActivate() {
     // Debug info in screen
     debugInfo = Game::createGameObject();
 
-    text = (TextRendererComponent*)debugInfo->addComponent(new TextRendererComponent(Game::getMainCameraObject()->getPosition().toString(), "Mojang"));
+    text = (components::TextRenderer*)debugInfo->addComponent(new components::TextRenderer(Game::getMainCameraObject()->getPosition().toString(), "Mojang"));
     debugInfo->setParent(zero);
     Vector2D debugInfoRelativePosition(0,50);
     debugInfo->setPosition(debugInfoRelativePosition);
@@ -54,7 +54,7 @@ void DebugState::onActivate() {
     text->setForegroundColor(presetColors::COLOR_WHITE);
 
     zeroInfo = Game::createGameObject();
-    zeroText = (TextRendererComponent*)zeroInfo->addComponent(new TextRendererComponent(Game::getMainCameraObject()->getPosition().toString(), "Mojang"));
+    zeroText = (components::TextRenderer*)zeroInfo->addComponent(new components::TextRenderer(Game::getMainCameraObject()->getPosition().toString(), "Mojang"));
 
     zeroText->setBackgroundColor(presetColors::COLOR_PURPLE);
     zeroText->setForegroundColor(presetColors::COLOR_WHITE);
@@ -94,7 +94,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             if (!keyDown) {
                 force.setX(-3.0f);
                 this->zero->addForce(force);
-                SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+                components::SpriteRenderer * sprite = (components::SpriteRenderer *)this->zero->getComponent<components::SpriteRenderer>();
                 sprite->changeAnimation("Walk Left");
                 this->keyDown = true;
             }
@@ -104,7 +104,7 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
             if (!keyDown) {
                 force.setX(3.0f);
                 this->zero->addForce(force);
-                SpriteSheetRendererComponent * sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+                components::SpriteRenderer * sprite = (components::SpriteRenderer *)this->zero->getComponent<components::SpriteRenderer>();
                 sprite->changeAnimation("Walk Right");
                 this->keyDown = true;
             }
@@ -118,18 +118,18 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
 }
 
 void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {
-    SpriteSheetRendererComponent * sprite;
+    components::SpriteRenderer * sprite;
     
     switch (key) {
         case SDLK_LEFT:
             this->zero->resetForce();
-            sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+            sprite = (components::SpriteRenderer *)this->zero->getComponent<components::SpriteRenderer>();
             sprite->changeAnimation("Stand Left");
             break;
             
         case SDLK_RIGHT:
             this->zero->resetForce();
-            sprite = (SpriteSheetRendererComponent *)this->zero->getComponent<SpriteSheetRendererComponent>();
+            sprite = (components::SpriteRenderer *)this->zero->getComponent<components::SpriteRenderer>();
             sprite->changeAnimation("Stand Right");
             break;
     }

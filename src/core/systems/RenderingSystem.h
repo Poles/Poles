@@ -14,8 +14,8 @@ public:
     void                                                processEntity(artemis::Entity & e);
     
 private:
-    artemis::ComponentMapper<PositionComponent>         positionMapper;
-    artemis::ComponentMapper<SpriteSheetRendererComponent>   spriteMapper;
+    artemis::ComponentMapper<components::Position>         positionMapper;
+    artemis::ComponentMapper<components::SpriteRenderer>   spriteMapper;
 };
 
 #endif	/* RENDERINGSYSTEM_H */

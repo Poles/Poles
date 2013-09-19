@@ -1,21 +1,23 @@
-#ifndef VELOCITYCOMPONENT_H
-#define	VELOCITYCOMPONENT_H
+#ifndef VELOCITY_H
+#define	VELOCITY_H
 
 #include <Artemis/Artemis.h>
 #include "../Vector2D.h"
 
-class VelocityComponent : public artemis::Component {
+namespace components{
+
+class Velocity : public artemis::Component {
 public:
-    VelocityComponent() {
+    Velocity() {
         
     }
     
-    VelocityComponent(float x, float y) {
+    Velocity(float x, float y) {
         velocity.setX(x);
         velocity.setY(y);
     }
     
-    ~VelocityComponent() {
+    ~Velocity() {
         
     }
     
@@ -34,7 +36,9 @@ private:
     Vector2D velocity;
 };
 
+}
 
 
-#endif	/* VELOCITYCOMPONENT_H */
+
+#endif	/* VELOCITY_H */
 

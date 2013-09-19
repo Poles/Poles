@@ -7,6 +7,7 @@
 #include "GameStateManager.h"
 #include <SDL2/SDL_ttf.h>
 
+
 /* STATIC VARIABLES */
 artemis::World Game::world;
 artemis::SystemManager * Game::systemManager = world.getSystemManager();

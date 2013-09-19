@@ -2,8 +2,8 @@
 #include "../../game/Game.h"
 
 TextRenderingSystem::TextRenderingSystem() {
-    addComponentType<PositionComponent>();
-    addComponentType<TextRendererComponent>();
+    addComponentType<components::Position>();
+    addComponentType<components::TextRenderer>();
 }
 
 void TextRenderingSystem::initialize() {

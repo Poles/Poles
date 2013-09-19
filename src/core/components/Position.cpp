@@ -1,17 +1,19 @@
-#include "PositionComponent.h"
+#include "Position.h"
 
-PositionComponent::PositionComponent() {
+using namespace components;
+
+Position::Position() {
     this->parentPosition = NULL;
 }
 
-PositionComponent::PositionComponent(float x, float y) {
+Position::Position(float x, float y) {
     this->pos.setX(x);
     this->pos.setY(y);
 
     this->parentPosition = NULL;
 }
 
-Vector2D PositionComponent::getPosition() {
+Vector2D Position::getPosition() {
     Vector2D position;
         
     if (this->parentPosition != NULL) {
@@ -23,7 +25,7 @@ Vector2D PositionComponent::getPosition() {
     return position;
 }
 
-void PositionComponent::setParentPosition(PositionComponent * position) {
+void Position::setParentPosition(Position * position) {
     this->parentPosition = position;
     
     // Convert the actual position from global to relative, or the object will move from its actual position
@@ -38,7 +40,7 @@ void PositionComponent::setParentPosition(PositionComponent * position) {
     this->pos = objectRelativePosition;
 }
 
-void PositionComponent::removeParentPosition() {
+void Position::removeParentPosition() {
     if (this->parentPosition != NULL) {
         // Convert from local position to global position
         Vector2D globalPosition = this->getPosition();
