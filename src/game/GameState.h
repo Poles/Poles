@@ -1,9 +1,9 @@
 #ifndef GAMESTATE_H
 #define	GAMESTATE_H
 
-#include "Event.h"
+#include "EventListener.h"
 
-class GameState : public Event {
+class GameState : public EventListener {
 public:
     GameState();
 public:

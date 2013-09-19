@@ -1,12 +1,12 @@
-#include "Event.h"
+#include "EventListener.h"
 
-Event::Event() {
+EventListener::EventListener() {
 }
 
-Event::~Event() {
+EventListener::~EventListener() {
 }
 
-void Event::onEvent(SDL_Event * event) {
+void EventListener::onEvent(SDL_Event * event) {
     switch (event->type) {
         case SDL_WINDOWEVENT:
             switch (event->window.type) {
@@ -119,102 +119,102 @@ void Event::onEvent(SDL_Event * event) {
     }
 }
 
-void Event::onInputBlur() {
+void EventListener::onInputBlur() {
     // Pure virtual
 }
 
-void Event::onInputFocus() {
+void EventListener::onInputFocus() {
     // Pure Virtual
 }
 
-void Event::onKeyDown(SDL_Keycode key, Uint16 mod) {
+void EventListener::onKeyDown(SDL_Keycode key, Uint16 mod) {
     // Pure Virtual
 }
 
-void Event::onKeyUp(SDL_Keycode key, Uint16 mod) {
+void EventListener::onKeyUp(SDL_Keycode key, Uint16 mod) {
     // Pure virtual
 }
 
-void Event::onMouseFocus() {
+void EventListener::onMouseFocus() {
     // Pure virtual
 }
 
-void Event::onMouseBlur() {
+void EventListener::onMouseBlur() {
     // Pure virtual
 }
 
-void Event::onMouseMove(int mouseX, int mouseY, int relX, int relY, bool left, bool right, bool middle) {
+void EventListener::onMouseMove(int mouseX, int mouseY, int relX, int relY, bool left, bool right, bool middle) {
     // Pure virtual
 }
 
-void Event::onMouseWheel(bool up, bool down) {
+void EventListener::onMouseWheel(bool up, bool down) {
     // Pure virtual
 }
 
-void Event::onLeftButtonDown(int mouseX, int mouseY) {
+void EventListener::onLeftButtonDown(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onLeftButtonUp(int mouseX, int mouseY) {
+void EventListener::onLeftButtonUp(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onRightButtonDown(int mouseX, int mouseY) {
+void EventListener::onRightButtonDown(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onRightButtonUp(int mouseX, int mouseY) {
+void EventListener::onRightButtonUp(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onMiddleButtonDown(int mouseX, int mouseY) {
+void EventListener::onMiddleButtonDown(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onMiddleButtonUp(int mouseX, int mouseY) {
+void EventListener::onMiddleButtonUp(int mouseX, int mouseY) {
     // Pure virtual
 }
 
-void Event::onJoyAxis(Uint8 which, Uint8 axis, Sint16 value) {
+void EventListener::onJoyAxis(Uint8 which, Uint8 axis, Sint16 value) {
     // Pure virtual
 }
 
-void Event::onJoyButtonDown(Uint8 which, Uint8 button) {
+void EventListener::onJoyButtonDown(Uint8 which, Uint8 button) {
     // Pure virtual
 }
 
-void Event::onJoyButtonUp(Uint8 which, Uint8 button) {
+void EventListener::onJoyButtonUp(Uint8 which, Uint8 button) {
     // Pure virtual
 }
 
-void Event::onJoyHat(Uint8 which, Uint8 hat, Uint8 value) {
+void EventListener::onJoyHat(Uint8 which, Uint8 hat, Uint8 value) {
     // Pure virtual
 }
 
-void Event::onJoyBall(Uint8 which, Uint8 ball, Sint16 xrel, Sint16 yrel) {
+void EventListener::onJoyBall(Uint8 which, Uint8 ball, Sint16 xrel, Sint16 yrel) {
     // Pure virtual
 }
 
-void Event::onMinimize() {
+void EventListener::onMinimize() {
     // Pure virtual
 }
 
-void Event::onRestore() {
+void EventListener::onRestore() {
     // Pure virtual
 }
 
-void Event::onResize(int w, int h) {
+void EventListener::onResize(int w, int h) {
     // Pure virtual
 }
 
-void Event::onExpose() {
+void EventListener::onExpose() {
     // Pure virtual
 }
 
-void Event::onExit() {
+void EventListener::onExit() {
     // Pure virtual
 }
 
-void Event::onUser(Uint8 type, int code, void* data1, void* data2) {
+void EventListener::onUser(Uint8 type, int code, void* data1, void* data2) {
     // Pure virtual
 }
