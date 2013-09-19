@@ -16,7 +16,7 @@ public:
     
 private:
     artemis::ComponentMapper<components::Position> positionMapper;
-    artemis::ComponentMapper<VelocityComponent> velocityMapper;
+    artemis::ComponentMapper<components::Velocity> velocityMapper;
 
 };
 

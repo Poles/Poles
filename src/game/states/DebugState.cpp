@@ -30,7 +30,7 @@ void DebugState::onActivate() {
     this->background->setPosition(backgroundPosition);
     
     this->zero = Game::createGameObject();
-    this->zero->addComponent(new VelocityComponent());
+    this->zero->addComponent(new Velocity());
     SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->zero->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("zero")));
     //Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     Vector2D zeroPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);

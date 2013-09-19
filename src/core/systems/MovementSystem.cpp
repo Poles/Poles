@@ -4,7 +4,7 @@
 
 MovementSystem::MovementSystem() {
     addComponentType<components::Position>();
-    addComponentType<VelocityComponent>();
+    addComponentType<components::Velocity>();
 }
 
 void MovementSystem::initialize() {

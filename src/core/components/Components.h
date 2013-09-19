@@ -2,7 +2,7 @@
 #define	COMPONENTS_H
 
 #include "Position.h"
-#include "VelocityComponent.h"
+#include "Velocity.h"
 #include "SpriteSheetRendererComponent.h"
 #include "TextRendererComponent.h"
 #include "Camera.h"

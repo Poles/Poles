@@ -140,7 +140,7 @@ bool GameObject::hasParent() {
  * @param force
  */
 void GameObject::addForce(Vector2D & force) {
-    VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
+    components::Velocity * component = (components::Velocity *) this->entity.getComponent<components::Velocity>();
     
     if (component != NULL) {
         component->addVelocity(force);
@@ -158,7 +158,7 @@ void GameObject::addForce(const float x, const float y) {
 }
 
 void GameObject::resetForce() {
-    VelocityComponent * component = (VelocityComponent *) this->entity.getComponent<VelocityComponent>();
+    components::Velocity * component = (components::Velocity *) this->entity.getComponent<components::Velocity>();
     
     if (component != NULL) {
         component->resetVelocity();

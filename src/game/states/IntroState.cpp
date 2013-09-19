@@ -26,12 +26,12 @@ void IntroState::onActivate() {
     
     this->backgroundMountainBehind = Game::createGameObject();
     this->backgroundMountainBehind->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("background-mountain-behind")));
-    this->backgroundMountainBehind->addComponent(new VelocityComponent());
+    this->backgroundMountainBehind->addComponent(new Velocity());
     this->backgroundMountainBehind->setPosition(mountainsInitPosition);
     
     this->backgroundMountainAbove = Game::createGameObject();
     SpriteSheetRendererComponent * component = (SpriteSheetRendererComponent *)this->backgroundMountainAbove->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("background-mountain-above")));
-    this->backgroundMountainAbove->addComponent(new VelocityComponent());
+    this->backgroundMountainAbove->addComponent(new Velocity());
     unsigned int mountainHeight = component->getFrameHeight();
     
     Vector2D aboveMountainPosition = mountainsInitPosition + Vector2D(0.0f, (mountainHeight / 2) + 150.0f);
@@ -40,7 +40,7 @@ void IntroState::onActivate() {
     this->polesDude = Game::createGameObject();
     this->polesDude->addComponent(new SpriteSheetRendererComponent(ResourceManager::getSpriteSheet("poles_dude")));
     this->polesDude->setParent(this->backgroundMountainAbove);
-    this->polesDude->addComponent(new VelocityComponent(0.0f, 0.0f));
+    this->polesDude->addComponent(new Velocity(0.0f, 0.0f));
     Vector2D polesDudePosition(0.0f, (-1.0f) * ((float)mountainHeight / 2.0f) - 4.0f);
     this->polesDude->setPosition(polesDudePosition);
     
