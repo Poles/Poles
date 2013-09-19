@@ -130,7 +130,7 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.cpp">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/PositionComponent.cpp">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteSheetRendererComponent.cpp">
       </Unit>
@@ -170,7 +170,7 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.h">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/core/components/PositionComponent.h">
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteSheetRendererComponent.h">
       </Unit>

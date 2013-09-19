@@ -4,6 +4,8 @@
 #include <Artemis/Artemis.h>
 #include "../components/Components.h"
 
+using namespace components;
+
 class TextRenderingSystem : public artemis::EntityProcessingSystem{
 public:
     TextRenderingSystem();
@@ -14,7 +16,7 @@ public:
     void                                                processEntity(artemis::Entity & e);
     
 private:
-    artemis::ComponentMapper<PositionComponent>         positionMapper;
+    artemis::ComponentMapper<Position>         positionMapper;
     artemis::ComponentMapper<TextRendererComponent>     rendererMapper;
 };
 

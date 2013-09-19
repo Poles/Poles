@@ -3,7 +3,7 @@
 #include <sstream>
 
 MovementSystem::MovementSystem() {
-    addComponentType<PositionComponent>();
+    addComponentType<components::Position>();
     addComponentType<VelocityComponent>();
 }
 

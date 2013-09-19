@@ -4,10 +4,11 @@
 #include <sstream>
 #include <Artemis/Component.h>
 
+
 GameObject::GameObject(artemis::Entity & objectEntity):
 entity(objectEntity){
     // Every object in the game will have at least a position
-    this->entity.addComponent(new PositionComponent());
+    this->entity.addComponent(new components::Position());
     this->entity.refresh();
     
     this->parent = NULL;
@@ -26,8 +27,8 @@ void GameObject::setParent(GameObject * parent) {
     this->parent = parent;
 
     // Add the parent to the PositionComponent
-    PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
-    PositionComponent * parentComponent = (PositionComponent *) parent->entity.getComponent<PositionComponent>();
+    components::Position * component = (components::Position *)this->entity.getComponent<components::Position>();
+    components::Position * parentComponent = (components::Position *) parent->entity.getComponent<components::Position>();
     
     if (parentComponent != NULL) {
         component->setParentPosition(parentComponent);
@@ -44,7 +45,7 @@ void GameObject::removeParent() {
         // Unset the parent
         this->parent = NULL;
         
-        PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+        components::Position * component = (components::Position *)this->entity.getComponent<components::Position>();
         component->removeParentPosition();
         
     } else {
@@ -75,7 +76,7 @@ void GameObject::removeComponent(artemis::Component* component) {
  * @return 
  */
 Vector2D GameObject::getRelativePosition() {
-    PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+    components::Position * component = (components::Position *)this->entity.getComponent<components::Position>();
     
     if (component != NULL) {
         return component->getLocalPosition();
@@ -91,7 +92,7 @@ Vector2D GameObject::getRelativePosition() {
  * @param position
  */
 void GameObject::setPosition(Vector2D& position) {
-    PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+    components::Position * component = (components::Position *)this->entity.getComponent<components::Position>();
     
     if (component != NULL) {
         component->setPosition(position);
@@ -180,7 +181,7 @@ void GameObject::showInfo() {
    float x = 0;
    float y = 0;
    
-   PositionComponent * component = (PositionComponent *)this->entity.getComponent<PositionComponent>();
+   components::Position * component = (components::Position *)this->entity.getComponent<components::Position>();
    
    x = component->getPosition().x();
    y = component->getPosition().y();

@@ -5,7 +5,7 @@
 
 RenderingSystem::RenderingSystem() {
     
-    addComponentType<PositionComponent>();
+    addComponentType<Position>();
     addComponentType<SpriteSheetRendererComponent>();
 }
 

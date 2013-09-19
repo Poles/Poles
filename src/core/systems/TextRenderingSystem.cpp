@@ -2,7 +2,7 @@
 #include "../../game/Game.h"
 
 TextRenderingSystem::TextRenderingSystem() {
-    addComponentType<PositionComponent>();
+    addComponentType<Position>();
     addComponentType<TextRendererComponent>();
 }
 
