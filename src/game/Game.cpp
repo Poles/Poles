@@ -46,6 +46,10 @@ Game::~Game() {
     // Free any SDL resource used
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(this->wnd);
+
+    Game::destroyGameObject(mainCameraObject);
+
+
     TTF_Quit();
     SDL_Quit();
 }
@@ -100,6 +104,7 @@ void Game::initialize() {
                                  windowMode);
     
     mainCameraObject = createGameObject();
+    //mainCameraObject->addComponent(new VelocityComponent());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
     GameStateManager::setGameState(GAMESTATE_DEBUG);

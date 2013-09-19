@@ -11,5 +11,7 @@ int main(int argc, char** argv) {
     
     delete game;
 
+    ResourceManager::freeAllResources();
+
     return 0;
 }

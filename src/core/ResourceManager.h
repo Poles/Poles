@@ -33,6 +33,8 @@ public:
     ResourceManager *                           instance();
     
     static void                                 initialize();
+
+    static void                                 freeAllResources();
     
     static std::string                          getAssetsFolderPath();
    

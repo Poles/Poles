@@ -31,6 +31,23 @@ void ResourceManager::initialize() {
     WORKING_DIR(workingPath, sizeof(workingPath));
 }
 
+void ResourceManager::freeAllResources() {
+    // Free all SpriteSheets
+    std::map<std::string, SpriteSheet *>::iterator sprite;
+    for (sprite = spriteSheetMapper.begin(); sprite != spriteSheetMapper.end(); ++sprite) {
+        delete sprite->second;
+    }
+
+    spriteSheetMapper.clear();
+
+    std::map<std::string, TTF_Font *>::iterator font;
+    for (font = fonts.begin(); font != fonts.end(); ++font) {
+        TTF_CloseFont(font->second);
+    }
+
+    fonts.clear();
+}
+
 std::string ResourceManager::getAssetsFolderPath() {
     std::string assetsPath;
     

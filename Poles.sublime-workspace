@@ -51,7 +51,7 @@
 			"file": "src/game/Game.cpp",
 			"settings":
 			{
-				"buffer_size": 5677,
+				"buffer_size": 5740,
 				"line_ending": "Unix"
 			}
 		},
@@ -304,15 +304,15 @@
 					"file": "src/game/Game.cpp",
 					"settings":
 					{
-						"buffer_size": 5677,
+						"buffer_size": 5740,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3219,
-								3219
+								2882,
+								2882
 							]
 						],
 						"settings":
@@ -322,7 +322,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2658.0,
+						"translation.y": 1383.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
