@@ -9,11 +9,13 @@
 
 #define TEXT_DEFAULT_FONT "Mojang"
 
-class TextRendererComponent : public artemis::Component{
+namespace components {
+
+class TextRenderer : public artemis::Component{
 public:
-    TextRendererComponent();
-    TextRendererComponent(std::string text, const char * fontName);
-    virtual ~TextRendererComponent();
+    TextRenderer();
+    TextRenderer(std::string text, const char * fontName);
+    virtual ~TextRenderer();
     
     void                                setBackgroundColor(Color & color);
     void                                setForegroundColor(Color & color);
@@ -37,5 +39,6 @@ private:
     Color                               backgroundColor;
 };
 
+}
 #endif	/* TEXTRENDERERCOMPONENT_H */
 

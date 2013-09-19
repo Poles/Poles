@@ -5,8 +5,8 @@
 
 RenderingSystem::RenderingSystem() {
     
-    addComponentType<Position>();
-    addComponentType<SpriteSheetRendererComponent>();
+    addComponentType<components::Position>();
+    addComponentType<components::SpriteRenderer>();
 }
 
 void RenderingSystem::initialize() {

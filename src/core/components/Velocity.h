@@ -1,5 +1,5 @@
-#ifndef VELOCITYCOMPONENT_H
-#define	VELOCITYCOMPONENT_H
+#ifndef VELOCITY_H
+#define	VELOCITY_H
 
 #include <Artemis/Artemis.h>
 #include "../Vector2D.h"
@@ -40,5 +40,5 @@ private:
 
 
 
-#endif	/* VELOCITYCOMPONENT_H */
+#endif	/* VELOCITY_H */
 

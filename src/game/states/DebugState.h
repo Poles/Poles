@@ -33,8 +33,8 @@ private:
 
     GameObject * debugInfo;
     GameObject * zeroInfo;
-    TextRendererComponent * text;
-    TextRendererComponent * zeroText;
+    components::TextRenderer * text;
+    components::TextRenderer * zeroText;
     bool keyDown;
 
 };

@@ -1,13 +1,15 @@
-#ifndef SPRITESHEETRENDERERCOMPONENT_H
-#define	SPRITESHEETRENDERERCOMPONENT_H
+#ifndef SPRITERENDERER_H
+#define	SPRITERENDERER_H
 
 #include <Artemis/Artemis.h>
 #include "../SpriteSheet.h"
 
-class SpriteSheetRendererComponent : public artemis::Component {
+namespace components{
+
+class SpriteRenderer : public artemis::Component {
 public:
-    SpriteSheetRendererComponent(SpriteSheet * spriteSheet);
-    virtual ~SpriteSheetRendererComponent();
+    SpriteRenderer(SpriteSheet * spriteSheet);
+    virtual ~SpriteRenderer();
     
     void                        changeAnimation(const char * animation);
     
@@ -28,5 +30,7 @@ private:
 
 };
 
-#endif	/* SPRITESHEETRENDERERCOMPONENT_H */
+}
+
+#endif	/* SPRITERENDERER_H */
 

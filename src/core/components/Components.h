@@ -3,8 +3,8 @@
 
 #include "Position.h"
 #include "Velocity.h"
-#include "SpriteSheetRendererComponent.h"
-#include "TextRendererComponent.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
 #include "Camera.h"
 
 

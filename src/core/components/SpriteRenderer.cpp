@@ -1,11 +1,13 @@
-#include "SpriteSheetRendererComponent.h"
+#include "SpriteRenderer.h"
 #include "../../game/Game.h"
+
+using namespace components;
 
 /**
  * 
  * @param spriteSheet
  */
-SpriteSheetRendererComponent::SpriteSheetRendererComponent(SpriteSheet * spriteSheet)
+SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet)
 {
     this->spriteSheet = spriteSheet;
     this->currentAnimation = spriteSheet->getDefaultAnimation();
@@ -14,7 +16,7 @@ SpriteSheetRendererComponent::SpriteSheetRendererComponent(SpriteSheet * spriteS
     this->frameIncrement = 1;
 }
 
-SpriteSheetRendererComponent::~SpriteSheetRendererComponent() {
+SpriteRenderer::~SpriteRenderer() {
     
 }
 
@@ -22,7 +24,7 @@ SpriteSheetRendererComponent::~SpriteSheetRendererComponent() {
  * 
  * @param animation
  */
-void SpriteSheetRendererComponent::changeAnimation(const char * animation) {
+void SpriteRenderer::changeAnimation(const char * animation) {
     this->currentAnimation = this->spriteSheet->getAnimation(animation);
     this->currentAnimationFrame = 0;
     this->frameIncrement = 1;
@@ -33,7 +35,7 @@ void SpriteSheetRendererComponent::changeAnimation(const char * animation) {
  * 
  * @param position
  */
-void SpriteSheetRendererComponent::render(Vector2D& position) {
+void SpriteRenderer::render(Vector2D& position) {
     SDL_Rect spriteFrame = (* this->currentAnimation)[currentAnimationFrame];
     SDL_Rect renderFrame;
     
@@ -50,7 +52,7 @@ void SpriteSheetRendererComponent::render(Vector2D& position) {
 /**
  * 
  */
-void SpriteSheetRendererComponent::updateAnimation() {
+void SpriteRenderer::updateAnimation() {
     if (this->timeLastUpdate + this->currentAnimation->getFrameRate() > SDL_GetTicks()) {
         // We don't need to update
     } else {
