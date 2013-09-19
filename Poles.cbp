@@ -142,7 +142,7 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/systems/TextRenderingSystem.cpp">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/game/Event.cpp">
+      <Unit filename="/home/ladis/Projects/Poles/src/game/EventListener.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/game/Game.cpp">
       </Unit>
@@ -182,7 +182,7 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/systems/TextRenderingSystem.h">
       </Unit>
-      <Unit filename="/home/ladis/Projects/Poles/src/game/Event.h">
+      <Unit filename="/home/ladis/Projects/Poles/src/game/EventListener.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/game/Game.h">
       </Unit>

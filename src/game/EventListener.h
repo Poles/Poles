@@ -1,12 +1,12 @@
-#ifndef EVENT_H
-#define	EVENT_H
+#ifndef EVENTLIESTENER_H
+#define	EVENTLISTENER_H
 
 #include <SDL2/SDL.h>
 
-class Event {
+class EventListener {
 public:
-    Event();
-    virtual ~Event();
+    EventListener();
+    virtual ~EventListener();
     
     /* EVENTS */
     
