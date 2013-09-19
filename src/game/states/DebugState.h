@@ -3,6 +3,7 @@
 
 #include "../GameState.h"
 #include "../../core/GameObject.h"
+#include "../../core/components/Components.h"
 
 class DebugState : public GameState {
 private:
@@ -29,6 +30,11 @@ public:
 private:
     GameObject * zero;
     GameObject * background;
+
+    GameObject * debugInfo;
+    GameObject * zeroInfo;
+    TextRendererComponent * text;
+    TextRendererComponent * zeroText;
     bool keyDown;
 
 };

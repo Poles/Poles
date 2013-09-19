@@ -10,6 +10,8 @@ int main(int argc, char** argv) {
     game->start();
     
     delete game;
-    
+
+    ResourceManager::freeAllResources();
+
     return 0;
 }

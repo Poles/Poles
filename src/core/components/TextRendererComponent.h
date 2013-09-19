@@ -24,6 +24,8 @@ public:
     void                                setFont(const char * fontName);
     
     void                                setPointSize(int pointSize);
+
+    inline void                         setText(std::string text) { this->text = text; }
     
     void                                render(Vector2D & position);
     

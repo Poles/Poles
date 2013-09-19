@@ -13,8 +13,8 @@ public:
         
     }
     
-    inline Vector2D &           getLocalPosition() { return pos; }
-    inline void                 move(Vector2D & velocity) { pos = getLocalPosition() + velocity; }
+    inline Vector2D             getLocalPosition() { return pos; }
+    inline void                 move(Vector2D & velocity) { pos = getPosition() + velocity; }
     inline void                 setPosition(const Vector2D & newPosition) { pos = newPosition; }
     void                        setParentPosition(PositionComponent * position);
     void                        removeParentPosition();
