@@ -178,3 +178,9 @@ Podfile.lock
 #
 .tags
 .tags_sorted_by_file
+
+####
+# Symbolic link for assets folder
+# 
+# This is ignored because in Windows the Unix symbolic links doesn't work.
+bin/assets
