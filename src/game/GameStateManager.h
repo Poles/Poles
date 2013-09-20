@@ -23,6 +23,8 @@ public:
     static void onLoop();
     
     static void onRender();
+
+    static void freeAllResources();
     
 public:
     static void setGameState(int gameStateID);

@@ -15,7 +15,7 @@ namespace components {
 class TextRenderer : public Renderer{
 public:
     TextRenderer();
-    TextRenderer(std::string text, const char * fontName);
+    TextRenderer(std::string text, const char * fontName, const float parallax = 1.0f);
     virtual ~TextRenderer();
     
     void                                setBackgroundColor(Color & color);

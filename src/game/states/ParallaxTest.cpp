@@ -34,6 +34,9 @@ void ParallaxTest::onActivate() {
     background03->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer03.png"), 1.0f));
     background02->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer02.png"), 0.8f));
     background01->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer01.png"), 1.0f));
+
+    // Add movement to the clouds
+    background06->addComponent(new components::Velocity(0.1f, 0.0f));
 }
 
 void ParallaxTest::onDeactivate() {

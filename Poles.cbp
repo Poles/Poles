@@ -132,6 +132,8 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Renderer.cpp">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRenderer.cpp">
@@ -175,6 +177,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Renderer.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.h">
       </Unit>
