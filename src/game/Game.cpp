@@ -108,7 +108,7 @@ void Game::initialize() {
     //mainCameraObject->addComponent(new VelocityComponent());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
 }
 
 void Game::mainLoop() {
