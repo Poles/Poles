@@ -8,11 +8,12 @@
 #include "../core/systems/RenderingSystem.h"
 #include "../core/systems/TextRenderingSystem.h"
 #include "../core/GameObject.h"
+#include "EventListener.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60
 
-class Game {
+class Game : public EventListener{
 public:
     Game();
     ~Game();
@@ -42,7 +43,14 @@ public:
     void                                render();
     
     void                                manageFPS();
-    void                                countFSP();    
+    void                                countFSP();
+    void                                showFPSCounter();
+    void                                hideFPSCounter();
+    void                                updateFPSCounter();
+
+    /* EVENTS */
+
+    void                                onKeyDown(SDL_Keycode key, Uint16 mod);
     
 protected:
     static SDL_Window *                 wnd;
@@ -71,8 +79,9 @@ protected:
     Uint32                              timePerFrame;    // Time interval for each frame (ms)
     Uint32                              frameSkip;       // Number of frames to skip from rendering when the game runs slower than expected
     
-    Uint8                               fps;  // Number of FPS
+    unsigned int                        fps;  // Number of FPS
     Uint32                              timeLastFPSRecord;  // Time mark of the last record of FPS (ms)
+    GameObject *                        fpsCounter;
     
     /* FLAGS */
     bool                                showFPS;

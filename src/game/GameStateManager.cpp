@@ -80,3 +80,7 @@ void GameStateManager::setGameState(int gameStateID) {
 GameState * GameStateManager::getCurrentGameState() {
     return currentState;
 }
+
+void GameStateManager::freeAllResources() {
+    currentState->onDeactivate();
+}

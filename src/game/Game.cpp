@@ -6,7 +6,7 @@
 #include "../core/ResourceManager.h"
 #include "GameStateManager.h"
 #include <SDL2/SDL_ttf.h>
-
+#include <sstream>
 
 /* STATIC VARIABLES */
 artemis::World Game::world;
@@ -157,15 +157,11 @@ void Game::render() {
 void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
+        // Pass to the state manager so it can send the event to the current state
         GameStateManager::onEvent(&event);
-        
-        if (event.type == SDLK_f) {
-            if (this->showFPS) {
-                this->showFPS = false;
-            } else {
-                this->showFPS = true;
-            }
-        }
+
+        // Pass the evento to the game. It may want to do something as well
+        this->onEvent(&event);
     }
 }
 
@@ -192,7 +188,7 @@ void Game::countFSP() {
     if (timeElapsed >= 1000) {
         // Reset FPS counting
         if (this->showFPS) {
-            std::cout << "FPS: " << (int)this->fps << std::endl;
+            updateFPSCounter();
         }
         this->fps = 0;
         this->timeLastFPSRecord = currentTime;
@@ -230,4 +226,37 @@ SDL_Renderer * Game::currentRenderer() {
 
 SDL_Window* Game::getCurrentWindow() {
     return wnd;
+}
+
+void Game::onKeyDown(SDL_Keycode key, Uint16 mod) {
+    switch (key) {
+    case SDLK_f:
+        if (this->showFPS) {
+            this->showFPS = false;
+            hideFPSCounter();
+        } else {
+            this->showFPS = true;
+            showFPSCounter();
+        }
+        break;
+    }
+}
+
+void Game::showFPSCounter() {
+    this->fpsCounter = Game::createGameObject();
+    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 0.0f));
+    this->fpsCounter->setPosition(0, - (this->getRenderingContextHeight() / 2 - 20));
+
+}
+
+void Game::hideFPSCounter() {
+    Game::destroyGameObject(fpsCounter);
+}
+
+void Game::updateFPSCounter() {
+    std::stringstream stream;
+
+    stream << "FPS: " << this->fps;
+
+    ((components::TextRenderer*)this->fpsCounter->getComponent<components::TextRenderer>())->setText(stream.str());
 }

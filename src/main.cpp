@@ -2,6 +2,7 @@
 #include "game/Game.h"
 
 #include "core/ResourceManager.h"
+#include "game/GameStateManager.h"
 
 int main(int argc, char** argv) {
     ResourceManager::initialize();
@@ -12,6 +13,7 @@ int main(int argc, char** argv) {
     delete game;
 
     ResourceManager::freeAllResources();
+    GameStateManager::freeAllResources();
 
     return 0;
 }
