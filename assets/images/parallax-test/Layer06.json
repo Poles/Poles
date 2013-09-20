@@ -1,0 +1,10 @@
+{
+	"animations": [
+		{
+			"name": "Stand",
+			"frames": 1,
+			"oscillate": false,
+			"frame-rate": 1000
+		}
+	]
+}

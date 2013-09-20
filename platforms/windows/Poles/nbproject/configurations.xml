@@ -43,6 +43,8 @@
         <itemPath>../../../src/game/states/DebugState.h</itemPath>
         <itemPath>../../../src/game/states/IntroState.cpp</itemPath>
         <itemPath>../../../src/game/states/IntroState.h</itemPath>
+        <itemPath>../../../src/game/states/ParallaxTest.cpp</itemPath>
+        <itemPath>../../../src/game/states/ParallaxTest.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/game/EventListener.cpp</itemPath>
       <itemPath>../../../src/game/EventListener.h</itemPath>
@@ -261,6 +263,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../../../src/game/states/ParallaxTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/ParallaxTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -461,6 +473,16 @@
             flavor2="0">
       </item>
       <item path="../../../src/game/states/IntroState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/ParallaxTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/game/states/ParallaxTest.h"
             ex="false"
             tool="3"
             flavor2="0">
