@@ -178,3 +178,8 @@ Podfile.lock
 #
 .tags
 .tags_sorted_by_file
+
+####
+# Qt Creator + CMake
+#
+CMakeLists.txt.user

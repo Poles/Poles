@@ -3,10 +3,11 @@
 
 #include <Artemis/Artemis.h>
 #include "../SpriteSheet.h"
+#include "Renderer.h"
 
 namespace components{
 
-class SpriteRenderer : public artemis::Component {
+class SpriteRenderer : public Renderer {
 public:
     SpriteRenderer(SpriteSheet * spriteSheet);
     virtual ~SpriteRenderer();

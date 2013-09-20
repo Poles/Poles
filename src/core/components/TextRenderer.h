@@ -6,12 +6,13 @@
 #include <SDL2/SDL_ttf.h>
 #include "../Color.h"
 #include "../Vector2D.h"
+#include "Renderer.h"
 
 #define TEXT_DEFAULT_FONT "Mojang"
 
 namespace components {
 
-class TextRenderer : public artemis::Component{
+class TextRenderer : public Renderer{
 public:
     TextRenderer();
     TextRenderer(std::string text, const char * fontName);
