@@ -13,6 +13,8 @@ ParallaxTest* ParallaxTest::getInstance() {
 }
 
 void ParallaxTest::onActivate() {
+    keyDown = false;
+
     background09 = Game::createGameObject();
     background08 = Game::createGameObject();
     background07 = Game::createGameObject();
@@ -23,15 +25,15 @@ void ParallaxTest::onActivate() {
     background02 = Game::createGameObject();
     background01 = Game::createGameObject();
     
-    background09->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer09.png")));
-    background08->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer08.png")));
-    background07->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer07.png")));
-    background06->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer06.png")));
-    background05->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer05.png")));
-    background04->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer04.png")));
-    background03->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer03.png")));
-    background02->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer02.png")));
-    background01->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer01.png")));
+    background09->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer09.png"), 0.0f));
+    background08->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer08.png"), 0.1f));
+    background07->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer07.png"), 0.2f));
+    background06->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer06.png"), 0.3f));
+    background05->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer05.png"), 0.4f));
+    background04->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer04.png"), 0.5f));
+    background03->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer03.png"), 1.0f));
+    background02->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer02.png"), 0.8f));
+    background01->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer01.png"), 1.0f));
 }
 
 void ParallaxTest::onDeactivate() {
@@ -54,13 +56,44 @@ void ParallaxTest::onRender() {
 }
 
 void ParallaxTest::onKeyDown(SDL_Keycode key, Uint16 mod) {
+    Vector2D force;
     switch (key) {
-        case SDLK_ESCAPE:
-            Game::exit();
-            break;
+    case SDLK_LEFT:
+        if (!keyDown) {
+            force.setX(-0.5f);
+            Game::getMainCameraObject()->addForce(force);
+            keyDown = true;
+        }
+        break;
+
+    case SDLK_RIGHT:
+        if (!keyDown) {
+            force.setX(0.5f);
+            Game::getMainCameraObject()->addForce(force);
+            keyDown = true;
+        }
+        break;
+
+    case SDLK_ESCAPE:
+        Game::exit();
+        break;
     }
 }
 
 void ParallaxTest::onKeyUp(SDL_Keycode key, Uint16 mod) {
-    
+    switch (key) {
+    case SDLK_LEFT:
+        if (keyDown) {
+            Game::getMainCameraObject()->resetForce();
+            keyDown = false;
+        }
+        break;
+
+    case SDLK_RIGHT:
+        if (keyDown) {
+            Game::getMainCameraObject()->resetForce();
+            keyDown = false;
+        }
+        break;
+    }
 }

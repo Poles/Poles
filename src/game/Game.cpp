@@ -50,7 +50,6 @@ Game::~Game() {
 
     Game::destroyGameObject(mainCameraObject);
 
-
     TTF_Quit();
     SDL_Quit();
 }
@@ -105,7 +104,7 @@ void Game::initialize() {
                                  windowMode);
     
     mainCameraObject = createGameObject();
-    //mainCameraObject->addComponent(new VelocityComponent());
+    mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
     GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);

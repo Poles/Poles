@@ -36,6 +36,8 @@ private:
     GameObject* background07;
     GameObject* background08;
     GameObject* background09;
+
+    bool keyDown;
 };
 
 #endif	/* PARALLAXTEST_H */

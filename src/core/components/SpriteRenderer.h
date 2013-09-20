@@ -20,9 +20,13 @@ public:
     
     inline int                  getFrameWidth() { currentAnimation->getWidth(); }
     inline int                  getFrameHeight() { currentAnimation->getHeight(); }
+
+    inline Vector2D             getParallaxCompensation() { return parallaxCompensation; }
     
 private:
     SpriteSheet *               spriteSheet;
+
+    Vector2D                    parallaxCompensation;
     
     SpriteAnimation *           currentAnimation;
     unsigned int                currentAnimationFrame;

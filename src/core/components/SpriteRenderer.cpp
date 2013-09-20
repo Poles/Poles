@@ -16,10 +16,16 @@ SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const float parallax):
     this->timeLastUpdate = SDL_GetTicks();
     this->frameIncrement = 1;
     this->parallaxIndex = parallax;
+
+    // Calculate the parallax compensation caused by the initial displacement
+    Vector2D wantedDisplacement = Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector();
+    Vector2D obtainedDisplacement = (Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector() * parallax);
+
+    this->parallaxCompensation = obtainedDisplacement - wantedDisplacement;
 }
 
 SpriteRenderer::~SpriteRenderer() {
-    
+
 }
 
 /**
