@@ -20,6 +20,7 @@ RenderingSystem::~RenderingSystem() {
 
 void RenderingSystem::processEntity(artemis::Entity& e) {
     Vector2D position = positionMapper.get(e)->getPosition();
-    position = position - (Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector());    
+    Vector2D cameraCorrection = (Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector()) * spriteMapper.get(e)->getParallaxIndex();
+    position = position - cameraCorrection;
     spriteMapper.get(e)->render(position);
 }

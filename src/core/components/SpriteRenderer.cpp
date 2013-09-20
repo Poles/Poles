@@ -7,13 +7,15 @@ using namespace components;
  * 
  * @param spriteSheet
  */
-SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet)
+SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const float parallax):
+    Renderer()
 {
     this->spriteSheet = spriteSheet;
     this->currentAnimation = spriteSheet->getDefaultAnimation();
     this->currentAnimationFrame = 0;
     this->timeLastUpdate = SDL_GetTicks();
     this->frameIncrement = 1;
+    this->parallaxIndex = parallax;
 }
 
 SpriteRenderer::~SpriteRenderer() {

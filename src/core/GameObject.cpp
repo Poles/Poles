@@ -3,7 +3,7 @@
 #include <Artemis/ImmutableBag.h>
 #include <sstream>
 #include <Artemis/Component.h>
-
+#include "../game/Game.h"
 
 GameObject::GameObject(artemis::Entity & objectEntity):
 entity(objectEntity){
@@ -85,6 +85,21 @@ Vector2D GameObject::getRelativePosition() {
         std::cout << "Error! - GameObject " << this->entity.getId() << " has no position component." << std::endl;
     }
     return Vector2D();
+}
+
+Vector2D GameObject::getPositionPerspective() {
+    Vector2D position;
+    Vector2D cameraCorrection;
+
+    cameraCorrection = Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector();
+
+    components::SpriteRenderer* sprite = (components::SpriteRenderer*)this->entity.getComponent<components::SpriteRenderer>();
+
+    if (sprite != NULL) {
+        cameraCorrection = cameraCorrection * sprite->getParallaxIndex();
+    }
+
+    return position - cameraCorrection;
 }
 
 /**

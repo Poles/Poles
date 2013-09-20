@@ -21,6 +21,8 @@ public:
     
     Vector2D                    getPosition();
     Vector2D                    getRelativePosition();
+
+    Vector2D                    getPositionPerspective();
     
     void                        setPosition(Vector2D & position);
     void                        setPosition(const int x, const int y);

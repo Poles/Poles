@@ -24,7 +24,7 @@ void DebugState::onActivate() {
     SpriteSheet * sprite = NULL;
     sprite = ResourceManager::getSpriteSheet("background-mountain-sky.png");
     
-    this->background->addComponent(new components::SpriteRenderer(sprite));
+    components::SpriteRenderer* backgroundSprite = (components::SpriteRenderer*)this->background->addComponent(new components::SpriteRenderer(sprite, 0.1f));
     Vector2D backgroundPosition(Game::getRenderingContextWidth() / 2, Game::getRenderingContextHeight() / 2);
     //Vector2D backgroundPosition(0,0);
     this->background->setPosition(backgroundPosition);
@@ -72,7 +72,7 @@ void DebugState::onLoop() {
     // If you need to update something each frame
     std::stringstream zeroStream;
 
-    zeroStream << "Zero = " << zero->getPosition().toString();
+    zeroStream << "Zero: [ Real: " << zero->getPosition().toString() << "||" << "Pers: " << zero->getPositionPerspective().toString() << "]";
 
     zeroText->setText(zeroStream.str());
 
