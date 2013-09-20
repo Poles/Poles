@@ -65,9 +65,16 @@ include_directories (${POLES_SOURCE_DIRECTORIES})
 link_directories (/usr/local/lib)
 include_directories (/usr/local/include)
 
+# Windows MinGW only
+if (${OPERATING_SYSTEM} MATCHES "Windows")
+	target_link_libraries (Poles mingw32)
+	target_link_libraries (Poles SDL2main)
+endif (${OPERATING_SYSTEM} MATCHES "Windows")
+
 target_link_libraries (Poles SDL2)
 target_link_libraries (Poles SDL2_image)
 target_link_libraries (Poles SDL2_ttf)
 target_link_libraries (Poles artemis)
 target_link_libraries (Poles json)
+
 

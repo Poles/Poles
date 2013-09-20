@@ -3,14 +3,17 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="f1" displayName="Core" projectFiles="true">
       <logicalFolder name="f1" displayName="Components" projectFiles="true">
+        <itemPath>../../../src/core/components/Camera.cpp</itemPath>
+        <itemPath>../../../src/core/components/Camera.h</itemPath>
         <itemPath>../../../src/core/components/Components.h</itemPath>
-        <itemPath>../../../src/core/components/PositionComponent.cpp</itemPath>
-        <itemPath>../../../src/core/components/PositionComponent.h</itemPath>
-        <itemPath>../../../src/core/components/SpriteRendererComponent.cpp</itemPath>
-        <itemPath>../../../src/core/components/SpriteRendererComponent.h</itemPath>
-        <itemPath>../../../src/core/components/TextRendererComponent.cpp</itemPath>
-        <itemPath>../../../src/core/components/TextRendererComponent.h</itemPath>
-        <itemPath>../../../src/core/components/VelocityComponent.h</itemPath>
+        <itemPath>../../../src/core/components/Position.cpp</itemPath>
+        <itemPath>../../../src/core/components/Position.h</itemPath>
+        <itemPath>../../../src/core/components/SpriteRenderer.cpp</itemPath>
+        <itemPath>../../../src/core/components/SpriteRenderer.h</itemPath>
+        <itemPath>../../../src/core/components/TextRenderer.cpp</itemPath>
+        <itemPath>../../../src/core/components/TextRenderer.h</itemPath>
+        <itemPath>../../../src/core/components/Velocity.cpp</itemPath>
+        <itemPath>../../../src/core/components/Velocity.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Systems" projectFiles="true">
         <itemPath>../../../src/core/systems/MovementSystem.cpp</itemPath>
@@ -27,8 +30,10 @@
       <itemPath>../../../src/core/GameObject.h</itemPath>
       <itemPath>../../../src/core/ResourceManager.cpp</itemPath>
       <itemPath>../../../src/core/ResourceManager.h</itemPath>
-      <itemPath>../../../src/core/Sprite.cpp</itemPath>
-      <itemPath>../../../src/core/Sprite.h</itemPath>
+      <itemPath>../../../src/core/SpriteAnimation.cpp</itemPath>
+      <itemPath>../../../src/core/SpriteAnimation.h</itemPath>
+      <itemPath>../../../src/core/SpriteSheet.cpp</itemPath>
+      <itemPath>../../../src/core/SpriteSheet.h</itemPath>
       <itemPath>../../../src/core/Vector2D.cpp</itemPath>
       <itemPath>../../../src/core/Vector2D.h</itemPath>
     </logicalFolder>
@@ -39,8 +44,8 @@
         <itemPath>../../../src/game/states/IntroState.cpp</itemPath>
         <itemPath>../../../src/game/states/IntroState.h</itemPath>
       </logicalFolder>
-      <itemPath>../../../src/game/Event.cpp</itemPath>
-      <itemPath>../../../src/game/Event.h</itemPath>
+      <itemPath>../../../src/game/EventListener.cpp</itemPath>
+      <itemPath>../../../src/game/EventListener.h</itemPath>
       <itemPath>../../../src/game/Game.cpp</itemPath>
       <itemPath>../../../src/game/Game.h</itemPath>
       <itemPath>../../../src/game/GameState.cpp</itemPath>
@@ -59,8 +64,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../../../src/JsonFile.cpp</itemPath>
-    <itemPath>../../../src/JsonFile.h</itemPath>
     <itemPath>../../../src/main.cpp</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -86,14 +89,10 @@
             <linkerLibLibItem>artemis</linkerLibLibItem>
             <linkerLibLibItem>SDL2_image</linkerLibLibItem>
             <linkerLibLibItem>SDL2_ttf</linkerLibLibItem>
-            <linkerLibLibItem>json_mingw_libmt</linkerLibLibItem>
+            <linkerLibLibItem>json</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -114,50 +113,75 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/core/SpriteAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/core/SpriteAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Camera.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../../src/core/components/Components.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/PositionComponent.cpp"
+      <item path="../../../src/core/components/Position.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/PositionComponent.h"
+      <item path="../../../src/core/components/Position.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
+      <item path="../../../src/core/components/SpriteRenderer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.h"
+      <item path="../../../src/core/components/SpriteRenderer.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/TextRendererComponent.cpp"
+      <item path="../../../src/core/components/TextRenderer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/TextRendererComponent.h"
+      <item path="../../../src/core/components/TextRenderer.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/VelocityComponent.h"
+      <item path="../../../src/core/components/Velocity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Velocity.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -192,9 +216,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/game/EventListener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/game/EventListener.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -270,10 +297,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/JsonFile.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/JsonFile.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/core/Color.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Color.h" ex="false" tool="3" flavor2="0">
@@ -294,50 +317,75 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/core/SpriteAnimation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/core/Sprite.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/core/SpriteAnimation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/core/SpriteSheet.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/core/Vector2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Camera.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../../src/core/components/Components.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/PositionComponent.cpp"
+      <item path="../../../src/core/components/Position.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/PositionComponent.h"
+      <item path="../../../src/core/components/Position.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.cpp"
+      <item path="../../../src/core/components/SpriteRenderer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/SpriteRendererComponent.h"
+      <item path="../../../src/core/components/SpriteRenderer.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/TextRendererComponent.cpp"
+      <item path="../../../src/core/components/TextRenderer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/TextRendererComponent.h"
+      <item path="../../../src/core/components/TextRenderer.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/core/components/VelocityComponent.h"
+      <item path="../../../src/core/components/Velocity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/core/components/Velocity.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -372,9 +420,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="../../../src/game/Event.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/game/EventListener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/game/Event.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/game/EventListener.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/game/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>

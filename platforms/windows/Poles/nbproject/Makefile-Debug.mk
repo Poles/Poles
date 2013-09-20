@@ -35,19 +35,21 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1386528437/JsonFile.o \
 	${OBJECTDIR}/_ext/608447161/Color.o \
 	${OBJECTDIR}/_ext/608447161/GameObject.o \
 	${OBJECTDIR}/_ext/608447161/ResourceManager.o \
-	${OBJECTDIR}/_ext/608447161/Sprite.o \
+	${OBJECTDIR}/_ext/608447161/SpriteAnimation.o \
+	${OBJECTDIR}/_ext/608447161/SpriteSheet.o \
 	${OBJECTDIR}/_ext/608447161/Vector2D.o \
-	${OBJECTDIR}/_ext/957312044/PositionComponent.o \
-	${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o \
-	${OBJECTDIR}/_ext/957312044/TextRendererComponent.o \
+	${OBJECTDIR}/_ext/957312044/Camera.o \
+	${OBJECTDIR}/_ext/957312044/Position.o \
+	${OBJECTDIR}/_ext/957312044/SpriteRenderer.o \
+	${OBJECTDIR}/_ext/957312044/TextRenderer.o \
+	${OBJECTDIR}/_ext/957312044/Velocity.o \
 	${OBJECTDIR}/_ext/1430818098/MovementSystem.o \
 	${OBJECTDIR}/_ext/1430818098/RenderingSystem.o \
 	${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o \
-	${OBJECTDIR}/_ext/608552716/Event.o \
+	${OBJECTDIR}/_ext/608552716/EventListener.o \
 	${OBJECTDIR}/_ext/608552716/Game.o \
 	${OBJECTDIR}/_ext/608552716/GameState.o \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
@@ -70,7 +72,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf -ljson_mingw_libmt
+LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf -ljson
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -79,11 +81,6 @@ LDLIBSOPTIONS=-lmingw32 -lSDL2main -lSDL2 -lartemis -lSDL2_image -lSDL2_ttf -ljs
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/poles ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/1386528437/JsonFile.o: ../../../src/JsonFile.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437
-	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1386528437/JsonFile.o ../../../src/JsonFile.cpp
 
 ${OBJECTDIR}/_ext/608447161/Color.o: ../../../src/core/Color.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
@@ -100,30 +97,45 @@ ${OBJECTDIR}/_ext/608447161/ResourceManager.o: ../../../src/core/ResourceManager
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/ResourceManager.o ../../../src/core/ResourceManager.cpp
 
-${OBJECTDIR}/_ext/608447161/Sprite.o: ../../../src/core/Sprite.cpp 
+${OBJECTDIR}/_ext/608447161/SpriteAnimation.o: ../../../src/core/SpriteAnimation.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Sprite.o ../../../src/core/Sprite.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/SpriteAnimation.o ../../../src/core/SpriteAnimation.cpp
+
+${OBJECTDIR}/_ext/608447161/SpriteSheet.o: ../../../src/core/SpriteSheet.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/SpriteSheet.o ../../../src/core/SpriteSheet.cpp
 
 ${OBJECTDIR}/_ext/608447161/Vector2D.o: ../../../src/core/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608447161
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608447161/Vector2D.o ../../../src/core/Vector2D.cpp
 
-${OBJECTDIR}/_ext/957312044/PositionComponent.o: ../../../src/core/components/PositionComponent.cpp 
+${OBJECTDIR}/_ext/957312044/Camera.o: ../../../src/core/components/Camera.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/PositionComponent.o ../../../src/core/components/PositionComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/Camera.o ../../../src/core/components/Camera.cpp
 
-${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o: ../../../src/core/components/SpriteRendererComponent.cpp 
+${OBJECTDIR}/_ext/957312044/Position.o: ../../../src/core/components/Position.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRendererComponent.o ../../../src/core/components/SpriteRendererComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/Position.o ../../../src/core/components/Position.cpp
 
-${OBJECTDIR}/_ext/957312044/TextRendererComponent.o: ../../../src/core/components/TextRendererComponent.cpp 
+${OBJECTDIR}/_ext/957312044/SpriteRenderer.o: ../../../src/core/components/SpriteRenderer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/TextRendererComponent.o ../../../src/core/components/TextRendererComponent.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/SpriteRenderer.o ../../../src/core/components/SpriteRenderer.cpp
+
+${OBJECTDIR}/_ext/957312044/TextRenderer.o: ../../../src/core/components/TextRenderer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/TextRenderer.o ../../../src/core/components/TextRenderer.cpp
+
+${OBJECTDIR}/_ext/957312044/Velocity.o: ../../../src/core/components/Velocity.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/957312044
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/957312044/Velocity.o ../../../src/core/components/Velocity.cpp
 
 ${OBJECTDIR}/_ext/1430818098/MovementSystem.o: ../../../src/core/systems/MovementSystem.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1430818098
@@ -140,10 +152,10 @@ ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o: ../../../src/core/systems/Te
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430818098/TextRenderingSystem.o ../../../src/core/systems/TextRenderingSystem.cpp
 
-${OBJECTDIR}/_ext/608552716/Event.o: ../../../src/game/Event.cpp 
+${OBJECTDIR}/_ext/608552716/EventListener.o: ../../../src/game/EventListener.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/Event.o ../../../src/game/Event.cpp
+	$(COMPILE.cc) -g -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/608552716/EventListener.o ../../../src/game/EventListener.cpp
 
 ${OBJECTDIR}/_ext/608552716/Game.o: ../../../src/game/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/608552716
