@@ -33,6 +33,8 @@ void RenderingSystem::processEntity(artemis::Entity& e) {
 
     // Apply parallax effect
     position = position - ((cameraPosition - cameraCorrection) * parallaxIndex) + parallaxCorrection;
+
+    // Send the renderer to the rendering queue (it will be rendered depending on its parallax index)
     spriteMapper.get(e)->addToRenderingQueue(position);
-    spriteMapper.get(e)->render(position);
+    //spriteMapper.get(e)->render(position);
 }

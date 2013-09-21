@@ -40,6 +40,11 @@ SDL_Renderer* Camera::createRenderer(SDL_Window* window) {
 
 void Camera::renderScene() {
     if (mode == POLES_CAMERA_MAIN) {
+
+        for (std::list<Renderer *>::iterator currentRenderer = this->renderingQueue.begin(); currentRenderer != this->renderingQueue.end(); ++currentRenderer) {
+            (*currentRenderer)->render((*currentRenderer)->getRenderingPosition());
+        }
+
 		SDL_RenderPresent(this->renderer);
 	} else {
 		// Software rendering
@@ -55,5 +60,22 @@ void Camera::renderScene() {
  * @param render
  */
 void Camera::queueForRendering(Renderer *render) {
-    this->renderingQueue.push_back(render);
+    if (this->renderingQueue.size() == 0) {
+        this->renderingQueue.push_back(render);
+    } else {
+        std::list<Renderer* >::iterator currentRender;
+        bool inserted = false;
+
+        // We find the position in the queue where this renderer should be (depending of his parallax index)
+        currentRender = this->renderingQueue.begin();
+        while (inserted == false && currentRender != this->renderingQueue.end()) {
+            if ((*currentRender)->getParallaxIndex() < render->getParallaxIndex()) {
+                ++currentRender;
+            } else {
+                inserted = true;
+            }
+        }
+        this->renderingQueue.insert(currentRender, render);
+
+    }
 }

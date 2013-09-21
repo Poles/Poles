@@ -27,5 +27,6 @@ Renderer::Renderer(float parallaxIndex, Camera* cameraToRender) {
  */
 void Renderer::addToRenderingQueue(Vector2D &position) {
     this->camera->queueForRendering(this);
+    this->renderingPosition = position;
 }
 

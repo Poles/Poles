@@ -29,9 +29,13 @@ public:
 
     void                addToRenderingQueue(Vector2D & position);
 
+    inline Vector2D&     getRenderingPosition() { return renderingPosition; }
+
 protected:
     float               parallaxIndex;
     Vector2D            parallaxCompensation;
+
+    Vector2D            renderingPosition;
 
     Camera*             camera; // The camera the component will use to render its content
 };
