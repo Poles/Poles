@@ -58,7 +58,7 @@ void SpriteRenderer::render(Vector2D& position) {
     renderFrame.w = this->currentAnimation->getWidth();
     renderFrame.h = this->currentAnimation->getHeight();
     
-    SDL_RenderCopy(Game::currentRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
+    SDL_RenderCopy(this->camera->getRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
     
     updateAnimation();
 }

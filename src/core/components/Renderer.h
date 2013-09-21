@@ -8,9 +8,11 @@ class Game;
 
 namespace components {
 
+class Camera;
+
 class Renderer : public artemis::Component {
 public:
-    Renderer(float parallaxIndex = 1.0f);
+    Renderer(float parallaxIndex = 1.0f, Camera* cameraToRender = NULL);
     virtual ~Renderer() { }
 
     virtual void        render(Vector2D& position) = 0;
@@ -21,9 +23,17 @@ public:
 
     inline Vector2D     getParallaxCompensation() { return parallaxCompensation; }
 
+    inline Camera*      getCameraToRender() { return camera; }
+
+    inline void         setCameraToRender(Camera* camera) { this->camera = camera; }
+
+    void                addToRenderingQueue(Vector2D & position);
+
 protected:
     float               parallaxIndex;
     Vector2D            parallaxCompensation;
+
+    Camera*             camera; // The camera the component will use to render its content
 };
 
 }

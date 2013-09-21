@@ -39,9 +39,21 @@ SDL_Renderer* Camera::createRenderer(SDL_Window* window) {
 }
 
 void Camera::renderScene() {
-	if (mode == POLES_CAMERA_MAIN) {
+    if (mode == POLES_CAMERA_MAIN) {
 		SDL_RenderPresent(this->renderer);
 	} else {
 		// Software rendering
-	}
+    }
+
+    std::cout << "Clearing rendering queue with " << this->renderingQueue.size() << " elements." << std::endl;
+
+    this->renderingQueue.clear();
+}
+
+/**
+ * @brief Adds the renderer component to the queue to wait to be rendered in the right moment (depending on its parallax index).
+ * @param render
+ */
+void Camera::queueForRendering(Renderer *render) {
+    this->renderingQueue.push_back(render);
 }

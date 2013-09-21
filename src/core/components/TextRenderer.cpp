@@ -93,7 +93,7 @@ void TextRenderer::render(Vector2D & position) {
                                  NULL);
     }
 
-    SDL_Texture * textTexture = SDL_CreateTextureFromSurface(Game::currentRenderer(), textSurface);
+    SDL_Texture * textTexture = SDL_CreateTextureFromSurface(this->camera->getRenderer(), textSurface);
 
     if (textTexture == NULL) {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
@@ -109,7 +109,7 @@ void TextRenderer::render(Vector2D & position) {
     posRec->w = textSurface->w;
     posRec->h = textSurface->h;
     
-    SDL_RenderCopy(Game::currentRenderer(), textTexture, NULL, posRec);
+    SDL_RenderCopy(this->camera->getRenderer(), textTexture, NULL, posRec);
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(textTexture);
 }
