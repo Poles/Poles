@@ -6,8 +6,8 @@ set (Poles_VERSION_MAJOR 0)
 set (Poles_VERSION_MINOR 1)
 
 # Specify include paths
-set (PROJECT_SOURCE_DIR "${PROJECT_BINARY_DIR}/src")
-set (SOURCE_DIR "${PROJECT_BINARY_DIR}/src")
+set (PROJECT_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
+set (SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
 
 # Specify build paths
 set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -50,7 +50,7 @@ target_link_libraries (Poles PolesEngine)
 # Source directories where binary tree should look for .h files.
 # Note: If you create a new directory for source code, add it here.
 set (POLES_SOURCE_DIRECTORIES
-	"${SOURCE_DIR}"
+    "${SOURCE_DIR}"
 	"${SOURCE_DIR}/core"
 	"${SOURCE_DIR}/core/component"
 	"${SOURCE_DIR}/core/systems"
@@ -62,8 +62,10 @@ include_directories (${POLES_SOURCE_DIRECTORIES})
 #-----------------------------------------------------------------#
 
 # Libraries (temporal, this should be changed to link against the project's libraries in /platforms)
-link_directories (/usr/local/lib)
-include_directories (/usr/local/include)
+# link_directories (/usr/local/lib)
+# include_directories (/usr/local/include)
+link_directories (/Libraries/Frameworks)
+include_directories (/Libraries/Frameworks)
 
 # Windows MinGW only
 if (${OPERATING_SYSTEM} MATCHES "Windows")
