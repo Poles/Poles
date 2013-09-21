@@ -3,12 +3,18 @@
 #include <sstream>
 #include "SpriteSheet.h"
 #include "../game/Game.h"
+#include <ResourceManager.h>
 
 /**
  * 
  * @param filePath
  */
 SpriteSheet::SpriteSheet(const char * filePath) {
+    // Obtain name
+    std::string name(filePath);
+
+    this->name = name.substr(name.find_last_of("/"), name.find_last_of("."));
+
     // Open Image file
     this->spriteSheet = IMG_LoadTexture(Game::currentRenderer(), filePath);
     
@@ -104,9 +110,7 @@ SpriteSheet::SpriteSheet(const char * filePath) {
 /**
  * 
  */
-SpriteSheet::~SpriteSheet() {
-    SDL_DestroyTexture(this->spriteSheet);
-    
+SpriteSheet::~SpriteSheet() {    
     for (unsigned int animationIndex = 0; animationIndex < this->animations->size(); ++animationIndex) {
         delete this->animations->at(animationIndex);
     }
@@ -114,6 +118,8 @@ SpriteSheet::~SpriteSheet() {
     this->animations->clear();
     
     delete this->animations;
+
+    SDL_DestroyTexture(this->spriteSheet);
 }
 
 /**

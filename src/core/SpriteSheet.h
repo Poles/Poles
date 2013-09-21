@@ -27,6 +27,8 @@ public:
     std::string                         toString();
 private:
     SDL_Texture *                       spriteSheet;
+
+    std::string                         name;
     
     int                                 totalWidth;
     int                                 totalHeight;

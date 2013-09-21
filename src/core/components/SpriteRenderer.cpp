@@ -1,5 +1,6 @@
 #include "SpriteRenderer.h"
 #include "../../game/Game.h"
+#include "ResourceManager.h"
 
 using namespace components;
 
@@ -18,8 +19,19 @@ SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const float parallax):
     this->parallaxIndex = parallax;
 }
 
-SpriteRenderer::~SpriteRenderer() {
+SpriteRenderer::SpriteRenderer(const char* spriteFile, const float parallax):
+    Renderer(parallax)
+{
+    this->spriteSheet = ResourceManager::getSpriteSheet(spriteFile);
+    this->currentAnimation = spriteSheet->getDefaultAnimation();
+    this->currentAnimationFrame = 0;
+    this->timeLastUpdate = SDL_GetTicks();
+    this->frameIncrement = 1;
+    this->parallaxIndex = parallax;
+}
 
+SpriteRenderer::~SpriteRenderer() {
+    delete this->spriteSheet;
 }
 
 /**

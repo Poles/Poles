@@ -10,6 +10,7 @@ namespace components{
 class SpriteRenderer : public Renderer {
 public:
     SpriteRenderer(SpriteSheet * spriteSheet, const float parallax = 1.0f);
+    SpriteRenderer(const char* spriteFile, const float parallax = 1.0f);
     virtual ~SpriteRenderer();
     
     void                        changeAnimation(const char * animation);
