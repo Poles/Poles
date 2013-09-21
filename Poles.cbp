@@ -130,6 +130,8 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.cpp">
       </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Physics.cpp">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.cpp">
@@ -171,6 +173,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/core/Vector2D.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Physics.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
       </Unit>
