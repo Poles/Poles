@@ -116,6 +116,8 @@
          </MakeCommands>
       </Target>
       </Build>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/CollisionBox.cpp">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/Color.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/GameObject.cpp">
@@ -129,6 +131,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/core/Vector2D.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.cpp">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Physics.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
@@ -162,6 +166,8 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/main.cpp">
       </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/CollisionBox.h">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/Color.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/GameObject.h">
@@ -175,6 +181,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/core/Vector2D.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Camera.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Physics.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
       </Unit>

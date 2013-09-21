@@ -4,6 +4,7 @@
 #include "../GameState.h"
 #include "../../core/GameObject.h"
 #include "../../core/components/Components.h"
+#include "../core/CollisionBox.h"
 
 class DebugState : public GameState {
 private:
@@ -31,6 +32,13 @@ private:
     GameObject* background;
     GameObject* mountainBig;
     GameObject* mountainAbove;
+
+    GameObject* zero;
+    GameObject* poles_dude;
+    CollisionBox* zeroBox;
+    CollisionBox* poles_dudeBox;
+
+    Color collisionBoxColor;
 
     bool keyDown;
 

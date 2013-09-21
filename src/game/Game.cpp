@@ -88,12 +88,12 @@ void Game::initialize() {
     }
     
     // Scalated resolution for testing porpuses. Remove * 0.75 for release
-//    int w = mode.w * 0.75;
-//    int h = mode.h * 0.75;
-//    int windowMode = SDL_WINDOW_SHOWN;
-    int w = mode.w;
-    int h = mode.h;
-    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+    int w = mode.w * 0.75;
+    int h = mode.h * 0.75;
+    int windowMode = SDL_WINDOW_SHOWN;
+//    int w = mode.w;
+//    int h = mode.h;
+//    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
@@ -104,10 +104,10 @@ void Game::initialize() {
                                  windowMode);
     
     mainCameraObject = createGameObject();
-    mainCameraObject->addComponent(new components::Velocity());
+    //mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
+    GameStateManager::setGameState(GAMESTATE_DEBUG);
 }
 
 void Game::mainLoop() {

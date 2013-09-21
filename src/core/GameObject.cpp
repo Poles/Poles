@@ -90,16 +90,31 @@ Vector2D GameObject::getRelativePosition() {
 Vector2D GameObject::getPositionPerspective() {
     Vector2D position;
     Vector2D cameraCorrection;
+    Vector2D cameraPosition;
+    Vector2D parallaxCorrection;
+    float parallaxIndex;
 
-    cameraCorrection = Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector();
+    position = this->getPosition();
+    cameraPosition = Game::getMainCameraObject()->getPosition();
+    cameraCorrection = Game::getMainCamera()->getCorrectionVector();
 
-    components::SpriteRenderer* sprite = (components::SpriteRenderer*)this->entity.getComponent<components::SpriteRenderer>();
+    components::SpriteRenderer* sprite = (components::SpriteRenderer*)getComponent<components::SpriteRenderer>();
+    components::TextRenderer* text = (components::TextRenderer*)getComponent<components::TextRenderer>();
 
     if (sprite != NULL) {
-        cameraCorrection = cameraCorrection * sprite->getParallaxIndex();
+        parallaxIndex = sprite->getParallaxIndex();
+        parallaxCorrection = sprite->getParallaxCompensation();
+    } else if (text != NULL) {
+        parallaxIndex = text->getParallaxIndex();
+        parallaxCorrection = text->getParallaxCompensation();
+    } else {
+        parallaxIndex = 1.0f;
+        // parallaxCorrection = (0, 0)
     }
 
-    return position - cameraCorrection;
+    position = position - ((cameraPosition - cameraCorrection) * parallaxIndex) + parallaxCorrection;
+
+    return position;
 }
 
 /**
@@ -182,6 +197,14 @@ void GameObject::resetForce() {
                 "Missing Component",
                 "Error! - GameObject: Trying to reset force to an object with no VelocityComponent",
                 NULL);
+    }
+}
+
+void GameObject::changeAnimation(const char *animation) {
+    components::SpriteRenderer* sprite = (components::SpriteRenderer*)entity.getComponent<components::SpriteRenderer>();
+
+    if (sprite != NULL) {
+        sprite->changeAnimation(animation);
     }
 }
 
