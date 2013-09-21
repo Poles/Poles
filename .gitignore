@@ -1,3 +1,5 @@
+*.o
+
 #########################
 # .gitignore file for Xcode4 / OS X Source projects
 #
@@ -13,6 +15,8 @@
 #   files that we want to exclude
 #
 #########################
+
+
 
 #####
 # OS X temporary files that should never be committed
@@ -184,7 +188,3 @@ Podfile.lock
 #
 CMakeLists.txt.user
 
-# Symbolic link for assets folder
-# 
-# This is ignored because in Windows the Unix symbolic links doesn't work.
-bin/assets
