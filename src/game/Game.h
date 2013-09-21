@@ -23,7 +23,7 @@ public:
     static void                         exit();
     
     static GameObject *                 createGameObject();
-    static void                         destroyGameObject(GameObject * object);
+    static void                         destroyGameObject(GameObject *&object);
     
     static SDL_Renderer *               currentRenderer();
     static SDL_Window*                  getCurrentWindow();

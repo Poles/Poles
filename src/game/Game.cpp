@@ -104,10 +104,10 @@ void Game::initialize() {
                                  windowMode);
     
     mainCameraObject = createGameObject();
-    //mainCameraObject->addComponent(new components::Velocity());
+    mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
 }
 
 void Game::mainLoop() {
@@ -208,15 +208,19 @@ GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
+
+    std::cout << "Game object created." << std::endl;
     
     return object;
 }
 
-void Game::destroyGameObject(GameObject * object) {
-    world.deleteEntity(object->entity);
-    
+void Game::destroyGameObject(GameObject*& object) {
+    std::cout << "Destroying GameObject" << std::endl;
+    artemis::Entity& entity = object->entity;
     delete object;
     object = NULL;
+
+    world.deleteEntity(entity);
 }
 
 SDL_Renderer * Game::currentRenderer() {

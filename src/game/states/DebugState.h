@@ -29,12 +29,11 @@ public:
     void onKeyUp(SDL_Keycode key, Uint16 mod); 
         
 private:
+    GameObject* terrain;
     GameObject* background;
-    GameObject* mountainBig;
-    GameObject* mountainAbove;
-
     GameObject* zero;
     GameObject* poles_dude;
+
     CollisionBox* zeroBox;
     CollisionBox* poles_dudeBox;
 
