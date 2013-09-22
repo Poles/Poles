@@ -47,6 +47,8 @@ xcuserdata
 *.moved-aside
 Pods/
 Podfile.lock
+# Qt Creator
+CMakeLists.txt.user
 
 # =============================================================================
 # Others
