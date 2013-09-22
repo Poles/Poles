@@ -80,3 +80,10 @@ target_link_libraries (Poles artemis)
 target_link_libraries (Poles json)
 
 
+# =============================================================================
+# Custom commands
+# =============================================================================
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ln -sf ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/bin/assets
+)
