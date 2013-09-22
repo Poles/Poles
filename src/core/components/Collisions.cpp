@@ -90,10 +90,14 @@ bool Collisions::perPixelCollision(SDL_Surface *A, Vector2D &positionA, SDL_Surf
     // We will calculate the overlapping area of the two images so we reduce the area we will iterate over
     SDL_Rect overlappingArea;
 
-    overlappingArea.w = upperLeftA.x() + widthA - upperLeftB.x();
-    overlappingArea.x = upperLeftA.x() + widthA - overlappingArea.w;
-    overlappingArea.h = upperLeftB.y() + heightB - upperLeftA.y();
-    overlappingArea.y = upperLeftB.y() + heightB - overlappingArea.h;
+//    overlappingArea.w = upperLeftA.x() + widthA - upperLeftB.x();
+//    overlappingArea.x = upperLeftA.x() + widthA - overlappingArea.w;
+//    overlappingArea.h = upperLeftB.y() + heightB - upperLeftA.y();
+//    overlappingArea.y = upperLeftB.y() + heightB - overlappingArea.h;
+    overlappingArea.x = max(upperLeftA.x(), upperLeftB.x());
+    overlappingArea.w = min(upperLeftA.x() + widthA, upperLeftB.x() + widthB);
+    overlappingArea.y = max(upperLeftA.y(),  upperLeftB.y());
+    overlappingArea.h = min(upperLeftA.y() + heightA, upperLeftB.y() + heightB);
 
     Uint32 pixelA;
     Uint32 pixelB;
@@ -122,4 +126,18 @@ Vector2D Collisions::pixelCoordinates(int x, int y, Vector2D &position, SDL_Surf
     Vector2D upperLeft = position - Vector2D( surface->w / 2, surface->h / 2 );
 
     return Vector2D(x, y) - upperLeft;
+}
+
+int Collisions::max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
+int Collisions::min(int a, int b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
 }

@@ -8,7 +8,7 @@
 
 namespace components {
 
-class Collisions : artemis::Component {
+class Collisions : public artemis::Component {
 public:
     Collisions();
     Collisions(const int x, const int y, const int w, const int h);
@@ -25,6 +25,9 @@ private:
     inline Uint32               pixelAt(SDL_Surface* surface, int x, int y) { return ((Uint32*)surface->pixels)[ y * surface->w + x ]; }
     inline Uint32               pixelAt(SDL_Surface *surface, Vector2D pos) { return ((Uint32*)surface->pixels)[(int)pos.y() * surface->w + (int)pos.x()]; }
     Vector2D                    pixelCoordinates(int x, int y, Vector2D& position, SDL_Surface* surface);
+
+    int                         max(int a, int b);
+    int                         min(int a, int b);
 
 private:
     CollisionBox                collisionBox;

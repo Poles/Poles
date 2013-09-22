@@ -29,15 +29,8 @@ public:
     void onKeyUp(SDL_Keycode key, Uint16 mod); 
         
 private:
-    GameObject* terrain;
-    GameObject* background;
-    GameObject* zero;
-    GameObject* poles_dude;
-
-    CollisionBox* zeroBox;
-    CollisionBox* poles_dudeBox;
-
-    Color collisionBoxColor;
+    GameObject* A;
+    GameObject* B;
 
     bool keyDown;
 

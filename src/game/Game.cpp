@@ -21,6 +21,11 @@ bool Game::run;
 
 int Game::renderingContextWidth = 0;
 int Game::renderingContextHeight = 0;
+
+std::list<GameObject *> Game::objects;
+
+/* SYSTEMS */
+systems::CollisionSystem Game::collisionSystem;
 /*------------------*/
 
 
@@ -208,6 +213,8 @@ GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
+
+    objects.push_back(object);
     
     return object;
 }
@@ -216,6 +223,9 @@ void Game::destroyGameObject(GameObject*& object) {
     artemis::Entity& entity = object->entity;
     delete object;
     object = NULL;
+
+    // Search in the objects list and remove
+    objects.remove(object);
 
     world.deleteEntity(entity);
 }
@@ -260,4 +270,8 @@ void Game::updateFPSCounter() {
     stream << "FPS: " << this->fps;
 
     ((components::TextRenderer*)this->fpsCounter->getComponent<components::TextRenderer>())->setText(stream.str());
+}
+
+void Game::debugMessage(std::string message) {
+    std::cout << message << std::endl;
 }
