@@ -1,9 +1,0 @@
-digraph "Json::ValueArrayAllocator::allocateArrayPage"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="Json::ValueArrayAllocator\l::allocateArrayPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node2 [label="Json::ValueInternalArray\l::ValueInternalArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_value_internal_array.html#a6efb5fb84d46056b73b96f8dccd34dd6"];
-}
