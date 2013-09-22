@@ -22,12 +22,21 @@ void DebugState::onActivate() {
     this->keyDown = false;
     this->collisionBoxColor = presetColors::COLOR_GREEN;
 
+    mountainAbove = Game::createGameObject();
     background = Game::createGameObject();
+<<<<<<< HEAD
     terrain = Game::createGameObject();
     zero = Game::createGameObject();
     poles_dude = Game::createGameObject();
 
     zero->addComponent(new components::Velocity());
+=======
+    mountainBig = Game::createGameObject();
+
+    background->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-sky.png"), 0, 0.0f));
+    mountainBig->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-behind.png"), 1, 0.3f));
+    mountainAbove->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-above.png"), 2, 0.5f));
+>>>>>>> master
 
     //Game::getMainCameraObject()->setParent(zero);
 

@@ -1,9 +1,0 @@
-digraph "Json::StaticString::c_str"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="Json::StaticString\l::c_str",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node2 [label="Json::Value::Value",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_value.html#a081830e95f88a37054da7e46c65b0766",tooltip="Constructs a value from a static string. "];
-}

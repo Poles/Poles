@@ -26,6 +26,7 @@ void ParallaxTest::onActivate() {
     background02 = Game::createGameObject();
     background01 = Game::createGameObject();
     
+<<<<<<< HEAD
     background09->addComponent(new components::SpriteRenderer("parallax-test/Layer09.png", 0.0f));
     background08->addComponent(new components::SpriteRenderer("parallax-test/Layer08.png", 0.1f));
     background07->addComponent(new components::SpriteRenderer("parallax-test/Layer07.png", 0.2f));
@@ -35,6 +36,17 @@ void ParallaxTest::onActivate() {
     background03->addComponent(new components::SpriteRenderer("parallax-test/Layer03.png", 1.0f));
     background02->addComponent(new components::SpriteRenderer("parallax-test/Layer02.png", 0.8f));
     background01->addComponent(new components::SpriteRenderer("parallax-test/Layer01.png", 1.0f));
+=======
+    background09->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer09.png"), 0, 0.0f));
+    background08->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer08.png"), 1, 0.1f));
+    background07->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer07.png"), 2, 0.2f));
+    background06->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer06.png"), 3, 0.3f));
+    background05->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer05.png"), 4, 0.4f));
+    background04->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer04.png"), 5, 0.5f));
+    background03->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer03.png"), 6, 1.0f));
+    background02->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer02.png"), 7, 0.8f));
+    background01->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("parallax-test/Layer01.png"), 8, 1.0f));
+>>>>>>> master
 
     // Add movement to the clouds
     background06->addComponent(new components::Velocity(0.1f, 0.0f));

@@ -248,7 +248,7 @@ void Game::onKeyDown(SDL_Keycode key, Uint16 mod) {
 
 void Game::showFPSCounter() {
     this->fpsCounter = Game::createGameObject();
-    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 0.0f));
+    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 99 ,0.0f));   // z-index so it will render above all
     this->fpsCounter->setPosition(0, - (this->getRenderingContextHeight() / 2 - 20));
 
 }

@@ -8,8 +8,8 @@ using namespace components;
  * 
  * @param spriteSheet
  */
-SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const float parallax):
-    Renderer(parallax)
+SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
 {
     this->spriteSheet = spriteSheet;
     this->currentAnimation = spriteSheet->getDefaultAnimation();
@@ -19,8 +19,8 @@ SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const float parallax):
     this->parallaxIndex = parallax;
 }
 
-SpriteRenderer::SpriteRenderer(const char* spriteFile, const float parallax):
-    Renderer(parallax)
+SpriteRenderer::SpriteRenderer(const char* spriteFile, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
 {
     this->spriteSheet = ResourceManager::getSpriteSheet(spriteFile);
     this->currentAnimation = spriteSheet->getDefaultAnimation();
@@ -58,7 +58,7 @@ void SpriteRenderer::render(Vector2D& position) {
     renderFrame.w = this->currentAnimation->getWidth();
     renderFrame.h = this->currentAnimation->getHeight();
     
-    SDL_RenderCopy(Game::currentRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
+    SDL_RenderCopy(this->camera->getRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
     
     updateAnimation();
 }
