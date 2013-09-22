@@ -4,19 +4,23 @@
 
 using namespace components;
 
-TextRenderer::TextRenderer() {
+TextRenderer::TextRenderer():
+    Renderer()
+{
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->font = ResourceManager::getFont(TEXT_DEFAULT_FONT);
-    this->foregroundColor = presetColors::COLOR_BLACK;
-    this->backgroundColor = presetColors::COLOR_TRANSPARENT;
+    this->foregroundColor = presetColors::COLOR_WHITE;
+    this->backgroundColor = presetColors::COLOR_BLACK;
 }
 
-TextRenderer::TextRenderer(std::string text, const char * fontName) {
+TextRenderer::TextRenderer(std::string text, const char * fontName, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
+{
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->text = text;
     this->font = ResourceManager::getFont(fontName);
-    this->foregroundColor = presetColors::COLOR_BLACK;
-    this->backgroundColor = presetColors::COLOR_TRANSPARENT;
+    this->foregroundColor = presetColors::COLOR_WHITE;
+    this->backgroundColor = presetColors::COLOR_BLACK;
 }
 
 TextRenderer::~TextRenderer() {
@@ -82,7 +86,21 @@ void TextRenderer::render(Vector2D & position) {
             this->backgroundColor.toSDLColor());
     }
     
-    SDL_Texture * textTexture = SDL_CreateTextureFromSurface(Game::currentRenderer(), textSurface);
+    if (textSurface == NULL) {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+                                 "TextRenderer",
+                                 SDL_GetError(),
+                                 NULL);
+    }
+
+    SDL_Texture * textTexture = SDL_CreateTextureFromSurface(this->camera->getRenderer(), textSurface);
+
+    if (textTexture == NULL) {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
+                                 "TextRenderer",
+                                 SDL_GetError(),
+                                 NULL);
+    }
     
     SDL_Rect * posRec = new SDL_Rect();
     
@@ -91,7 +109,7 @@ void TextRenderer::render(Vector2D & position) {
     posRec->w = textSurface->w;
     posRec->h = textSurface->h;
     
-    SDL_RenderCopy(Game::currentRenderer(), textTexture, NULL, posRec);
+    SDL_RenderCopy(this->camera->getRenderer(), textTexture, NULL, posRec);
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(textTexture);
 }

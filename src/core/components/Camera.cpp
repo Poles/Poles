@@ -39,9 +39,41 @@ SDL_Renderer* Camera::createRenderer(SDL_Window* window) {
 }
 
 void Camera::renderScene() {
-	if (mode == POLES_CAMERA_MAIN) {
+    if (mode == POLES_CAMERA_MAIN) {
+
+        for (std::list<Renderer *>::iterator currentRenderer = this->renderingQueue.begin(); currentRenderer != this->renderingQueue.end(); ++currentRenderer) {
+            (*currentRenderer)->render((*currentRenderer)->getRenderingPosition());
+        }
+
 		SDL_RenderPresent(this->renderer);
 	} else {
 		// Software rendering
-	}
+    }
+
+    this->renderingQueue.clear();
+}
+
+/**
+ * @brief Adds the renderer component to the queue to wait to be rendered in the right moment (depending on its z-index).
+ * @param render
+ */
+void Camera::queueForRendering(Renderer *render) {
+    if (this->renderingQueue.size() == 0) {
+        this->renderingQueue.push_back(render);
+    } else {
+        std::list<Renderer* >::iterator currentRender;
+        bool inserted = false;
+
+        // We find the position in the queue where this renderer should be (depending of his z-index)
+        currentRender = this->renderingQueue.begin();
+        while (inserted == false && currentRender != this->renderingQueue.end()) {
+            if ((*currentRender)->getZIndex() < render->getZIndex()) {
+                ++currentRender;
+            } else {
+                inserted = true;
+            }
+        }
+        this->renderingQueue.insert(currentRender, render);
+
+    }
 }

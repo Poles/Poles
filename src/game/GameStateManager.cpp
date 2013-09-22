@@ -1,6 +1,7 @@
 #include "GameStateManager.h"
 #include "states/DebugState.h"
 #include "states/IntroState.h"
+#include "states/ParallaxTest.h"
 
 GameState * GameStateManager::currentState = NULL;
 
@@ -61,6 +62,10 @@ void GameStateManager::setGameState(int gameStateID) {
         case GAMESTATE_DEBUG:
             currentState = DebugState::getInstance();
             break;
+            
+        case GAMESTATE_PARALLAX_TEST:
+            currentState = ParallaxTest::getInstance();
+            break;
         }
     
     if (currentState != NULL) {
@@ -74,4 +79,8 @@ void GameStateManager::setGameState(int gameStateID) {
  */
 GameState * GameStateManager::getCurrentGameState() {
     return currentState;
+}
+
+void GameStateManager::freeAllResources() {
+    currentState->onDeactivate();
 }

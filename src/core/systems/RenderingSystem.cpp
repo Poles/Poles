@@ -19,7 +19,22 @@ RenderingSystem::~RenderingSystem() {
 }
 
 void RenderingSystem::processEntity(artemis::Entity& e) {
-    Vector2D position = positionMapper.get(e)->getPosition();
-    position = position - (Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector());    
-    spriteMapper.get(e)->render(position);
+    Vector2D position;
+    Vector2D cameraCorrection;
+    Vector2D cameraPosition;
+    Vector2D parallaxCorrection;
+    float parallaxIndex;
+
+    position = positionMapper.get(e)->getPosition();
+    cameraPosition = (Game::getMainCameraObject()->getPosition());
+    cameraCorrection = (Game::getMainCamera()->getCorrectionVector());
+    parallaxCorrection = spriteMapper.get(e)->getParallaxCompensation();
+    parallaxIndex = spriteMapper.get(e)->getParallaxIndex();
+
+    // Apply parallax effect
+    position = position - ((cameraPosition - cameraCorrection) * parallaxIndex) + parallaxCorrection;
+
+    // Send the renderer to the rendering queue (it will be rendered depending on its parallax index)
+    spriteMapper.get(e)->addToRenderingQueue(position);
+    //spriteMapper.get(e)->render(position);
 }

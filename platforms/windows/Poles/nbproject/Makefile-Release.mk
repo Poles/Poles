@@ -55,6 +55,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/608552716/GameStateManager.o \
 	${OBJECTDIR}/_ext/576904603/DebugState.o \
 	${OBJECTDIR}/_ext/576904603/IntroState.o \
+	${OBJECTDIR}/_ext/576904603/ParallaxTest.o \
 	${OBJECTDIR}/_ext/1386528437/main.o
 
 
@@ -181,6 +182,11 @@ ${OBJECTDIR}/_ext/576904603/IntroState.o: ../../../src/game/states/IntroState.cp
 	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/IntroState.o ../../../src/game/states/IntroState.cpp
+
+${OBJECTDIR}/_ext/576904603/ParallaxTest.o: ../../../src/game/states/ParallaxTest.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/576904603
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Artemis-Cpp/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/576904603/ParallaxTest.o ../../../src/game/states/ParallaxTest.cpp
 
 ${OBJECTDIR}/_ext/1386528437/main.o: ../../../src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1386528437

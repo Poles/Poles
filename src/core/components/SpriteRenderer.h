@@ -3,12 +3,14 @@
 
 #include <Artemis/Artemis.h>
 #include "../SpriteSheet.h"
+#include "Renderer.h"
 
 namespace components{
 
-class SpriteRenderer : public artemis::Component {
+class SpriteRenderer : public Renderer {
 public:
-    SpriteRenderer(SpriteSheet * spriteSheet);
+    SpriteRenderer(SpriteSheet * spriteSheet, const int zIndex = 0, const float parallax = 1.0f);
+    SpriteRenderer(const char* spriteFile, const int zIndex = 0, const float parallax = 1.0f);
     virtual ~SpriteRenderer();
     
     void                        changeAnimation(const char * animation);

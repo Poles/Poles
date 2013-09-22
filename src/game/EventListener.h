@@ -1,4 +1,4 @@
-#ifndef EVENTLIESTENER_H
+#ifndef EVENTLISTENER_H
 #define	EVENTLISTENER_H
 
 #include <SDL2/SDL.h>

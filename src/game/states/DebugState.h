@@ -28,13 +28,10 @@ public:
     void onKeyUp(SDL_Keycode key, Uint16 mod); 
         
 private:
-    GameObject * zero;
-    GameObject * background;
+    GameObject* background;
+    GameObject* mountainBig;
+    GameObject* mountainAbove;
 
-    GameObject * debugInfo;
-    GameObject * zeroInfo;
-    components::TextRenderer * text;
-    components::TextRenderer * zeroText;
     bool keyDown;
 
 };

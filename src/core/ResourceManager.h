@@ -38,7 +38,7 @@ public:
     
     static std::string                          getAssetsFolderPath();
    
-    static void                                 deleteImage(const char * name);
+    static void                                 deleteSpriteSheet(const char * name);
     
     static SpriteSheet *                        getSpriteSheet(const char * name);
     

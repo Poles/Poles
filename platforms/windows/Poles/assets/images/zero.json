@@ -1,0 +1,28 @@
+{
+	"animations": [
+		{
+			"name": "Stand Right",
+			"frames": 4,
+			"oscillate": true,
+			"frame-rate": 150
+		},
+		{
+			"name": "Stand Left",
+			"frames": 4,
+			"oscillate": true,
+			"frame-rate": 150
+		},
+		{
+			"name": "Walk Right",
+			"frames": 14,
+			"oscillate": false,
+			"frame-rate": 50
+		},
+		{
+			"name": "Walk Left",
+			"frames": 14,
+			"oscillate": false,
+			"frame-rate": 50
+		}
+	]
+}

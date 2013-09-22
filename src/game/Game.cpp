@@ -6,7 +6,7 @@
 #include "../core/ResourceManager.h"
 #include "GameStateManager.h"
 #include <SDL2/SDL_ttf.h>
-
+#include <sstream>
 
 /* STATIC VARIABLES */
 artemis::World Game::world;
@@ -50,7 +50,6 @@ Game::~Game() {
 
     Game::destroyGameObject(mainCameraObject);
 
-
     TTF_Quit();
     SDL_Quit();
 }
@@ -89,12 +88,12 @@ void Game::initialize() {
     }
     
     // Scalated resolution for testing porpuses. Remove * 0.75 for release
-    int w = mode.w * 0.75;
-    int h = mode.h * 0.75;
-    int windowMode = SDL_WINDOW_SHOWN;
-//    int w = mode.w;
-//    int h = mode.h;
-//    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+//    int w = mode.w * 0.75;
+//    int h = mode.h * 0.75;
+//    int windowMode = SDL_WINDOW_SHOWN;
+    int w = mode.w;
+    int h = mode.h;
+    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
@@ -105,10 +104,10 @@ void Game::initialize() {
                                  windowMode);
     
     mainCameraObject = createGameObject();
-    //mainCameraObject->addComponent(new VelocityComponent());
+    mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
 }
 
 void Game::mainLoop() {
@@ -138,7 +137,7 @@ void Game::update() {
  */
 void Game::render() {
     if (this->frameSkip == 0) {
-        SDL_RenderClear(renderer);
+        SDL_RenderClear(mainCamera->getRenderer());
 
         this->renderingSystem->process();
         this->textRenderingSystem->process();
@@ -158,15 +157,11 @@ void Game::render() {
 void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
+        // Pass to the state manager so it can send the event to the current state
         GameStateManager::onEvent(&event);
-        
-        if (event.type == SDLK_f) {
-            if (this->showFPS) {
-                this->showFPS = false;
-            } else {
-                this->showFPS = true;
-            }
-        }
+
+        // Pass the evento to the game. It may want to do something as well
+        this->onEvent(&event);
     }
 }
 
@@ -193,7 +188,7 @@ void Game::countFSP() {
     if (timeElapsed >= 1000) {
         // Reset FPS counting
         if (this->showFPS) {
-            std::cout << "FPS: " << (int)this->fps << std::endl;
+            updateFPSCounter();
         }
         this->fps = 0;
         this->timeLastFPSRecord = currentTime;
@@ -231,4 +226,37 @@ SDL_Renderer * Game::currentRenderer() {
 
 SDL_Window* Game::getCurrentWindow() {
     return wnd;
+}
+
+void Game::onKeyDown(SDL_Keycode key, Uint16 mod) {
+    switch (key) {
+    case SDLK_f:
+        if (this->showFPS) {
+            this->showFPS = false;
+            hideFPSCounter();
+        } else {
+            this->showFPS = true;
+            showFPSCounter();
+        }
+        break;
+    }
+}
+
+void Game::showFPSCounter() {
+    this->fpsCounter = Game::createGameObject();
+    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 99 ,0.0f));   // z-index so it will render above all
+    this->fpsCounter->setPosition(0, - (this->getRenderingContextHeight() / 2 - 20));
+
+}
+
+void Game::hideFPSCounter() {
+    Game::destroyGameObject(fpsCounter);
+}
+
+void Game::updateFPSCounter() {
+    std::stringstream stream;
+
+    stream << "FPS: " << this->fps;
+
+    ((components::TextRenderer*)this->fpsCounter->getComponent<components::TextRenderer>())->setText(stream.str());
 }

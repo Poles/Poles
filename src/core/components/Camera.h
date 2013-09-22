@@ -5,6 +5,8 @@
 #include <Artemis/Component.h>
 #include "../Vector2D.h"
 #include <SDL2/SDL.h>
+#include "Renderer.h"
+#include <list>
 
 enum{
 	POLES_CAMERA_SOFTWARE,	// Used for subcameras
@@ -24,9 +26,11 @@ namespace components {
 
 		inline int getHeight() { return height; }
 
-		inline Vector2D getCorrectionVector() { return Vector2D(width / 2, height / 2); }
+        inline Vector2D getCorrectionVector() { return Vector2D(width / 2, height / 2); }
 
 		void renderScene();
+
+        void queueForRendering(Renderer* render);
 
 	private:
 		SDL_Renderer* createRenderer(SDL_Window* window);
@@ -37,7 +41,9 @@ namespace components {
 		int height;
 		Vector2D position;
 		SDL_Renderer* renderer;
-		SDL_Surface* renderingSurface;
+        SDL_Surface* renderingSurface;
+
+        std::list<Renderer* > renderingQueue;
 	};
 }
 

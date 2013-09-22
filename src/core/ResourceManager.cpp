@@ -171,3 +171,19 @@ SpriteSheet * ResourceManager::getSpriteSheet(const char * name) {
     
     return spriteSheet;
 }
+
+
+/**
+ * @brief ResourceManager::deleteSpriteSheet
+ * @param name
+ */
+void ResourceManager::deleteSpriteSheet(const char* name) {
+    std::map<std::string, SpriteSheet* >::iterator spriteFound;
+
+    spriteFound = spriteSheetMapper.find(name);
+
+    if (spriteFound != spriteSheetMapper.end()) {
+        delete spriteFound->second;
+        spriteSheetMapper.erase(spriteFound);
+    }
+}

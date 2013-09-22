@@ -134,6 +134,8 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.cpp">
       </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Renderer.cpp">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/TextRenderer.cpp">
@@ -158,6 +160,8 @@
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/game/states/IntroState.cpp">
       </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/game/states/ParallaxTest.cpp">
+      </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/main.cpp">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/Color.h">
@@ -177,6 +181,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Physics.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/Position.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/core/components/Renderer.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/core/components/SpriteRenderer.h">
       </Unit>
@@ -201,6 +207,8 @@
       <Unit filename="/home/ladis/Projects/Poles/src/game/states/DebugState.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/src/game/states/IntroState.h">
+      </Unit>
+      <Unit filename="/home/ladis/Projects/Poles/src/game/states/ParallaxTest.h">
       </Unit>
       <Unit filename="/home/ladis/Projects/Poles/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />

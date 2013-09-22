@@ -1,5 +1,6 @@
 #include "SpriteRenderer.h"
 #include "../../game/Game.h"
+#include "ResourceManager.h"
 
 using namespace components;
 
@@ -7,17 +8,30 @@ using namespace components;
  * 
  * @param spriteSheet
  */
-SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet)
+SpriteRenderer::SpriteRenderer(SpriteSheet * spriteSheet, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
 {
     this->spriteSheet = spriteSheet;
     this->currentAnimation = spriteSheet->getDefaultAnimation();
     this->currentAnimationFrame = 0;
     this->timeLastUpdate = SDL_GetTicks();
     this->frameIncrement = 1;
+    this->parallaxIndex = parallax;
+}
+
+SpriteRenderer::SpriteRenderer(const char* spriteFile, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
+{
+    this->spriteSheet = ResourceManager::getSpriteSheet(spriteFile);
+    this->currentAnimation = spriteSheet->getDefaultAnimation();
+    this->currentAnimationFrame = 0;
+    this->timeLastUpdate = SDL_GetTicks();
+    this->frameIncrement = 1;
+    this->parallaxIndex = parallax;
 }
 
 SpriteRenderer::~SpriteRenderer() {
-    
+    delete this->spriteSheet;
 }
 
 /**
@@ -44,7 +58,7 @@ void SpriteRenderer::render(Vector2D& position) {
     renderFrame.w = this->currentAnimation->getWidth();
     renderFrame.h = this->currentAnimation->getHeight();
     
-    SDL_RenderCopy(Game::currentRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
+    SDL_RenderCopy(this->camera->getRenderer(), this->spriteSheet->getTexture(), & spriteFrame, & renderFrame);
     
     updateAnimation();
 }

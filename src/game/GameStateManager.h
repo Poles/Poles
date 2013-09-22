@@ -9,7 +9,8 @@ enum{
     GAMESTATE_INTRO,
     GAMESTATE_GAME,
     GAMESTATE_CONSOLE,
-    GAMESTATE_DEBUG
+    GAMESTATE_DEBUG,
+    GAMESTATE_PARALLAX_TEST
 };
 
 class GameStateManager {
@@ -22,6 +23,8 @@ public:
     static void onLoop();
     
     static void onRender();
+
+    static void freeAllResources();
     
 public:
     static void setGameState(int gameStateID);
