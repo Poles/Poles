@@ -1,9 +1,0 @@
-digraph "Json::Features::Features"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="Json::Features::Features",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node2 [label="Json::Features::all",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_json_1_1_features.html#a63894da6e2c100b38741fa933f3d33ae",tooltip="A configuration that allows all features and assumes all strings are UTF-8. "];
-}
