@@ -107,7 +107,7 @@ void Game::initialize() {
     mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
+    GameStateManager::setGameState(GAMESTATE_DEBUG);
 }
 
 void Game::mainLoop() {
@@ -208,14 +208,11 @@ GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
-
-    std::cout << "Game object created." << std::endl;
     
     return object;
 }
 
 void Game::destroyGameObject(GameObject*& object) {
-    std::cout << "Destroying GameObject" << std::endl;
     artemis::Entity& entity = object->entity;
     delete object;
     object = NULL;

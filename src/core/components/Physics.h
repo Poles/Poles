@@ -1,7 +1,6 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
-<<<<<<< HEAD
 #include <Artemis/Component.h>
 #include "Vector2D.h"
 
@@ -17,13 +16,6 @@ private:
 
     bool                usesGravity;// If uses gravity, this object will be affected by gravity each frame.
     bool                kinematic;  // If kinematic, other objects can't move it, only gravity will move him.
-=======
-namespace components {
-
-class Physics {
-public:
-    Physics();
->>>>>>> master
 };
 
 }

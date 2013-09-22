@@ -1,5 +1,10 @@
 #include "CollisionBox.h"
 
+CollisionBox::CollisionBox() {
+    this->width = 0;
+    this->height = 0;
+}
+
 CollisionBox::CollisionBox(const int x, const int y, const int w, const int h):
     position(x,y)
 {

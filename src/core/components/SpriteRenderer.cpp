@@ -92,3 +92,29 @@ void SpriteRenderer::updateAnimation() {
     }
 }
 
+/**
+ * @brief SpriteRenderer::getCurrentAnimationSurface
+ * @return
+ */
+SDL_Surface* SpriteRenderer::getCurrentAnimationSurface() {
+    SDL_Surface* surface = SDL_CreateRGBSurface(SDL_PIXELFORMAT_ARGB8888,
+                         this->getFrameWidth(),
+                         this->getFrameHeight(),
+                         32,
+                         0x00ff0000,
+                         0x0000ff00,
+                         0x000000ff,
+                         0xff000000);
+
+    SDL_Renderer* softwareRenderer = SDL_CreateSoftwareRenderer(surface);
+
+    // Paint the pixels into the renderer, which will copy as well to the surface
+    SDL_Rect spriteFrame = (* this->currentAnimation)[currentAnimationFrame];
+    SDL_RenderCopy(softwareRenderer, this->spriteSheet->getTexture(), & spriteFrame, NULL);
+
+    // Free resources used
+    SDL_DestroyRenderer(softwareRenderer);
+
+    return surface;
+}
+

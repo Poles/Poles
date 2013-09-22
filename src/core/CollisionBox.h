@@ -9,6 +9,7 @@
 class CollisionBox
 {
 public:
+    CollisionBox();
     CollisionBox(const int x, const int y, const int w, const int h);
 
     bool collides(Vector2D globalPosition, CollisionBox& other, Vector2D otherGlobalPosition);

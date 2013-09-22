@@ -22,30 +22,21 @@ void DebugState::onActivate() {
     this->keyDown = false;
     this->collisionBoxColor = presetColors::COLOR_GREEN;
 
-    mountainAbove = Game::createGameObject();
     background = Game::createGameObject();
-<<<<<<< HEAD
     terrain = Game::createGameObject();
     zero = Game::createGameObject();
     poles_dude = Game::createGameObject();
 
     zero->addComponent(new components::Velocity());
-=======
-    mountainBig = Game::createGameObject();
-
-    background->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-sky.png"), 0, 0.0f));
-    mountainBig->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-behind.png"), 1, 0.3f));
-    mountainAbove->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-above.png"), 2, 0.5f));
->>>>>>> master
 
     //Game::getMainCameraObject()->setParent(zero);
 
-    background->addComponent(new components::SpriteRenderer("BG-Sky-Blue-Stars.png", 0.0f));
-    terrain->addComponent(new components::SpriteRenderer("terrain.png", 1.0f));
-    components::SpriteRenderer* sprite = (components::SpriteRenderer*)zero->addComponent(new components::SpriteRenderer("zero"));
+    background->addComponent(new components::SpriteRenderer("BG-Sky-Blue-Stars.png", 0 ,0.0f));
+    terrain->addComponent(new components::SpriteRenderer("terrain.png", 1, 1.0f));
+    components::SpriteRenderer* sprite = (components::SpriteRenderer*)zero->addComponent(new components::SpriteRenderer("zero", 2, 1.0f));
     zeroBox = new CollisionBox(0, 0, sprite->getFrameWidth(), sprite->getFrameHeight());
 
-    sprite = (components::SpriteRenderer*)poles_dude->addComponent(new components::SpriteRenderer("poles_dude", 0.5f));
+    sprite = (components::SpriteRenderer*)poles_dude->addComponent(new components::SpriteRenderer("poles_dude", 2,0.5f));
     poles_dudeBox = new CollisionBox(0, 0, sprite->getFrameWidth(), sprite->getFrameHeight());
 
     poles_dude->setPosition(35, 0);
