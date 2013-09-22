@@ -107,7 +107,7 @@ void Game::initialize() {
     mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_DEBUG);
+    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
 }
 
 void Game::mainLoop() {
@@ -244,7 +244,7 @@ void Game::onKeyDown(SDL_Keycode key, Uint16 mod) {
 
 void Game::showFPSCounter() {
     this->fpsCounter = Game::createGameObject();
-    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 0.0f));
+    this->fpsCounter->addComponent(new components::TextRenderer("[00]", "Mojang", 99 ,0.0f));   // z-index so it will render above all
     this->fpsCounter->setPosition(0, - (this->getRenderingContextHeight() / 2 - 20));
 
 }

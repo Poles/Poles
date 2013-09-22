@@ -20,13 +20,13 @@ DebugState * DebugState::getInstance() {
 void DebugState::onActivate() {
     this->keyDown = false;
 
+    mountainAbove = Game::createGameObject();
     background = Game::createGameObject();
     mountainBig = Game::createGameObject();
-    mountainAbove = Game::createGameObject();
 
-    background->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-sky.png"), 0.0f));
-    mountainBig->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-behind.png"), 0.3f));
-    mountainAbove->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-above.png"), 0.5f));
+    background->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-sky.png"), 0, 0.0f));
+    mountainBig->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-behind.png"), 1, 0.3f));
+    mountainAbove->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-above.png"), 2, 0.5f));
 
     mountainAbove->setPosition(0, 750);
     

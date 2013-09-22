@@ -4,7 +4,8 @@
 
 using namespace components;
 
-Renderer::Renderer(float parallaxIndex, Camera* cameraToRender) {
+Renderer::Renderer(int zIndex, float parallaxIndex, Camera* cameraToRender) {
+    this->zIndex = zIndex;
     this->parallaxIndex = parallaxIndex;
 
     Vector2D wantedDisplacement = Game::getMainCameraObject()->getPosition() - Game::getMainCamera()->getCorrectionVector();

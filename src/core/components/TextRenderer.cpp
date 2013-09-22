@@ -13,8 +13,8 @@ TextRenderer::TextRenderer():
     this->backgroundColor = presetColors::COLOR_BLACK;
 }
 
-TextRenderer::TextRenderer(std::string text, const char * fontName, const float parallax):
-    Renderer(parallax)
+TextRenderer::TextRenderer(std::string text, const char * fontName, const int zIndex, const float parallax):
+    Renderer(zIndex, parallax)
 {
     this->pointSize = TEXT_DEFAULT_POINTSIZE;
     this->text = text;

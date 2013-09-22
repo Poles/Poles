@@ -50,13 +50,11 @@ void Camera::renderScene() {
 		// Software rendering
     }
 
-    std::cout << "Clearing rendering queue with " << this->renderingQueue.size() << " elements." << std::endl;
-
     this->renderingQueue.clear();
 }
 
 /**
- * @brief Adds the renderer component to the queue to wait to be rendered in the right moment (depending on its parallax index).
+ * @brief Adds the renderer component to the queue to wait to be rendered in the right moment (depending on its z-index).
  * @param render
  */
 void Camera::queueForRendering(Renderer *render) {
@@ -66,10 +64,10 @@ void Camera::queueForRendering(Renderer *render) {
         std::list<Renderer* >::iterator currentRender;
         bool inserted = false;
 
-        // We find the position in the queue where this renderer should be (depending of his parallax index)
+        // We find the position in the queue where this renderer should be (depending of his z-index)
         currentRender = this->renderingQueue.begin();
         while (inserted == false && currentRender != this->renderingQueue.end()) {
-            if ((*currentRender)->getParallaxIndex() < render->getParallaxIndex()) {
+            if ((*currentRender)->getZIndex() < render->getZIndex()) {
                 ++currentRender;
             } else {
                 inserted = true;
