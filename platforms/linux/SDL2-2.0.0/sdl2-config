@@ -42,14 +42,14 @@ while test $# -gt 0; do
       echo 2.0.0
       ;;
     --cflags)
-      echo -I${prefix}/include/SDL2   -D_REENTRANT
+      echo -I${prefix}/include/SDL2   -I/usr/X11R6/include -D_THREAD_SAFE
       ;;
     --libs)
-      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -lSDL2  -lpthread
+      echo -L${exec_prefix}/lib  -lSDL2  
       ;;
     --static-libs)
 #    --libs|--static-libs)
-      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -lSDL2  -lpthread  -lm -ldl -lpthread -lrt
+      echo -L${exec_prefix}/lib  -lSDL2    -lm -liconv -Wl,-framework,OpenGL  -Wl,-framework,ForceFeedback -lobjc -Wl,-framework,Cocoa -Wl,-framework,Carbon -Wl,-framework,IOKit -Wl,-framework,CoreAudio -Wl,-framework,AudioToolbox -Wl,-framework,AudioUnit
       ;;
     *)
       echo "${usage}" 1>&2
