@@ -21,6 +21,8 @@ public:
     
     inline int                  getFrameWidth() { currentAnimation->getWidth(); }
     inline int                  getFrameHeight() { currentAnimation->getHeight(); }
+
+    SDL_Surface*                getCurrentAnimationSurface();
     
 private:
     SpriteSheet *               spriteSheet;

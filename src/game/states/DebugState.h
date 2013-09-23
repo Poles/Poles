@@ -4,6 +4,7 @@
 #include "../GameState.h"
 #include "../../core/GameObject.h"
 #include "../../core/components/Components.h"
+#include "../core/CollisionBox.h"
 
 class DebugState : public GameState {
 private:
@@ -28,9 +29,8 @@ public:
     void onKeyUp(SDL_Keycode key, Uint16 mod); 
         
 private:
-    GameObject* background;
-    GameObject* mountainBig;
-    GameObject* mountainAbove;
+    GameObject* A;
+    GameObject* B;
 
     bool keyDown;
 

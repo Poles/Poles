@@ -9,6 +9,8 @@
 #include "../core/systems/TextRenderingSystem.h"
 #include "../core/GameObject.h"
 #include "EventListener.h"
+#include "list"
+#include "../core/systems/CollisionSystem.h"
 
 #define GAME_NAME "Poles"
 #define FPS_MAX 60
@@ -23,7 +25,7 @@ public:
     static void                         exit();
     
     static GameObject *                 createGameObject();
-    static void                         destroyGameObject(GameObject * object);
+    static void                         destroyGameObject(GameObject *&object);
     
     static SDL_Renderer *               currentRenderer();
     static SDL_Window*                  getCurrentWindow();
@@ -34,8 +36,12 @@ public:
 
     static inline int                   getRenderingContextWidth() { return renderingContextWidth; }
     static inline int                   getRenderingContextHeight() { return renderingContextHeight; }
+
     static inline GameObject *          getMainCameraObject() { return mainCameraObject; }
     static inline components::Camera *  getMainCamera() { return mainCamera; }
+
+    static void                         debugMessage(std::string message);
+
     void                                initialize();
     void                                mainLoop();
     void                                update();
@@ -47,6 +53,8 @@ public:
     void                                showFPSCounter();
     void                                hideFPSCounter();
     void                                updateFPSCounter();
+
+    static inline std::list<GameObject* > getObjectList() { return objects; }
 
     /* EVENTS */
 
@@ -66,9 +74,13 @@ protected:
     
     /* ARTEMIS */
 
+    static std::list<GameObject* >      objects;
+
     static artemis::World               world;
     static artemis::SystemManager *     systemManager;
     static artemis::EntityManager *     entityManager;
+
+    /* SYSTEMS */
     
     MovementSystem *                    movementSystem;
     RenderingSystem *                   renderingSystem;
@@ -85,6 +97,10 @@ protected:
     
     /* FLAGS */
     bool                                showFPS;
+
+    /* PUBLIC SYSTEMS */
+public:
+    static systems::CollisionSystem     collisionSystem;
 };
 
 #endif /* defined(__Poles__Game__) */

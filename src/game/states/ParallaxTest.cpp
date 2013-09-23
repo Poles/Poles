@@ -1,6 +1,7 @@
 #include "ParallaxTest.h"
 #include "../Game.h"
 #include "../../core/ResourceManager.h"
+#include "../GameStateManager.h"
 
 ParallaxTest ParallaxTest::instance;
 
@@ -48,6 +49,7 @@ void ParallaxTest::onDeactivate() {
     Game::destroyGameObject(background06);
     Game::destroyGameObject(background07);
     Game::destroyGameObject(background08);
+    Game::destroyGameObject(background09);
 }
 
 void ParallaxTest::onLoop() {
@@ -75,6 +77,10 @@ void ParallaxTest::onKeyDown(SDL_Keycode key, Uint16 mod) {
             Game::getMainCameraObject()->addForce(force);
             keyDown = true;
         }
+        break;
+
+    case SDLK_1:
+        GameStateManager::setGameState(GAMESTATE_DEBUG);
         break;
 
     case SDLK_ESCAPE:

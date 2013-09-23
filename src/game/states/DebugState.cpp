@@ -3,6 +3,8 @@
 #include "../Game.h"
 #include "../../core/ResourceManager.h"
 #include "../../core/Color.h"
+#include "../GameStateManager.h"
+#include "../core/components/Collisions.h"
 
 /* STATIC VARIABLES */
 DebugState DebugState::instance;
@@ -20,30 +22,36 @@ DebugState * DebugState::getInstance() {
 void DebugState::onActivate() {
     this->keyDown = false;
 
-    mountainAbove = Game::createGameObject();
-    background = Game::createGameObject();
-    mountainBig = Game::createGameObject();
+    A = Game::createGameObject();
+    B = Game::createGameObject();
 
-    background->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-sky.png"), 0, 0.0f));
-    mountainBig->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-behind.png"), 1, 0.3f));
-    mountainAbove->addComponent(new components::SpriteRenderer(ResourceManager::getSpriteSheet("background-mountain-above.png"), 2, 0.5f));
+    A->setPosition(30, 24);
 
-    mountainAbove->setPosition(0, 750);
-    
+    components::SpriteRenderer* sprite = (components::SpriteRenderer*)A->addComponent(new components::SpriteRenderer("spriteSheet_template", 10, 1.0f));
+    A->addComponent(new components::Velocity());
+    A->addComponent(new components::Collisions(0, 0, sprite));
+
+    sprite = (components::SpriteRenderer*)B->addComponent(new components::SpriteRenderer("zero", 10, 1.0f));
+    B->addComponent(new components::Velocity());
+    B->addComponent(new components::Collisions(0, 0, sprite));
+
+    // Register for collisions
+    Game::collisionSystem.registerObject(A);
+    Game::collisionSystem.registerObject(B);
 }
 
 void DebugState::onDeactivate() {
 
-
 }
 
 void DebugState::onLoop() {
-    // If you need to update something each frame
+    std::vector<GameObject* > collisions = Game::collisionSystem.checkCollisions(B);
 
+    std::cout << "Zero collides with " << collisions.size() << " objects." << std::endl;
 }
 
 void DebugState::onRender() {
-    // If you need to render something in addition to normal rendering
+
 }
 
 void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
@@ -51,30 +59,38 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
     switch (key) {
     case SDLK_LEFT:
         if (!keyDown) {
-            Game::getMainCameraObject()->addForce(-1.0f, 0.0f);
+            B->addForce(-1.0f, 0.0f);
+            B->changeAnimation("Walk Left");
             this->keyDown = true;
         }
         break;
             
     case SDLK_RIGHT:
         if (!keyDown) {
-            Game::getMainCameraObject()->addForce(1.0f, 0.0f);
+            B->addForce(1.0f, 0.0f);
+            B->changeAnimation("Walk Right");
             this->keyDown = true;
         }
         break;
 
     case SDLK_UP:
         if (!keyDown) {
-            Game::getMainCameraObject()->addForce(0.0f, -1.0f);
+
+
             this->keyDown = true;
         }
         break;
 
     case SDLK_DOWN:
         if (!keyDown) {
-            Game::getMainCameraObject()->addForce(0.0f, 1.0f);
+
+
             this->keyDown = true;
         }
+        break;
+
+    case SDLK_1:
+
         break;
             
     case SDLK_ESCAPE:
@@ -84,15 +100,21 @@ void DebugState::onKeyDown(SDL_Keycode key, Uint16 mod) {
     
 }
 
-void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {
-    components::SpriteRenderer * sprite;
-    
+void DebugState::onKeyUp(SDL_Keycode key, Uint16 mod) {    
     switch (key) {
     case SDLK_LEFT:
+        B->resetForce();
+        B->changeAnimation("Stand Left");
+        break;
     case SDLK_RIGHT:
+        B->resetForce();
+        B->changeAnimation("Stand Right");
+        break;
     case SDLK_UP:
+
+        break;
     case SDLK_DOWN:
-        Game::getMainCameraObject()->resetForce();
+
         break;
     }
     this->keyDown = false;

@@ -1,7 +1,5 @@
-#ifndef Poles_ExtraTools_h
-#define Poles_ExtraTools_h
-
-#include <SDL2/SDL.h>
+#ifndef EXTRATOOLS_H
+#define EXTRATOOLS_H
 
 /**
  Inverse Square root.
@@ -41,5 +39,35 @@ float squareRoot(float x) {
     return x*u.x*(1.5f - xhalf*u.x*u.x);// Newton step, repeating increases accuracy
 }
 
+namespace math {
 
-#endif
+/**
+ * @brief max
+ * @param a
+ * @param b
+ * @return
+ */
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
+/**
+ * @brief min
+ * @param a
+ * @param b
+ * @return
+ */
+int min(int a, int b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
+}
+
+}
+
+
+#endif  // EXTRATOOLS_H

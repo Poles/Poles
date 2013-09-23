@@ -21,6 +21,11 @@ bool Game::run;
 
 int Game::renderingContextWidth = 0;
 int Game::renderingContextHeight = 0;
+
+std::list<GameObject *> Game::objects;
+
+/* SYSTEMS */
+systems::CollisionSystem Game::collisionSystem;
 /*------------------*/
 
 
@@ -88,12 +93,12 @@ void Game::initialize() {
     }
     
     // Scalated resolution for testing porpuses. Remove * 0.75 for release
-//    int w = mode.w * 0.75;
-//    int h = mode.h * 0.75;
-//    int windowMode = SDL_WINDOW_SHOWN;
-    int w = mode.w;
-    int h = mode.h;
-    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+    int w = mode.w * 0.75;
+    int h = mode.h * 0.75;
+    int windowMode = SDL_WINDOW_SHOWN;
+//    int w = mode.w;
+//    int h = mode.h;
+//    int windowMode = SDL_WINDOW_FULLSCREEN_DESKTOP;
     
     renderingContextWidth = w;
     renderingContextHeight = h;
@@ -107,7 +112,7 @@ void Game::initialize() {
     mainCameraObject->addComponent(new components::Velocity());
     mainCamera = (components::Camera*)mainCameraObject->addComponent(new components::Camera(POLES_CAMERA_MAIN));
 
-    GameStateManager::setGameState(GAMESTATE_PARALLAX_TEST);
+    GameStateManager::setGameState(GAMESTATE_DEBUG);
 }
 
 void Game::mainLoop() {
@@ -208,15 +213,21 @@ GameObject * Game::createGameObject() {
     artemis::Entity & objectEntity = world.createEntity();
     
     GameObject * object = new GameObject(objectEntity);
+
+    objects.push_back(object);
     
     return object;
 }
 
-void Game::destroyGameObject(GameObject * object) {
-    world.deleteEntity(object->entity);
-    
+void Game::destroyGameObject(GameObject*& object) {
+    artemis::Entity& entity = object->entity;
     delete object;
     object = NULL;
+
+    // Search in the objects list and remove
+    objects.remove(object);
+
+    world.deleteEntity(entity);
 }
 
 SDL_Renderer * Game::currentRenderer() {
@@ -259,4 +270,8 @@ void Game::updateFPSCounter() {
     stream << "FPS: " << this->fps;
 
     ((components::TextRenderer*)this->fpsCounter->getComponent<components::TextRenderer>())->setText(stream.str());
+}
+
+void Game::debugMessage(std::string message) {
+    std::cout << message << std::endl;
 }

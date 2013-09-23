@@ -32,6 +32,8 @@ public:
     void                        addForce(Vector2D & force);
     void                        addForce(const float x, const float y);
     void                        resetForce();
+
+    void                        changeAnimation(const char* animation);
     
     void                        showInfo();
     
