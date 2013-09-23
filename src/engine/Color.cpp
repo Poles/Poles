@@ -17,34 +17,34 @@ Color::Color(const int r, const int g, const int b, const int a){
 
 Color::Color(const char* hexString, const Uint8 alpha) {
     std::stringstream stream;
-    
+
     stream << std::hex << hexString;
     std::string colorString = stream.str();
-    
+
     // We remove the # character if present
     if (colorString[0] == '#') {
         colorString.erase(0,1);
     }
-    
+
     // We check the size is correct
     if (colorString.size() == 6) {
         std::stringstream redString;
         redString << std::hex << (colorString.substr(0,2));
-        
+
         std::stringstream greenString;
         greenString << std::hex << (colorString.substr(2,2));
-        
+
         std::stringstream blueString;
-        blueString << std::hex << (colorString.substr(4,2)); 
-        
+        blueString << std::hex << (colorString.substr(4,2));
+
         unsigned int red;
         unsigned int green;
         unsigned int blue;
-        
+
         redString >> red;
         blueString >> blue;
         greenString >> green;
-        
+
         this->color.r = red;
         this->color.g = green;
         this->color.b = blue;
@@ -60,11 +60,11 @@ void Color::setRed(int value){
     if (value > 255){
         value = 255;
     }
-    
+
     if (value < 0){
       value = 0;
     }
-    
+
     this->color.r = value;
 }
 
@@ -72,11 +72,11 @@ void Color::setGreen(int value){
     if (value > 255){
         value = 255;
     }
-    
+
     if (value < 0){
         value = 0;
     }
-    
+
     this->color.g = value;
 }
 
@@ -84,11 +84,11 @@ void Color::setBlue(int value){
     if (value > 255){
         value = 255;
     }
-    
+
     if (value < 0){
         value = 0;
     }
-    
+
     this->color.b = value;
 }
 
@@ -96,7 +96,7 @@ void Color::setAlpha(int value){
     if (value > 255){
         value = 255;
     }
-    
+
     if (value < 0){
         value = 0;
     }
@@ -129,12 +129,11 @@ Uint32 Color::toPixelValue(SDL_PixelFormat* format) {
 
 const std::string Color::toString() {
     std::stringstream stream;
-    
+
     stream << "red: " << this->color.r
             << " green: " << this->color.g
             << " blue: " << this->color.b
             << " alpha: " << this->color.a;
-    
+
     return stream.str();
 }
-

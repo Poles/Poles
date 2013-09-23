@@ -33,7 +33,7 @@ Game::Game(std::string name) {
     this->frameSkip = 0;
     this->frameSkipCurrentTime = SDL_GetTicks();
     this->frameSkipOldTime = 0;
-    this->timePerFrame = (Uint32) ((1000.0d / (double)ENGINE_MAX_FPS));
+    this->timePerFrame = (Uint32) ((1000.0 / (double)ENGINE_MAX_FPS));
 }
 
 Game::~Game() {
@@ -41,7 +41,6 @@ Game::~Game() {
     SDL_Quit();
     TTF_Quit();
 }
-
 
 /**
  * @brief Game::createWindow
