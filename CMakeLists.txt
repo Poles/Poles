@@ -75,14 +75,21 @@ ENDMACRO()
 cmake_policy( SET CMP0009 NEW)      # Prevents cmake from following symbolic links using GLOB
 file(GLOB_RECURSE PROJECT_SOURCE_FILES "${PROJECT_SOURCE_DIR}/*.cpp")
 list(REMOVE_ITEM PROJECT_SOURCE_FILES ${PROJECT_MAIN_FILE})
-add_library(${PROJECT_LIBRARY_NAME} ${PROJECT_SOURCE_FILES})
-target_link_libraries(${PROJECT_EXECUTABLE_NAME} ${PROJECT_LIBRARY_NAME})
 
 # =================================================================
 # Include directories
 # =================================================================
 SUBDIRLIST(PROJECT_INCLUDE_DIRECTORIES ${PROJECT_HEADERS_DIR})
-include_directories(${PROJECT_INCLUDE_DIRECTORIES})
+include_directories(${PROJECT_HEADERS_DIR} ${PROJECT_INCLUDE_DIRECTORIES})
+file(GLOB_RECURSE PROJECT_HEADER_FILES "${PROJECT_HEADERS_DIR}/*.h")
+set(PROJECT_SOURCE_FILES ${PROJECT_SOURCE_FILES} ${PROJECT_HEADER_FILES})
+
+# =================================================================
+# Link sources
+# =================================================================
+add_library(${PROJECT_LIBRARY_NAME} ${PROJECT_SOURCE_FILES})
+target_link_libraries(${PROJECT_EXECUTABLE_NAME} ${PROJECT_LIBRARY_NAME})
+
 
 # =================================================================
 # Libraries
