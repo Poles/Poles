@@ -24,7 +24,6 @@ public:
     /* Static variables */
 public:
     static Window*                      window;
-
 };
 
 #endif // GAME_H

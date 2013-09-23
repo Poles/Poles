@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-// ===============================================================//
-/* Static declarations */
+/*------------------------------------*/
+/*      Static variables              */
 
 Window* Game::window = NULL;
 
-/*---------------------*/
+/*------------------------------------*/
 
 Game::Game(std::string name) {
     this->name = name;
@@ -34,6 +34,7 @@ void Game::createWindow() {
 void Game::start() {
     window->clear();
     window->draw();
+
     SDL_Delay(5000);
 }
 

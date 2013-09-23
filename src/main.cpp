@@ -1,12 +1,13 @@
 #include <iostream>
-#include "engine/Game.h"
+
+#include "game/PolesGame.h"
 
 
 int main(int argc, char** argv)
 {
-    Game* game;
+    PolesGame* game;
 
-    game = new Game("Poles");
+    game = new PolesGame();
     game->createWindow();
 
     game->start();
