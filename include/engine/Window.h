@@ -8,12 +8,12 @@
 typedef enum {
     Fullscreen,
     Windowed
-}WindowMode;
+} WindowMode;
 
 class Window {
 public:
     Window(std::string title);
-    Window(std::string title, Uint16 w, Uint16 h, WindowMode mode, Color bg = presetColors::LightBlue);
+    Window(std::string title, Uint16 w, Uint16 h, WindowMode mode, Color bg = presetcolors::LightBlue);
     virtual ~Window();
 
     void                                setTitle(std::string title);

@@ -13,7 +13,6 @@ Window* Game::window = NULL;
 
 Game::Game(std::string name) {
     this->name = name;
-
     this->run = false;
 
     // Initialize SDL and TTF
@@ -32,13 +31,12 @@ Game::Game(std::string name) {
     this->frameSkip = 0;
     this->frameSkipCurrentTime = SDL_GetTicks();
     this->frameSkipOldTime = 0;
-    this->timePerFrame = (Uint32) ((1000.0d / (double)ENGINE_MAX_FPS));
+    this->timePerFrame = (Uint32) ((1000.0 / (double)ENGINE_MAX_FPS));
 }
 
 Game::~Game() {
     delete window;
 }
-
 
 /**
  * @brief Game::createWindow

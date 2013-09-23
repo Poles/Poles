@@ -23,7 +23,7 @@ Window::Window(std::string title) {
 
     this->mode = Windowed;
 
-    this->bgColor = presetColors::LightBlue;
+    this->bgColor = presetcolors::LightBlue;
 
     this->window = SDL_CreateWindow(this->title.c_str(),
                                     SDL_WINDOWPOS_CENTERED,

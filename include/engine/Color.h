@@ -5,34 +5,33 @@
 #include <SDL2/SDL.h>
 
 
-
 class Color{
 public:
     Color();
     Color(int r, int g, int b, int a);
     Color(const char* hexString, const Uint8 alpha = 255);
     Color(const Color & other);
-    
+
     void                        setRed(int value);
     void                        setGreen(int value);
     void                        setBlue(int value);
     void                        setAlpha(int value);
-    
+
     Uint8                       red();
     Uint8                       green();
     Uint8                       blue();
     Uint8                       alpha();
-    
+
     SDL_Color                   toSDLColor();
     Uint32                      toPixelValue(SDL_PixelFormat* format);
-    
+
     const std::string           toString();
-    
+
 private:
     SDL_Color                   color;
 };
 
-namespace presetColors {
+namespace presetcolors {
     static Color Key("#ff00ff");      // This is used for alpha channel in BMP load
     static Color White("#ffffff");
     static Color Black("#000000");

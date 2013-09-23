@@ -51,8 +51,6 @@ GameObject* Scene::createGameObject(std::string name) {
  */
 void Scene::destroyGameObject(GameObject*& object) {
     world->deleteEntity(object->entity);
-
     delete object;
-
     object = NULL;
 }
