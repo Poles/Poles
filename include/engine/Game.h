@@ -30,9 +30,13 @@ private:
     void                                countFramesPerSecond();
     void                                manageFramesPerSecond();
 
+    /* Static Functions */
+public:
+    static void                         writeToConsole(std::string text);
+    static void                         terminate() { run = false; }
+
 protected:
     std::string                         name;
-    bool                                run;
 
 private:
     // Delta time
@@ -52,15 +56,15 @@ private:
     unsigned int                        frameSkip;      // Frames to skip when the game is running slowly
     Uint32                              timePerFrame;
 
-    /* Static Functions */
-public:
-    static void                         writeToConsole(std::string text);
 
     /* Static variables */
 public:
     static Window*                      window;
 
     static systems::SceneManager        sceneManager;
+
+private:
+    static bool                         run;
 };
 
 #endif // GAME_H

@@ -10,12 +10,12 @@
 Window* Game::window = NULL;
 systems::SceneManager Game::sceneManager;
 
+bool Game::run = false;
+
 /*------------------------------------*/
 
 Game::Game(std::string name) {
     this->name = name;
-
-    this->run = false;
 
     // Initialize SDL and TTF
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -38,6 +38,8 @@ Game::Game(std::string name) {
 
 Game::~Game() {
     delete window;
+    SDL_Quit();
+    TTF_Quit();
 }
 
 
@@ -62,7 +64,7 @@ void Game::createWindow() {
  * @brief Game::start
  */
 void Game::start() {
-    this->run = true;
+    run = true;
     mainLoop();
 }
 
@@ -72,9 +74,6 @@ void Game::start() {
 void Game::mainLoop() {
     while (run) {
         updateDeltaTime();
-
-        // Setup artemis::world.loopStart and artemis::world.setDelta
-        // TODO: Waiting for SceneManager
 
         handleEvents();
         update();
@@ -89,14 +88,17 @@ void Game::mainLoop() {
  * @brief Game::handleEvents
  */
 void Game::handleEvents() {
-
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        sceneManager.onEvent(&event);
+    }
 }
 
 /**
  * @brief Game::update
  */
 void Game::update() {
-
+    sceneManager.onLoop();
 }
 
 /**
@@ -105,7 +107,7 @@ void Game::update() {
 void Game::render() {
     this->window->clear();
 
-    // Do rendering
+    sceneManager.onRender();
 
     this->window->draw();
 

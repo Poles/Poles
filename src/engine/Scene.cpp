@@ -13,11 +13,11 @@ Scene::~Scene() {
     delete this->world;
 }
 
-void Scene::onStart() {
+void Scene::onActivate() {
 
 }
 
-void Scene::onEnd() {
+void Scene::onDeactivate() {
 
 }
 
@@ -40,7 +40,8 @@ GameObject* Scene::createGameObject(std::string name) {
     artemis::Entity& objectEntity = world->createEntity();
     object = new GameObject(name, objectEntity);
 
-    // TODO: Add to the Scene objects list
+    std::pair<std::string, GameObject* > objectMapped(name, object);
+    this->objectsMapping.insert(objectMapped);
 
     return object;
 }
@@ -55,4 +56,18 @@ void Scene::destroyGameObject(GameObject*& object) {
     delete object;
 
     object = NULL;
+}
+
+/**
+ * @brief Scene::destroyGameObject
+ * @param name
+ */
+void Scene::destroyGameObject(std::string name) {
+    std::map<std::string, GameObject* >::iterator object;
+
+    object = this->objectsMapping.find(name);
+
+    if (object != this->objectsMapping.end()) {
+        this->objectsMapping.erase(object);
+    }
 }

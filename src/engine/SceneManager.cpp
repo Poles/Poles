@@ -25,6 +25,7 @@ void SceneManager::onRender() {
 }
 
 void SceneManager::onLoop() {
+    this->currentScene->world->loopStart();
     this->currentScene->onLoop();
 }
 
@@ -37,10 +38,6 @@ void SceneManager::addScene(Scene *scene) {
         std::pair<std::string, Scene* > mappedObject(scene->getName(), scene);
 
         this->sceneMapper.insert(mappedObject);
-    }
-
-    if (this->currentScene == NULL) {
-        currentScene = scene;
     }
 }
 
@@ -55,7 +52,13 @@ Scene* SceneManager::changeScene(std::string sceneName) {
     mappedScene = this->sceneMapper.find(sceneName);
 
     if (mappedScene != this->sceneMapper.end()) {
+        if (this->currentScene != NULL) {
+            this->currentScene->onDeactivate();
+        }
+
         this->currentScene = mappedScene->second;
+
+        this->currentScene->onActivate();
         return this->currentScene;
     } else {
         return NULL;
