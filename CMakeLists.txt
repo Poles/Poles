@@ -124,7 +124,8 @@ target_link_libraries(${PROJECT_EXECUTABLE_NAME} json)
 # Post scripts
 # =================================================================
 # Create symbolic link to assets folder
+message("Creating symbolic link from ${CMAKE_SOURCE_DIR}/assets to ${CMAKE_BINARY_DIR}/bin/assets")
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ln -sf ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/bin/assets
+    COMMAND ln -sf "${CMAKE_SOURCE_DIR}/assets" "${CMAKE_BINARY_DIR}/bin/assets"
 )
