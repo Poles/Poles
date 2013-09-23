@@ -8,6 +8,7 @@
 /*      Static variables              */
 
 Window* Game::window = NULL;
+systems::SceneManager Game::sceneManager;
 
 /*------------------------------------*/
 

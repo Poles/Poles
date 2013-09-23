@@ -24,6 +24,8 @@ public:
 
     void                                destroyGameObject(GameObject*& object);
 
+    inline std::string                  getName() { return name; }
+
 private:
     std::string                         name;   // Name of the Scene
 

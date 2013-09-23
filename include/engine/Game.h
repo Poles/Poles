@@ -3,6 +3,7 @@
 
 #include <string>
 #include "engine/Window.h"
+#include "engine/SceneManager.h"
 
 #define ENGINE_MAX_FPS 60
 
@@ -21,15 +22,12 @@ private:
     void                                mainLoop();
 
     void                                update();
-
     void                                render();
-
     void                                handleEvents();
 
     void                                updateDeltaTime();
 
     void                                countFramesPerSecond();
-
     void                                manageFramesPerSecond();
 
 protected:
@@ -61,6 +59,8 @@ public:
     /* Static variables */
 public:
     static Window*                      window;
+
+    static systems::SceneManager        sceneManager;
 };
 
 #endif // GAME_H
