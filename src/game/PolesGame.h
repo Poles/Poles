@@ -9,6 +9,8 @@ public:
     PolesGame();
 
     ~PolesGame();
+
+    void start();
 };
 
 #endif // POLESGAME_H

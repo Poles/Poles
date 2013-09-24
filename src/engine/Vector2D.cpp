@@ -15,7 +15,7 @@ Vector2D::Vector2D() {
  @param x     X coordinate.
  @param y     Y coordinate.
  */
-Vector2D::Vector2D(int x, int y)
+Vector2D::Vector2D(float x, float y)
 : _x(x), _y(y) {
 
 }
@@ -97,8 +97,8 @@ bool Vector2D::operator ==(const Vector2D &vector) {
  @param vector  The other vector to operate with.
  @return        Value resulting of the operation.
  */
-int Vector2D::dotProduct(const Vector2D &vector) {
-    int result = 0.0;
+float Vector2D::dotProduct(const Vector2D &vector) {
+    float result = 0.0;
 
     result += this->_x * vector._x;
     result += this->_y * vector._y;
@@ -106,11 +106,15 @@ int Vector2D::dotProduct(const Vector2D &vector) {
     return result;
 }
 
+Vector2D Vector2D::operator *(const Vector2D& vector) {
+    return Vector2D(this->_x + vector._x, this->_y + vector._y);
+}
+
 /**
  Length of the vector (without applying the square root to the result).
  @return    Quadratic length.
  */
-int Vector2D::lengthQuadratic() {
+float Vector2D::lengthQuadratic() {
     return (_x * _x + _y * _y);
 }
 
@@ -119,7 +123,7 @@ int Vector2D::lengthQuadratic() {
  @return    Length.
  */
 
-int Vector2D::length() {
+float Vector2D::length() {
     return squareRoot(_x * _x + _y * _y);
 }
 
@@ -128,8 +132,8 @@ int Vector2D::length() {
  @param vector    The other vector.
  @return          Quadratic distance.
  */
-int Vector2D::distanceQuadratic(const Vector2D& vector) {
-    int Ax,Ay;
+float Vector2D::distanceQuadratic(const Vector2D& vector) {
+    float Ax,Ay;
 
     Ax = _x - vector._x;
     Ay = _y - vector._y;
@@ -142,8 +146,8 @@ int Vector2D::distanceQuadratic(const Vector2D& vector) {
  @param vector      The other vector.
  @return            Distante to the other vector.
  */
-int Vector2D::distance(const Vector2D& vector) {
-    int Ax,Ay;
+float Vector2D::distance(const Vector2D& vector) {
+    float Ax,Ay;
 
     Ax = _x - vector._x;
     Ay = _y - vector._y;
@@ -155,7 +159,7 @@ int Vector2D::distance(const Vector2D& vector) {
  Normalizes the vector to values between 0 and 1.
  */
 Vector2D& Vector2D::normalize() {
-    int lengthsq = (_x * _x + _y * _y);
+    float lengthsq = (_x * _x + _y * _y);
 
     if( lengthsq == 0) {
         _x = 0.0f;
@@ -163,7 +167,7 @@ Vector2D& Vector2D::normalize() {
         return *this;
     }
 
-    int recip = invSqrt( lengthsq);
+    float recip = invSqrt( lengthsq);
     _x *= recip;
     _y *= recip;
 

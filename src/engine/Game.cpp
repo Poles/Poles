@@ -9,6 +9,8 @@
 
 Window* Game::window = NULL;
 systems::SceneManager Game::sceneManager;
+systems::ParallaxScrolling Game::parallaxScrolling;
+float Game::deltaTime = 1.0f;
 
 bool Game::run = false;
 
@@ -23,7 +25,6 @@ Game::Game(std::string name) {
 
     this->currentTime = SDL_GetTicks();
     this->oldTime = 0;
-    this->deltaTime = 1.0f;
 
     this->fpsCurrentTime = SDL_GetTicks();
     this->fpsOldTime = 0;
@@ -118,7 +119,7 @@ void Game::render() {
 void Game::updateDeltaTime() {
     this->oldTime = this->currentTime;
     this->currentTime = SDL_GetTicks();
-    this->deltaTime = (this->currentTime - this->oldTime) / 1000.0f;
+    deltaTime = (this->currentTime - this->oldTime) / 1000.0f;
 }
 
 /**
@@ -133,7 +134,7 @@ void Game::countFramesPerSecond() {
         this->fpsOldTime = this->fpsCurrentTime;
         this->fps = this->fpsCounter;
         this->fpsCounter = 0;
-        std::cout << "Running @" << this->fps << " fps." << std::endl;
+        std::cout << "Running @" << this->fps << " fps. Delta Time = " << this->deltaTime << std::endl;
     } else {
         this->fpsCounter++;
     }

@@ -4,6 +4,7 @@
 #include <string>
 #include "engine/Window.h"
 #include "engine/SceneManager.h"
+#include "engine/ParallaxScrolling.h"
 
 #define ENGINE_MAX_FPS 60
 
@@ -36,7 +37,6 @@ private: // attributes
     // Delta time
     Uint32                              currentTime;    // Measures the number of ticks since the start of SDL
     Uint32                              oldTime;        // Number of ticks on last update
-    float                               deltaTime;      // Delta Time
 
     // Frames Per Second
     Uint32                              fpsCurrentTime;
@@ -54,7 +54,10 @@ private: // attributes
 public: // static attributes
     static Window*                      window;
 
+    static float                        deltaTime;      // Delta Time
+
     static systems::SceneManager        sceneManager;
+    static systems::ParallaxScrolling   parallaxScrolling;
 
 private:
     static bool                         run;
