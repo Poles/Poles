@@ -23,12 +23,15 @@ public:
 
     inline std::string                  getName() { return name; }
 
-private:
+    inline GameObject*                  getMainCamera() { return mainCamera; }
+    inline void                         setMainCamera(GameObject* camera) { mainCamera = camera; }
+
+protected:
     std::string                         name;   // Name of the Scene
+    GameObject*                         mainCamera; // Main camera of the scene
 
 public:
     artemis::World*                     world;  // Artemis systems container
-    int                                 idCounter;
 
     std::map<std::string, GameObject* > objectsMapping;
 

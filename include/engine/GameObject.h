@@ -14,6 +14,13 @@ public:
     void                                setTag(std::string tagName);
     inline std::string                  getTag() { return currentTag; }
 
+    inline std::string                  getName() { return name; }
+
+    template<typename c>
+        inline artemis::Component*      getComponent() { return entity.getComponent<c>(); }
+
+    artemis::Component*                 addComponent(artemis::Component* component) { entity.addComponent(component);}
+
 private:
     GameObject(std::string name, artemis::Entity& entity);
 

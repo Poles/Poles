@@ -1,5 +1,6 @@
 #include "engine/GameObject.h"
 #include "engine/Scene.h"
+#include "engine/components/Transform.h"
 
 /**
  * @brief Creates a new object in the scene.
@@ -11,7 +12,8 @@ GameObject::GameObject(std::string name, artemis::Entity& entity):
 {
     this->name = name;
 
-    setTag("None");
+    // Every object in the game will have at least spacial information
+    this->addComponent(new components::Transform());
 }
 
 /**

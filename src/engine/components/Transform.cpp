@@ -10,6 +10,10 @@ Transform::Transform() : scale(1.0f, 1.0f) {
     this->parent = NULL;
 }
 
+Transform::~Transform() {
+
+}
+
 /**
  * @brief Changes the current position.
  * @param x X coordinate.

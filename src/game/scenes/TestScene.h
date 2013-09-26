@@ -9,6 +9,8 @@ class TestScene : public Scene
 public:
     TestScene();
 
+    virtual ~TestScene();
+
     void onActivate();
 
     void onDeactivate();
@@ -20,10 +22,8 @@ public:
     void onKeyDown(SDL_Keycode key, Uint16 mod);
 
 private:
-    Vector2D cameraPos;
-    Vector2D objectPos;
-    Vector2D bgPos;
-    SDL_Texture* bg;
+    GameObject* background;
+    GameObject* reference;
 };
 
 #endif // TESTSCENE_H

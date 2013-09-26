@@ -7,13 +7,7 @@ SceneManager::SceneManager() {
 }
 
 SceneManager::~SceneManager() {
-    std::map<std::string, Scene* >::iterator scene;
 
-    for (scene = this->sceneMapper.begin(); scene != this->sceneMapper.end(); ++scene) {
-        delete scene->second;
-    }
-
-    this->sceneMapper.clear();
 }
 
 void SceneManager::onEvent(SDL_Event* event) {

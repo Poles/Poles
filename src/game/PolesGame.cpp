@@ -4,8 +4,7 @@
 PolesGame::PolesGame():
     Game("Poles")
 {
-    sceneManager.addScene(new TestScene());
-    //sceneManager.changeScene("Test Scene");
+
 }
 
 PolesGame::~PolesGame()
@@ -14,6 +13,7 @@ PolesGame::~PolesGame()
 }
 
 void PolesGame::start() {
+    sceneManager.addScene(new TestScene());
     this->sceneManager.changeScene("Test Scene");
     Game::start();
 }

@@ -1,4 +1,6 @@
 #include "engine/Scene.h"
+#include "engine/components/Camera.h"
+#include "engine/components/Transform.h"
 
 Scene::Scene(std::string name):
     name(name)
@@ -6,10 +8,26 @@ Scene::Scene(std::string name):
     // Setup Artemis systems
     world = new artemis::World();
 
-    this->idCounter = 0;
+    // Create the main camera
+    this->mainCamera = createGameObject("Main Camera");
+    this->mainCamera->setTag("Camera");
+    this->mainCamera->addComponent(new components::Camera(
+                                       (components::Transform*)this->mainCamera->getComponent<components::Transform>())
+                                   );
+
 }
 
 Scene::~Scene() {
+    // Empty the objects mapper
+    std::map<std::string, GameObject* >::iterator mappedObject;
+
+    for (mappedObject = this->objectsMapping.begin(); mappedObject != this->objectsMapping.end(); ++mappedObject) {
+        delete (*mappedObject).second;
+    }
+
+    this->objectsMapping.clear();
+
+    delete this->mainCamera;
     delete this->world;
 }
 

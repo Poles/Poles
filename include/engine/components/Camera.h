@@ -7,30 +7,38 @@
 #include "engine/Window.h"
 #include <list>
 
-#include "engine/components/Renderer.h"
+#include "engine/components/AssetRenderer.h"
+#include "engine/components/Transform.h"
+
+// ==================================================== //
+typedef struct {
+    assets::RenderizableAsset*          asset;
+    Vector2D                            position;
+    Vector2D                            scale;
+    float                               rotation;
+    int                                 zIndex;
+    int                                 distance;
+}RenderPackage;
+// ==================================================== //
 
 namespace components {
 
 class Camera : public artemis::Component {
 public:
-    Camera();
+    Camera(components::Transform* transform);
 
-    void                                setPosition(int x, int y);
     void                                setIndex(int index);
-
-    inline Vector2D                     getPosition() { return position; }
     inline int                          getIndex() { return index; }
 
-    void                                queueForRender(Renderer* render, Vector2D position);
+    void                                queueForRender(RenderPackage package);
+    void                                renderScene();
 
 private:
     Window*                             window;     // Window where the rendering will be done
     int                                 index;      // Used to render the cameras in a given order
-    Vector2D                            position;   // Center point where the camera is looking
 
-    std::list<
-    std::pair<Vector2D, Renderer* > >   renderingQueue; // Contains the components to be renderized in rendering order
-
+    std::list<RenderPackage>            renderingQueue; // Contains the components to be renderized in rendering order
+    Transform*                          transform;      // Transform of the object that contains the camera
 };
 
 }

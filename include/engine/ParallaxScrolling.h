@@ -8,11 +8,12 @@ namespace systems {
 class ParallaxScrolling {
 public:
     ParallaxScrolling();
+    virtual ~ParallaxScrolling();
 
     void                                setBackgroundDistance(int distance);
     int                                 getBackgroundDistance();
 
-    Vector2D                            applyParallaxScrolling(Vector2D cameraPosition, Vector2D objectPosition, int objectDistanceToBackground);
+    Vector2D                            applyParallaxScrolling(Vector2D cameraPosition, Vector2D objectPosition, int objectDistanceFromCamera);
 
 private:
     int                                 backgroundDistance; // Distance of the static background
